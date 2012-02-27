@@ -591,7 +591,7 @@ do músico tendo conhecimento de seu passado, presente e assim podendo projetar 
 
  Fann 
 
-No primeiro experimento da pesquisa  foi usado o external ann-mlp com o objetivo de detectar  em tempo-real padrões 
+No primeiro experimento da pesquisa  foi usado o external ann\_mlp com o objetivo de detectar  em tempo-real padrões 
 rítmicos pré-estabelecidos na fase de treinamento da rede.
    Redes neurais e outras técnicas de inteligência artificial são ideais para experimentos com detecção de padrões em 
 tempo real  pelo fato de retornarem percentuais de semelhança com dados pré-analisados e estocados numa base de dados, 
@@ -1196,7 +1196,7 @@ a representação formal do algoritmo implementado.
 \textbf{Objetos}: São funções pré-compiladas que providem uma variedade de funções.
 Os objetos no Pd são escritos em C e possuem uma maneira própria de especificar as entradas e saídas
 de dados para que o objeto funcione em tempo-real conectado graficamente a outros objetos.
-Ao longo do texto iremos usar uma notação como por exemplo: [objeto-teste] para
+Ao longo do texto iremos usar uma notação como por exemplo: [objeto\_teste] para
 representar um objeto.
 
 \textbf{Mensagens}: São sequências de valores, listas ou símbolos. Uma mensagem pode ser usada para
@@ -1278,7 +1278,7 @@ objeto de SINCOPA.
 \subsection{Escrita em arrays}
 
 \begin{figure}[!htt]
-\includegraphics[scale=.6]{escrita-array}
+\includegraphics[scale=.6]{escrita_array}
 \caption{exemplo de escrita de áudio e números em arrays}
 \label{escritaarray}
 \end{figure}
@@ -1304,7 +1304,7 @@ gravado em disco.
 
 \begin{figure}[!htt]
 \includegraphics[scale=.6]{ex-variaveis}
-\caption{[sinc-gera-melodico] enviando nome de variável local para ser lida por outros objetos}
+\caption{[sinc-gera\_melodico] enviando nome de variável local para ser lida por outros objetos}
 \label{ex-variaveis}
 \end{figure}
 
@@ -1334,8 +1334,6 @@ variável local para leitura externa por outros objetos.
 * semelhança de expr com C
 
 * remeter a criação de external em C no apêndice
-
-* problema da diferença de licença da família expr para o resto do Pd
 
 
 \subsection{Diferenças entre mensagens de controle e fluxo de áudio}
@@ -1559,7 +1557,7 @@ parâmetro de análise.
 
 \section{Análise de áudio}
 
-\begin{figure}[!htt]
+begin{figure}[!htt]
 \includegraphics[scale=.7]{sinc-analise}
 \caption{Objeto de análise de áudio [sinc-analise]}
 \label{sinc-analise}
@@ -1588,7 +1586,7 @@ de qual sample (localização) a lista se refere e são salvos em um arquivo de 
 
 Um elemento importante na interface é a vizualização instantânea
 do fluxo de áudio. Aqui na figura \ref{audioin} apresentamos uma solução prática e podemos
-ver uma outra abordagem nas figuras \ref{fft-geral} e \ref{fft-aaray} baseada em análise FFT.
+ver uma outra abordagem nas figuras \ref{fft_geral} e \ref{fft_aaray} baseada em análise FFT.
 
 \subsubsection{Objeto [sinc-audioin]}
 
@@ -1719,14 +1717,14 @@ entre ensaios e performance.
 %%Área 1: explicação da amplificação de volume de entrada/volume de saída
 
 \begin{figure}[!htt]
-\includegraphics[scale=.5]{sinc-audioanalise-param}
+\includegraphics[scale=.5]{sinc-audioanalise_param}
 \caption{sub-patch que controla as configurações de [sigmund\texttildelow]}
-\label{[sinc-audioanalise-param]}
+\label{[sinc-audioanalise_param]}
 \end{figure}
 
 
 Na área 2 aparece um subpatch que pode ser visto na figura
-\ref{[sinc-audioanalise-param]}. Nesse subpatch podemos ver 
+\ref{[sinc-audioanalise_param]}. Nesse subpatch podemos ver 
 a organização dos parâmetros do objeto [sigmund\texttildelow].
 
 O objeto [sigmund\texttildelow] faz análise de áudio no domínio da 
@@ -1769,20 +1767,20 @@ The npts and hop parameters are in samples. and are powers of two.
 \begin{figure}[!htt]
 \includegraphics[scale=.7]{sigmund}
 \caption{Tamanho de janela de análise (npts)}
-\label{janela-analise}
+\label{janela_analise}
 \end{figure}
 
 
 Nesse caso optou-se por pré-inicializar [sigmund\texttildelow] com as
 opções : "-hop 4096 pitch notes" . Através de testes empíricos preferiu-se
 usar apenas a saída de "notes" por apresentar uma saída mais precisa para notas 
-musicais. A mensagem em destaque na figura \ref{[sinc-audioanalise-param]} representa
+musicais. A mensagem em destaque na figura \ref{[sinc-audioanalise_param]} representa
 a inicialização dos valores de todos parâmetros de [sigmund\texttildelow].
 
 Os principais parâmetros definem o tamanho da janela de análise.
 Nesse caso "npts" e "hop" tem uma relação direta
 por se tratar do tamanho da janela de análise e o espaço
-entre as janelas em samples como pode ser visto na figura \ref{janela-analise}.
+entre as janelas em samples como pode ser visto na figura \ref{janela_analise}.
 
 
 
@@ -1878,7 +1876,7 @@ tention.
 \end{quotation}
 
 A biblioteca Aubio de Paul Brossier também contém um objeto
-especializado em detectar ataques de áudio [aubioonset\texttildelow].
+especializado em detectar ataques de áudio [aubioonset\textttildelow].
 
 
 %%Área 4: explicação do bonk~
@@ -1897,16 +1895,16 @@ gráfica da variação de amplitude.
 
 
 \begin{figure}[!htt]
-\includegraphics[scale=.5]{sinc-audioanalise-detecta}
+\includegraphics[scale=.5]{sinc-audioanalise_detecta}
 \caption{sub-patch que detecta silêncio no áudio de entrada}
-\label{[sinc-audioanalise-detecta]}
+\label{[sinc-audioanalise\_detecta]}
 \end{figure}
 
 
 
 
 Na área 6 vemos um subpatch responsável por detectar
-silêncio. Na figura \ref{[sinc-audioanalise-detecta]}
+silêncio. Na figura \ref{[sinc-audioanalise\_detecta]}
 
 
 Nesse sub-patch vemos 4 sub-áreas. Nessa implementação
@@ -1943,7 +1941,7 @@ ferramentas para a análise das múltiplas camadas de descrição do ritmo.
 
 
 
-\subsubsection{Objeto [sinc-calc-ritmo]}
+\subsubsection{Objeto [sinc-calc\_ritmo]}
 
 Uma das questões perseguidas é o fato do sistema ter conhecimento do atual nível de 
 estabilidade rítmica. Isso pode ser alcançado por uma relação que considere variações
@@ -1969,7 +1967,7 @@ e fragmentação.
 
 
 
-No patch da \ref{[sinc-calc-ritmo]} é apresentado um método de classificação de estabilidade
+No patch da \ref{[sinc-calc\_ritmo]} é apresentado um método de classificação de estabilidade
 de sequência de pulsos. Primeiro são calculadas as distâncias entre cada ataque
 sonoro, depois filtrado em [pd filter-range] e colocado em uma tabela dinâmica em
 [pd last-x]. O tamanho da tabela sempre pode ser redimensionado em tempo-real através
@@ -1981,45 +1979,45 @@ a sensibilidade do valor do índice final.
 
 
 \begin{figure}[!htt]
-\includegraphics[scale=.5]{sinc-calc-ritmo}
+\includegraphics[scale=.5]{sinc-calc_ritmo}
 \caption{análise de estabilidade rítmica}
-\label{[sinc-calc-ritmo]}
+\label{[sinc-calc\_ritmo]}
 \end{figure}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.5]{sinc-calc-ritmo1}
+\includegraphics[scale=.5]{sinc-calc_ritmo1}
 \caption{filtro de registro de durações}
-\label{[sinc-calc-ritmo1]}
+\label{[sinc-calc\_ritmo1]}
 \end{figure}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.5]{sinc-calc-ritmo2}
+\includegraphics[scale=.5]{sinc-calc_ritmo2}
 \caption{lista de durações}
-\label{[sinc-calc-ritmo2]}
+\label{[sinc-calc\_ritmo2]}
 \end{figure}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.5]{sinc-calc-ritmo3}
+\includegraphics[scale=.5]{sinc-calc_ritmo3}
 \caption{média geométrica}
-\label{[sinc-calc-ritmo3]}
+\label{[sinc-calc\_ritmo3]}
 \end{figure}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.5]{ex-ritmo1}
+\includegraphics[scale=.5]{ex_ritmo1}
 \caption{ritmo estável}
-\label{ex-ritmo1}
+\label{ex\_ritmo1}
 \end{figure}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.5]{ex-ritmo2}
+\includegraphics[scale=.5]{ex_ritmo2}
 \caption{ritmo instável}
-\label{ex-ritmo2}
+\label{ex\_ritmo2}
 \end{figure}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.4]{ex-ritmo3}
+\includegraphics[scale=.4]{ex_ritmo3}
 \caption{ritmo estável e instável}
-\label{ex-ritmo3}
+\label{ex\_ritmo3}
 \end{figure}
 
 
@@ -2029,14 +2027,14 @@ da esquerda em relação ao que chega pela entrada da direita.%% aqui mostrar o 
 
 
 Um músico humano sempre realiza micro-variações de tempo e andamento.
-Na figura \ref{ex-ritmo1} vemos uma incidência de ataques mantendo uma relação de estabilidade
-de durações. Enquanto que na figura \ref{ex-ritmo2} vemos uma relação mais instável
-entre as durações. Já na figura \ref{ex-ritmo3} vemos um padrão que se mantém estável e 
+Na figura \ref{ex\_ritmo1} vemos uma incidência de ataques mantendo uma relação de estabilidade
+de durações. Enquanto que na figura \ref{ex\_ritmo2} vemos uma relação mais instável
+entre as durações. Já na figura \ref{ex\_ritmo3} vemos um padrão que se mantém estável e 
 muda para um comportamento de instabilidade de durações. Um dos desafios da pesquisa
 foi estabelecer uma forma do programa conseguir classificar a estabilidade de cada nova duração em relação
 as anteriores.
 
-No patch da figura \ref{[sinc-calc-ritmo]} é apresentado um método de classificação de estabilidade
+No patch da figura \ref{[sinc-calc\_ritmo]} é apresentado um método de classificação de estabilidade
 de durações entre notas. Primeiro são calculadas as distâncias entre cada ataque
 sonoro, depois filtrado em [pd filter-range] e colocado em uma tabela dinâmica em
 [pd last-x]. O tamanho da tabela sempre pode ser redimensionado em tempo-real através
@@ -2061,7 +2059,7 @@ a sensibilidade do valor do índice final.
 
 \subsubsection{Objeto [sinc-densidade]}
 
-%densidade-ritmica.pd em /abs
+%densidade\_ritmica.pd em /abs
 
 
 Densidade rítmica é o índice que mede a quantidade de eventos sonoros
@@ -2094,7 +2092,7 @@ em tempo-real.
 \end{figure}
 
 
-Na \ref{prot5c} vemos o conteúdo interno do sub-patch [densidade-ritmica], onde é realizadas
+Na \ref{prot5c} vemos o conteúdo interno do sub-patch [densidade\_ritmica], onde é realizadas
 contagens de quantos ataques de eventos sonoros acontecem a cada 2 segundos de tempo.
 Densidade rítmica é um bom índice global de controle dos eventos sonoros por um instrumentista.
 A maneira de uso desse índice se transforma de um controle rítmico prático para um
@@ -2208,7 +2206,7 @@ de que a versão em tempo-real processa áudio em vez de valor de amostra. Além
 de um objeto classificador [timbreID]. Na figura \ref{timbreid} temos
 uma visão geral de um dos algoritmos de análise do objeto  [bfcc\texttildelow], baseado na 
 análise Cepstral enviando dados para o classificador [timbreID]. Na figura \ref{bfcc} podemos
-ver em detalhe o funcionamento de [bfcc\texttildelow].
+ver em detalhe o funcionamento de [bfcc\texttildelow}.
 
 Segundo Brent:
 
@@ -2557,9 +2555,9 @@ Na implementação de Sincopa, projetamos 3 objetos que trabalham juntos para
 gerar dados midi: 
 
 \begin{itemize}
- \item   [sinc-gera-ritmico]
- \item   [sinc-gera-melodico]
- \item   [sinc-gera-dinamica]
+ \item   [sinc-gera\_ritmico]
+ \item   [sinc-gera\_melodico]
+ \item   [sinc-gera\_dinamica]
 \end{itemize}
 
 Cada um desses objetos gerencia algumas técnicas de geração
@@ -2623,8 +2621,8 @@ visto na seção \ref{sec-notacao} onde pode s
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.5]{sinc-gera-ritmo}
-\caption{Objeto [sinc-gera-ritmico]}
+\includegraphics[scale=.5]{sinc-gera_ritmo}
+\caption{Objeto [sinc-gera\_ritmico]}
 \label{[sinc-gera-ritmico]}
 \end{figure}
 
@@ -2640,8 +2638,8 @@ geradores diferentes se queira. A interface pode ser vista na figura \ref{[sinc-
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-ritmico0}
-\caption{subpatch [pd gerador-ritmico0] de [sinc-gera-ritmico]}
+\includegraphics[scale=.6]{gerador_ritmico0}
+\caption{subpatch [pd gerador-ritmico0] de [sinc-gera\_ritmico]}
 \label{gera-ritmico0}
 \end{figure}   
 
@@ -2661,7 +2659,7 @@ da tabela de durações.
 Essas variações podem ser:
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-ritmico1}
+\includegraphics[scale=.6]{gerador_ritmico1}
 \caption{Gerador rítmico baseado em probabilidades de durações}
 \label{gera-ritmico1}
 \end{figure}  
@@ -2674,7 +2672,7 @@ Essas variações podem ser:
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-ritmico2}
+\includegraphics[scale=.6]{gerador_ritmico2}
 \caption{Gerador rítmico baseado em movimento browniano}
 \label{gera-ritmico2}
 \end{figure}  
@@ -2690,9 +2688,9 @@ recursivas e análise em arrays de números.
 
 Nesse caso, [tabletool] é responsável por informar os valores
 mínimo e máximo de durações de tempo entre notas, que estão
-armazenados no array \textit{\$0-ritmo-manip}, enviando
-esses respectivos valores como variáveis [s min-ritmo] e 
-[s max-ritmo] para o gerador de durações [brow-rythm].
+armazenados no array \textit{\$0-ritmo\_manip}, enviando
+esses respectivos valores como variáveis [s min\_ritmo] e 
+[s max\_ritmo] para o gerador de durações [brow-rythm].
 
 
  \begin{figure}[!ht]
@@ -2743,7 +2741,7 @@ distribuição de Brown no Pd. E [trans-log] é um objeto que realiza uma
 transição logarítmica entre números.
 
  \begin{figure}[!ht]
-\includegraphics[scale=.6]{brownian-func}
+\includegraphics[scale=.6]{brownian_func}
 \caption{Funcionamento de [brownian]}
 \label{brownian-func}
 \end{figure} 
@@ -2758,13 +2756,13 @@ o fator é 0, o mesmo número sempre é repetido.
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{brownian-exemplo}
+\includegraphics[scale=.6]{brownian_exemplo}
 \caption{objeto [brownian] com diferentes valores de fator de brown}
-\label{brownian-exemplo}
+\label{brownian\_exemplo}
 \end{figure} 
 
 É possível comparar diferentes comportamentos de [brownian] observando
-a figura \ref{brownian-exemplo}, onde vemos três objetos [brownian] com
+a figura \ref{brownian\_exemplo}, onde vemos três objetos [brownian] com
 os mesmos parâmetros de inicialização, cada um escrevendo os resultados
 em diferentes arrays de 50 elementos. A única diferença entre os 3 está 
 no fator de brown, assinalado em rosa (0.01 , 0.1 e 0.5 respectivamente).
@@ -2774,8 +2772,8 @@ pequenas variações. Quando aumentamos gradualmente o fator de brown, ouvimos
 uma transição rumo a uma instabilidade rítmica e a quebra de padrões. 
 O objetivo desse gerador é se aproximar da performance do músico real.
 O objeto [sinc-audioanalise] analise o áudio de entrada estimando os valores de duração entre notas.
-Esse valores são enviados a [sinc-calc-ritmo] que faz uma estimativa do grau
-de instabilidade, como explicado na página \ref{[sinc-calc-ritmo]} (como faz pra ref a página?).
+Esse valores são enviados a [sinc-calc\_ritmo] que faz uma estimativa do grau
+de instabilidade, como explicado na página \ref{[sinc-calc\_ritmo]} (como faz pra ref a página?).
 O grau de instabilidade rítmica influencia direto o comportamento do fator de brown, de acordo
 com a definição do cenário de interação a que se propõe. O cenário pode definir, por exemplo, que
 um ritmo estável do músico (baixa instabilidade), provoque um comportamento rítmico instável
@@ -2823,12 +2821,12 @@ melódicos e de dinâmica.
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-ritmico3}
+\includegraphics[scale=.6]{gerador_ritmico3}
 \caption{Gerador rítmico randômico}
-\label{gera-ritmico3}
+\label{gera\_ritmico3}
 \end{figure}  
 
-O gerador da figura \ref{gera-ritmico3} é baseado no 
+O gerador da figura \ref{gera\_ritmico3} é baseado no 
 objeto [repchord-rhythm] da biblioteca RTC. O objetivo desse objeto é 
 ter um gerador com capacidade de controle dos parâmetros da polifonia.
 
@@ -2854,10 +2852,10 @@ rítmicos. Os geradores rítmicos "pedem" nota por nota para o geradores
 melódicos
 
 
-\begin{figure}
-\includegraphics[scale=.45]{sinc-gera-melodico}
+\begin{figure}[!ht]
+\includegraphics[scale=.45]{sinc-gera_melodico}
 \caption{Abstração que organiza 4 geradores melódicos}
-\label{[sinc-gera-melodico]}
+\label{[sinc-gera\_melodico]}
 \end{figure}
 
 
@@ -2865,19 +2863,19 @@ melódicos
 
 Nesse primeiro gerador melódico o método de geração
 é a leitura linear da tabela temporária de pitches
-como se pode ver na figura \ref{gera-melodico0}.
+como se pode ver na figura \ref{gera\_melodico0}.
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gera-melodico0}
+\includegraphics[scale=.6]{gera_melodico0}
 \caption{[pd gerador-melodico0]}
-\label{gera-melodico0}
+\label{gera\_melodico0}
 \end{figure}  
 
 \begin{figure}[!ht]
-\includegraphics[scale=.55]{gera-mel0}
+\includegraphics[scale=.55]{gera_mel0}
 \caption{exemplo de melodia imitativa gerada}
-\label{gera-mel0}
+\label{gera\_mel0}
 \end{figure}  
 
 
@@ -2914,7 +2912,7 @@ Explicar patch simples de probabilidade e como
 seria a re-implementação do probalizer apenas com vanilla.
 
 
-O gerador melódico da figura \ref{gera-melodico1}, é baseado
+O gerador melódico da figura \ref{gera\_melodico1}, é baseado
 no objeto gráfico [probalizer] da biblioteca "Unauthorized"
 distribuída com o pd-extended.
 
@@ -2925,22 +2923,22 @@ tempo-real.
 Explicar probabilidade simples.
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gera-melodico1}
+\includegraphics[scale=.6]{gera_melodico1}
 \caption{[pd gerador-melodico1]}
-\label{gera-melodico1}
+\label{gera\_melodico1}
 \end{figure}  
 
 \subsubsection{Movimento browniano como gerador melódico}
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gera-melodico2}
+\includegraphics[scale=.6]{gera_melodico2}
 \caption{[pd gerador-melodico2]}
-\label{gera-melodico2}
+\label{gera\_melodico2}
 \end{figure}  
 
 
-O terceiro gerador é mostrado na figura \ref{gera-melodico2} e
+O terceiro gerador é mostrado na figura \ref{gera\_melodico2} e
 realiza uma combinação entre os objetos [tabletool] e [brown-melody].
 
 
@@ -2948,12 +2946,12 @@ realiza uma combinação entre os objetos [tabletool] e [brown-melody].
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gera-melodico3}
+\includegraphics[scale=.6]{gera_melodico3}
 \caption{[pd gerador-melodico3]}
-\label{gera-melodico3}
+\label{gera\_melodico3}
 \end{figure}  
 
-O gerador da figura \ref{gera-melodico3} é baseado no 
+O gerador da figura \ref{gera\_melodico3} é baseado no 
 objeto [random.integer]. O objetivo desse gerador é 
 ter um gerador com alto grau de permeabilidade melódica.
 
@@ -3120,8 +3118,8 @@ which don't complete in time will also fail to produce correct output."
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{sinc-gera-sintese}
-\caption{[sinc-gera-sintese]}
+\includegraphics[scale=.6]{sinc-gera_sintese}
+\caption{[sinc-gera\_sintese]}
 \label{sincgerasintese}
 \end{figure}
 
@@ -3151,8 +3149,8 @@ proposto.
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-sintese0-diato}
-\caption{[pd gerador0-diato]}
+\includegraphics[scale=.6]{gerador_sintese0_diato}
+\caption{[pd gerador0\_diato]}
 \label{gerador0diato}
 \end{figure}
 
@@ -3202,8 +3200,8 @@ ritmo randômico gerando uma familiaridade estranha.
 \subsubsection{Síntese aditiva com frequências randômicas}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-sintese0-rand}
-\caption{[pd gerador0-rand]}
+\includegraphics[scale=.6]{gerador_sintese0_rand}
+\caption{[pd gerador0\_rand]}
 \label{gerador0rand}
 \end{figure}
 
@@ -3230,8 +3228,8 @@ o programa alternar automaticamente entre esses dois diferentes sintetizadores.
 \subsubsection{Tempo de delay randômico com frequências da tabela} 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-sintese1-diato}
-\caption{[pd gerador1-diato]}
+\includegraphics[scale=.6]{gerador_sintese1_diato}
+\caption{[pd gerador1\_diato]}
 \label{gerador1diato}
 \end{figure}
 
@@ -3246,8 +3244,8 @@ A visão geral do patch pode ser vista na figura \ref{gerador1diato}.
 \subsubsection{Gerador de frequências randômicas com tempo de delay randômico}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-sintese1-rand}
-\caption{[pd gerador1-rand]}
+\includegraphics[scale=.6]{gerador_sintese1_rand}
+\caption{[pd gerador1\_rand]}
 \label{gerador1rand}
 \end{figure}
 
@@ -3262,7 +3260,7 @@ princípio não estavam ligados.
 \subsubsection{Síntese FM responsiva}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-sintese-fm}
+\includegraphics[scale=.6]{gerador_sintese_fm}
 \caption{[pd fm1]}
 \label{geradorfm}
 \end{figure}
@@ -3281,7 +3279,7 @@ da performance.
 \subsubsection{Ruído branco com filtro de frequências executadas pelo músico}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-sintese-noise}
+\includegraphics[scale=.6]{gerador_sintese_noise}
 \caption{[pd noise]}
 \label{geradornoise}
 \end{figure}
@@ -3301,8 +3299,8 @@ central. A cada detecção de pausa a intensidade do filtro é randomizada.
 \subsubsection{Sintetizador com forma de onda variável}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-sintese-waveform}
-\caption{[pd synth-waveforms]}
+\includegraphics[scale=.6]{gerador_sintese_waveform}
+\caption{[pd synth\_waveforms]}
 \label{geradorwaveform}
 \end{figure}
 
@@ -3318,19 +3316,19 @@ definida em um array preenchido pelo próprio músico. Na figura
 \subsubsection{Sintetizador baseado em análise e resíntese}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{gerador-resintese}
-\caption{[pd gerador-resintese]}
+\includegraphics[scale=.6]{gerador_resintese}
+\caption{[pd gerador\_resintese]}
 \label{geradorresintese}
 \end{figure}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.7]{banco-osc}
+\includegraphics[scale=.7]{banco_osc}
 \caption{banco de osciladores}
 \label{bancoosc}
 \end{figure}
 
 \begin{figure}[!ht]
-\includegraphics[scale=.7]{osc-base}
+\includegraphics[scale=.7]{osc_base}
 \caption{[pd osc]}
 \label{pdosc}
 \end{figure}
@@ -3447,14 +3445,14 @@ começa a repetir o trecho gravado. A implementação é baseada no objeto
 [tabwrite\texttildelow] opera a gravação em um array e o objeto [tabplay\texttildelow]
 executa o áudio gravado.
 
-Na figura \ref{loopmaster}, vemos a implementação de [sinc-loop-master], que leva a frente
+Na figura \ref{loopmaster}, vemos a implementação de [sinc-loop\_master], que leva a frente
 o mesmo mecanismo acrescentando um metrônomo e um contador global. A função desse contador
 é uma possível futura sincronia com sequenciadores diversos, inclusive para performance
 musical via rede (música telemática). Para a execução do loop pode ser levado em conta
 o metro global ou não. A divisão entre cores facilita o estudo do fluxo dos dados.
-A abstração [sinc-loop-slave] é uma versão sem o contador global e pode ser vista
+A abstração [sinc-loop\_slave] é uma versão sem o contador global e pode ser vista
 na figura \ref{loopslave}. O uso concatenado é visto na figura \ref{loophelp}, onde vemos
-a presença de um [sinc-loop-master] e três [sinc-loop-slave].
+a presença de um [sinc-loop\_master] e três [sinc-loop\_slave].
 
 
  Existem diversas situações de loop comuns na produção musical mediada por tecnologias digitais
@@ -3482,20 +3480,20 @@ ajuste o loop a qualquer tempo pré-definido por algum sequenciador.
 
 \begin{figure}[-h]
 \includegraphics[scale=.4]{loop-master}
-\caption{[sinc-loop-master}
+\caption{[sinc-loop\_master}
 \label{loopmaster}
 \end{figure}
 
 
 \begin{figure}[-h]
 \includegraphics[scale=.2]{loop-slave}
-\caption{[sinc-loop-slave]}
+\caption{[sinc-loop\_slave]}
 \label{loopslave}
 \end{figure}
 
 \begin{figure}[-h]
-\includegraphics[scale=.6]{loop-help}
-\caption{Uso de dois [sinc-loop-slave] e [sinc-loop-master]}
+\includegraphics[scale=.6]{loop_help}
+\caption{Uso de dois [sinc-loop\_slave] e [sinc-loop\_master]}
 \label{loophelp}
 \end{figure}
 
@@ -3607,7 +3605,7 @@ Segundo Soares:
 \item e) Escolhe um número limite de slices que será randomizado e cria uma sequência de números randômicos para um pattern.
 \item f) Pattern de uma sequencia padrão para frente e para trás e zero.
 \item g) Carrega 10 patterns diferentes que estão salvos na matriz buffer da memoria. Estes patterns são carregados no arquivo .nvl ou podem ser salvos com o procedimento descrito abaixo no item “h”.
-\item h) Botão store (ou atalho shift+s) serve para atualizar no buffer de memória ram (não salva em disco) os atuais presets dos slices e patterns. Para salvar em disco, voce precisa dar um nome de arquivo na janela save-preset do canto inferior direito.
+\item h) Botão store (ou atalho shift+s) serve para atualizar no buffer de memória ram (não salva em disco) os atuais presets dos slices e patterns. Para salvar em disco, voce precisa dar um nome de arquivo na janela save\_preset do canto inferior direito.
 \item i) Number box que define o número de células que o cursor vai correr. Isto torna possível fazer uma sequência com tempos ímpares ou diferentes de 8 batidas por compasso.
 \item j) Liga/Desliga os atalhos do controle de teclado.
 \item k) Liga/desliga sequencia master. É possível tocar mais de um master, mas obviamente não estarão imediatamente sincronizados.
@@ -3678,7 +3676,7 @@ ser pensadas e definidas na seção sobre cenários de interação.
 % 
 % * loop fatiado em tempo-real misturado com sequenciador 
 
-%%http://www.timvets.net/software/pd-beatslicer.php?page=software
+%%http://www.timvets.net/software/pd\_beatslicer.php?page=software
 
 \subsection{Síntese granular}
 
@@ -3837,9 +3835,9 @@ em notação musical.
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{teste-noquantize}
+\includegraphics[scale=.6]{teste_noquantize}
 \caption{edição no rosegarden de sequência enviada do pd}
-\label{fft-subpatch}
+\label{fft\_subpatch}
 \end{figure} 
 
 
@@ -3874,7 +3872,7 @@ que não processe áudio. Para isso, deve ser usada a opção "-noaudio".
 Como por exemplo:
 
 \begin{verbatim}
-livre@livre:~/sincopa/sinc-abs\$ pdextended -noaudio sinc-recebenotacao.pd 
+livre@livre:~/sincopa/sinc_abs\$ pdextended -noaudio sinc-recebenotacao.pd 
 \end{verbatim} 
 
 A conexão entre as duas instâncias é feita com os objetos [netsend] e [netreceive], utilizando o protocolo
@@ -3954,7 +3952,7 @@ The system uses dynamic patching in PD – effectively a PD patch that builds an
 using pre-made abstractions (PD patches saved in the same folder as the root patch) that contain the commands to 
 create a graphical representation of music. For such a complex system (music notation) it has been necessary to 
 create an object in the C programming language that manages the number of objects, which objects are linked to which, 
-and how music-specific elements (such as ties and tuples) are displayed. This object (the gemnotes-counter object) 
+and how music-specific elements (such as ties and tuples) are displayed. This object (the gemnotes\_counter object) 
 consists of over 800 lines of code and took 6 months to write, but there is much, much more to add to it 
 (dynamics, articulation). The emphasis so far has been to encapsulate all of the features of Western musical 
 notation…but, because it is written in PD with GEM, it is open to less literal expositions of notated music, 
@@ -4003,9 +4001,9 @@ por organizar o mapeamento dos parâmetros.
 \end{figure}
 
 \begin{figure}[-h]
-\includegraphics[scale=.4]{sinc-controle-teclado}
-\caption{[sinc-controle-teclado]}
-\label{sinc-controle-teclado}
+\includegraphics[scale=.4]{sinc-controle_teclado}
+\caption{[sinc-controle\_teclado]}
+\label{sinc-controle\_teclado}
 \end{figure}
 
 Os cenários são alternados através de teclado USB, modificado e usado como
@@ -4014,7 +4012,7 @@ O teclado é modificado retirando-se as teclas que não são usadas no desenho e
 para melhor se adaptar a função de pedal.
 
 Foi desenvolvido também uma abstração para organizar as funções do teclado.
-Pode-se observar na figura \ref{sinc-controle-teclado}, a função condicional
+Pode-se observar na figura \ref{sinc-controle\_teclado}, a função condicional
 que mapeia a tecla ESC para alternar entre 4 cenas acionadas pelas variáveis
 cena1, cena2, cena3 e cena4, respectivamente.
 
@@ -4035,15 +4033,15 @@ de sequências automatizadas com parâmetros definidos pela análise da performa
 \end{figure}
 
 \begin{figure}[-h]
-\includegraphics[scale=.4]{tabela-cenario}
-\caption{fluxograma do mapeamento do patch na figura \ref{pd-cena1}}
-\label{tabela-cenario}
+\includegraphics[scale=.4]{tabela_cenario}
+\caption{fluxograma do mapeamento do patch na figura \ref{pd\_cena1}}
+\label{tabela\_cenario}
 \end{figure}
 
 \begin{figure}[-h]
-\includegraphics[scale=.4]{pd-cena1}
+\includegraphics[scale=.4]{pd_cena1}
 \caption{subpatch [pd cena 1]}
-\label{pd-cena1}
+\label{pd\_cena1}
 \end{figure}
 
 Essa abstração foi desenvolvida para organização e controle de diferentes cenários
@@ -4051,12 +4049,12 @@ interativos. Na figura \ref{sinc-cenario} podemos observar um exemplo de funcion
 global com 4 parâmetros de análise da performance do músico recebendo dados em tempo-real.
 
 O objetivo da abstração é receber esses dados e re-escalar os valores para controle dos
-parâmetros dos módulos generativos e transformativos do sistema. Na figura \ref{pd-cena1},
+parâmetros dos módulos generativos e transformativos do sistema. Na figura \ref{pd\_cena1},
 vemos um detalhe do subpatch [pd cena 1] onde o índice de estabilidade rítmica é escalado para
 os valores de 0 a 100, e posteriormente filtrado com o objeto [moses], para então selecionar um
 dos quatro geradores rítmicos disponíveis. 
 
-É importante observar que nesse caso, na figura \ref{tabela-cenario}, a relação entre
+É importante observar que nesse caso, na figura \ref{tabela\_cenario}, a relação entre
 análise e geração de material musical se dá de maneira imitativa. Pois a medida que as durações
 das notas do músico se mantém mais estáveis, os geradores rítmicos tendem a ser imitativos. E quanto
 mais instáveis as durações os geradores rítmicos alternam randomicamente entre um gerador rítmico
@@ -4282,13 +4280,13 @@ teoricamentese, se você somá-los todos, irá re-sintetizar seu sinal corrente.
 
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{fft-subpatch}
+\includegraphics[scale=.6]{fft_subpatch}
 \caption{[pd fft] - fluxo básico de visualização da FFT}
-\label{fft-subpatch}
+\label{fft_subpatch}
 \end{figure}  
 
 O fluxo básico de objetos para visualização da análise FFT em tempo-real é vista na
-figura \ref{fft-subpatch}. Podemos observar aí a presença do objeto [block\texttildelow], que é
+figura \ref{fft_subpatch}. Podemos observar aí a presença do objeto [block\texttildelow], que é
 responsável por definir a quantidade de parciais que irão ser revelados pela
 análise. A FFT irá gerar dados de controle para o tamanho de [block\texttildelow] dividido
 pela metade. Portanto com um "blocksize" de 1024, teremos 512 parciais descritos
@@ -4304,15 +4302,15 @@ que a maior frequência do sinal a ser amostrado.}. Pode-se assim dizer que [blo
 é responsável pela resolução da análise a ser feita.
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{fft-geral}
+\includegraphics[scale=.6]{fft_geral}
 \caption{patch de visualização de análise FFT}
-\label{fft-geral}
+\label{fft_geral}
 \end{figure}  
 
 \begin{figure}[!ht]
-\includegraphics[scale=.6]{fft-aaray}
+\includegraphics[scale=.6]{fft_aaray}
 \caption{janela de visualização da FFT}
-\label{fft-aaray}
+\label{fft_aaray}
 \end{figure}  
 
 Explicar rapidamente:
@@ -4598,8 +4596,8 @@ single binary-file.
 \begin{tabular}{c||c|c|c}
 library & linux&irix&Win32 \\
 \hline
-{\tt my-lib}&{\tt  my-lib.pd-linux}&{\tt  my-lib.pd-irix}&
-{\tt  my-lib.dll}\\
+{\tt my\_lib}&{\tt  my\_lib.pd\_linux}&{\tt  my\_lib.pd\_irix}&
+{\tt  my\_lib.dll}\\
 \end{tabular}
 
 The simplest form of a {\em library} includes exactly one {\em external}
@@ -4612,8 +4610,8 @@ all included {\em externals} have been loaded into memory and are available as o
 Pd supports to modes to import {\em libraries}:
 
 \begin{itemize}
-\item via the command line-option ``{\tt -lib my-lib}''
-\item by creating an object ``{\tt my-lib}''
+\item via the command line-option ``{\tt -lib my\_lib}''
+\item by creating an object ``{\tt my\_lib}''
 \end{itemize}
 
 The first method loads a {\em library} when Pd is started.
@@ -4621,17 +4619,17 @@ This method is preferably used for {\em libraries} that contain several {\em ext
 
 The other method should be used for {\em libraries} that contain exactly
 one {\em external} bearing the same name.
-Pd checks first, whether a class named ``my-lib'' is already loaded.
+Pd checks first, whether a class named ``my\_lib'' is already loaded.
 If this is not the case\footnote{
-If a class ``my-lib'' is already existent, an object ``my-lib'' will be instantiated
+If a class ``my\_lib'' is already existent, an object ``my\_lib'' will be instantiated
 and the procedure is done. 
 Thus, no {\em library} has been loaded.
 Therefore no {\em library} that is named like an already used class-name like, say, ``abs'',
 can be loaded.}, all paths are searched for a file called
-``{\tt my-lib.pd-linux}''\footnote{or another system-dependent filename-extensions (s.a.)}.
+``{\tt my\_lib.pd\_linux}''\footnote{or another system-dependent filename-extensions (s.a.)}.
 If such file is found, all included {\em externals} are loaded into memory by calling a
-routine \verb+my-lib-setup()+.
-After loading, a class ``my-lib'' is (again) looked for as a (newly loaded) {\em external}.
+routine \verb+my\_lib\_setup()+.
+After loading, a class ``my\_lib'' is (again) looked for as a (newly loaded) {\em external}.
 If so, an instance of this class is created, else the instantiation fails and an error is
 printed.
 Anyhow, all {\em external}-classes declared in the {\em library} are loaded by now.
@@ -4647,36 +4645,36 @@ the standard error every time it is triggered with a ``bang''-message.
 
 \subsubsection{the interface to Pd}
 To write a Pd-external a well-defined interface is needed.
-This is provided in the header-file ``m-pd.h''.
+This is provided in the header-file ``m\_pd.h''.
 
 \begin{verbatim}
-#include "m-pd.h"
+#include "m\_pd.h"
 \end{verbatim}
 
 \subsubsection{a class and its data space}
 First a new class has to be prepared and the data space for this class has to be defined.
 
 \begin{verbatim}
-static t-class *helloworld-class;
+static t\_class *helloworld\_class;
 
-typedef struct -helloworld {
-  t-object  x-obj;
-} t-helloworld;
+typedef struct \_helloworld {
+  t\_object  x\_obj;
+} t\_helloworld;
 \end{verbatim}
 
-\verb+hello-worldclass+ is going to be a pointer to the new class.
+\verb+hello\_worldclass+ is going to be a pointer to the new class.
 
-The structure \verb+t-helloworld+ (of the type \verb+-helloworld+) is
+The structure \verb+t\_helloworld+ (of the type \verb+\_helloworld+) is
 the data space of the class.
 
 An absolutely necessary element of the data space is a variable of the type
-\verb+t-object+, which is used to store internal object-properties like
+\verb+t\_object+, which is used to store internal object-properties like
 the graphical presentation of the object or data about inlets and outlets.
 
-\verb+t-object+ has to be the first entry in the structure !
+\verb+t\_object+ has to be the first entry in the structure !
 
 Because a simple ``hello world''-application needs no variables,
-the structure is empty apart from the \verb+t-object+.
+the structure is empty apart from the \verb+t\_object+.
 
 
 \subsubsection{method space}
@@ -4689,14 +4687,14 @@ On principal they have no return argument and are therefore are of the
 type \verb+void+.
 
 \begin{verbatim}
-void helloworld-bang(t-helloworld *x)
+void helloworld\_bang(t\_helloworld *x)
 {
   post("Hello world !!");
 }
 \end{verbatim}
 
 
-This method has an argument of the type \verb+t-helloworld+,
+This method has an argument of the type \verb+t\_helloworld+,
 which would enable us to manipulate the data space.
 
 Since we only want to output ``Hello world!''
@@ -4711,8 +4709,8 @@ Apart from this, the \verb+post+-command works like the {\tt C}-command \verb+pr
 To generate a new class, information of the data space and the method space of this class,
 have to be passed to Pd when a library is loaded.
 
-On loading a new library ``my-lib'',
-Pd tries to call a function ``my-lib-setup()''.
+On loading a new library ``my\_lib'',
+Pd tries to call a function ``my\_lib\_setup()''.
 This function (or functions called by it) 
 declares the new classes and their properties.
 It is only called once, when the library is loaded.
@@ -4720,27 +4718,27 @@ If the function-call fails (e.g., because no function of the specified name is p
 no external of the library will be loaded.
 
 \begin{verbatim}
-void helloworld-setup(void)
+void helloworld\_setup(void)
 {
-  helloworld-class = class-new(gensym("helloworld"),
-        (t-newmethod)helloworld-new,
-        0, sizeof(t-helloworld),
-        CLASS-DEFAULT, 0);
+  helloworld\_class = class\_new(gensym("helloworld"),
+        (t\_newmethod)helloworld\_new,
+        0, sizeof(t\_helloworld),
+        CLASS\_DEFAULT, 0);
 
-  class-addbang(helloworld-class, helloworld-bang);
+  class\_addbang(helloworld\_class, helloworld\_bang);
 }
 \end{verbatim}
 
-\paragraph{class-new}
+\paragraph{class\_new}
 
-The function \verb+class-new+ creates a new class and returns a pointer to this prototype.
+The function \verb+class\_new+ creates a new class and returns a pointer to this prototype.
 
 The first argument is the symbolic name of the class.
 
 The next two arguments define the constructor and destructor of the class.
 
 Whenever a class object is created in a Pd-patch,
-the class-constructor \verb+(t-newmethod)helloworld-new+ instantiates the object
+the class-constructor \verb+(t\_newmethod)helloworld\_new+ instantiates the object
 and initialises the data space.
 
 Whenever an object is destroyed
@@ -4755,38 +4753,38 @@ To enable Pd to reserve and free enough memory for the static data space,
 the size of the data structure has to be passed as the fourth argument.
 
 The fifth argument has influence on the graphical representation of the class objects.
-The default-value is \verb+CLASS-DEFAULT+ or simply ``0''.
+The default-value is \verb+CLASS\_DEFAULT+ or simply ``0''.
 
 The remaining arguments define the arguments of an object and its type.
 
 Up to six numeric and symbolic object-arguments can be defined via
-\verb+A-DEFFLOAT+ and \verb+A-DEFSYMBOL+.
+\verb+A\_DEFFLOAT+ and \verb+A\_DEFSYMBOL+.
 If more arguments are to be passed to the object
 or if the order of atom types should by more flexible, 
-\verb+A-GIMME+ can be used for passing an arbitrary list of atoms.
+\verb+A\_GIMME+ can be used for passing an arbitrary list of atoms.
 
 The list of object-arguments is terminated by ``0''.
 In this example we have no object-arguments at all for the class.
 
-\paragraph{class-addbang}
+\paragraph{class\_addbang}
 We still have to add a method space to the class.
 
-\verb+class-addbang+ adds a method for a ``bang''-message to the class that is
+\verb+class\_addbang+ adds a method for a ``bang''-message to the class that is
 defined in the first argument.
 The added method is defined in the second argument.
 
 
 \subsubsection{constructor: instantiation of an object}
 Each time, an object is created in a Pd-patch, the
-constructor that is defined with the \verb+class-new+-command,
+constructor that is defined with the \verb+class\_new+-command,
 generates a new instance of the class.
 
 The constructor has to be of type \verb+void *+.
 
 \begin{verbatim}
-void *helloworld-new(void)
+void *helloworld\_new(void)
 {
-  t-helloworld *x = (t-helloworld *)pd-new(helloworld-class);
+  t\_helloworld *x = (t\_helloworld *)pd\_new(helloworld\_class);
 
   return (void *)x;
 }
@@ -4794,20 +4792,20 @@ void *helloworld-new(void)
 
 
 The arguments of the constructor-method depend on the object-arguments
-defined with \verb+class-new+.
+defined with \verb+class\_new+.
 
 \begin{tabular}{l|l}
-\verb+class-new+-argument&constructor-argument\\
+\verb+class\_new+-argument&constructor-argument\\
 \hline
-\verb+A-DEFFLOAT+&\verb+t-floatarg f+ \\
-\verb+A-DEFSYMBOL+&\verb+t-symbol *s+ \\
-\verb+A-GIMME+&\verb+t-symbol *s, int argc, t-atom *argv+
+\verb+A\_DEFFLOAT+&\verb+t\_floatarg f+ \\
+\verb+A\_DEFSYMBOL+&\verb+t\_symbol *s+ \\
+\verb+A\_GIMME+&\verb+t\_symbol *s, int argc, t\_atom *argv+
 \end{tabular}
 
 Because there are no object-arguments for our ``hello world''-class,
 the constructor has anon too.
 
-The function \verb+pd-new+ reserves memory for the data space,
+The function \verb+pd\_new+ reserves memory for the data space,
 initialises the variables that are internal to the object and
 returns a pointer to the data space.
 
@@ -4822,32 +4820,32 @@ The constructor has to return a pointer to the instantiated data space.
 \subsubsection{the code: \tt helloworld}
 
 \begin{verbatim}
-#include "m-pd.h"
+#include "m\_pd.h"
 
-static t-class *helloworld-class;
+static t\_class *helloworld\_class;
 
-typedef struct -helloworld {
-  t-object  x-obj;
-} t-helloworld;
+typedef struct \_helloworld {
+  t\_object  x\_obj;
+} t\_helloworld;
 
-void helloworld-bang(t-helloworld *x)
+void helloworld\_bang(t\_helloworld *x)
 {
   post("Hello world !!");
 }
 
-void *helloworld-new(void)
+void *helloworld\_new(void)
 {
-  t-helloworld *x = (t-helloworld *)pd-new(helloworld-class);
+  t\_helloworld *x = (t\_helloworld *)pd\_new(helloworld\_class);
 
   return (void *)x;
 }
 
-void helloworld-setup(void) {
-  helloworld-class = class-new(gensym("helloworld"),
-        (t-newmethod)helloworld-new,
-        0, sizeof(t-helloworld),
-        CLASS-DEFAULT, 0);
-  class-addbang(helloworld-class, helloworld-bang);
+void helloworld\_setup(void) {
+  helloworld\_class = class\_new(gensym("helloworld"),
+        (t\_newmethod)helloworld\_new,
+        0, sizeof(t\_helloworld),
+        CLASS\_DEFAULT, 0);
+  class\_addbang(helloworld\_class, helloworld\_bang);
 }
 \end{verbatim}
 
@@ -4869,33 +4867,33 @@ Of course, a counter needs a state-variable to store the actual counter-value.
 State-variables that belong to class instances belong to the data space.
 
 \begin{verbatim}
-typedef struct -counter {
-  t-object  x-obj;
-  t-int i-count;
-} t-counter;
+typedef struct \_counter {
+  t\_object  x\_obj;
+  t\_int i\_count;
+} t\_counter;
 \end{verbatim}
 
-The integer variable \verb+i-count+ stores the counter-value.
+The integer variable \verb+i\_count+ stores the counter-value.
 
 \subsubsection{object-arguments}
 It is quite useful for a counter, if a initial value can be defined by the user.
 Therefore this initial value should be passed to the object at creation-time.
 
 \begin{verbatim}
-void counter-setup(void) {
-  counter-class = class-new(gensym("counter"),
-        (t-newmethod)counter-new,
-        0, sizeof(t-counter),
-        CLASS-DEFAULT,
-        A-DEFFLOAT, 0);
+void counter\_setup(void) {
+  counter\_class = class\_new(gensym("counter"),
+        (t\_newmethod)counter\_new,
+        0, sizeof(t\_counter),
+        CLASS\_DEFAULT,
+        A\_DEFFLOAT, 0);
 
-  class-addbang(counter-class, counter-bang);
+  class\_addbang(counter\_class, counter\_bang);
 }
 \end{verbatim}
 
-So we have an additional argument in the function \verb+class-new+:
-\verb+A-DEFFLOAT+ tells Pd, that the object needs one argument of the 
-type \verb+t-floatarg+.
+So we have an additional argument in the function \verb+class\_new+:
+\verb+A\_DEFFLOAT+ tells Pd, that the object needs one argument of the 
+type \verb+t\_floatarg+.
 If no argument is passed, this will default to ``0''.
 
 \subsubsection{constructor}
@@ -4904,48 +4902,48 @@ On the one hand, a variable value has to be initialised,
 on the other hand, an outlet for the object has to be created.
 
 \begin{verbatim}
-void *counter-new(t-floatarg f)
+void *counter\_new(t\_floatarg f)
 {
-  t-counter *x = (t-counter *)pd-new(counter-class);
+  t\_counter *x = (t\_counter *)pd\_new(counter\_class);
 
-  x->i-count=f;
-  outlet-new(&x->x-obj, &s-float);
+  x->i\_count=f;
+  outlet\_new(&x->x\_obj, &s\_float);
 
   return (void *)x;
 }
 \end{verbatim}
 
-The constructor-method has one argument of type \verb+t-floatarg+ as declared
-in the setup-routine by \verb+class-new+.
+The constructor-method has one argument of type \verb+t\_floatarg+ as declared
+in the setup-routine by \verb+class\_new+.
 This argument is used to initialise the counter.
 
-A new outlet is created with the function \verb+outlet-new+.
+A new outlet is created with the function \verb+outlet\_new+.
 The first argument is a pointer to the interna of the object
 the new outlet is created for.
 
 The second argument is a symbolic description of the outlet-type.
 Since out counter should output numeric values it is of type ``float''.
 
-\verb+outlet-new+ returns a pointer to the new outlet and saves this very pointer
-in the \verb+t-object+-variable \verb+x-obj.ob-outlet+.
+\verb+outlet\_new+ returns a pointer to the new outlet and saves this very pointer
+in the \verb+t\_object+-variable \verb+x\_obj.ob\_outlet+.
 If only one outlet is used, the pointer need not additionally be stored in the data space.
 If more than one outlets are used, the pointers have to be stored in the data space,
-because the \verb+t-object+-variable can only hold one outlet pointer.
+because the \verb+t\_object+-variable can only hold one outlet pointer.
 
 \subsubsection{the counter method}
 When triggered, the counter value should be sent to the outlet
 and afterwards be incremented by 1.
 
 \begin{verbatim}
-void counter-bang(t-counter *x)
+void counter\_bang(t\_counter *x)
 {
-  t-float f=x->i-count;
-  x->i-count++;
-  outlet-float(x->x-obj.ob-outlet, f);
+  t\_float f=x->i\_count;
+  x->i\_count++;
+  outlet\_float(x->x\_obj.ob\_outlet, f);
 }
 \end{verbatim}
 
-The function \verb+outlet-float+ sends a floating-point-value (second argument) to the outlet
+The function \verb+outlet\_float+ sends a floating-point-value (second argument) to the outlet
 that is specified by the first argument.
 
 We first store the counter in a floating point-buffer.
@@ -4954,8 +4952,8 @@ to the outlet.
 
 What appears to be unnecessary on the first glance, makes sense after further
 inspection:
-The buffer variable has been realized as \verb+t-float+,
-since \verb+outlet-float+ expects a floating point-value and a typecast is
+The buffer variable has been realized as \verb+t\_float+,
+since \verb+outlet\_float+ expects a floating point-value and a typecast is
 inevitable.
 
 If the counter value was sent to the outlet before being incremented,
@@ -4970,40 +4968,40 @@ but this  would obscure the {\em reentrant}-problem.
 \subsubsection{the code: \tt counter}
 
 \begin{verbatim}
-#include "m-pd.h"
+#include "m\_pd.h"
 
-static t-class *counter-class;
+static t\_class *counter\_class;
 
-typedef struct -counter {
-  t-object  x-obj;
-  t-int i-count;
-} t-counter;
+typedef struct \_counter {
+  t\_object  x\_obj;
+  t\_int i\_count;
+} t\_counter;
 
-void counter-bang(t-counter *x)
+void counter\_bang(t\_counter *x)
 {
-  t-float f=x->i-count;
-  x->i-count++;
-  outlet-float(x->x-obj.ob-outlet, f);
+  t\_float f=x->i\_count;
+  x->i\_count++;
+  outlet\_float(x->x\_obj.ob\_outlet, f);
 }
 
-void *counter-new(t-floatarg f)
+void *counter\_new(t\_floatarg f)
 {
-  t-counter *x = (t-counter *)pd-new(counter-class);
+  t\_counter *x = (t\_counter *)pd\_new(counter\_class);
 
-  x->i-count=f;
-  outlet-new(&x->x-obj, &s-float);
+  x->i\_count=f;
+  outlet\_new(&x->x\_obj, &s\_float);
 
   return (void *)x;
 }
 
-void counter-setup(void) {
-  counter-class = class-new(gensym("counter"),
-        (t-newmethod)counter-new,
-        0, sizeof(t-counter),
-        CLASS-DEFAULT,
-        A-DEFFLOAT, 0);
+void counter\_setup(void) {
+  counter\_class = class\_new(gensym("counter"),
+        (t\_newmethod)counter\_new,
+        0, sizeof(t\_counter),
+        CLASS\_DEFAULT,
+        A\_DEFFLOAT, 0);
 
-  class-addbang(counter-class, counter-bang);
+  class\_addbang(counter\_class, counter\_bang);
 }
 \end{verbatim}
 
@@ -5080,8 +5078,8 @@ void counter-setup(void) {
 % \ Begin {tabular} {c | | c | c | c}
 % biblioteca e linux e irix e Win32 \ \
 % \ Hline
-% {\ Tt meu \ -lib} & {\ tt meu \ -lib.pd \ -linux} & {\ tt meu \ -lib.pd \ -irix} &
-% {\ Tt meu \ -lib.dll} \ \
+% {\ Tt meu \ _lib} & {\ tt meu \ _lib.pd \ _linux} & {\ tt meu \ _lib.pd \ _irix} &
+% {\ Tt meu \ _lib.dll} \ \
 % \ End {tabular}
 % 
 % A forma mais simples de um {\ em biblioteca} inclui exatamente uma {\ em externo}
@@ -5094,8 +5092,8 @@ void counter-setup(void) {
 % Pd suporta os modos de importar bibliotecas \ {in}:
 % 
 % \ Begin {itemize}
-% \ Item via linha de comando-opção `` {\ tt-lib meu \ -lib}''
-% \ Item criando um objeto `` {\ tt meu \ -lib}''
+% \ Item via linha de comando-opção `` {\ tt-lib meu \ _lib}''
+% \ Item criando um objeto `` {\ tt meu \ _lib}''
 % \ End {itemize}
 % 
 % As cargas primeiro método a {\ em biblioteca} Pd quando é iniciado.
@@ -5103,17 +5101,17 @@ void counter-setup(void) {
 % 
 % O outro método deve ser usado para bibliotecas \ {in} que contém exatamente
 % uma {\ em externo} com o mesmo nome.
-% Pd verifica em primeiro lugar, se uma classe chamada `` meu \ -lib'' já está carregado.
+% Pd verifica em primeiro lugar, se uma classe chamada `` meu \ _lib'' já está carregado.
 % Se este não é o caso \ nota {
-% Se uma classe `` meu \ -lib'' já existente, um objeto `` meu \ -lib'' será instanciado
+% Se uma classe `` meu \ _lib'' já existente, um objeto `` meu \ _lib'' será instanciado
 % eo procedimento é feito.
 % Assim, não {\ em biblioteca} foi carregado.
 % Portanto, nenhum {\ em biblioteca} que é nomeado como um já usado nome de classe como, digamos, `` abs'',
 % pode ser carregado.}, todos os caminhos são pesquisados ​​por um arquivo chamado
-% `` {\ Tt meu \ -lib.pd \ -linux}'' \ footnote {ou mais dependentes do sistema de nome de arquivo de extensões (sa)}.
+% `` {\ Tt meu \ _lib.pd \ _linux}'' \ footnote {ou mais dependentes do sistema de nome de arquivo de extensões (sa)}.
 % Se o arquivo for encontrado, todos incluídos {in} \ externos são carregados na memória, chamando um
-% rotina \ verb + meu \ -lib \ -setup () +.
-% Após o carregamento, uma classe `` meu \ -lib'' é (novamente) procurei como um (recém-carregado) {\ em externo}.
+% rotina \ verb + meu \ _lib \ _setup () +.
+% Após o carregamento, uma classe `` meu \ _lib'' é (novamente) procurei como um (recém-carregado) {\ em externo}.
 % Se assim for, uma instância dessa classe é criada, senão a instanciação falhará e um erro é
 % impresso.
 % De qualquer forma, todos os {\ em externas}-classes declaradas no {\ em biblioteca} são carregados por agora.
@@ -5129,36 +5127,36 @@ void counter-setup(void) {
 % 
 % \ Subsubsection {interface} para Pd
 % Para escrever um Pd externo uma interface bem definida é necessário.
-% Esta é fornecido no cabeçalho do arquivo ``-m \ -pd.h''.
+% Esta é fornecido no cabeçalho do arquivo ``-m \ _pd.h''.
 % 
 % \ Begin {verbatim}
-% # Include "m \ -pd.h"
+% # Include "m \ _pd.h"
 % \ End {verbatim}
 % 
 % \ Subsubsection {a classe e seu espaço de dados}
 % Primeiro, uma nova classe tem de ser preparado e do espaço de dados para esta classe tem de ser definida.
 % 
 % \ Begin {verbatim}
-% estática t \ -class * helloworld \ -class;
+% estática t \ _class * helloworld \ _class;
 % 
-% typedef struct \ {-helloworld
-%   t \ -object x \ -obj;
-% T} \ -helloworld;
+% typedef struct \ {_helloworld
+%   t \ _object x \ _obj;
+% T} \ _helloworld;
 % \ End {verbatim}
 % 
-% \ Verb + Olá \ -worldclass + vai ser um ponteiro para a nova classe.
+% \ Verb + Olá \ _worldclass + vai ser um ponteiro para a nova classe.
 % 
-% A estrutura \ verb + t \ -helloworld + (do tipo \ verb + \ -helloworld +) é
+% A estrutura \ verb + t \ _helloworld + (do tipo \ verb + \ _helloworld +) é
 % o espaço de dados da classe.
 % 
 % Um elemento absolutamente necessário do espaço de dados é uma variável do tipo
-% \ Verbo + t \ -object +, que é usado para armazenar internas de objectos de propriedades como
+% \ Verbo + t \ _object +, que é usado para armazenar internas de objectos de propriedades como
 % a apresentação gráfica do objeto ou dados sobre entradas e saídas.
 % 
-% \ Verbo + t \ -object + tem de ser a primeira entrada na estrutura!
+% \ Verbo + t \ _object + tem de ser a primeira entrada na estrutura!
 % 
 % Porque um mundo `` simples'' Olá aplicação não precisa de variáveis,
-% a estrutura está vazio para além da \ verbo + t \ -object +.
+% a estrutura está vazio para além da \ verbo + t \ _object +.
 % 
 % 
 % \ Subsubsection {espaço} método
@@ -5171,14 +5169,14 @@ void counter-setup(void) {
 % Tipo \ verb + + vazio.
 % 
 % \ Begin {verbatim}
-% vazio helloworld \ -bang (t \ -helloworld * x)
+% vazio helloworld \ _bang (t \ _helloworld * x)
 % {
 %   post ("Olá, mundo!");
 % }
 % \ End {verbatim}
 % 
 % 
-% Este método tem um argumento do tipo \ verb + t \ -helloworld +,
+% Este método tem um argumento do tipo \ verb + t \ _helloworld +,
 % que nos permitem manipular o espaço de dados.
 % 
 % Uma vez que só quer a saída `` Olá, mundo!''
@@ -5193,8 +5191,8 @@ void counter-setup(void) {
 % Para gerar uma nova classe de informações, do espaço de dados eo espaço método desta classe,
 % tem de ser passado para Pd quando uma biblioteca é carregado.
 % 
-% Em carregamento de uma nova biblioteca `` meu \ -lib'',
-% Pd tenta chamar uma função `` meu \ -lib \ -setup ()''.
+% Em carregamento de uma nova biblioteca `` meu \ _lib'',
+% Pd tenta chamar uma função `` meu \ _lib \ _setup ()''.
 % Esta função (ou funções chamadas por ele)
 % declara as novas classes e suas propriedades.
 % Ele só é chamado uma vez, quando a biblioteca é carregada.
@@ -5202,27 +5200,27 @@ void counter-setup(void) {
 % nenhum externa da biblioteca será carregado.
 % 
 % \ Begin {verbatim}
-% vazio helloworld \ -setup (void)
+% vazio helloworld \ _setup (void)
 % {
-%   helloworld \ -class = class \ -new (gensym ("HelloWorld"),
-%         (T \ -newmethod) helloworld \ -new,
-%         0, sizeof (t \ -helloworld),
-%         CLASS \ -Default, 0);
+%   helloworld \ _class = class \ _new (gensym ("HelloWorld"),
+%         (T \ _newmethod) helloworld \ _new,
+%         0, sizeof (t \ _helloworld),
+%         CLASS \ _Default, 0);
 % 
-%   class \ -addbang (helloworld \ -class, helloworld \ -bang);
+%   class \ _addbang (helloworld \ _class, helloworld \ _bang);
 % }
 % \ End {verbatim}
 % 
-% \ N {class \ -new}
+% \ N {class \ _new}
 % 
-% A função \ verb + class \ -new + cria uma nova classe e retorna um ponteiro para este protótipo.
+% A função \ verb + class \ _new + cria uma nova classe e retorna um ponteiro para este protótipo.
 % 
 % O primeiro argumento é o nome simbólico da classe.
 % 
 % Os próximos dois argumentos definir o construtor e destrutor da classe.
 % 
 % Sempre que um objeto da classe é criada em um Pd-patch,
-% a classe-construtor \ verb + (t \ -newmethod) helloworld \ -new + instancia o objeto
+% a classe-construtor \ verb + (t \ _newmethod) helloworld \ _new + instancia o objeto
 % e inicializa o espaço de dados.
 % 
 % Sempre que um objeto é destruído
@@ -5237,38 +5235,38 @@ void counter-setup(void) {
 % o tamanho da estrutura de dados tem de ser passado como o argumento quarto.
 % 
 % O quinto argumento tem influência sobre a representação gráfica dos objetos da classe.
-% O valor padrão é \ verb + CLASS \ -Default + ou simplesmente `` 0''.
+% O valor padrão é \ verb + CLASS \ _Default + ou simplesmente `` 0''.
 % 
 % Os argumentos restantes definem os argumentos de um objeto e seu tipo.
 % 
 % Até seis simbólico e numérico objeto-argumentos podem ser definidas através de
-% \ Verb + A \ -DEFFLOAT + e \ verb + A \ -DEFSYMBOL +.
+% \ Verb + A \ _DEFFLOAT + e \ verb + A \ _DEFSYMBOL +.
 % Se mais argumentos devem ser passados ​​para o objeto
 % ou se a ordem de tipos de átomos deve por mais flexível,
-% \ Verbo + A \ -GIMME + pode ser utilizado para passar uma lista arbitrária de átomos.
+% \ Verbo + A \ _GIMME + pode ser utilizado para passar uma lista arbitrária de átomos.
 % 
 % A lista de objetos de argumentos é denunciado por `` 0''.
 % Neste exemplo temos nenhum objeto-argumentos em tudo para a classe.
 % 
-% \ N {class \ -addbang}
+% \ N {class \ _addbang}
 % Nós ainda temos que adicionar um espaço método para a classe.
 % 
-% \ Verb + class \ -addbang + adiciona um método para um estrondo ``'' mensagem para a classe que é
+% \ Verb + class \ _addbang + adiciona um método para um estrondo ``'' mensagem para a classe que é
 % definida no primeiro argumento.
 % O método adicionado é definido no segundo argumento.
 % 
 % 
 % \ Subsubsection {construtor: instanciação de um objeto}
 % Cada vez, um objeto é criado em uma Pd-patch, o
-% construtor que é definido com o \ verb + class \ -new + comando,
+% construtor que é definido com o \ verb + class \ _new + comando,
 % gera uma nova instância da classe.
 % 
 % O construtor tem que ser do tipo \ verb + + void *.
 % 
 % \ Begin {verbatim}
-% void * helloworld \ -new (void)
+% void * helloworld \ _new (void)
 % {
-%   t \ -helloworld * x = (t \ -helloworld *) pd \ -new (helloworld \ -class);
+%   t \ _helloworld * x = (t \ _helloworld *) pd \ _new (helloworld \ _class);
 % 
 %   retorno (void *) x;
 % }
@@ -5276,20 +5274,20 @@ void counter-setup(void) {
 % 
 % 
 % Os argumentos do construtor-método dependem do objeto-argumentos
-% definido com \ verb + class \ -new +.
+% definido com \ verb + class \ _new +.
 % 
 % \ Begin {tabular} {l | l}
-% \ Verb + class \ -new + argumento e construtor argumento \ \
+% \ Verb + class \ _new + argumento e construtor argumento \ \
 % \ Hline
-% \ Verb + A \ -DEFFLOAT + & \ verb + t \ -floatarg f + \ \
-% \ Verb + A \ -DEFSYMBOL + & \ verb + t \ -symbol * s + \ \
-% \ Verb + A \ -GIMME + & \ verb + t \ -symbol * s, int argc, t \ -atom * argv +
+% \ Verb + A \ _DEFFLOAT + & \ verb + t \ _floatarg f + \ \
+% \ Verb + A \ _DEFSYMBOL + & \ verb + t \ _symbol * s + \ \
+% \ Verb + A \ _GIMME + & \ verb + t \ _symbol * s, int argc, t \ _atom * argv +
 % \ End {tabular}
 % 
 % Porque não há objeto de argumentos para a nossa classe'' Olá `` do mundo,
 % o construtor tem anon também.
 % 
-% A função \ verb + pd \ -new + reserva memória para o espaço de dados,
+% A função \ verb + pd \ _new + reserva memória para o espaço de dados,
 % inicializa as variáveis ​​que são internos ao objeto e
 % retorna um ponteiro para o espaço de dados.
 % 
@@ -5304,32 +5302,32 @@ void counter-setup(void) {
 % \ Subsubsection {o código: \ tt helloworld}
 % 
 % \ Begin {verbatim}
-% # Include "m \ -pd.h"
+% # Include "m \ _pd.h"
 % 
-% estática t \ -class * helloworld \ -class;
+% estática t \ _class * helloworld \ _class;
 % 
-% typedef struct \ {-helloworld
-%   t \ -object x \ -obj;
-% T} \ -helloworld;
+% typedef struct \ {_helloworld
+%   t \ _object x \ _obj;
+% T} \ _helloworld;
 % 
-% vazio helloworld \ -bang (t \ -helloworld * x)
+% vazio helloworld \ _bang (t \ _helloworld * x)
 % {
 %   post ("Olá, mundo!");
 % }
 % 
-% void * helloworld \ -new (void)
+% void * helloworld \ _new (void)
 % {
-%   t \ -helloworld * x = (t \ -helloworld *) pd \ -new (helloworld \ -class);
+%   t \ _helloworld * x = (t \ _helloworld *) pd \ _new (helloworld \ _class);
 % 
 %   retorno (void *) x;
 % }
 % 
-% vazio helloworld \ -setup (void) {
-%   helloworld \ -class = class \ -new (gensym ("HelloWorld"),
-%         (T \ -newmethod) helloworld \ -new,
-%         0, sizeof (t \ -helloworld),
-%         CLASS \ -Default, 0);
-%   class \ -addbang (helloworld \ -class, helloworld \ -bang);
+% vazio helloworld \ _setup (void) {
+%   helloworld \ _class = class \ _new (gensym ("HelloWorld"),
+%         (T \ _newmethod) helloworld \ _new,
+%         0, sizeof (t \ _helloworld),
+%         CLASS \ _Default, 0);
+%   class \ _addbang (helloworld \ _class, helloworld \ _bang);
 % }
 % \ End {verbatim}
 % 
@@ -5351,33 +5349,33 @@ void counter-setup(void) {
 % Estado-variáveis ​​que pertencem à classe instâncias pertencem ao espaço de dados.
 % 
 % \ Begin {verbatim}
-% typedef struct \ {-counter
-%   t \ -object x \ -obj;
-%   t \ -int i \ -count;
-% T} \ -counter;
+% typedef struct \ {_counter
+%   t \ _object x \ _obj;
+%   t \ _int i \ _count;
+% T} \ _counter;
 % \ End {verbatim}
 % 
-% A variável integer \ verb + i \ -count + armazena o valor do contador.
+% A variável integer \ verb + i \ _count + armazena o valor do contador.
 % 
 % \ Subsubsection {Object-argumentos}
 % É bastante útil para um contador, se um valor inicial pode ser definida pelo utilizador.
 % Portanto, esse valor inicial deve ser passado para o objeto em tempo de criação.
 % 
 % \ Begin {verbatim}
-% vazio contador \ -setup (void) {
-%   contador \ -class = class \ -new (gensym ("contador"),
-%         (T \ -newmethod) counter \ -new,
-%         0, sizeof (t \ -counter),
-%         CLASS \ -Default,
-%         A -DEFFLOAT \, 0);
+% vazio contador \ _setup (void) {
+%   contador \ _class = class \ _new (gensym ("contador"),
+%         (T \ _newmethod) counter \ _new,
+%         0, sizeof (t \ _counter),
+%         CLASS \ _Default,
+%         A _DEFFLOAT \, 0);
 % 
-%   class \ -addbang (contador \ -class, contador \ -bang);
+%   class \ _addbang (contador \ _class, contador \ _bang);
 % }
 % \ End {verbatim}
 % 
-% Portanto, temos um argumento adicional na função \ verb + class \ -new +:
-% \ Verb + A \ -DEFFLOAT + tells Pd, que o objeto precisa de um argumento do
-% Tipo \ verb + t \ -floatarg +.
+% Portanto, temos um argumento adicional na função \ verb + class \ _new +:
+% \ Verb + A \ _DEFFLOAT + tells Pd, que o objeto precisa de um argumento do
+% Tipo \ verb + t \ _floatarg +.
 % Se nenhum argumento é passado, este será o padrão para `` 0''.
 % 
 % \ Subsubsection {construtor}
@@ -5386,48 +5384,48 @@ void counter-setup(void) {
 % por outro lado, uma saída para o objecto tem de ser criado.
 % 
 % \ Begin {verbatim}
-% void * contador \ -new (t \ -floatarg f)
+% void * contador \ _new (t \ _floatarg f)
 % {
-%   t \ -counter * x = (t \ -counter *) pd \ -new (contador \ -class);
+%   t \ _counter * x = (t \ _counter *) pd \ _new (contador \ _class);
 % 
-%   x-> i \ -count = f;
-%   tomada \ -new (& x-> x -obj \ & s \ -float);
+%   x-> i \ _count = f;
+%   tomada \ _new (& x-> x _obj \ & s \ _float);
 % 
 %   retorno (void *) x;
 % }
 % \ End {verbatim}
 % 
-% O construtor método tem um argumento do tipo \ verb + t \ -floatarg +, conforme declarado
-% na configuração de rotina por \ verb + class \ -new +.
+% O construtor método tem um argumento do tipo \ verb + t \ _floatarg +, conforme declarado
+% na configuração de rotina por \ verb + class \ _new +.
 % Este argumento é usado para inicializar o contador.
 % 
-% Um novo mercado é criado com a função de \ verb + tomada \ -new +.
+% Um novo mercado é criado com a função de \ verb + tomada \ _new +.
 % O primeiro argumento é um ponteiro para a interna do objeto
 % da tomada de novo é criado.
 % 
 % O segundo argumento é uma descrição simbólica da tomada do tipo.
 % Desde que fora contador deve produzir valores numéricos é do tipo ``'' float.
 % 
-% \ Verb + tomada \ -new + retorna um ponteiro para a tomada de novo e salva este ponteiro muito
-% no \ verb + t \ -object + variável \ verb + x \ -obj.ob \ -outlet +.
+% \ Verb + tomada \ _new + retorna um ponteiro para a tomada de novo e salva este ponteiro muito
+% no \ verb + t \ _object + variável \ verb + x \ _obj.ob \ _outlet +.
 % Se apenas uma saída é usado, o ponteiro não precisa de ser adicionalmente armazenado no espaço de dados.
 % Se mais do que um escoamento são usados, os ponteiros têm de ser armazenado no espaço de dados,
-% porque o \ verb + t \ -object + variável só pode conter um ponteiro de saída.
+% porque o \ verb + t \ _object + variável só pode conter um ponteiro de saída.
 % 
 % \ Subsubsection {o método contador}
 % Quando accionado, o valor do contador deve ser enviada para a saída
 % e depois ser incrementado em 1.
 % 
 % \ Begin {verbatim}
-% vazio contador \ -bang (t \ -counter * x)
+% vazio contador \ _bang (t \ _counter * x)
 % {
-%   t \ -float f = x-> i \ -count;
-%   x-> i \ -count + +;
-%   tomada \ -float (x-> x \ -obj.ob \ -outlet, f);
+%   t \ _float f = x-> i \ _count;
+%   x-> i \ _count + +;
+%   tomada \ _float (x-> x \ _obj.ob \ _outlet, f);
 % }
 % \ End {verbatim}
 % 
-% A função \ verb + tomada \ -float + envia um valor de ponto flutuante (segundo argumento) para a saída
+% A função \ verb + tomada \ _float + envia um valor de ponto flutuante (segundo argumento) para a saída
 % que é especificado pelo primeiro argumento.
 % 
 % Nós primeiro armazenar o contador em um buffer de ponto flutuante.
@@ -5436,8 +5434,8 @@ void counter-setup(void) {
 % 
 % O que parece ser desnecessária a primeira vista, faz sentido depois de mais
 % inspeção:
-% A variável buffer foi realizado como \ verb + t \ -float +,
-% desde \ verb + tomada \ -float + espera um valor de ponto flutuante e um typecast é
+% A variável buffer foi realizado como \ verb + t \ _float +,
+% desde \ verb + tomada \ _float + espera um valor de ponto flutuante e um typecast é
 % inevitável.
 % 
 % Se o valor do contador foi enviado para a saída antes de ser incrementado,
@@ -5452,40 +5450,40 @@ void counter-setup(void) {
 % \ Subsubsection {o código: \ tt contador}
 % 
 % \ Begin {verbatim}
-% # Include "m \ -pd.h"
+% # Include "m \ _pd.h"
 % 
-% estática t \ -class * contador \ -class;
+% estática t \ _class * contador \ _class;
 % 
-% typedef struct \ {-counter
-%   t \ -object x \ -obj;
-%   t \ -int i \ -count;
-% T} \ -counter;
+% typedef struct \ {_counter
+%   t \ _object x \ _obj;
+%   t \ _int i \ _count;
+% T} \ _counter;
 % 
-% vazio contador \ -bang (t \ -counter * x)
+% vazio contador \ _bang (t \ _counter * x)
 % {
-%   t \ -float f = x-> i \ -count;
-%   x-> i \ -count + +;
-%   tomada \ -float (x-> x \ -obj.ob \ -outlet, f);
+%   t \ _float f = x-> i \ _count;
+%   x-> i \ _count + +;
+%   tomada \ _float (x-> x \ _obj.ob \ _outlet, f);
 % }
 % 
-% void * contador \ -new (t \ -floatarg f)
+% void * contador \ _new (t \ _floatarg f)
 % {
-%   t \ -counter * x = (t \ -counter *) pd \ -new (contador \ -class);
+%   t \ _counter * x = (t \ _counter *) pd \ _new (contador \ _class);
 % 
-%   x-> i \ -count = f;
-%   tomada \ -new (& x-> x -obj \ & s \ -float);
+%   x-> i \ _count = f;
+%   tomada \ _new (& x-> x _obj \ & s \ _float);
 % 
 %   retorno (void *) x;
 % }
 % 
-% vazio contador \ -setup (void) {
-%   contador \ -class = class \ -new (gensym ("contador"),
-%         (T \ -newmethod) counter \ -new,
-%         0, sizeof (t \ -counter),
-%         CLASS \ -Default,
-%         A -DEFFLOAT \, 0);
+% vazio contador \ _setup (void) {
+%   contador \ _class = class \ _new (gensym ("contador"),
+%         (T \ _newmethod) counter \ _new,
+%         0, sizeof (t \ _counter),
+%         CLASS \ _Default,
+%         A _DEFFLOAT \, 0);
 % 
-%   class \ -addbang (contador \ -class, contador \ -bang);
+%   class \ _addbang (contador \ _class, contador \ _bang);
 % }
 % \ End {verbatim}
 % Desfazer edições
