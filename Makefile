@@ -1,5 +1,5 @@
 NAME = tese
 
-#-include ~/lib/make/latex.mk
+include /home/livre/genos-lib/make/latex.mk
 
 
