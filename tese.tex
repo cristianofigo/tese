@@ -262,7 +262,7 @@ abstrações. Abaixo temos um exemplo de código em Comonn lisp music.
 
 Se formos tentar implementar esse código em Pd. Podemos encontrar algo assim: 
 
-\begin{figure}[!htt]
+\begin{figure}
   \centering
   \includegraphics[scale=.5]{exemplopd1}
   \caption{2 notas num oscilador simples}
@@ -480,7 +480,7 @@ sequência de estudos interativos usados em peças musicais e performances sonor
 na figura \ref{flauta2007}, onde um Score-follower controla os parâmetros de 
 processamento do som da flauta e harmoniza certos trechos da peça de acordo com as notas da flauta.
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.3]{flauta2007}
 \caption{estudo interativo pra flauta e computador (2007)}
 \label{flauta2007}
@@ -512,7 +512,7 @@ usando pure data, como navalha e mimosalib usada nos protótipos.
 
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.7]{geral}
 \caption{Diagrama geral do sistema}
 \label{geral}
@@ -524,7 +524,7 @@ usando pure data, como navalha e mimosalib usada nos protótipos.
 
 %Na figura\ref{mecanismo}
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.7]{escuta}
 \caption{Mecanismo de escuta e análise}
 \label{escuta}
@@ -545,7 +545,7 @@ densidade, durações, classes de intervalos, variações de timbre e registro. 
  por uma cadeia de redes locais de tamanhos diferentes que seriam agrupadas em duas 
 redes globais também de tamanhos diferentes.
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.7]{mecanismo}
 \caption{Mecanismo de funcionamento de um sistema interativo baseado em redes neurais}
 \label{mecanismo}
@@ -1234,7 +1234,7 @@ que a comunidade implementou diversas bibliotecas para processamento de vídeo e
 de controle. 
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.6]{help}
 \caption{exemplo de acesso ao manual do objeto metro}
 \label{help}
@@ -1277,7 +1277,7 @@ objeto de SINCOPA.
  
 \subsection{Escrita em arrays}
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.6]{escrita-array}
 \caption{exemplo de escrita de áudio e números em arrays}
 \label{escritaarray}
@@ -1292,7 +1292,7 @@ gravado em disco.
 
 \subsection{Conexão por cabos vs [send] [receive]}
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.6]{ex-conexoes}
 \caption{conectando saídas de objetos com cabos e com [send] e [receive]}
 \label{ex-conexoes}
@@ -1302,7 +1302,7 @@ gravado em disco.
 
 \subsection{variáveis locais vs variáveis globais}
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.6]{ex-variaveis}
 \caption{[sinc-gera-melodico] enviando nome de variável local para ser lida por outros objetos}
 \label{ex-variaveis}
@@ -1394,7 +1394,7 @@ processos (ou seja, como aplicações normais), ou podem eles podem ser executad
 (ou seja, como um "plugin"). JACK também tem suporte para a distribuição de processamento de áudio através de 
 uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confiável.
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.7]{qjackctl}
 \caption{Interface de conexão de processos do Jack}
 \label{jack}
@@ -1559,7 +1559,7 @@ parâmetro de análise.
 
 \section{Análise de áudio}
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.7]{sinc-analise}
 \caption{Objeto de análise de áudio [sinc-analise]}
 \label{sinc-analise}
@@ -1593,7 +1593,7 @@ ver uma outra abordagem nas figuras \ref{fft-geral} e \ref{fft-aaray} baseada em
 \subsubsection{Objeto [sinc-audioin]}
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.55]{audioin}
 \caption{Entrada de áudio [sinc-audioin]}
 \label{audioin}
@@ -1635,7 +1635,7 @@ algumas abstrações para facilitar o processo de desenvolvimento e teste.
 
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.5]{sinc-sample}
 \caption{[sinc-sample]}
 \label{[sinc-sample]}
@@ -1704,7 +1704,7 @@ Nessa abstração procurou-se desenvolver uma interface que facilite
 a rápida prototipação e flexibilidade de parâmetros que podem
 se adaptar facilmente para diferentes fontes sonoras.
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.4]{sinc-audioanalise}
 \caption{[sinc-audioanalise]}
 \label{[sinc-audioanalise]}
@@ -1718,7 +1718,7 @@ entre ensaios e performance.
 
 %%Área 1: explicação da amplificação de volume de entrada/volume de saída
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.5]{sinc-audioanalise-param}
 \caption{sub-patch que controla as configurações de [sigmund\texttildelow]}
 \label{[sinc-audioanalise-param]}
@@ -1766,7 +1766,7 @@ The npts and hop parameters are in samples. and are powers of two.
 \end{quote} 
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.7]{sigmund}
 \caption{Tamanho de janela de análise (npts)}
 \label{janela-analise}
@@ -1789,7 +1789,7 @@ entre as janelas em samples como pode ser visto na figura \ref{janela-analise}.
 %%Área 2: explicação do sigmund~ - ver livro Miller + help do sigmund~
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.5]{round}
 \caption{[round]}
 \label{round}
@@ -1802,14 +1802,14 @@ a soma de 0.5 e transformação do número do tipo float para tipo inteiro ([int
 como pode ser visto na figura \ref{round}.
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.5]{pitch}
 \caption{[pitch]}
 \label{pitch}
 \end{figure}
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.5]{canvas-edit}
 \caption{editando objeto canvas ([cnv])}
 \label{canvas-edit}
@@ -1896,7 +1896,7 @@ gráfica da variação de amplitude.
 
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.5]{sinc-audioanalise-detecta}
 \caption{sub-patch que detecta silêncio no áudio de entrada}
 \label{[sinc-audioanalise-detecta]}
@@ -1949,7 +1949,7 @@ Uma das questões perseguidas é o fato do sistema ter conhecimento do atual ní
 estabilidade rítmica. Isso pode ser alcançado por uma relação que considere variações
 de pulso e alternância e variações de padrões rítmicos de tamanhos diferentes.
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.6]{prot5a}
 \caption{análise de estabilidade rítmica}
 \label{prot5a}
@@ -1980,7 +1980,7 @@ Ao resultado dessa divisão é aplicado um filtro com [moses] onde se pode calib
 a sensibilidade do valor do índice final.
 
 
-\begin{figure}[!htt]
+\begin{figure}
 \includegraphics[scale=.5]{sinc-calc-ritmo}
 \caption{análise de estabilidade rítmica}
 \label{[sinc-calc-ritmo]}
