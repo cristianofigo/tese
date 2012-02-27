@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="200.00000pt"
+   id="svg1"
+   inkscape:export-filename="/tmp/keyboard.png"
+   inkscape:export-xdpi="9.6800003"
+   inkscape:export-ydpi="9.6800003"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="meuteclado.svg"
+   sodipodi:version="0.32"
+   width="210mm"
+   version="1.1">
+  <metadata
+     id="metadata3">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title></dc:title>
+        <dc:description>HASH(0x868a30c)</dc:description>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>hash(0x869b4d8)</rdf:li>
+            <rdf:li>hash(0x855e9e4)</rdf:li>
+            <rdf:li>hash(0x86569e4)</rdf:li>
+            <rdf:li>hardware</rdf:li>
+            <rdf:li>hash(0x855ae78)</rdf:li>
+            <rdf:li>hash(0x8669878)</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://www.openclipart.org">
+            <dc:title>HASH(0x896afbc)</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Bruno Coudoin</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>HASH(0x896afbc)</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date />
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:language>en</dc:language>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     bordercolor="#666666"
+     borderopacity="1.0"
+     id="base"
+     inkscape:current-layer="g1898"
+     inkscape:cx="530.8126"
+     inkscape:cy="384.82589"
+     inkscape:guide-bbox="true"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:window-height="725"
+     inkscape:window-width="1280"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:zoom="0.30699632"
+     pagecolor="#ffffff"
+     showguides="true"
+     showgrid="false"
+     inkscape:window-maximized="1" />
+  <g
+     id="g1898"
+     transform="matrix(3.1373594,0,0,5.1992095,-788.51304,-1449.8626)">
+    <rect
+       height="46.77644"
+       id="rect1650"
+       rx="1.7999581"
+       ry="1.203653"
+       style="fill:#8b8879;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.42911898"
+       width="233.27612"
+       x="254.19318"
+       y="280.70532"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="45.572578"
+       id="rect9746"
+       rx="1.7999581"
+       ry="1.203653"
+       style="fill:#faf4c3;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1.25135355pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       width="232.37039"
+       x="252.63266"
+       y="279.40051"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="5.1068468"
+       id="rect921"
+       style="fill:#82c8c8;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.409291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       width="8.516923"
+       x="257.88312"
+       y="283.52106"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="5.1068468"
+       id="rect2166"
+       style="fill:#82c8c8;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.409291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       width="8.516923"
+       x="283.58704"
+       y="283.52106"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="5.1068468"
+       id="rect2170"
+       style="fill:#82c8c8;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.409291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       width="8.516923"
+       x="329.10086"
+       y="283.52106"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="5.1068468"
+       id="rect2175"
+       style="fill:#82c8c8;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.409291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       width="8.516923"
+       x="382.99277"
+       y="283.52106"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="5.1068468"
+       id="rect5345"
+       style="fill:#82c8c8;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.409291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       width="70.470108"
+       x="295.61737"
+       y="317.27087"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="5.1068468"
+       id="rect5346"
+       style="fill:#82c8c8;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.409291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       width="13.156368"
+       x="257.70178"
+       y="317.27087"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="5.1068468"
+       id="rect5972"
+       style="fill:#82c8c8;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.409291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       width="8.9239063"
+       x="392.75732"
+       y="317.27087"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="1.6532996"
+       id="rect7229"
+       style="fill:#93fc83;fill-opacity:0.89655205;fill-rule:evenodd;stroke:#000000;stroke-width:0.2279449pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       width="5.9267125"
+       x="444.72678"
+       y="283.5065"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="1.6532996"
+       id="rect7230"
+       style="fill:#1d3131;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.2279449pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       width="5.9267125"
+       x="452.10245"
+       y="283.5065"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="1.6532996"
+       id="rect7231"
+       style="fill:#1d3131;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.2279449pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       width="5.9267125"
+       x="460.02771"
+       y="283.5065"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       height="5.1068468"
+       id="rect8492"
+       style="fill:#82c8c8;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.409291;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
+       width="8.516923"
+       x="460.9491"
+       y="317.44824"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <image
+       width="4.0261736"
+       height="39.322651"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAJXCAYAAACpJgnQAAAABHNCSVQICAgIfAhkiAAAEHtJREFU eJzt3V+oJFZhx/HfdsNSgya1IiWQ0hRiq9ZKtRWtpLbW2uTBWqhiMW0tETRIC1qoPogIVXypFAK+ hBZSH6oV1IemShXRUhOtYuOfRhKt2lijiRgTTIIbs+ZPH04gk3X/3D8zc2Z+8/nAYZPde2fOnTvf vXtm5pxJgK13ZPYEdtzHZk9gBf4qyZdnT2LXnDN7Ajvu92ZPYAV+ZvYEdtFPzZ4AcHhChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgLnLPz3ryT56VkTocYvJ7lv 9iR2zI1HFv7niiTXzJoJcCDvTnLF0YXf+GKSC5L8xpTpAPv1hSQvT/LjIyf9wbEk1yd5ztqnBOzH XRk/dG9JfvLBrhNJXpbkjjVPCti7B5P8SR6JODn1o9a3JnnlIx8MbJ63JfnI4m8cPc0H3pLkR0le vOoZAfvyoSSvO/k3Txdyknw6yTOSPH1VMwL25RtJLsv4IfsYJz/YdbLzknw2yVNXMClg744neX6S L53qD8/2yq57kvxRknuXPClgf67MaSJO9vYSzZuTvDrJw8uaEbAv70ryT2f6gDOtkRfdlOTxGT/a gfX5VMZTTWd8Fulsa+RFR5N8LMkLDzEpYO++m+TXk9x2tg/cT8hJ8uQkn09y4QEmBezdj5O8KMl1 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 giAZL5sAAAAASUVORK5CYII= "
+       id="image3949"
+       x="284.34006"
+       y="-252.69969"
+       transform="matrix(0.00234705,0.99999725,-0.99999997,2.2425449e-4,0,0)"
+       style="fill:#c1c838;fill-opacity:0.97183096;opacity:1;fill-rule:evenodd"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <image
+       style="fill:#c1c838;fill-opacity:0.97183096;fill-rule:evenodd"
+       transform="matrix(0.00234705,0.99999725,-0.99999997,2.2425449e-4,0,0)"
+       y="-252.62019"
+       x="318.19138"
+       id="image4024"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAJXCAYAAACpJgnQAAAABHNCSVQICAgIfAhkiAAAEHtJREFU eJzt3V+oJFZhx/HfdsNSgya1IiWQ0hRiq9ZKtRWtpLbW2uTBWqhiMW0tETRIC1qoPogIVXypFAK+ hBZSH6oV1IemShXRUhOtYuOfRhKt2lijiRgTTIIbs+ZPH04gk3X/3D8zc2Z+8/nAYZPde2fOnTvf vXtm5pxJgK13ZPYEdtzHZk9gBf4qyZdnT2LXnDN7Ajvu92ZPYAV+ZvYEdtFPzZ4AcHhChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgLnLPz3ryT56VkTocYvJ7lv 9iR2zI1HFv7niiTXzJoJcCDvTnLF0YXf+GKSC5L8xpTpAPv1hSQvT/LjIyf9wbEk1yd5ztqnBOzH XRk/dG9JfvLBrhNJXpbkjjVPCti7B5P8SR6JODn1o9a3JnnlIx8MbJ63JfnI4m8cPc0H3pLkR0le vOoZAfvyoSSvO/k3Txdyknw6yTOSPH1VMwL25RtJLsv4IfsYJz/YdbLzknw2yVNXMClg744neX6S L53qD8/2yq57kvxRknuXPClgf67MaSJO9vYSzZuTvDrJw8uaEbAv70ryT2f6gDOtkRfdlOTxGT/a gfX5VMZTTWd8Fulsa+RFR5N8LMkLDzEpYO++m+TXk9x2tg/cT8hJ8uQkn09y4QEmBezdj5O8KMl1 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 giAZL5sAAAAASUVORK5CYII= "
+       height="39.322651"
+       width="4.0261736"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <image
+       width="6.6720576"
+       height="23.728983"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAJXCAYAAACpJgnQAAAABHNCSVQICAgIfAhkiAAAEHtJREFU eJzt3V+oJFZhx/HfdsNSgya1IiWQ0hRiq9ZKtRWtpLbW2uTBWqhiMW0tETRIC1qoPogIVXypFAK+ hBZSH6oV1IemShXRUhOtYuOfRhKt2lijiRgTTIIbs+ZPH04gk3X/3D8zc2Z+8/nAYZPde2fOnTvf vXtm5pxJgK13ZPYEdtzHZk9gBf4qyZdnT2LXnDN7Ajvu92ZPYAV+ZvYEdtFPzZ4AcHhChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgLnLPz3ryT56VkTocYvJ7lv 9iR2zI1HFv7niiTXzJoJcCDvTnLF0YXf+GKSC5L8xpTpAPv1hSQvT/LjIyf9wbEk1yd5ztqnBOzH XRk/dG9JfvLBrhNJXpbkjjVPCti7B5P8SR6JODn1o9a3JnnlIx8MbJ63JfnI4m8cPc0H3pLkR0le vOoZAfvyoSSvO/k3Txdyknw6yTOSPH1VMwL25RtJLsv4IfsYJz/YdbLzknw2yVNXMClg744neX6S L53qD8/2yq57kvxRknuXPClgf67MaSJO9vYSzZuTvDrJw8uaEbAv70ryT2f6gDOtkRfdlOTxGT/a gfX5VMZTTWd8Fulsa+RFR5N8LMkLDzEpYO++m+TXk9x2tg/cT8hJ8uQkn09y4QEmBezdj5O8KMl1 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 giAZL5sAAAAASUVORK5CYII= "
+       id="image4033"
+       x="302.362"
+       y="325.259"
+       transform="matrix(0.99999342,-0.00362727,0.00823007,0.99996613,0,0)"
+       style="fill:#c1c838;fill-opacity:0.97183096;fill-rule:evenodd"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <image
+       style="fill:#c1c838;fill-opacity:0.97183096;fill-rule:evenodd"
+       transform="matrix(0.99999342,-0.00362727,0.00823007,0.99996613,0,0)"
+       y="325.57822"
+       x="390.33197"
+       id="image4035"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAJXCAYAAACpJgnQAAAABHNCSVQICAgIfAhkiAAAEHtJREFU eJzt3V+oJFZhx/HfdsNSgya1IiWQ0hRiq9ZKtRWtpLbW2uTBWqhiMW0tETRIC1qoPogIVXypFAK+ hBZSH6oV1IemShXRUhOtYuOfRhKt2lijiRgTTIIbs+ZPH04gk3X/3D8zc2Z+8/nAYZPde2fOnTvf vXtm5pxJgK13ZPYEdtzHZk9gBf4qyZdnT2LXnDN7Ajvu92ZPYAV+ZvYEdtFPzZ4AcHhChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgLnLPz3ryT56VkTocYvJ7lv 9iR2zI1HFv7niiTXzJoJcCDvTnLF0YXf+GKSC5L8xpTpAPv1hSQvT/LjIyf9wbEk1yd5ztqnBOzH XRk/dG9JfvLBrhNJXpbkjjVPCti7B5P8SR6JODn1o9a3JnnlIx8MbJ63JfnI4m8cPc0H3pLkR0le vOoZAfvyoSSvO/k3Txdyknw6yTOSPH1VMwL25RtJLsv4IfsYJz/YdbLzknw2yVNXMClg744neX6S L53qD8/2yq57kvxRknuXPClgf67MaSJO9vYSzZuTvDrJw8uaEbAv70ryT2f6gDOtkRfdlOTxGT/a gfX5VMZTTWd8Fulsa+RFR5N8LMkLDzEpYO++m+TXk9x2tg/cT8hJ8uQkn09y4QEmBezdj5O8KMl1 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 giAZL5sAAAAASUVORK5CYII= "
+       height="23.728983"
+       width="6.6720576"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <image
+       width="6.6720576"
+       height="23.728983"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAJXCAYAAACpJgnQAAAABHNCSVQICAgIfAhkiAAAEHtJREFU eJzt3V+oJFZhx/HfdsNSgya1IiWQ0hRiq9ZKtRWtpLbW2uTBWqhiMW0tETRIC1qoPogIVXypFAK+ hBZSH6oV1IemShXRUhOtYuOfRhKt2lijiRgTTIIbs+ZPH04gk3X/3D8zc2Z+8/nAYZPde2fOnTvf vXtm5pxJgK13ZPYEdtzHZk9gBf4qyZdnT2LXnDN7Ajvu92ZPYAV+ZvYEdtFPzZ4AcHhChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgLnLPz3ryT56VkTocYvJ7lv 9iR2zI1HFv7niiTXzJoJcCDvTnLF0YXf+GKSC5L8xpTpAPv1hSQvT/LjIyf9wbEk1yd5ztqnBOzH XRk/dG9JfvLBrhNJXpbkjjVPCti7B5P8SR6JODn1o9a3JnnlIx8MbJ63JfnI4m8cPc0H3pLkR0le vOoZAfvyoSSvO/k3Txdyknw6yTOSPH1VMwL25RtJLsv4IfsYJz/YdbLzknw2yVNXMClg744neX6S L53qD8/2yq57kvxRknuXPClgf67MaSJO9vYSzZuTvDrJw8uaEbAv70ryT2f6gDOtkRfdlOTxGT/a gfX5VMZTTWd8Fulsa+RFR5N8LMkLDzEpYO++m+TXk9x2tg/cT8hJ8uQkn09y4QEmBezdj5O8KMl1 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 giAZL5sAAAAASUVORK5CYII= "
+       id="image4037"
+       x="459.17804"
+       y="325.82803"
+       transform="matrix(0.99999342,-0.00362727,0.00823007,0.99996613,0,0)"
+       style="fill:#c1c838;fill-opacity:0.97183096;fill-rule:evenodd"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="147.90054"
+       y="370.69846"
+       id="text4039"
+       sodipodi:linespacing="125%"
+       transform="scale(1.28732,0.77680762)"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4041"
+         x="147.90054"
+         y="370.69846">Esc</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="118.2451"
+       y="414.04102"
+       id="text4043"
+       sodipodi:linespacing="125%"
+       transform="scale(1.28732,0.77680762)"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4045"
+         x="118.2451"
+         y="414.04102">Control_L</tspan></text>
+    <text
+       transform="scale(1.28732,0.77680763)"
+       sodipodi:linespacing="125%"
+       id="text4047"
+       y="455.63779"
+       x="222.23669"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="455.63779"
+         x="222.23669"
+         id="tspan4049"
+         sodipodi:role="line">Space</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="288.09799"
+       y="457.12341"
+       id="text4051"
+       sodipodi:linespacing="125%"
+       transform="scale(1.28732,0.77680763)"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4053"
+         x="288.09799"
+         y="457.12341">Control_R</tspan></text>
+    <text
+       transform="scale(1.28732,0.77680763)"
+       sodipodi:linespacing="125%"
+       id="text4059"
+       y="455.14258"
+       x="349.00757"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="455.14258"
+         x="349.00757"
+         id="tspan4061"
+         sodipodi:role="line">Delete</tspan></text>
+    <text
+       transform="scale(1.28732,0.77680763)"
+       sodipodi:linespacing="125%"
+       id="text4063"
+       y="355.27219"
+       x="219.62918"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="355.27219"
+         x="219.62918"
+         id="tspan4065"
+         sodipodi:role="line">F2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="254.78824"
+       y="355.27219"
+       id="text4067"
+       sodipodi:linespacing="125%"
+       transform="scale(1.28732,0.77680763)"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4069"
+         x="254.78824"
+         y="355.27219">F6</tspan></text>
+    <text
+       transform="scale(1.28732,0.77680763)"
+       sodipodi:linespacing="125%"
+       id="text4078"
+       y="355.27219"
+       x="295.39462"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="355.27219"
+         x="295.39462"
+         id="tspan4080"
+         sodipodi:role="line">F11</tspan></text>
+    <image
+       style="fill:#c1c838;fill-opacity:0.97183096;fill-rule:evenodd"
+       transform="matrix(-0.99999079,0.0042926,-0.01005706,-0.99994943,0,0)"
+       y="-281.02185"
+       x="-473.76654"
+       id="image4168"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAJXCAYAAACpJgnQAAAABHNCSVQICAgIfAhkiAAAEHtJREFU eJzt3V+oJFZhx/HfdsNSgya1IiWQ0hRiq9ZKtRWtpLbW2uTBWqhiMW0tETRIC1qoPogIVXypFAK+ hBZSH6oV1IemShXRUhOtYuOfRhKt2lijiRgTTIIbs+ZPH04gk3X/3D8zc2Z+8/nAYZPde2fOnTvf vXtm5pxJgK13ZPYEdtzHZk9gBf4qyZdnT2LXnDN7Ajvu92ZPYAV+ZvYEdtFPzZ4AcHhChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJC hgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgJChgLnLPz3ryT56VkTocYvJ7lv 9iR2zI1HFv7niiTXzJoJcCDvTnLF0YXf+GKSC5L8xpTpAPv1hSQvT/LjIyf9wbEk1yd5ztqnBOzH XRk/dG9JfvLBrhNJXpbkjjVPCti7B5P8SR6JODn1o9a3JnnlIx8MbJ63JfnI4m8cPc0H3pLkR0le vOoZAfvyoSSvO/k3Txdyknw6yTOSPH1VMwL25RtJLsv4IfsYJz/YdbLzknw2yVNXMClg744neX6S L53qD8/2yq57kvxRknuXPClgf67MaSJO9vYSzZuTvDrJw8uaEbAv70ryT2f6gDOtkRfdlOTxGT/a gfX5VMZTTWd8Fulsa+RFR5N8LMkLDzEpYO++m+TXk9x2tg/cT8hJ8uQkn09y4QEmBezdj5O8KMl1 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 giAZL5sAAAAASUVORK5CYII= "
+       height="23.729235"
+       width="6.6720271"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:9.9039669px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="355.02753"
+       y="325.21527"
+       id="text4170"
+       sodipodi:linespacing="125%"
+       transform="scale(1.28732,0.77680763)"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/teclado.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan4172"
+         x="355.02753"
+         y="325.21527">Saída USB</tspan></text>
+  </g>
+</svg>

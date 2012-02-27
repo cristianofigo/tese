@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="tabela_cenario.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="260.41924"
+     inkscape:cy="815.62519"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1038"
+     inkscape:window-height="723"
+     inkscape:window-x="1"
+     inkscape:window-y="51"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0.3;fill:#fd1015;fill-opacity:0.98939933;stroke:#000000;stroke-opacity:1"
+       id="rect2985"
+       width="500"
+       height="34.285713"
+       x="62.857143"
+       y="143.79076"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:44.04855728px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="62.571899"
+       y="173.33269"
+       id="text2987"
+       sodipodi:linespacing="125%"
+       transform="scale(0.98000601,1.0204019)"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan2989"
+         x="62.571899"
+         y="173.33269">0</tspan></text>
+    <text
+       transform="scale(0.98000601,1.0204019)"
+       sodipodi:linespacing="125%"
+       id="text2991"
+       y="173.33269"
+       x="549.44952"
+       style="font-size:44.04855728px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="173.33269"
+         x="549.44952"
+         id="tspan2993"
+         sodipodi:role="line">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="185.71428"
+       y="163.07646"
+       id="text2995"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan2997"
+         x="185.71428"
+         y="163.07646">Índice de estabilidade rítmica em 8 durações</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text2999"
+       y="137.17143"
+       x="535.18817"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="137.17143"
+         x="535.18817"
+         id="tspan3001"
+         sodipodi:role="line">estável</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="62.398094"
+       y="137.25809"
+       id="text3003"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3005"
+         x="62.398094"
+         y="137.25809">instável</tspan></text>
+    <rect
+       style="opacity:0.3;fill:#fd1015;fill-opacity:0.98939933;stroke:#000000;stroke-width:1.04868853;stroke-opacity:1"
+       id="rect3026"
+       width="52.857143"
+       height="43.98991"
+       x="518.42859"
+       y="312.64789"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       y="314.64792"
+       x="424.14285"
+       height="43.213615"
+       width="52.857143"
+       id="rect3028"
+       style="opacity:0.3;fill:#fd1015;fill-opacity:0.98939933;stroke:#000000;stroke-width:1.03939426;stroke-opacity:1"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       style="opacity:0.3;fill:#fd1015;fill-opacity:0.98939933;stroke:#000000;stroke-opacity:1"
+       id="rect3030"
+       width="52.857143"
+       height="40"
+       x="279.85715"
+       y="318.93362"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       y="318.93362"
+       x="138.42854"
+       height="40"
+       width="52.857143"
+       id="rect3032"
+       style="opacity:0.3;fill:#fd1015;fill-opacity:0.98939933;stroke:#000000;stroke-opacity:1"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       style="fill:#040000;fill-opacity:0.98939933;stroke:#000000;stroke-width:0.23414098;stroke-opacity:1"
+       id="rect3034"
+       width="0.11747571"
+       height="50.714287"
+       x="495.71429"
+       y="144.50504"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       y="143.99995"
+       x="528.3006"
+       height="50.714287"
+       width="0.11747571"
+       id="rect3804"
+       style="fill:#040000;fill-opacity:0.98939933;stroke:#000000;stroke-width:0.23414098;stroke-opacity:1"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="481.84277"
+       y="207.36958"
+       id="text3806"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3808"
+         x="481.84277"
+         y="207.36958">0.9</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3810"
+       y="207.36958"
+       x="513.31738"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="207.36958"
+         x="513.31738"
+         id="tspan3812"
+         sodipodi:role="line">0.95</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="518.05804"
+       y="306.4606"
+       id="text3814"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3816"
+         x="518.05804"
+         y="306.4606">gerador 0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="519.0885"
+       y="340.7652"
+       id="text3818"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3820"
+         x="519.0885"
+         y="340.7652">imitativo</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3822"
+       y="308.74634"
+       x="422.91516"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="308.74634"
+         x="422.91516"
+         id="tspan3824"
+         sodipodi:role="line">gerador 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20.08084679px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="165.82028"
+       y="379.26492"
+       id="text3826"
+       sodipodi:linespacing="125%"
+       transform="scale(0.94967546,1.0529913)"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3828"
+         x="165.82028"
+         y="379.26492">Geradores de durações rítmicas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="423.21399"
+       y="337.10239"
+       id="text3830"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3832"
+         x="423.21399"
+         y="337.10239">baseado</tspan><tspan
+         sodipodi:role="line"
+         x="423.21399"
+         y="352.10239"
+         id="tspan3834">na</tspan><tspan
+         sodipodi:role="line"
+         x="423.21399"
+         y="367.10239"
+         id="tspan3836">probabilidade</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="280.34961"
+       y="313.69559"
+       id="text3838"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3840"
+         x="280.34961"
+         y="313.69559">gerador 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="279.33948"
+       y="333.89862"
+       id="text3842"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3844"
+         x="279.33948"
+         y="333.89862">movimento</tspan><tspan
+         sodipodi:role="line"
+         x="279.33948"
+         y="348.89862"
+         id="tspan3846">de brown</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3848"
+       y="315.71588"
+       x="138.88039"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="315.71588"
+         x="138.88039"
+         id="tspan3850"
+         sodipodi:role="line">gerador 3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       x="137.41347"
+       y="336.92911"
+       id="text3852"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         sodipodi:role="line"
+         id="tspan3854"
+         x="137.41347"
+         y="336.92911">randômico</tspan></text>
+    <rect
+       style="fill:#040000;fill-opacity:0.98939933;stroke:#000000;stroke-width:0.94792849;stroke-opacity:1"
+       id="rect3856"
+       width="2.5673382"
+       height="91.428574"
+       x="552.85718"
+       y="196.6479"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       y="62.182957"
+       x="537.37244"
+       height="90.668045"
+       width="2.2897413"
+       id="rect3858"
+       style="fill:#040000;fill-opacity:0.98939933;stroke:#000000;stroke-width:0.8914836;stroke-opacity:1"
+       transform="matrix(0.9649274,0.26251687,-0.1678104,0.98581929,0,0)"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       y="196.6479"
+       x="298.85718"
+       height="91.428574"
+       width="2.5673382"
+       id="rect3860"
+       style="fill:#040000;fill-opacity:0.98939933;stroke:#000000;stroke-width:0.94792849;stroke-opacity:1"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       style="fill:#040000;fill-opacity:0.98939933;stroke:#000000;stroke-width:0.94792849;stroke-opacity:1"
+       id="rect3862"
+       width="2.5673382"
+       height="91.428574"
+       x="168.85718"
+       y="196.6479"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       transform="scale(0.94967546,1.0529913)"
+       sodipodi:linespacing="125%"
+       id="text3864"
+       y="109.55711"
+       x="167.92627"
+       style="font-size:20.08084679px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Lucida Sans;-inkscape-font-specification:Lucida Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/livre/cristiano-doutorado/tese/tabela_cenario.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         y="109.55711"
+         x="167.92627"
+         id="tspan3866"
+         sodipodi:role="line">Análise da performance musical</tspan></text>
+  </g>
+</svg>
