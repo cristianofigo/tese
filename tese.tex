@@ -1,4 +1,8 @@
-\documentclass[draft]{ppgmus}
+%% aspas é assim ``bababba''
+%% marcos 88970158
+
+%\documentclass[draft]{ppgmus}
+\documentclass{ppgmus}
 \usepackage{textcomp}
 \usepackage{kchicago}
 \interfootnotelinepenalty=10000
@@ -198,6 +202,12 @@ e o processamento de blocos de áudio.
 
 \subsection{Composição e Programação}
   
+
+% Se estabeleceu que o objetivo é encontrar
+% uma intersecção entre os procedimentos de pesquisa em computação musical e 
+% a poética composicional.
+
+
 O paradigma composicional no Csound\footnote{Csound é um ambiente de programação
 sonora open-source e baseado na linguagem C - www.csounds.com} pode ser visto como semelhante ao
 trabalho tradicional do compositor que descreve eventos através de
@@ -426,7 +436,7 @@ emissão eletroacústica, se se opera ao vivo uma dinamização espacial, harmô
 , tímbrica e temporal da escritura instrumental ou se será defronte de
 estruturas pré-elaboradas em estúdio, constituidas a partir dos próprios
 instrumentos ou a estes timbricamente correlatas. Em relação a proveniência
-sonora, quanto mais "confuso" estiver o ouvinte em face daquilo que
+sonora, quanto mais ``confuso'' estiver o ouvinte em face daquilo que
 o ouve, tanto mais ele sentirá como efetivamente integradas as partes
 constitutivas da obra mista; os "dois planos" pressupostamente independentes
 e unidos apenas por contingência, aos quais os críticos da música mista
@@ -642,7 +652,11 @@ contém 3 padrões rítmicos apresentados 3 vezes com  andamento diferentes. No 
 altera o andamento, as redes continuam a detectar os padrões, porque durante a fase de treinamento os padrões foram 
 apresentados diversas vezes em andamentos diferentes.
 
-
+Nessa fase inicial, a implementação do reconhecimento de padrões tem gerado uma série de 
+questões como: Qual o tamanho e quantas melodias/motivos quero que o programa reconheça? O programa 
+deve fazer um reconhecimento estrito ou pode realizar uma classificação de aproximação ou 
+similaridades? As melodias/motivos terão um tamanho fixo de notas ou tempo, ou serão variáveis? 
+O que acontece se um motivo curto é um sub-conjunto de um motivo maior?
 
 
 
@@ -1865,8 +1879,15 @@ niques which won't place an unacceptable computa-
 tional load on a late-model computer.
 \end{quotation}
 
+\begin{figure}
+\includegraphics[scale=.5]{bonks}
+\caption{Métodos de análise de amplitude}
+\label{bonks} 
+\end{figure}
+
+
 No Pd, outros objetos possibilitam a análise da amplitude,
-na figura XXX vemos 3 métodos. O objeto [env\texttildelow]
+na figura \ref{bonks} vemos 3 métodos. O objeto [env\texttildelow]
 retorna o valor de amplitude de um sinal em RMS. O objeto
 [sigmund\texttildelow] pode mapear a amplitude com a opção
 "env".
@@ -1901,7 +1922,7 @@ Na área 5 vemos o objeto [env\texttildelow]. Esse objeto recebe um sinal de áu
 e retorna a amplitude RMS em decibéis (com o valor 1 normalizado para 100 dB).
 A saída tem o limite inferior em zero. O algoritmo de análise interna de [env\texttildelow]
 usa uma janela de análise do tipo "Hanning" (raised cosine). Uma boa aplicação de 
-[env\texttildelow] é mandando o resultado da saída para o objeto [dbtorms] que transforma
+[env\texttildelow] é enviar o resultado da saída para o objeto [dbtorms] que transforma
 os valores em decibéis em uma escala linear, que é uma distribuição melhor para vizualização
 gráfica da variação de amplitude.
 
@@ -2615,7 +2636,18 @@ para o programa Rosegarden, usando conexão midi do programa Jack.
 % 
 % Objetivo da abstração: salvar o midi com a entrada e o gerador em um arquivo .midi
 
+\begin{figure}
+\includegraphics[scale=.5]{sinc-midiin}
+\caption{Objeto [sinc-midiin]}
+\label{sinc-midiin}
+\end{figure}
 
+
+\begin{figure}
+\includegraphics[scale=.5]{sinc-midiin-help}
+\caption{Exemplo de funcionamento de [sinc-midiin]}
+\label{sinc-midiin-help}
+\end{figure}
 
 
 Foi desenvolvida uma abstração que facilita a leitura e escrita dos dados MIDI. É baseada no
@@ -2989,23 +3021,104 @@ bla bla bla
 
 \subsubsection{Gerador de amplitude baseado em variação}
 
+
 \subsubsection{Movimento browniano como gerador de amplitude}
+
 
 \subsubsection{Amplitude polifônica}
 
+conceito de orquestração
 
 \subsection{Harmonizador automático}
 
+
+Essa seção tem como objetivo apresentar possibilidades de harmonização automática em tempo-real.
+Onde o sistema tendo o conhecimento da linha melódica criada instantaneamente pelo músico, consegue
+harmonizar essa linha melódica.
+
+Uma extensa bibliografia tem sido desenvolvida nos últimos 30 anos sobre o tema da harmonização automática.
+Muitas empresas subsidiam a pesquisa nesse tema com o objetivo de produzir produtos comerciais que realizem
+harmonização automática de maneira satisfatória para o usuário final. Esse processo vem acumulando patentes
+de algoritmos de harmonização por parte de companhias fabricantes de teclados e desenvolvedoras de programas comerciais
+de produção musical. Um exemplo é o programa ``Band-in-a-Box'' que realiza harmonizações de acordo com
+a análise prévia de estilos. Nesse caso a harmonização não é feita em tempo-real e tem como finalidade
+o exercício musical caseiro de criação melódica sobre harmonizações de diferentes estilos.
+Outro exemplo são as harmonizações automáticas de teclados comerciais populares, onde o usuário escolhe
+a tonalidade manualmente e um programa interno realiza uma harmonização tonal, simples, mas muitas vezes 
+satisfatória para certos estilos de música.
+
+%% colocar na bibliografia os pdf's em ~/cristiano-doutorado/mat_tese/biblio_harmoniza
+
+Ching-Hua Chuan define em sua tese, um sistema de harmonização que leva em conta parâmetros
+de análise de cada nota presente em um fluxo melódico, como duração, duração das notas anteriores, número
+de ocorrências de determinado pitch class ao longo da melodia, direcionalide melódica e diversos outros
+parâmetros. Por fim, expõe um modelo de acompanhamento harmônico e obtém um resultado positivo ao apresentar
+o sistema acompanhando canções populares.
+
+Matt Hanlon e Tim Ledlie apresentam um sistema de harmonização de corais a quatro vozes no estilo de Bach.
+A composição da progressão harmônica é implementada com um modelo estatístico de cadeias de Markov
+(Hidden Markov Model), e deriva na solução da harmonia através da solução de problemas
+de satisfação restrita (constraint satisfaction problem).Após
+essa etapa é feita a realização da progressão em linhas melódicas para quatro vozes
+
+Uma implementação bem detalhada de um harmonizador automático que faz uso de
+ regras de harmonia tradicional é descrita na patente Norte-Americana 
+US 7,189,914 B2  assinada por Allan John Mack. O harmonizador inicia
+na primeira nota da melodia e de acordo com a escala e modo providos
+pelo usuário, o sistema escolhe uma especificação de acorde dentre
+as especificações estocadas em memória, que podem ser definidas pelo usuário
+e são estocadas em arrays lidos pelo programa em tempo-real.
+Nessa implementação, uma série enorme de regras de sequência harmônica e 
+condução de vozes são definidas baseadas em regras comuns a diversos cursos
+de harmonia tradicional, como evitar 5ªs e 8ªs paralelas e progressões
+``proibidas'' (I - ii - iii , por exemplo).
+
+Um aspecto complexo das regras de harmonia tradicional é que as regras
+de condução das vozes se misturam de forma iterativa com as regras de
+progressão harmônica. Na descrição da patente, o autor exibe trechos do sistema em pseudo-código,
+mostrando a maneira como a sequência harmônica influencia na condução vocal e vice-versa,
+e o nível de detalhamento do projeto:
+
+\begin{verbatim}
+VI to V progression
+if the preceding and current chords are at their root positions then
+  if the preceding chord is of dominant root then
+    if the preceding chord is a triad in a minor key or a seventh in a 
+      major key then
+      if the current chord is a submediant triad then
+	if the preceding chord has no seventh and no fifth then rule 361 fails
+	if the third of the current chord has no double then rule 386 fails
+      end if
+    end if
+   else if the current chord is a dominant triad then
+    if the previous chord is a submediant triad in a minor key then
+      if the current chord has no fifth then rule 361 fails
+      if the third of the previous chord has no double then rule 386 fails
+    end if
+  end if
+end if
+\end{verbatim}
+
+Dentro do escopo de SInCoPA, foram desenvolvidos alguns métodos de harmonização
+melódica para uso composicional.
+Pode-se pensar em relações não-usuais de parâmetros
+como amplitude e densidade rítmica como controladores de 
+comportamento de harmonizadores. 
+Um dos objetivos é a flexibilidade e modularidade da implementação
+de harmonizadores que possibilite novas relações e ``regras'' de
+interação do músico humano com a dimensão harmônica da
+composição. 
+
+
 \subsubsection{Nota pertence ao acorde}
+
 %% antigo::
 
+Nessa técnica foi definido que a maior exigência será que o acorde contenha a nota que está sendo
+tocada pelo músico e harmonizada pelo computador. 
+Para isso são expostas 2 possibilidades de harmonização automática, com resultados distintos.
 
-O protótipo 2 tem como objetivo apresentar possibilidades de harmonização automática em tempo-real,
-onde o sistema tendo o conhecimento da linha melódica criada instantaneamente pelo músico, consegue
-harmonizar essa linha melódica, tendo como a maior exigência que o acorde contenha a nota que está sendo
-tocada. Para isso são expostas 4 possibilidades de harmonização automática, com resultados distintos.
-
-No patch da figura \ref{harm1}  temos a célula básica do harmonizador diatônico (modo 1)
+No patch da figura \ref{harm1}  temos a célula básica do harmonizador diatônico 
  usado no protótipo. 
 O objeto [receive fiddle] recebe o fluxo de notas e o objeto [decide], escolhe 
 randomicamente quais notas vão ser harmonizadas, e manda sua decisão para o objeto 
@@ -3050,7 +3163,7 @@ enarmônica de mediante cromática.
 
 Apesar de muitas vezes os acordes gerados pelo harmonizador diatônico possuírem uma relação 
 cromática, todos os acordes gerados são tríades maiores ou menores. Para criar um contraste 
-criei um harmonizador de acordes alterados que está na figura \ref{harm4}. Nesse harmonizador todas notas 
+foi criado um harmonizador de acordes alterados que está na figura \ref{harm4}. Nesse harmonizador todas notas 
 que entram são tônicas e todas são harmonizadas. 
 	A escolha do acorde para cada nota é feito através de distribuição de probabilidade, 
 arranjado com o objeto [moses]. Quando uma nota entra, ela gera randomicamente um número de 0 
@@ -3059,7 +3172,7 @@ possíveis nesse patch : aumentado com 7ª menor, alterado com 5ª diminuta (6ª
 menor com sétima maior ou maior com sétima maior. Cada uma das quatro tétrades tem 25 por cento 
 de probabilidade de aparecer. Cada membro dos acordes é endereçado a um gerador de síntese aditiva 
 com amplitude bem baixa. Em função da amplitude bem baixa do harmonizador de acordes alterados, o 
-resultado funciona mais como uma textura dissonante do que como um harmonizador de fato.
+resultado funciona bem como uma textura dissonante .
 
 % ainda falar dos modos 3 e 4 
 
@@ -3075,32 +3188,90 @@ O objetivo é a investigação de possibilidades e prototipação de estruturas 
 objetivo de agregar interatividade ao trabalho composicional.  
 	Apesar desses harmonizadores terem sido usados nessa peça para interação com áudio em 
 tempo-real, podem ser muito úteis como geradores de material escrito em notação tradicional, 
-como mostra a figura 6. Esta imagem mostra o patch de Pd mandando as informações para o programa 
+como mostra a figura \ref{harm5}. Esta imagem mostra o patch de Pd mandando as informações para o programa 
 de notação Rosegarden através do programa Jack que funciona como um servidor de comunicação entre 
 programas.Esse tipo de operação possibilita uma usabilidade do Pd semelhante ao programa Open-music 
 do Ircam.
 
-O próximo passo da pesquisa será a implementação de reconhecimento de padrões de uma performance. 
-Isso será feito com a estocagem das notas de entrada criando assim uma base de dados local temporária
-com os objetos [serialize] e [coll] e analisando essa base de dados com redes neurais artificiais 
-(objeto [ann]). Isso possibilitará que o programa aprenda padrões melódicos e crie estruturas a 
-partir dessa aprendizagem.
-	Nessa fase inicial, a implementação do reconhecimento de padrões tem gerado uma série de 
-questões como: Qual o tamanho e quantas melodias/motivos quero que o programa reconheça? O programa 
-deve fazer um reconhecimento estrito ou pode realizar uma classificação de aproximação ou 
-similaridades? As melodias/motivos terão um tamanho fixo de notas ou tempo, ou serão variáveis? 
-O que acontece se um motivo curto é um sub-conjunto de um motivo maior?
-
-
-
-
 
 \subsubsection{Acorde pertence a coleção de notas}
 
+\begin{figure}
+\includegraphics[scale=.4]{harm-colecao}
+\caption{Resultado de harmonizador automático com acordes pertecentes a coleção de notas tocadas}
+\label{harm-colecao}
+\end{figure}
 
+\begin{figure}
+\includegraphics[scale=.4]{harm6}
+\caption{Patch que harmoniza de acordo com as notas executadas pelo músico estocadas em um array}
+\label{harm6}
+\end{figure}
 
+Nesse patch é implementado um harmonizador simples,onde a sequência dos acordes e
+a condução vocal é totalmente randômica. A única regra é que as notas usadas na composição
+dos acordes tenham sido tocadas pelo músico.
 
+\subsubsection{Sequência baseada em regras}
 
+% \begin{figure}
+% \includegraphics[scale=.4]{harm6}
+% \caption{Patch que harmoniza de acordo com as notas executadas pelo músico estocadas em um array}
+% \label{harm6}
+% \end{figure}
+% fazer a imagem baseada em [sinc-chordseq]
+
+\begin{figure}
+\includegraphics[scale=.4]{sinc-chord}
+\caption{abstração [sinc-chord] para criação de cada acorde }
+\label{sinc-chord}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{sinc-chord-list}
+\caption{Abstração [sinc-chord-list] para listagem de diversos acordes}
+\label{sinc-chord-list}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{harm-markov}
+\caption{Exemplo de harmonizador baseado em cadeia de markov}
+\label{harm-markov}
+\end{figure}
+
+Para implementação de regras mais refinadas de progressão harmônica foi desenvolvida uma
+estrutura de decisão baseada em uma cadeia de markov. Para isso foi definida uma
+estrutura de prototipação e definição de possíveis acordes de escolha pelos estados
+da cadeia de markov.
+
+A abstração [sinc-chord] vista na figura \ref{sinc-chord}, recebe uma variável global
+``tonalidade'',  que varia de 0 a 127. Essa variável funciona como o elemento 0 na definição
+do acorde. A definição do acorde é dada por quatro parâmetros definidos em cada instância
+de [sinc-chord]. Por exemplo, se a variável ``tonalidade'' for definida como 60 (dó), uma instância 
+definida como [sinc-chord 0 3 5 10] gera o acorde dó-mib-sol-sib (60 63 65 70).
+A primeira saída é como mensagem MIDI, enviada a algum sintetizador externo, definida numa sequência
+de objetos [poly], [pack 0 0 0] e [route 1 2 3 4]. Outra saída é uma lista com os quatro valores
+de pitch do acorde, enviado por outlet para uso interno no Pd.
+
+A partir da definição de [sinc-chord], foi feito um protótipo de listagem de acordes
+possíveis em [sinc-chord-list], visto na figura \ref{sinc-chord-list}. Na figura vemos
+um objeto [select] principal que recebe a variável global ``novo\_acorde'' que aciona as instâncias
+de cada tipo de acorde especificados pelo objeto [sinc-chord] correspondente.
+
+A ordem de cada acorde na progressão é definido na figura \ref{harm-markov}.
+A estrutura de decisão é baseada em uma cadeia de markov com três estados e 
+nove possibilidades de resultado. Cada estado representa uma das três principais
+funções tonais (tônica, sub-dominante e dominante). Dentro de cada estado foram definidas
+algumas probabilidades de ocorrência de acordes. Por exemplo, se o acorde ``V'' 
+for selecionado, a variável global ``state'' será enviada com o símbolo ``dominante'' e o próximo
+acorde será com 70\% de chance ``vi'', 10\% ``IV'' e 20\% ``vii''. O resultado da escolha 
+é enviada com a variável global ``novo\_acorde'' para [sinc-chord-list] para executar o
+acorde escolhido.
+
+O próximo passo da pesquisa em harmonização será criar um mecanismo que analise progressões
+ e retorne as probabilidades de ocorrência que poderão mudar automaticamente as probabilidades
+da cadeia de markov, alterando os valores dos objetos [moses], criando assim, novas relações
+de probabilidade de progressão harmônica.
 
 \pagebreak
 
@@ -3126,6 +3297,8 @@ Cada gerador tem métodos e comportamentos diferentes.
 "Message operations are executed at the beginning of each pass of audio
 block processing, so a patch where audio depends on message operations
 which don't complete in time will also fail to produce correct output."
+
+aqui falar do uso de [switch\texttildelow] - (colocar nos patchs tb)
 
 (Farnell, pg. 185)
 
@@ -4039,6 +4212,40 @@ de sequências automatizadas com parâmetros definidos pela análise da performa
 
 %%Falar sobre biblioteca mapping e Modelagem física
 
+\subsection{mapping}
+
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping1}
+\caption{mapping1}
+\label{mapping1}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping2}
+\caption{mapping2}
+\label{mapping2}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping3}
+\caption{mapping3}
+\label{mapping3}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping4}
+\caption{mapping4}
+\label{mapping4}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping5}
+\caption{mapping5}
+\label{mapping5}
+\end{figure}
+
+
 
 \subsection{[sinc-cenario]}
 
@@ -4591,25 +4798,31 @@ conceito combinando dados e manipuladores desses dados.
 
 Instâncias concretas de uma classe são chamados {\em objetos}.
 
-\subsubsection{internals, externals und libraries}
+\subsubsection{internals, externals e libraries}
 
-To avoid confusion of ideas, the expressions {\em internal}, {\em external} and
-{\em library} should be explained here.
+Para evitar confusão de idéias, as expressões {\em internal}, {\em external} e
+{\em library}\footnote{{\em library} aqui não é traduzida como ``biblioteca'' 
+para não confundir com o termo biblioteca que vem sendo usado como um grupo
+de abstrações (uma ``biblioteca de abstrações'' tal qual o presente projeto
+SInCoPA.}, serão explicadas aqui.
 
 \paragraph{Internal}
-An {\em internal} is a class that is built into Pd.
-Plenty of primitives, such as ``+'', ``pack'' or ``sig\~\/'' are {\em internals}.
+Um {\em internal} é uma classe que é construída dentro do Pd.
+A maioria das primitivas, como ``+'', ``pack'' ou ``sig\~\/'' são {\em internals}. 
+
 
 \paragraph{External}
-An {\em external} is a class that is not built into Pd but is loaded at runtime.
-Once loaded into Pd's memory, {\em externals} cannot be distinguished from
-{\em internals} any more.
+Um {\em external} é uma classe que não é construída internamente com o Pd, mas 
+é carregada em tempo de execução.
+
+Uma vez carregados na memória do Pd, {\em externals} não podem mais ser distinguidos
+de {\em internals} .
 
 \paragraph{Library}
-A {\em library} is a collection of {\em externals} that are compiled into a 
-single binary-file.
+Uma{\em library} é uma coleção de {\em externals} que são compilados em um único
+arquivo binário.
 
-{\em Library}-files have to follow a system dependent naming convention:
+{\em Library}- arquivos devem seguir um sistema dependente de convenções de nomes:
 
 \begin{tabular}{c||c|c|c}
 library & linux&irix&Win32 \\
@@ -4618,8 +4831,8 @@ library & linux&irix&Win32 \\
 {\tt  my-lib.dll}\\
 \end{tabular}
 
-The simplest form of a {\em library} includes exactly one {\em external}
-bearing the same name as the {\em library}.
+A forma mais simples de uma {\em library} inclui exatamente um{\em external}
+com o mesmo nome da {\em library}.
 
 Unlike {\em externals}, {\em libraries} can be imported by Pd with special operations.
 After a {\em library} has been imported,
