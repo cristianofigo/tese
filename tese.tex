@@ -372,10 +372,13 @@ elementos que possam apontar para uma possível poética composicional.
 
 - MIDI como padrão
 
-- problema do violão e guitarra - citar o miller no patch for guitar
+- problema do violão e guitarra - citar o miller no patch for guitar + ricky grahan
 
 
 \subsection{Segmentação e Classificação}
+
+problema da distância entre o fenômeno físico de áudio e fenômeno
+simbólico - nota
 
 segmentação automática estática ou dinâmica
 
@@ -688,7 +691,9 @@ completar os espaços em branco...ou dar significado para os espaços em branco
 é minha e do computador...
 
 
-
+Outro campo de possível investigação é a análise de em que
+nível a prática instrumental com um ambiente reativo como
+esse proposto aqui, influencia o gestual do instrumentista.
 
 O desenvolvimento de um sistema dessa natureza envolve um tipo de conhecimento que envolve técnica de
  composição, análise, performance e computação.
@@ -1142,12 +1147,12 @@ Um projeto próximo que influenciou essa pesquisa foi o "Navalha"
 de Guilherme Soares, desenvolvido no Pontão de Cultura Juntadados\footnote{www.juntadados.org}.
 Um aspecto importante nesse projeto é a postura política alinhada com a dimensão
 poética e técnica.
-
-\begin{figure}
-\includegraphics[scale=.6]{navalha}
-\caption{navalha}
-\label{navalha}
-\end{figure}
+% 
+% \begin{figure}
+% \includegraphics[scale=.6]{navalha}
+% \caption{navalha}
+% \label{navalha}
+% \end{figure}
 
 
 \begin{quotation}
@@ -1289,94 +1294,6 @@ e independentes.
 gravados no momento da performance.
 
 
-\section{Idiomas comuns}
-
-%% Aqui falar desses elementos mas usando abstrações de SINCOPA
-
-O Pd é uma linguagem de programação completa, porém alguns aspectos triviais
-de linguagens de programação textuais se tornam relativamente complexos e vice-versa.
-Dentro do escopo dessa pesquisa é fundamental o estabelecimento de uma metodologia de
-implementação de alguns idiomas comuns a todas linguagens de programação.
-
-Mesmo dentro de uma mesma linguagem, podemos encontrar diversas maneiras
-de realizar o mesmo procedimento. Nessa seção serão apresentados alguns idiomas comuns 
-que ao longo da pesquisa se tornaram padrões dentro do projeto de cada
-objeto de SINCOPA.
- 
-\subsection{Escrita em arrays}
-
-\begin{figure}
-\includegraphics[scale=.6]{escrita-array}
-\caption{exemplo de escrita de áudio e números em arrays}
-\label{escritaarray}
-\end{figure}
-
-Na figura \ref{escritaarray} vemos as duas principais funções dos arrays
-no Pd, como escrita de números "floats" ou "ints". E como tabela de escrita
-de áudio, podendo ser usado com o objeto [tabwrite\texttildelow] e também
-com o objeto [soundfiler] no caso de abrir um arquivo de áudio previamente
-gravado em disco.
-
-
-\subsection{Conexão por cabos vs [send] [receive]}
-
-\begin{figure}
-\includegraphics[scale=.6]{ex-conexoes}
-\caption{conectando saídas de objetos com cabos e com [send] e [receive]}
-\label{ex-conexoes}
-\end{figure}
-
-
-
-\subsection{variáveis locais vs variáveis globais}
-
-\begin{figure}
-\includegraphics[scale=.6]{ex-variaveis}
-\caption{[sinc-gera-melodico] enviando nome de variável local para ser lida por outros objetos}
-\label{ex-variaveis}
-\end{figure}
-
-No projeto de um sistema de música interativa, lidamos com um volume grande
-de variáveis locais, que precisam ser estocadas e enviadas de um objeto a outros.
-
-No Pd é determinado o uso diferenciado entre variáveis globais e locais.
-Na figura \ref{ex-variaveis} vemos um objeto de Sincopa enviando um valor de 
-variável local para leitura externa por outros objetos.
-
-
-
-
-\subsection{Objetos gráficos GUI's, subpatchs/abstrações e canvas}
-
-
-* importância da interface gráfica ser "amigável"
-
-* bugs e incompatibilidades em muitos objetos gráficos
-
-
-
-\subsection{Objeto [expr] vs. sequência de objetos}
-
-* diferença entre uma operação matemática com objetos de pd e com expr
-
-* semelhança de expr com C
-
-* remeter a criação de external em C no apêndice
-
-* problema da diferença de licença da família expr para o resto do Pd
-
-
-\subsection{Diferenças entre mensagens de controle e fluxo de áudio}
-
-* uso do [switch\texttildelow]
-
-* [line\texttildelow] como controle de volumes
-
-
-\subsection{Amplificação de áudio}
-
-* clipagem e vizualização...como "desclipar" , normalizando um array com tabletool (princípio do limiter)
-
 \section{Ferramentas}
 
 Nessa seção serão brevemente expostos os motivos pela escolha de determinadas ferramentas para
@@ -1496,6 +1413,331 @@ Também são usados os objetos compilados em C, desenvolvidos por William Brent:
 
 
 
+
+
+\section{Técnicas de programação em Pd}
+\label{tecnicas}
+
+%% Aqui falar desses elementos mas usando abstrações de SINCOPA
+
+O Pd é uma linguagem de programação completa, porém alguns aspectos triviais
+de linguagens de programação textuais se tornam relativamente complexos e vice-versa.
+Dentro do escopo dessa pesquisa é fundamental o estabelecimento de uma metodologia de
+implementação de alguns idiomas comuns a todas linguagens de programação.
+
+Dentro de uma mesma linguagem, podemos encontrar diversas maneiras
+de realizar o mesmo procedimento. Nessa seção serão apresentados algumas decisões de programação 
+que ao longo da pesquisa se tornaram padrões dentro do projeto de cada
+objeto de SINCOPA.
+ 
+\subsection{Escrita em arrays}
+
+\begin{figure}
+\includegraphics[scale=.6]{escrita-array}
+\caption{exemplo de escrita de áudio e números em arrays}
+\label{escritaarray}
+\end{figure}
+
+Na figura \ref{escritaarray} vemos as duas principais funções dos arrays
+no Pd, como escrita de números "floats" ou "ints". E como tabela de escrita
+de áudio, podendo ser usado com o objeto [tabwrite\texttildelow] e também
+com o objeto [soundfiler] no caso de abrir um arquivo de áudio previamente
+gravado em disco.
+
+
+
+
+
+
+
+\subsection{variáveis locais vs variáveis globais}
+
+\begin{figure}
+\includegraphics[scale=.6]{ex-conexoes}
+\caption{conectando saídas de objetos com cabos e com [send] e [receive]}
+\label{ex-conexoes}
+\end{figure}
+
+
+\begin{figure}
+\includegraphics[scale=.6]{ex-variaveis}
+\caption{[sinc-gera-melodico] enviando nome de variável local para ser lida por outros objetos}
+\label{ex-variaveis}
+\end{figure}
+
+No projeto de um sistema de música interativa, lidamos com um volume grande
+de variáveis locais, que precisam ser estocadas e enviadas de um objeto a outros.
+
+Objetos recebem variáveis de mensagens e outros objetos através de conexão
+gráfica. Outra possibilidade de compartilhar dados de parâmetros entre diversos
+objetos é enviar os dados através de variáveis como pode ser visto na figura \ref{ex-conexoes},
+com a variável pitch acessada com os objetos [send] e [receive].
+
+No Pd é determinado o uso diferenciado entre variáveis globais e locais.
+Na figura \ref{ex-variaveis} vemos um objeto de Sincopa enviando um valor de 
+variável local (\$0) para leitura externa por outros objetos.
+
+%% ainda fazer a ligação que os objetos gráficos podem trocar
+%% variáveis ``internas'', no sentido que não se vê graficamente
+%% a operação
+
+
+\subsection{Objetos gráficos - GUI's}
+
+% \begin{figure}
+% \includegraphics[scale=.6]{ex-variaveis}
+% \caption{[sinc-gera-melodico] enviando nome de variável local para ser lida por outros objetos}
+% \label{ex-variaveis}
+% \end{figure}
+% figura com objetos gráficos de sincopa, objetos graficos nativos, objetos graficos unauthorized
+% e objetos sincopa não graficos
+
+Durante a prototipação de SInCoPA, foram pensados
+alguns objetos com interface gráfica bem definida e outros
+sem. O sistema como um todo não possui uma interface única, mas
+sim um conjunto de abstrações especializadas. Essa metodologia
+de uma interface gráfica descentralizada facilita o contínuo
+desenvolvimento da ferramenta e possibilita o uso de partes do
+sistema em outros projetos.
+
+A interface gráfica de cada objeto do sistema foi pensada para cumprir
+preceitos de legibilidade mais intuitiva possível. O
+objetivo é que durante uma sessão de composição interativa, o
+músico não necessite acessar o conteúdo interno das abstrações e 
+que todos controles necessários sejam acessíveis via interface gráfica. 
+
+Os objetos de análise apresentam interface informativa, ou seja, 
+mostram graficamente em tempo-real, o resultado da análise. Isso facilita
+a prototipação e controle do fluxo como podemos ver  na figura A.
+As interfaces gráficas em SInCoPA são feitas com arranjos e sobreposições
+dos objetos canvas [cnv]. Apesar de simples, o objeto [cnv] possibilita
+uma infinidade de alternativas de desenho como podemos ver na descrição
+dos objetos de SInCoPA.
+
+A implementação gráfica do Pd é feita com a linguagem Tk. O arquivo
+que descreve a interface gráfica do Pd é o ``pd.tk'', que numa instalação
+padrão do Pd-extended fica no diretório /pd-extended/bin/pd.tk .
+Nesse arquivo são definidos os comportamentos gráficos da interface do Pd como
+a relação dos movimentos do mouse, atalhos de teclado e as aparências dos
+objetos, arrays, canvas e todos objetos gráficos nativos.
+A implementação gráfica do Pd e sua relação com os ciclos de processamento
+de áudio é a principal causa de ``bugs'' e incompatibilidade entre plataformas.
+
+Os desenvolvimentos mais recentes do Pd caminham no sentido da separação
+completa da descrição gráfica da linguagem do processamento de áudio. 
+Isso possibilitará a implementação do Pd em qualquer ambiente gráfico (como
+por exemplo GTK).
+Nesse sentido a nova versão ``0.43'' possui um alto nível de customização gráfica.
+Ao invés da comunidade de desenvolvedores optarem por ``esconder'' o problema
+da implementação da parte gráfica, o ``problema'' é compartilhado com os
+artistas e usuários para aprimoramento. A definição de um padrão de implementação
+gráfica do Pd enquanto linguagem ainda não é consenso.
+
+\subsection{Expressões condicionais}
+
+\begin{figure}
+\includegraphics[scale=.6]{escale-pdmtl}
+\caption{objeto [scale.linear] da biblioteca PDMTL usando o objeto [expr]}
+\label{escale-linear}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.6]{sinc-escala-linear}
+\caption{Objeto [sinc-escala-linear] usando apenas objetos nativos do Pd}
+\label{sinc-linear}
+\end{figure}
+
+Cada operação matemática em Pd é descrita com um objeto separado.
+O objeto [expr] possibilita que várias operações matemáticas sejam
+descritas dentro dos argumentos de um único objeto.
+É possível fazer uma descrição de expressão condicional dentro
+dos argumentos de [expr]. Podemos ver um exemplo na figura \ref{escale-linear},
+onde vemos a abstração [scale.linear] da biblioteca PDMTL. Nessa abstração
+o objetivo é o mapeamento linear entre dois registros pré-definidos. Uma
+implementação da mesma expressão apenas com objetos nativos de Pd é
+vista na figura \ref{sinc-linear}.
+
+Ambas implementações possuem um bom grau de legibilidade e entendimento
+visual, além de não demonstrarem grandes diferenças em termos
+de rapidez de processamento. Porém a expressão com [expr] é muito mais familiar para quem aprendeu
+a programar em linguagens do tipo C. A família de objetos [expr] é disponibilizada
+com a licença GNU/GPL, compatível com a licença do Pd-extended, enquanto que o núcleo do Pd é 
+disponibilizado com a licença BSD ``Standard'', o
+que causa uma certa falta de sincronia na licença global de projetos com Pd-extended. 
+Uma expressão matemática ainda poderia ser implementada
+como um external independente escrito em C, como se pode ver no apêndice \ref{C-external}.
+
+
+%% fazer mais um exemplo de situação condicional com expr e outros
+%% com [moses] e [select]
+
+\subsection{Mensagens de controle e fluxo de áudio}
+
+O fluxo de dados ao se trabalhar com parâmetros de controle
+normalmente é menor do que o fluxo em operações
+que processam áudio. Em um programa que processe áudio, 
+muitas vezes ocorrem quebras de sincronia entre o processamento
+de áudio e a frequência de controles de parâmetros.
+
+"Message operations are executed at the beginning of each pass of audio
+block processing, so a patch where audio depends on message operations
+which don't complete in time will also fail to produce correct output."
+
+aqui falar do uso de [switch\texttildelow] - (colocar nos patchs tb)
+
+(Farnell, pg. 185)
+
+
+%% criar uma frase que faça o link com csound
+
+A programação em Csound prevê que o usuário escolha a frequência
+de diferentes tempos de compilação inicializados por ``a'', ``k'',
+, ``ga'' ou ``gk'' (valores que variam no tempo). E os parâmetros 
+ estáticos de inicialização de valores são precedidos
+de ``i'' e ``gi''. No cabeçalho do arquivo de Csound o usuário define as 
+frequências de compilação de controle e áudio com as constantes ksmps e sr respectivamente.
+De maneira que se temos uma frequência de amostragem de áudio (sr) definida em
+44100 e uma constante ksmps = 10, teremos uma frequência de controle de 4410 ciclos
+de controle por segundo, e cada ciclo terá uma duração de 1/4410 = 0.000227 segundos. 
+Em cada ciclo de controle, todos valores que variam no tempo são atualizados.
+
+Em alguns casos é necessário usar variáveis inicializadas com ``a'' ao invés de ``k''. Algumas vezes 
+se é usado uma variável ``k'' para um envelope que se move muito rápido, o resultado poderá ser
+um tanto ruidoso (instrumento 1 abaixo). Se for usada uma variável ``a'', o resultado será 
+muito mais limpo (instrumento 2). No exemplo abaixo é explorada a diferença
+entre envelope com variável ``a'' e ``k'' aplicados ao mesmo instrumento.
+
+\begin{verbatim}
+<CsoundSynthesizer>
+<CsOptions>
+-o dac
+</CsOptions>
+<CsInstruments>
+sr = 44100
+ksmps = 10 ;aumentar ou diminuir esse valor para comparar as diferenças de processamento
+nchnls = 2
+0dbfs = 1
+
+instr 1 ;envelope em k-time
+aSine     oscils    .5, 800, 0
+kEnv      transeg   0, .1, 5, 1, .1, -5, 0
+aOut      =         aSine * kEnv
+          outs      aOut, aOut
+endin
+
+instr 2 ;envelope em a-time
+aSine     oscils    .5, 800, 0
+aEnv      transeg   0, .1, 5, 1, .1, -5, 0
+aOut      =         aSine * aEnv
+          outs      aOut, aOut
+endin
+
+</CsInstruments>
+<CsScore>
+r 5 ;repetir a linha seguinte 5 vezes
+i 1 0 1
+s ; fim da seção
+r 5 
+i 2 0 1
+e
+</CsScore>
+</CsoundSynthesizer>
+\end{verbatim} 
+
+\begin{figure}
+\includegraphics[scale=.6]{cabos}
+\caption{Diferença entre cabos de objetos de controle e objetos de áudio}
+\label{cabos}
+\end{figure}
+
+No Pd, existe o problema da interação entre a interface gráfica e 
+o processamento de áudio. Todos objetos que processam áudio tem o sufixo \texttildelow no
+nome. Graficamente o usuário vizualiza a diferença
+entre áudio ou dados através dos cabos de ligação entre objetos. Podemos
+ver na figura \ref{cabos} uma caixa de número (dados) se conectando ao objeto [osc\texttildelow]
+(áudio),podemos notar a diferença de grossura dos cabos de conexão.
+%%fazer figura que amplia a diferença da grossura dos cabos.
+
+\begin{figure}
+\includegraphics[scale=.6]{line}
+\caption{Sintetizador usando objeto [line] controlando envelope de áudio}
+\label{line}
+\end{figure}
+
+
+O Pd funciona sob o paradigma do uso em tempo-real,
+portanto quando o processamento de áudio global é acionado, 
+todos objetos de áudio começam a usar memória de processamento.
+Esse processamento em lote pode gerar lentidão e ruídos indesejados.
+O processamento de áudio pode ser diferente para
+cada patch e sub-patch com o uso dos objetos [block\texttildelow] e
+[switch\texttildelow]. Além disso, da mesma maneira que no Csound, os
+envelopes de áudio preferencialmente devem ser controlados
+por objetos que processam áudio como [line\texttildelow] e [vline\texttildelow].
+É muito comum ruídos e cliques indesejados quando se controla parâmetros
+de áudio diretamente com sliders gráficos como visto na figura \ref{line}, onde 
+um slider controla a amplitude do áudio final, quando se move o slider com o mouse
+notamos pequenas descontinuidades no áudio. 
+%%fazer figura controlando envelope com [line]
+
+\begin{figure}
+\includegraphics[scale=.6]{switch}
+\caption{Sintetizador usando objeto [switch\texttildelow] para ligar/desligar processamento}
+\label{switch}
+\end{figure}
+
+Na figura \ref{switch} vemos um sintetizador de SinCoPA que usa o objeto [switch\texttildelow] para
+ligar e desligar o processamento de áudio local ao patch. Pode-se observar também que o envelope
+de amplitude global é feito com objeto [vline\texttildelow], que também define o tempo
+em milisegundos de delay no objeto [vd\texttildelow].
+ 
+
+\subsection{Amplificação de áudio}
+
+%% colocar figura do [sinc-limiter] - qual o tamanho do delay de um 
+%% e do outro? como medir? botar figura do [limiter~] tb.
+
+\begin{figure}
+\includegraphics[scale=.5]{limiter}
+\caption{Patch que explora amplificação e limitação de amplitude de áudio}
+\label{limiter}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.6]{autolimiter}
+\caption{Sub-patch [pd autocompressor]}
+\label{autolimiter}
+\end{figure}
+
+É comum em projetos de criação musical que envolvam diversos geradores a necessidade de um
+controle automático da amplitude final do áudio. 
+Um objetivo desejado é o de criação de uma textura sonora densa, composta por sintetizadores e 
+processadores de áudio gravado em tempo-real. Para o controle do sinal de áudio foram pesquisadas
+algumas implementações de um limiter de áudio. 
+
+A função do limiter é evitar que o áudio final fique clipado, o que causa distorção no som resultante.
+Na figura \ref{limiter} podemos ver um patch que mostra a comparação entre quatro
+métodos de amplificação e limiter em Pd. O sinal original pode ser
+visto no array ``array'' e o mesmo sinal somado por ele mesmo sem limiter no ``array1'' .
+No ``array2'' vemos o resultado de uma multiplicação com fator controlada por
+um slider. O primeiro limiter é a abstração [mono-limiter] da biblioteca DIY que mostra
+o resultado no ``array3'', onde vemos claramente um forte atraso na 
+forma de onda. Outro limiter está na  abstração [fx.limiter\texttildelow] da 
+biblioteca PDMTL, que apresenta uma latência menor no ``array4''.
+
+A abstração [fx.limiter\texttildelow] é baseada no objeto [limiter\texttildelow] da biblioteca Zexy.
+Que retorna o áudio de n canais amplificado pelo fator necessário para
+deixar todos canais dentro de um limite de amplitude que preserve 
+o balanço e a relação entre eles. É necessário criar uma linha de atraso
+(delay) do sinal original, antes de chegar no [limiter\texttildelow],
+para prevenir cliques de sincronia. Porque o algoritmo precisa de
+tempo para criar um buffer onde será feita a operação de limite.
+Por fim um protótipo de um auto-regulador de limite de amplitude é mostrado
+no sub-patch [pd autocompressor] na figura \ref{autolimiter}.
+
+
+
+
 \newpage
 
 
@@ -1588,7 +1830,7 @@ parâmetro de análise.
 \section{Análise de áudio}
 
 \begin{figure}
-\includegraphics[scale=.7]{sinc-analise}
+\includegraphics[scale=.5]{sinc-analise}
 \caption{Objeto de análise de áudio [sinc-analise]}
 \label{sinc-analise}
 \end{figure}
@@ -1650,6 +1892,11 @@ de áudio. Em [sinc-audioin] é usado o objeto [Scope\texttildelow] da bibliotec
 incluída no pd-extended.
 
 %% dar uma olhada no livro do Miller sobre [*~] e [line~] 
+
+\subsubsection{Objeto [sinc-fft]}
+
+A abstração [sinc-fft] mostra graficamente uma janela de análise de 128 samples.
+
 
 \subsection{Manipulação de amostras}
 
@@ -1725,8 +1972,10 @@ e sinalizados na interface.
 
 O objetivo é reunir num só módulo, a detecção de ataques de notas 
 (baseado no objeto [bonk\texttildelow]) com a análise de frequências
-baseada no objeto [sigmund\texttildelow]. Ligando o resultado das 
-análises com objetos MIDI.
+baseada no objeto [sigmund\texttildelow], e ainda ligando o resultado das 
+análises com objetos de conversão MIDI.
+
+%% não seria o caso separar: [sinc-audioanalise] -> [sinc-audio2midi] -> [sinc-analisemelodica]
 
 Nessa abstração procurou-se desenvolver uma interface que facilite
 a rápida prototipação e flexibilidade de parâmetros que podem
@@ -1818,7 +2067,7 @@ entre as janelas em samples como pode ser visto na figura \ref{janela-analise}.
 
 
 \begin{figure}
-\includegraphics[scale=.5]{round}
+\includegraphics[scale=.7]{round}
 \caption{[round]}
 \label{round}
 \end{figure}
@@ -1831,7 +2080,7 @@ como pode ser visto na figura \ref{round}.
 
 
 \begin{figure}
-\includegraphics[scale=.5]{pitch}
+\includegraphics[scale=.7]{pitch}
 \caption{[pitch]}
 \label{pitch}
 \end{figure}
@@ -1951,7 +2200,128 @@ basicamente compara as amplitudes que recebe com relação ao tempo.
 Nesse algoritmo, se a amplitude de entrada for menor que 45 dB durante
 mais de 100 milisegundos um silêncio é detectado.
 
+\subsubsection{Contorno Melódico}
+\label{contornos}
 
+
+As operações com contornos são uma ferramenta poderosa para
+composição musical (REFERENCIA DISILVA). A manipulação de contornos
+pode ser aplicada a qualquer parâmetro musical.
+No Pd, qualquer dado pode facilmente escrito e lido em arrays gráficos.
+Ainda com a possibilidade de se desenhar no array com o mouse, podemos
+dizer que programar/compôr no Pd cria uma
+forte sinestesia visual - sonora, semelhante a escrita
+com notação musical tradicional.
+
+Segundo Silva \begin{quotation}
+               O estudo de contornos é importante porque, assim como conjuntos de notas e motivos,
+               contornos podem ajudar a dar coerência a uma obra musical. Eles representam estruturas
+		musicais manipuláveis através de várias operações como inversão e retrogradação, e podem
+		ser abordados tanto do ponto de vista da análise quanto da composição.
+              \end{quotation} 
+
+
+Iremos mostrar algumas maneiras como observar, guardar e comparar contornos de modo
+que possam ser úteis na construção de um diálogo interativo.
+
+Dentro dessa pesquisa, as operações com contornos servem à análise do material musical,
+de onde podemos extrair informações da performance. E também como geradores de material
+musical, aplicando operações diversas, como veremos na seção \ref{varia-contorno}.
+A primeira operação para análise de contornos é a redução para a forma normal. Segundo Silva:
+
+\begin{quotation}
+ A forma normal de um contorno ocorre quando seus elementos aparecem em ordem
+temporal de ocorrência, e com valores definidos de 0 (menor valor) a n − 1 (maior valor),
+onde n  representa o número de elementos do contorno . A operação de translação aplicada a um
+contorno retorna a sua forma normal (Marvin e Laprade 1987, p. 228). Esta operação
+consiste em redefinir o elemento de menor valor para 0, o segundo elemento de menor
+valor para 1, o terceiro para 2, e assim por diante. Por exemplo, o contorno P(5 9 6 8)
+tem forma normal F(0 3 1 2), pois P0 , elemento de menor valor, é redefinido para 0, P2 ,
+segundo elemento de menor valor, para 1, P3 , terceiro de menor valor, para 2, e P1 para
+3.
+\end{quotation}
+
+%% figura midi -> array -> salvando 
+
+\begin{figure}
+\includegraphics[scale=.3]{contorno-normal}
+\caption{Patch mostrando um contorno e sua forma normal}
+\label{contorno-normal}
+\end{figure}
+
+
+No Pd, podemos ver um patch que faz a redução do contorno à forma prima 
+na figura \ref{contorno-normal}. Nesse patch, o array ``contorno\_original'',
+tem oito elementos, variando de 0 a 127 podendo ser alimentado pelo valor de pitch de um fluxo
+MIDI. A forma normal é calculada dentro do sub-patch [pd function contorno normal], e após
+o cálculo o resultado é escrito no array abaixo ``contorno\_normal''.
+
+\begin{figure}
+\includegraphics[scale=.6]{func-contorno-normal}
+\caption{Operação de redução de um contorno à sua forma normal}
+\label{func-contorno-normal}
+\end{figure}
+
+Na figura \ref{func-contorno-normal} vemos a operação de redução à forma normal.
+Onde primeiro é feito uma leitura do array original com [until] e [tabread]. Após
+a leitura é calculado o valor mínimo e máximo com o objeto [list-minmax] e os dois
+valores são enviados com as variáveis globais [s min] e [s max].
+
+O mapeamento dos valores é feito de forma linear, usando o patch mostrado na seção (METODOLOGIA).
+Nesse caso, o menor valor irá equivaler a zero e o maior valor equivaler a oito, que é o
+número de elementos do array. Ao final ainda os valores são convertidos para valores inteiros,
+antes de serem escritos no array de resultado.
+
+A análise da similaridade entre contornos é uma ferramenta importante dentro
+ de um sistema de composição interativa, pois pode revelar emergência e dissolução de 
+padrões de execução e improvisação. 
+Existe uma crescente bibliografia sobre análise de similaridade de contornos,
+como no artigo XXXX, onde o autor expõe e compara diversos modelos de análise,
+tanto baseados em teoria musical, quanto em modelos abstraídos de experiências
+em cognição musical.
+
+\begin{figure}
+\includegraphics[scale=.4]{similaridade-interface}
+\caption{Experimento de análise de similaridade de contornos baseado em banco com 3 modelos}
+\label{similaridade-interface}
+\end{figure}
+
+A devida análise de similaridade de um contorno melódico deve levar em conta todos
+aspectos envolvidos como o timbre, relações de duração e intensidade de cada ponto do contorno.
+Apesar da estimativa de similaridade de contornos ser um objeto de pesquisa vasto e complexo, 
+consideramos que abordagens
+mais simples podem ser úteis no desenho de um sistema de composição interativa.
+Apresentamos aqui um primeiro experimento de análise de similaridade, aplicado em
+contornos de apenas três elementos. A idéia é que alimentar um banco com três contornos estocados e a cada
+novo contorno que chega, o sistema devolve o índice do contorno estocado mais similar.
+A interface do experimento pode ser vista na figura \ref{similaridade-interface}.
+A primeira etapa do experimento é a redução de todos contornos à forma normal.
+
+\begin{figure}
+\includegraphics[scale=.5]{similaridade-algo}
+\caption{Patch que calcula o índice de similaridade entre contornos}
+\label{similaridade-algo}
+\end{figure}
+
+
+Na figura \ref{similaridade-algo} vemos o interior do sub-patch [pd choice].
+Onde os três contornos na forma normal são enviados ao objeto [choice], cada um
+precedido da mensagem ``add''. A cada lista que chega em [choice], o objeto retorna
+o valor da lista estocada que mais se aproxima.
+
+O objeto [choice] estoca uma lista de vetores, cada um podendo ter até dez
+elementos. Quando mandamos uma nova lista de números, é retornado o índice
+do vetor conhecido que se combina mais proximamente com a nova lista. A qualidade
+da combinação  é o produto interno dos dois vetores após outra normalização
+interna. O vetor que tem a direção mais próxima da lista/vetor de entrada ganha e seu
+índice é enviado para a saída. Esse objeto pode ser usado em diversas outras situações
+de análise em tempo-real e sua interface simples possibilita uma rápida prototipação.
+
+Um aprofundamento da pesquisa em contornos necessita uma implementação de identificação
+mais completa, como uma implementação de redes neurais artificiais por exemplo. Além
+de revisão e teste dos modelos analíticos citados na bibliografia da área.
+Nessa pesquisa, a próxima etapa será a integração da análise de contorno com os
+mecanismos de geração de material musical.
 
 \subsection{Análise rítmica}
 
@@ -2003,11 +2373,33 @@ tem probabilidades próximas de quase todos padrões criando uma sensação de i
 e fragmentação.
 
 
+\begin{figure}
+\includegraphics[scale=.5]{sinc-calc-ritmo}
+\caption{análise de estabilidade rítmica}
+\label{[sinc-calc-ritmo]}
+\end{figure}
 
 No patch da \ref{[sinc-calc-ritmo]} é apresentado um método de classificação de estabilidade
 de sequência de pulsos. Primeiro são calculadas as distâncias entre cada ataque
 sonoro, depois filtrado em [pd filter-range] e colocado em uma tabela dinâmica em
-[pd last-x]. O tamanho da tabela sempre pode ser redimensionado em tempo-real através
+[pd last-x]. 
+
+
+\begin{figure}
+\includegraphics[scale=.6]{sinc-calc-ritmo1}
+\caption{filtro de registro de durações}
+\label{[sinc-calc-ritmo1]}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.6]{sinc-calc-ritmo2}
+\caption{lista de durações}
+\label{[sinc-calc-ritmo2]}
+\end{figure}
+
+Nas figuras \ref{[sinc-calc-ritmo1]} e \ref{[sinc-calc-ritmo2]}, podemos
+ver a constituição interna dos sub-patchs [pd filter-range] e [pd last-x].
+O tamanho da tabela sempre pode ser redimensionado em tempo-real através
 da variável \textit{0-buffer-size} então é calculado ao mesmo tempo a média geométrica
 e a média aritmética e os resultados são executados na expressão definida por uma
 divisão da média geométrica pela média aritmética. %% isso poderia ser definido em notação matemática :)
@@ -2015,38 +2407,22 @@ Ao resultado dessa divisão é aplicado um filtro com [moses] onde se pode calib
 a sensibilidade do valor do índice final.
 
 
-\begin{figure}
-\includegraphics[scale=.5]{sinc-calc-ritmo}
-\caption{análise de estabilidade rítmica}
-\label{[sinc-calc-ritmo]}
-\end{figure}
+
 
 \begin{figure}
-\includegraphics[scale=.5]{sinc-calc-ritmo1}
-\caption{filtro de registro de durações}
-\label{[sinc-calc-ritmo1]}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.5]{sinc-calc-ritmo2}
-\caption{lista de durações}
-\label{[sinc-calc-ritmo2]}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.5]{sinc-calc-ritmo3}
+\includegraphics[scale=.6]{sinc-calc-ritmo3}
 \caption{média geométrica}
 \label{[sinc-calc-ritmo3]}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.5]{ex-ritmo1}
+\includegraphics[scale=.4]{ex-ritmo1}
 \caption{ritmo estável}
 \label{ex-ritmo1}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.5]{ex-ritmo2}
+\includegraphics[scale=.4]{ex-ritmo2}
 \caption{ritmo instável}
 \label{ex-ritmo2}
 \end{figure}
@@ -2196,13 +2572,13 @@ O resultado da comparação interna é retornado pela saída da direita.
 \subsubsection{timbreID}
 
 \begin{figure}
-\includegraphics[scale=.6]{audio-features}
+\includegraphics[scale=.5]{audio-features}
 \caption{audio-features}
 \label{audio-features}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.6]{timbreid}
+\includegraphics[scale=.5]{timbreid}
 \caption{timbreID}
 \label{timbreid}
 \end{figure}
@@ -2214,13 +2590,13 @@ O resultado da comparação interna é retornado pela saída da direita.
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.7]{pdescriptor}
+\includegraphics[scale=.3]{pdescriptor}
 \caption{PDescriptors - [Inharmonicity\texttildelow]}
 \label{pdescriptor}
 \end{figure} 
 
 
-Quando se acessa aos dados puros da de um fluxo de áudio precisamos de 
+Quando se acessa aos dados puros de um fluxo de áudio precisamos de 
 métodos específicos para filtrar esses dados. Uma densa bibliografia
 tem sido desenvolvida sobre algoritmos de busca e filtragem de dados de
 análise FFT. Cada algoritmo é especializado em algum aspecto, seja de
@@ -2285,120 +2661,6 @@ de alguma ferramentas de transcrição. Podemos ver a interface do objeto [Inhar
 na figura \ref{pdescriptor}, onde o resultado da análise é plotado no gráfico abaixo da forma de 
 onda da fonte, o que facilita a comparação visual, resultando numa boa interface para trabalho de análise de áudio.
 
-
-
-%texto original:
-% Listas de características enviadas para a terceira entrada também produz correspondências, mas esta entrada é projetada especificamente para
-% síntese concatenativa . Outras mensagens que direta e restringir a pesquisa do banco de dados pode ser usado em combinação
-% com esta saída. Veja o exemplo granular na [pacote exemplos timbreID] para uma explicação detalhada, e
-% ouvir isso [exemplo de som] de uma voz reconstruída usando grãos a partir de um arquivo de som de instrumentos de corda friccionada.
-% [Este exemplo de som] reconstrói a amostra mesma voz usando grãos a partir de um arquivo de som de ruidosos de baixa qualidade
-% efeitos sonoros dos desenhos animados. Ambos os exemplos começar com apenas a voz, em seguida, desaparecer na reconstrução em tempo real granular
-% da voz, então fade out a voz.
-% 
-% • Feature lists sent to the third inlet also produce matches, but this inlet is designed specifically for 
-% concatenative synthesis. Other messages that direct and restrict the database search can be used in combination 
-% with this outlet. See the granular example in the [timbreID examples package] for a detailed explanation, and 
-% listen to this [sound example] of a voice reconstructed using grains from a sound file of bowed string instruments. 
-% [This sound example] reconstructs the same voice sample using grains from a sound file of noisy low-quality 
-% cartoon sound effects. Both examples start with just the voice, then fade in the real-time granular reconstruction 
-% of the voice, then fade out the voice.
-% 
-% 
-% 
-% • Um algoritmo de clustering pode ser executado usando o "cluster" da mensagem, após o qual as instâncias serão agrupados em uma
-% número desejado de clusters que representam instrumentos. Desta forma, não há necessidade de especificar exatamente quantos
-% exemplos serão dados durante o treinamento. Depois de clustering, timbreID irá imprimir o índice cluster associado de
-% a instância que melhor combinam com. Quando casos foram agrupados em clusters, de correspondência é realizada utilizando uma
-% k-vizinhos mais próximos, estratégia, para o qual você pode especificar k. Se o cluster automática não funcionar, ou se você
-% desejo de sons diferentes do grupo em conjunto, uma opção manual também está disponível.
-% 
-% • A tomada de quarto relatórios listas de ordenações com base em dados timbres de partida. Desta forma, você pode analisar um conjunto
-% de sons e têm timbreID propor ordenações que tenham transições timbre suave. Veja o exemplo timbre ordem
-% na [pacote exemplos timbreID] para uma explicação detalhada. Você também pode ouvir isso [exemplo de som] de um
-% conjunto de sons reproduzidos em ordem aleatória seguido por uma ordem produzido por timbreID. Outros exemplos podem ser pedidos
-% ouvido abaixo.
-% 
-% • pesos individuais podem ser atribuídos a característica componentes da lista. Por exemplo, se sua lista de recurso consiste em
-% BFCCs e centróide, você pode peso este último a ser metade tão influente como o primeiro para calcular a distância.
-% 
-% • Uma vez que o tamanho da lista é arbitrária, uma forma eficaz para capturar a evolução temporal de um som é para concatenar
-% os resultados da análise de múltiplas janelas sobrepostas. Esta estratégia de análise é usado no exemplo timbre ordem na
-% [TimbreID pacote de exemplos], e os gráficos das análises podem ser vistas como elas ocorrem em tempo real.
-% 
-% 
-% O recurso mais poderoso externs são baseadas na análise cepstral. cepstrum ~ saídas do cepstrum-prima de uma análise
-% frame, e MFCC ~ é outra versão que distorce o resultado inicial FFT para a escala de freqüência mel. Claramente executa
-% mais confiável. A técnica de MFCCs decorrentes é descrito em Rabiner \ & Fundamentos Juang de Reconhecimento de Voz.
-% Em suma, todas as bandejas de FFT são executados através de um composto de sobreposição filterbank filtros triangular, ferver a
-% espectro de até 20 ou mais números, que são então submetidos a uma transformada discreta de cosseno. Essa ponderação do
-% eixo da freqüência pode ser mais de acordo com a forma como percebemos timbre.
-% 
-% bfcc ~ é o mais desenvolvido cepstral externo, utilizando a escala Bark mais profundamente pesquisados, em vez de Mels para
-% a ponderação do espectro. Desempenho é apenas ligeiramente melhor do que MFCC ~. A coisa mais notável sobre essas cepstral
-% externs é a flexibilidade que eles fornecem no que diz respeito à construção filterbank. A escolha de um determinado Bark ou
-% mel espaçamento pode ter um impacto real sobre como as características são relevantes em classificar um conjunto de som contra outro.
-% 
-% Outras características espectrais no pacote são magSpec ~, barkSpec specBrightness ~, ~, ~ ~ specCentroid specFlatness,
-% specFlux ~, specIrregularity ~, specKurtosis ~, specRolloff ~, specSkewness ~, specSpread ~, ~ e zeroCrossing.
-% A idéia é fornecer um conjunto diversificado de ferramentas que podem ser usados ​​para pesquisa criativa na área de timbre
-% classificação. Além de ser usado para criar vetores de características para enviar para o classificador timbreID, estes
-% externs característica são úteis para a geração de fluxos de controle em tempo real com base no timbre.
-% 
-% A partir da versão 0.3.0, todos os recursos têm uma versão não em tempo real para análise de amostras carregada a arrays.
-% Isso faz com que a etapa de treinamento muito conveniente para coisas como a síntese concatenativa e timbre de plotagem.
-% 
-% 
-% 
-% 
-% 
-% 
-% • A clustering algorithm can be run using the "cluster" message, after which instances will be grouped into a 
-% desired number of clusters that represent instruments. This way, there is no need to specify exactly how many 
-% examples will be given during training. After clustering, timbreID will output the associated cluster index of 
-% the best matching instance. When instances have been grouped into clusters, matching is performed using a 
-% k-nearest-neighbor strategy, for which you can specify k. If automatic clustering doesn't work out, or if you 
-% wish to group dissimilar sounds together, a manual option is available as well.
-% 
-% • The fourth outlet reports lists of orderings based on given starting timbres. This way you can analyze a set 
-% of sounds and have timbreID propose orderings that have smooth timbre transitions. See the timbre-order example 
-% in the [timbreID examples package] for a detailed explanation. You can also listen to this [sound example] of a 
-% set of sounds played in random order followed by an order produced by timbreID. Other ordering examples can be 
-% heard below.
-% 
-% • Individual weights can be assigned to feature list components. For instance, if your feature list consists of 
-% BFCCs and spectral centroid, you can weight the latter to be half as influential as the former in calculating distance.
-% 
-% • Since list length is arbitrary, an effective way to capture the temporal evolution of a sound is to concatenate 
-% analysis results of multiple overlapping windows. This analysis strategy is used in the timbre-order example in the 
-% [timbreID examples package], and graphs of the analyses can be viewed as they occur in real time.
-% 
-% 
-% The most powerful feature externs are based on cepstral analysis. cepstrum~ outputs the raw cepstrum of an analysis 
-% frame, and mfcc~ is another version that warps the initial FFT results to the mel frequency scale. It clearly performs 
-% more reliably. The technique of deriving MFCCs is described in Rabiner \& Juang’s Fundamentals of Speech Recognition. 
-% In a nutshell, all FFT bins are run through a filterbank composed of overlapping triangular filters, boiling the 
-% spectrum down to 20 or so numbers which are then subjected to a discrete cosine transform. This weighting of the 
-% frequency axis may be more in line with how we perceive timbre.
-% 
-% bfcc~ is the most developed cepstral external, using the more thoroughly researched Bark scale rather than mels for 
-% the spectrum weighting. Performance is only slightly better than mfcc~. The most noteworthy thing about these cepstral 
-% externs is the flexibility they provide with respect to filterbank construction. The choice of a specific Bark- or 
-% mel-spacing can have a real impact on how relevant the features are in classifying one sound set vs. another.
-% 
-% Other spectral features in the package are magSpec~, barkSpec~, specBrightness~, specCentroid~, specFlatness~, 
-% specFlux~, specIrregularity~, specKurtosis~, specRolloff~, specSkewness~, specSpread~, and zeroCrossing~. 
-% The idea is to provide a diverse set of tools that can be used for creative research in the area of timbre 
-% classification. In addition to being used to create feature vectors to send to the timbreID classifier, these 
-% feature externs are useful for generating real-time control streams based on timbre.
-% 
-% As of version 0.3.0, all of the features have a non-real-time version for analyzing samples loaded to arrays. 
-% This makes the training step very convenient for things like concatenative synthesis and timbre plotting.
-% 
-% 
-% 
-% * timbreID e principais algoritmos
-% 
 
 
 \pagebreak 
@@ -2559,8 +2821,8 @@ procurou-se aliar técnicas de composição algorítmica com
 o resultado das análises do áudio de entrada.
 
 
-A idéia de ter uma coleção de geradores, capazes
-de imitar elementos da performance humana. A análise do áudio
+A idéia é de ter uma coleção de geradores, capazes
+de imitar, simular, seguir ou serem alterados por elementos da performance humana. A análise do áudio
 tenta fazer uma descrição da performance e essa descrição
 é enviada aos geradores, mediados pelo cenário de interação.
 Nesse sentido as análises alimentam os parâmetros dos
@@ -2601,6 +2863,82 @@ Cada um desses objetos gerencia algumas técnicas de geração
 algorítmica. É possível qualquer combinação entre esses três objetos.
 A combinação entre os diversos geradores se dá na relação entre a 
 análise do áudio de entrada e a escolha de um cenário de interação. 
+Cada uma dessas dimensões administra geradores que se enquadram nas seguintes
+categorias:
+
+\begin{itemize}
+ \item   Imitação
+ \item   Variação
+ \item   Movimento browniano
+ \item   Probabilidade
+ \item   Randômico
+ \item   Boids
+\end{itemize}
+
+Além de serem descritas também três categorias de harmonizadores.
+Qualquer combinação dessas categorias com a performance do músico guarda, a priori,  
+uma relação de unidade composicional por se basear no material fornecido pelo músico.
+Mas claramente, após a análise de cada algoritmo, iremos notar que algumas combinações 
+geram uma ``sensação'' de unidade mais forte que outras. Apesar dessa pesquisa
+não se ocupar com problemas de pesquisa em cognição, algumas conclusões advindas
+do manuseio e experimentação das ferramentas apresentadas podem ser apontadas.
+
+Por exemplo, se o gerador rítmico for imitativo, o melódico baseado em
+variação e o gerador de amplitude for randômico, vamos obter um resultado
+com forte unidade composicional pois a dimensão rítmica contribui intensamente
+para essa sensação de unidade. Numa performance de música interativa essa sensação
+de unidade é importante para o músico que está interagindo com a máquina. Criando
+pontos de apoio na narrativa global, onde o músico consegue controlar musicalmente 
+aspectos do diálogo. Podemos inferir que essa sensação de unidade está relacionada
+a sensação de controle do discurso, no caso do músico atuando em uma sessão de música
+interativa.
+
+% sinc-gera-ritmo 
+% \begin{figure}
+% \includegraphics[scale=.5]{sinc-gera-ritmo}
+% \caption{Objeto [sinc-gera-ritmico]}
+% \label{[sinc-gera-ritmico]}
+% \end{figure}
+% 
+% No atual estágio da pesquisa, foi implementada uma abstração gráfica
+% que gerencia a atividade de quatro geradores rítmicos. Dessa
+% maneira se torna fácil de administrar durante uma performance
+% e também se mantém a flexibilidade de expandir para quantos
+% geradores diferentes se queira. A interface pode ser vista na figura \ref{[sinc-gera-ritmico]}
+% 
+
+% sinc-gera-melodico 
+% Da mesma maneira que os geradores rítmicos.....
+% No atual estágio da pesquisa, foi implementada uma abstração gráfica
+% que gerencia a atividade de quatro geradores melódicos. Dessa
+% maneira se torna fácil de administrar durante uma performance.
+% E também se mantém a flexibilidade de expandir para quantos
+% geradores diferentes se queira.
+% 
+% 
+% De maneira geral, os geradores melódicos dependem dos geradores
+% rítmicos. Os geradores rítmicos "pedem" nota por nota para o geradores
+% melódicos
+% 
+% 
+% \begin{figure}
+% \includegraphics[scale=.45]{sinc-gera-melodico}
+% \caption{Abstração que organiza 4 geradores melódicos}
+% \label{[sinc-gera-melodico]}
+% \end{figure}
+% 
+% \subsection{Geradores de amplitudes}
+% 
+% São encontrados diferentes termos definindo o aspecto
+% da amplitude sonora como dinâmica (quando nos referimos a notação tradicional),
+% velocity (quando se refere a dados MIDI), volume e amplitude (mais
+% usado quando se refere a descrição física da onda sonora).
+% 
+% 
+% As variações de amplitude podem produzir diferentes gestos musicais,
+% Gerando acentos, diferentes articulações...
+
+
 
 A manipulação de dados midi compreende algumas técnicas bem estabelecidas
 no Pd. A geração de notas midi é realizada com o objeto [makenote] que formata
@@ -2611,7 +2949,7 @@ do tipo midi, porém, os parâmetros das mensagens midi podem ser facilmente esc
 em arrays e listas para então serem manipulados.
 
 \begin{figure}
-\includegraphics[scale=.5]{audio2midi}
+\includegraphics[scale=.4]{audio2midi}
 \caption{Conversão de áudio para notas midi}
 \label{audio2midi}
 \end{figure}
@@ -2627,6 +2965,7 @@ o objeto [scale.linear] da biblioteca "pdmtl". O valor de duração das notas é
 pelo objeto [timer] que recebe uma mensagem (bang) a cada detecção de ataque e de silêncio.
 No panorama geral da figura\ref{audio2midi} vemos o Pd mandando mensagens midi em tempo-real
 para o programa Rosegarden, usando conexão midi do programa Jack. 
+
 
 
 \subsection{Manipulação e escrita de dados MIDI}
@@ -2649,36 +2988,79 @@ para o programa Rosegarden, usando conexão midi do programa Jack.
 \label{sinc-midiin-help}
 \end{figure}
 
+%% pegar REFERENCIAS do caesar e rowe 
 
-Foi desenvolvida uma abstração que facilita a leitura e escrita dos dados MIDI. É baseada no
-objeto [seq].
+Existe uma discussão acerca da validade do protocolo MIDI na atualidade.
+Caesar afirma que o protocolo MIDI enquanto ferramenta que se tornou um padrão
+comercial, criou um ecossistema cultural e estético ao seu redor. Tendo influenciado
+toda uma geração de compositores. Rowe por outro lado, coloca que a presença do
+protocolo MIDI em sistemas musicais modernos é um anacronismo pois seria mais lento
+que protocolos modernos como OSC\footnote{Open Sound Control} e incapaz de transmitir parâmetros mais completos
+sobre a descrição musical, como por exemplo dados mais
+refinados sobre o timbre. 
 
-* Definição de um padrão de distribuição de canais midi.
+Apesar da discussão, o MIDI ainda é muito usado como padrão de troca de dados entre programas e 
+como mapeador de instrumentos controladores comerciais. Além de ser usado em outros ambientes
+como dispositivos de controle de iluminação e toques de celular. Apesar do título dessa seção
+ser ``Geradores MIDI'', os algoritmos aqui apresentados podem facilmente ser utilizados como
+geradores de síntese sonora ou usar outro protocolo de comunicação como o OSC.
 
-* o MIDI pode ser usado tanto em situações de gravação e repetição ou
-transformação em tempo-real, quanto como registro de uma sessão de interação.
+O MIDI é um protocolo que descreve pitch (frequência), velocity (intensidade) e duração para cada
+nota (evento). Isso permite que seja usado tanto em situações de gravação e repetição ou
+transformação em tempo-real, quanto também como registro de uma sessão de interação.
 Nesse caso, pode ser editado posteriormente em notação musical, como pode ser
-visto na seção \ref{sec-notacao} onde pode s
+visto na seção \ref{sec-notacao} onde podemos ver as possibilidades de integração
+com outros programas para vizualização da notação musical.
+
+Foi desenvolvida uma abstração que facilita a leitura e escrita dos dados MIDI, baseada no
+objeto [seq]. O objetivo é estabelecer uma metodologia para rápida prototipação, teste e registro
+de algoritmos voltados para composição interativa.
+
+A abstração recebe dados MIDI de controlador externo, dos módulos geradores algorítmicos e do
+teclado do computador. Sendo capaz de gravar uma performance com dados de todas as fontes em
+canais separados, o que garante uma posterior análise e re-utilização do material. Para isso
+se definiu uma distribuição de canais MIDI como podemos ver na figura \ref{sinc-midiin}. Onde vemos
+o objeto [notein] com argumento 2, que significa que apenas receberá dados enviados do canal MIDI 2.
+Os objetos [midiformat] por sua vez aparecem com os argumentos 5 e 7, que garante a gravação
+de um arquivo .mid com canais distintos.
 
 
-\subsection{Geradores rítmicos}
+Na figura \ref{sinc-midiin-help} vemos um exemplo de funcionamento recebendo dados do teclado do
+computador com a abstração [sinc-teclado] ao mesmo tempo que recebe dados dos algoritmos geradores
+melódicos. A abstração [sinc-gera\_melodico] controla os algoritmos de geração melódica e é acionada
+por um [metro]. 
+
+
+\subsubsection{Abstração [sinc-teclado]}
+
+
+%% figuras :[sinc-teclado] interno + visão geral do mapa de [kbkey2] + figura que explica os argumentos de [kbkey2]
+
+A abstração [sinc-teclado] foi feita como um acessório para rápida prototipação de 
+uma situação de performance com dados MIDI onde não se dispõe de um controlador externo. O objetivo
+é transformar o teclado alfa-numérico do computador em um controlador MIDI sem o controle de velocity
+de cada nota. Cada tecla é mapeada com a abstração [kbkey2] o que permite que se defina como quiser
+as relações das teclas com uma respectiva nota MIDI.
+
+Na figura XXX podemos ver o panorama interno da abstração [sinc-teclado], onde podemos notar
+que cada tecla envia uma mensagem MIDI por [noteout] para o canal 2. 
+Na figura XXX vemos a distribuição das instâncias de [kbkey2] mapeando
+cada tecla. Na figura XXX vemos o detalhamento dos argumentos de criação de [kbkey2], que além de mapear
+uma tecla específica para uma nota midi correspondente, envia informação para um objeto toogle [tgl],
+correspondente a sua representação no teclado gráfico, o que possibilita a vizualização para qual nota
+a tecla foi mapeada.
 
 
 
 
+\subsection{Imitação}
 
+Os geradores imitativos são os de implementação mais
+simples, pois apenas fazem uma leitura na memória dos dados
+da performance.
+Quando algum parâmetro está sendo gerado através de imitação
+a sensação de unidade composicional é fortalecida.
 
-\begin{figure}
-\includegraphics[scale=.5]{sinc-gera-ritmo}
-\caption{Objeto [sinc-gera-ritmico]}
-\label{[sinc-gera-ritmico]}
-\end{figure}
-
-No atual estágio da pesquisa, foi implementada uma abstração gráfica
-que gerencia a atividade de quatro geradores rítmicos. Dessa
-maneira se torna fácil de administrar durante uma performance
-e também se mantém a flexibilidade de expandir para quantos
-geradores diferentes se queira. A interface pode ser vista na figura \ref{[sinc-gera-ritmico]}
 
 
 \subsubsection{Gerador rítmico imitativo}
@@ -2692,31 +3074,139 @@ geradores diferentes se queira. A interface pode ser vista na figura \ref{[sinc-
 \end{figure}   
 
 
-No patch da figura \ref{gera-ritmico0} vemos um gerador de
+No patch da figura \ref{gera-ritmico0} vemos um gerador de tempos
+de intervalo entre ataques de notas. Nesse caso, as durações dos intervalos
+são gravadas no array \$0-ritmo\_manip. Aqui o array é lido com
+[counter] que é acionado por um [delay]. O tempo de leitura respeita
+o próprio valor de duração que é enviado com a variável [s tag].
+A abstração tem duas saídas, a primeira envia um bang a cada nova 
+leitura, e a segunda envia o valor da atual duração.
+
+\subsubsection{Melodia imitativa}
+
+Nesse primeiro gerador melódico o método de geração
+é a leitura linear da tabela temporária de pitches
+como se pode ver na figura \ref{gera-melodico0}.
+
+
+\begin{figure}
+\includegraphics[scale=.6]{gera-melodico0}
+\caption{[pd gerador-melodico0]}
+\label{gera-melodico0}
+\end{figure}  
+
+% \begin{figure}
+% \includegraphics[scale=.55]{gera-mel0}
+% \caption{exemplo de melodia imitativa gerada}
+% \label{gera-mel0}
+% \end{figure}  
+
+
+%% esse exemplo gera-mel0.png é absurdo, tem muitos erros
+%% preciso duma imagem
+%% melhor..poucos compassos mas mais óbvio e bem acabado
+
+O objetivo desse gerador é a imitação melódica
+do instrumentista. A leitura é feita com [counter]
+e enviada diretamente para a saída.
+
+
 
 
 
 % \item
- \subsubsection{Ritmo baseado em variações}
+
+\subsection{Variação}
+\label{varia-contorno}
+
+%% aqui incluir operações de contorno
+%% operações em arrays (transposição, inversão, retrógrado , rotação, normalização) - gerando midi
+
+Denominamos variação um procedimento que toma como base um
+material dado e aplica uma operação de transformação nesse material.
+Nessa pesquisa, o material de base são os próprios dados da 
+análise da performance musical.
+Aqui serão descritos algumas técnicas de variação melódica como
+transposição, inversão, retrogradação e também de variação rítmica
+como expansão e contração de durações. Além de outras possibilidades
+de leitura de arrays e transformações.
+
+\begin{figure}
+\includegraphics[scale=.6]{variacoes-contorno}
+\caption{Patch mostrando operações de variação sobre array}
+\label{variacoes-contorno}
+\end{figure}  
+
+Na figura \ref{variacoes-contorno} vemos acima um array ``pitch\_original'' que representa
+o conjunto de pitches executados pelo músico (poderia ser durações ou qualquer
+outro parâmetro). Abaixo, no centro, o array ``pitch\_resultado'' mostrando o resultado das  
+operações de variação. E abaixo, um array ``contorno'' mostrando a redução do contorno em
+``pitch\_original'' para a forma normal, como visto na seção \ref{contornos}.
+
+\begin{figure}
+\includegraphics[scale=.6]{variacao-normalizacao}
+\caption{Sub-patch mostrando operação de normalização sobre array}
+\label{variacoes-normalizacao}
+\end{figure}  
+
+A primeira operação é chamada aqui de normalização dinâmica, onde
+se pode aumentar ou diminuir a razão entre os valores, sem perder
+as relações originais. Isso é feito multiplicando todos valores por
+um índice variável, como pode ser visto na figura \ref{variacoes-normalizacao},
+onde vemos o subpatch [pd normalizacao]. A multiplicação é feita lendo
+os valores em ``pitch\_original'' e escrevendo o resultado em ``pitch\_resultado'' e 
+em outro array interno chamado ``temp''.
 
 
-Na figura \ref{gera-ritmico1} vemos um gerador rítmico
-que compõe novas sequências rítmicas a partir de variações
-da tabela de durações.
 
-Essas variações podem ser:
+\begin{figure}
+\includegraphics[scale=.6]{variacoes-interno}
+\caption{Sub-patch [pd rj] mostrando objeto [c\_patternchange]}
+\label{variacoes-interno}
+\end{figure}  
+
+As operações de transposição, inversão, retrógrado e retrógrado-invertido são 
+realizadas com o objeto [c\_patternchange] da biblioteca rj. 
+O objeto [c\_patternchange], recebe uma lista de valores na entrada
+da direita e comandos de operações na entrada da esquerda. A cada novo
+comando de operações, primeiro a lista atualizada de valores de ``temp'', 
+com [tabdump], para então realizar a operação e escrever o resultado no
+array ``pitch\_resultado''.
+
+Paralelamente, é contado o tempo a cada chamada de operação com o objeto
+[timer]. Quando o tempo entre uma operação e outra for maior que 500 milisegundos,
+o objeto [tabletool] fará uma cópia de ``pitch\_resultado'' para ``temp''. O 
+que garante que cada operação será feita em cima do resultado das outras operações
+feitas durante a sessão. 
+
+Quando aplicamos a operação de transposição ao parâmetro
+de durações das notas, obtemos o efeito de expansão e contração
+rítmica, bastante utilizados em técnicas de contraponto tonal.
 
 \begin{figure}
 \includegraphics[scale=.6]{gerador-ritmico1}
-\caption{Gerador rítmico baseado em probabilidades de durações}
+\caption{Gerador rítmico de variação de leitura de tabela de durações}
 \label{gera-ritmico1}
 \end{figure}  
+
+Na figura \ref{gera-ritmico1} vemos outro gerador aplicado
+a variações rítmicas.
+É responsável por construir novas sequências rítmicas a partir de variações
+da tabela de durações. Essas variações podem ser:
+\begin{itemize}
+ \item leitura das durações na ordem normal
+ \item leitura na ordem reversa
+ \item leitura randômica
+\end{itemize}
+
+
+
 
 
 
 
 % \item
- \subsubsection{Movimento browniano como gerador de durações}
+\subsection{Movimento browniano}
 
 
 \begin{figure}
@@ -2751,7 +3241,7 @@ O objeto [brown-rhythm] está presente na biblioteca RTC e se trata de
 um gerador de durações baseado em movimento browniano("Brown motion"
 \footnote{movimento browniano é um modelo que descreve o movimento aleatório 
 de partículas macroscópicas num fluido como consequência dos choques das 
-moléculas do fluido nas partículas. Esse nome é devido ao botânico Robert
+moléculas das partículas. Esse nome é devido ao botânico Robert
 Brown, que observou minúsculas partículas dentro dos vacúolos dos grãos de 
 pólen executando um movimento agitado. Repetindo o experimento com partículas de poeira, 
 ele foi capaz de definir que o movimento se deu devido às partículas estarem "vivas", 
@@ -2863,6 +3353,21 @@ interativa por permitirem a variação dos parâmetros do algoritmo
 em tempo-real. Essa funcionalidade é usada em SINCOPA em outros geradores
 melódicos e de dinâmica.
 
+\subsubsection{Movimento browniano como gerador melódico}
+
+
+\begin{figure}
+\includegraphics[scale=.6]{gera-melodico2}
+\caption{[pd gerador-melodico2]}
+\label{gera-melodico2}
+\end{figure}  
+
+
+O terceiro gerador é mostrado na figura \ref{gera-melodico2} e
+realiza uma combinação entre os objetos [tabletool] e [brown-melody].
+
+
+
 
 %  \item
 \subsubsection{Gerador rítmico polifônico}
@@ -2884,91 +3389,54 @@ mínima e máxima entre notas.
 %\end{itemize}
 
 
-\subsection{Geradores melódicos}
 
 
-Da mesma maneira que os geradores rítmicos.....
-No atual estágio da pesquisa, foi implementada uma abstração gráfica
-que gerencia a atividade de quatro geradores melódicos. Dessa
-maneira se torna fácil de administrar durante uma performance.
-E também se mantém a flexibilidade de expandir para quantos
-geradores diferentes se queira.
-
-
-De maneira geral, os geradores melódicos dependem dos geradores
-rítmicos. Os geradores rítmicos "pedem" nota por nota para o geradores
-melódicos
-
+\subsection{Probabilidades}
 
 \begin{figure}
-\includegraphics[scale=.45]{sinc-gera-melodico}
-\caption{Abstração que organiza 4 geradores melódicos}
-\label{[sinc-gera-melodico]}
-\end{figure}
-
-
-\subsubsection{Melodia imitativa}
-
-Nesse primeiro gerador melódico o método de geração
-é a leitura linear da tabela temporária de pitches
-como se pode ver na figura \ref{gera-melodico0}.
-
-
-\begin{figure}
-\includegraphics[scale=.6]{gera-melodico0}
-\caption{[pd gerador-melodico0]}
-\label{gera-melodico0}
+\includegraphics[scale=.6]{probabilidade-simples}
+\caption{Patch controlador de probabilidade}
+\label{prob-simples}
 \end{figure}  
-
-\begin{figure}
-\includegraphics[scale=.55]{gera-mel0}
-\caption{exemplo de melodia imitativa gerada}
-\label{gera-mel0}
-\end{figure}  
-
-
-
-
-O objetivo desse gerador é a imitação melódica
-do instrumentista.
-
-\subsubsection{Melodia de probabilidades}
-
-
-
-Nesse objeto foi implementada uma probabilidade unidimensional
-de durações. Ou seja, o valor absoluto de cada duração
-da performance do músico alimenta uma tabela de durações.
-Uma possível aplicação seria a aplicação de probabilidades de 
-padrões maiores de durações. Permitindo a recorrência dos padrões
-rítmicos que emergem ao longo da performance.
-
 
 No Pd podemos implementar um sistema simples de probabilidade como 
-vemos na figura XXX
+vemos na figura \ref{prob-simples}, onde o resultado de um gerador
+randômico passa por uma sequência de filtros numéricos feitos
+com [moses]. Esse procedimento pode ser usado em conjunto com um sequenciador,
+ou como é o caso aqui, pode ter as probabilidades ajustadas em tempo-real.
 
-% fazer exemplo simples de probabilidade genérica - patch simples
+\begin{figure}
+\includegraphics[scale=.6]{sinc-ritmo-prob}
+\caption{Abstração [sinc-ritmo-prob]}
+\label{sinc-ritmo-prob}
+\end{figure}
+
+Para criação de música interativa, é importante que as probabilidades
+dos eventos de análise da entrada do músico, influenciem as probabilidades
+de geração de eventos pelo sistema em tempo-real.
+O objeto [probalizer] da biblioteca unauthorized, proporciona
+uma interface gráfica para edição e controle das probabilidades.
+Na abstração [sinc-ritmo-prob] foi implementada um sistema
+que calcula as probabilidades de durações aproximadas.
+
+Cada duração de entrada é encaixada em uma escala de cinco possíveis
+classes de durações. De 0 a 200, 200 a 500, 500 a 1000 e 1000 a 1500 milisegundos
+respectivamente, são os registros das durações das cinco classes,
+da mais curta até a mais longa. 
+Esses registros ainda podem ser móveis, alterando-se os objetos [moses]
+através da entrada da direita.
 
 
-
-O objeto [probalizer], simplifica o trabalho.
-
-Importância das probabilidades serem atualizadas em
-tempo-real.
-
-Explicar patch simples de probabilidade e como
-seria a re-implementação do probalizer apenas com vanilla.
-
-
-O gerador melódico da figura \ref{gera-melodico1}, é baseado
-no objeto gráfico [probalizer] da biblioteca "Unauthorized"
-distribuída com o pd-extended.
-
-O objeto [probalizer], facilita o trabalho.
-
-Importância das probabilidades serem atualizadas em
-tempo-real.
-Explicar probabilidade simples.
+A cada duração, é alimentado o objeto [probalizer], aumentando
+a probabilidade da classe de duração em questão.
+Quando [probalizer] recebe um bang através de [inlet pede-nota],
+é retornado o valor da classe de duração de acordo com a curva
+de probabilidade. Esse valor é enviado na variável [s indice-tempo]
+para um gerador de durações. A cada classe que chega com [r indice-tempo],
+um valor é calculado por um objeto [shuffle] correspondente. O objeto
+[shuffle] retorna um valor randômico dentro de um registro dado. Por exemplo,
+o primeiro objeto [shuffle] da sequência, vem com os argumentos 70 e 200, que determina
+o registro do valor de resposta. 
 
 \begin{figure}
 \includegraphics[scale=.6]{gera-melodico1}
@@ -2976,21 +3444,24 @@ Explicar probabilidade simples.
 \label{gera-melodico1}
 \end{figure}  
 
-\subsubsection{Movimento browniano como gerador melódico}
+A cada 100 ocorrências de uma classe a tabela
+de probabilidades volta ao início. Quando todos valores de [probalizer] estão
+com a mesma probabilidade, o objeto funciona como um gerador randômico comum sem
+repetições.
+Outra aplicação de [probalizer] é vista na figura \ref{gera-melodico1},
+onde cada valor de pitch da análise da performance do músico alimenta
+a probabilidade da respectiva nota. O objeto [probalizer] é organizado
+para receber valores de 0 a 127 e a cada 30 ocorrências do mesmo
+pitch as probabilidades voltam ao início.
 
 
-\begin{figure}
-\includegraphics[scale=.6]{gera-melodico2}
-\caption{[pd gerador-melodico2]}
-\label{gera-melodico2}
-\end{figure}  
+Uma outra possível aplicação seria a aplicação de probabilidades para
+análise e geração de padrões maiores tanto de durações quanto de conjuntos
+de notas. O que permite a recorrência dos padrões
+rítmicos que emergem ao longo da performance.
 
 
-O terceiro gerador é mostrado na figura \ref{gera-melodico2} e
-realiza uma combinação entre os objetos [tabletool] e [brown-melody].
-
-
-\subsubsection{Melodia  de notas randômicas}
+\subsection{Randômicos}
 
 
 \begin{figure}
@@ -3003,33 +3474,63 @@ O gerador da figura \ref{gera-melodico3} é baseado no
 objeto [random.integer]. O objetivo desse gerador é 
 ter um gerador com alto grau de permeabilidade melódica.
 
-\subsection{Geradores de amplitudes}
-
-São encontrados diferentes termos definindo o aspecto
-da amplitude sonora como dinâmica (quando nos referimos a notação tradicional),
-velocity (quando se refere a dados MIDI), volume e amplitude (mais
-usado quando se refere a descrição física da onda sonora).
 
 
-As variações de amplitude podem produzir diferentes gestos musicais,
-Gerando acentos, diferentes articulações...
+%% aqui usar o [randomrange] - figura disso
+
+\subsection{Boids}
+
+Boids é o nome de batismo de um algoritmo simples, usado na simulação de deslocamento
+de grupos de animais na natureza, como cardumes de peixe e bandos de pássaros.
+Esse algoritmo foi inventado pelo animador de computação gráfica Craig Reynolds.
+O nome é um trocadilho referindo-se a ``birds'' pronunciado com sotaque de Nova York.
+Na definição, cada boid é um indivíduo pertencente a um coletivo.
+
+Através da observação do deslocamento de bandos de pássaros, Reynolds conseguiu
+descrever alguns padrões de deslocamento espacial dos indivíduos dentro do grupo.
+É um modelo baseado no conceito de que cada indivíduo em um coletivo segue simples regras
+comportamentais em relação aos seus vizinhos, e que a interação dessas regras
+produz a propriedade emergente de um grupo coordenado.
+Brevemente, as regras internas do algoritmo são:
+
+\begin{enumerate}
+ \item Os boids tentam voar em direção ao centro de massa dos outros boids vizinhos;
+ \item Boids tentam manter uma pequena distância dos outros objetos (incluindo outros boids);
+ \item Cada boid tenta sincronizar sua velocidade com boids vizinhos; 
+\end{enumerate}
+
+Basicamente, a cada instância temporal, os parâmetros espaciais de cada boid são re-calculados
+levando em conta um centro de atração e os comportamentos dos vizinhos.
+Esse algoritmo tem potencial enquanto gerador de material musical numa perspectiva de interação.
+
+O Pd-extended traz uma implementação de boids na forma de um objeto que recebe mensagens de parâmetros
+de comportamento global, parâmetros do centro de atração e calcula as novas posições XYZ de cada
+boid. Foi feita uma abstração que representa cada boid que pode ser vista na figura BOIDZZ.
+
+Nesse patch podemos observar que.
 
 
-\subsubsection{Amplitude imitativa}
+As mensagens de parâmetros de comportamento global podem ser vistas na figura GLOBAL. Onde vemos
+parâmetros como ``atracttion'' que é um fator de maior atração do grupo de boids em direção
+ao centro de atração que é definido pela mensagem ``atractioncenter'' (?)
 
-bla bla bla
+No caso de uma aplicação musical desse algoritmo foi pensado num primeiro momento que as frequências
+podem representar o eixo X e as amplitudes o eixo Y. 
 
-\subsubsection{Gerador de amplitude baseado em variação}
+O efeito musical é uma textura heterofônica, pois a nota da análise do aúdio do músico se torna
+o centro de atração do grupo de boids.
 
 
-\subsubsection{Movimento browniano como gerador de amplitude}
+%%fazer imagens: boidzz + mensagens globais + partitura de uma resultado com 4 vozes?
 
+Outros algoritmos podem ser encontrados na biblioteca ``flatspace'' como chaos attractors:
 
-\subsubsection{Amplitude polifônica}
+attract1 base base3 gingerbreadman henon hopalong ikeda latoocarfian latoomutalpha latoomutbeta 
+latoomutgamma lorenz martin popcorn quadruptwo rossler standardmap
 
-conceito de orquestração
+%%fazer imagem comparando essas desgraças
 
-\subsection{Harmonizador automático}
+\subsection{Harmonizadores}
 
 
 Essa seção tem como objetivo apresentar possibilidades de harmonização automática em tempo-real.
@@ -3197,13 +3698,13 @@ do Ircam.
 \subsubsection{Acorde pertence a coleção de notas}
 
 \begin{figure}
-\includegraphics[scale=.4]{harm-colecao}
+\includegraphics[scale=.5]{harm-colecao}
 \caption{Resultado de harmonizador automático com acordes pertecentes a coleção de notas tocadas}
 \label{harm-colecao}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.4]{harm6}
+\includegraphics[scale=.5]{harm6}
 \caption{Patch que harmoniza de acordo com as notas executadas pelo músico estocadas em um array}
 \label{harm6}
 \end{figure}
@@ -3222,22 +3723,11 @@ dos acordes tenham sido tocadas pelo músico.
 % fazer a imagem baseada em [sinc-chordseq]
 
 \begin{figure}
-\includegraphics[scale=.4]{sinc-chord}
+\includegraphics[scale=.6]{sinc-chord}
 \caption{abstração [sinc-chord] para criação de cada acorde }
 \label{sinc-chord}
 \end{figure}
 
-\begin{figure}
-\includegraphics[scale=.4]{sinc-chord-list}
-\caption{Abstração [sinc-chord-list] para listagem de diversos acordes}
-\label{sinc-chord-list}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{harm-markov}
-\caption{Exemplo de harmonizador baseado em cadeia de markov}
-\label{harm-markov}
-\end{figure}
 
 Para implementação de regras mais refinadas de progressão harmônica foi desenvolvida uma
 estrutura de decisão baseada em uma cadeia de markov. Para isso foi definida uma
@@ -3253,10 +3743,25 @@ A primeira saída é como mensagem MIDI, enviada a algum sintetizador externo, d
 de objetos [poly], [pack 0 0 0] e [route 1 2 3 4]. Outra saída é uma lista com os quatro valores
 de pitch do acorde, enviado por outlet para uso interno no Pd.
 
+
+\begin{figure}
+\includegraphics[scale=.6]{sinc-chord-list}
+\caption{Abstração [sinc-chord-list] para listagem de diversos acordes}
+\label{sinc-chord-list}
+\end{figure}
+
+
 A partir da definição de [sinc-chord], foi feito um protótipo de listagem de acordes
 possíveis em [sinc-chord-list], visto na figura \ref{sinc-chord-list}. Na figura vemos
 um objeto [select] principal que recebe a variável global ``novo\_acorde'' que aciona as instâncias
 de cada tipo de acorde especificados pelo objeto [sinc-chord] correspondente.
+
+
+\begin{figure}
+\includegraphics[scale=.6]{harm-markov}
+\caption{Exemplo de harmonizador baseado em cadeia de markov}
+\label{harm-markov}
+\end{figure}
 
 A ordem de cada acorde na progressão é definido na figura \ref{harm-markov}.
 A estrutura de decisão é baseada em uma cadeia de markov com três estados e 
@@ -3275,32 +3780,99 @@ de probabilidade de progressão harmônica.
 
 \pagebreak
 
-\section{Geradores de Síntese sonora}
+\section{Geradores de Síntese}
 
-Básicos sobre processamento de sinal do Designing sound.
+As operações de síntese sonora são um campo em expansão para o
+desenvolvimento de novos timbres. Em Pd podemos modelar
+o timbre com operações matemáticas em sinal de
+áudio a partir de geradores.
+Na perspectiva de um compositor, programar em Pd abre um caminho
+ para a livre experimentação e desenho
+de áudio em tempo-real. A própria interface de
+programação, exige que o músico/programador execute as 
+conexões gráficas escutando os resultados das operações.
+ A própria operação e vizualisação gráfica 
+do resultado possibilita a precisão na concepção sonora do desenho
+de áudio. 
 
-Nessa seção vão ser abordadas técnicas clássicas de síntese
+
+O campo de pesquisa em síntese sonora digital é grande e vem crescendo
+nos últimos anos. Com a possibilidade dos compositores atuarem ativamente
+na concepção do timbre de suas composições, como é o caso dessa pesquisa. E
+também pela emergência da atividade de desenho  de som\footnote{sound design}, 
+principalmente no cinema, televisão e jogos. Dentro do campo do desenho
+sonoro os principais focos de pesquisa são a captação e o áudio
+processual\footnote{tradução livre de ``Procedural audio'' apresentado no artigo
+ Designing Sound de Andy Farnell (colocar REFERENCIA). Na tradução optei por
+áudio processual, que reforça a idéia de criação de um ambiente sonoro interativo
+em processo e se aproximar do sentido original:
+
+\begin{quotation}
+ Procedural audio is sound qua process, as opposed to sound qua product. Behind this statement lies 
+a veritable adventure into semiotics, mathematics, computer science, signal processing and music. 
+Let us reformulate our definition in verbose but more precise modern terms before moving on. 
+Procedural audio is non-linear, often synthetic sound, created in real time according to a set 
+of programmatic rules and live input. To further define it let's explain it in terms of linear, 
+recorded, interactive, adaptive, sequenced, synthetic, generative and AI audio. 
+Let's also analyse some other phrases like algorithmic composition and stochastic music. 
+By doing so, we may reach an understanding of why procedural audio is so powerful and important.
+\end{quotation} 
+} que é um conceito amplo em que essa pesquisa pode estar inserida. 
+
+Uma estratégia composicional a ser desenvolvida e devidamente
+descrita é a consideração e demarcação de pontos de contraste total
+entre som instrumental e som sintético. A partir dessa demarcação pode-se
+explorar ``cenários de fusão'' e matizes sonoros fronteiriços entre
+os pontos de contraste,. Alguns procedimentos semelhantes são usados
+em técnicas de música espectral e música eletroacústica mista.
+% , a diferença
+% seria  e que possuam a capacidade de interagir dinâmicamente,
+% evoluir no tempo de acordo com os estímulos do músico
+% (faltou referência)
+
+Nessa seção vão ser abordadas técnicas clássicas de síntese sonora
 e maneiras de conectar essas técnicas com a análise
 de áudio em tempo-real. O objetivo é criar situações
 de diálogo entre instrumentos tradicionais e sons sintetizados.
 
+Na implementação são usados objetos geradores de sinal como
+por exemplo [osc\texttildelow] e [phasor\texttildelow] e
+controladores de envelope sonoro como [line\texttildelow] e
+[vline\texttildelow], além de escrita de áudio em arrays e 
+mensagens de controle.
+No Pd existe a necessidade de um cuidado na concatenação entre
+sinais de áudio e mensagens de controle como visto na seção de metodologia \ref{tecnicas}.
 
-* falar sobre a composição do timbre
 
-* Na implementação são usados objetos geradores de áudio.
-Cada gerador tem métodos e comportamentos diferentes.
 
-* Como conectar mensagens de controle em objetos que lidam com áudio
 
-* problemas possíveis: 
+Os resultados apresentados são na maioria implementações simples,
+que são combinados durante a performance, oferecendo uma boa paleta
+de sons reativos para o instrumentista/compositor. Para isso é
+mostrada uma interface simples de todos módulos de síntese.
+Ainda há muito a ser explorado no campo da síntese controlada
+por parâmetros de análise de áudio, aqui é apresentado uma
+metodologia de trabalho para expansão de possiblidades.
 
-"Message operations are executed at the beginning of each pass of audio
-block processing, so a patch where audio depends on message operations
-which don't complete in time will also fail to produce correct output."
 
-aqui falar do uso de [switch\texttildelow] - (colocar nos patchs tb)
 
-(Farnell, pg. 185)
+
+
+
+%% tá faltando muito revisar as referências
+
+
+
+
+
+%%referencia:
+% An introduction to procedural audio and its application in computer games.
+% 
+% Andy Farnell
+% 
+% Date: 23 September 2007
+% http://obiwannabe.co.uk/html/papers/proc-audio/proc-audio.html
+
 
 
 \subsection{ Objeto [sinc-gera-sintese]}
@@ -3522,11 +4094,6 @@ definida em um array preenchido pelo próprio músico. Na figura
 \label{pdosc}
 \end{figure}
 
-\begin{figure}
-\includegraphics[scale=.7]{spectro}
-\caption{Espectrograma do som original e do som resintetizado}
-\label{spectro}
-\end{figure}
 
 
 Esse sintetizador é baseado na idéia de análise espectral do fluxo
@@ -3539,6 +4106,13 @@ ser visto na figura \ref{geradorresintese}.
 Nas figuras \ref{bancoosc} e \ref{pdosc} são mostrados o banco de osciladores no subpatch
 [pd banco de osciladores] e a formação de cada subpatch do banco contendo um objeto [osc/texttildelow]
 cada. 
+
+
+\begin{figure}
+\includegraphics[scale=.5]{spectro}
+\caption{Espectrograma do som original e do som resintetizado}
+\label{spectro}
+\end{figure}
  
 O efeito obtido pode ser chamado de resíntese de baixa resolução. O objetivo
 inicial era produzir um sintetizador que fosse muito sensível a pequenas
@@ -3564,23 +4138,31 @@ por diferença do toque.
 \section{Processamento de sinal de áudio}
 
 
-* performance musical controlando parâmetros de processamento
+Algumas pesquisas demonstram interesse pela 
+performance musical controlando parâmetros de processamento, como
+em Grahan (colocar ref do rickygrahan.com)
 
-* Diversas técnicas de processamento digital fazem parte do repertório
+%%performance conduzindo espacialização
+
+
+Diversas técnicas de processamento digital fazem parte do repertório
 composicional com computadores. Muitos programas de computador realizam
-as mesmas técnicas com algumas diferenças de implementação.
+as mesmas técnicas com algumas diferenças na implementação.
 
 As técnicas de processamento digital mais conhecidas emulam dispositivos
 eletrônicos que operam no sinal analógico através de circuitos elétricos.
 São muito comuns em estúdios a presença de "módulos de reverb" ou 
-"pedais de efeito" para instrumentos. 
+"pedais de efeito" para instrumentos. Na implementação computacional,
+essas funcionalidades podem ser expandidas possibilitando controle em
+tempo-real e integração com a performance musical, criando um ambiente
+musical interativo que expande e transforma o gesto original do músico.
 
 O principal objetivo dessa seção é criar ferramentas que re-combinem
 o sinal de áudio de entrada de maneira a ser controlado pelo próprio
 fluxo de áudio sub-sequente. Musicalmente são buscadas texturas que usem
 o próprio áudio como fonte garantindo assim uma unidade sonora a partir da fonte.
 
-* Para aplicar uma técnica de processamento, primeiro se deve amostrar
+Para aplicar uma técnica de processamento, primeiro se deve amostrar
 o áudio a ser processado. No caso dos objetos de loop, o áudio é gravado
 em um array e lido repetidamente nesse array. Já o delay variável vai ter uma
 janela de escrita e de leitura variáveis desse sinal. O motor básico dos loops 
@@ -3588,26 +4170,65 @@ implementados são feitos com o objeto [tabplay\texttildelow] que lê arrays
 de áudio sem alterar o tempo ou frequência. Esse objeto prevê um método de começo e fim
 da leitura em número de samples.
 
+\begin{figure}
+\includegraphics[scale=.7]{sinc-ring}
+\caption{Patch mostrando um ring modulator simples}
+\label{sinc-ring}
+\end{figure}
+
+
 Também podemos processar o sinal de áudio em tempo-real, como é mostrado na 
-figura XXX , onde é implementado um ring-modulator simples.
+figura \ref{sinc-ring} , onde é implementado um ring-modulator simples.
 
 
+\begin{figure}
+\includegraphics[scale=.5]{digitalia3}
+\caption{Patch mostrando uso de objetos de SInCoPA misturados com objetos nativos e abstrações DIY2}
+\label{digitalia3}
+\end{figure}
 
-* figura : controle de ring modulator por análise de áudio de entrada
 
-* figura : mistura de objetos da DIY2 e rj
-
+Outros objetos e abstrações também são usados e comparados, durante as experimentações
+como a biblioteca DIY2 e rj. Na figura \ref{digitalia3} podemos ver uma situação de prototipação
+rápida, usando objetos de SInCoPA juntamente com objetos nativos de Pd e uma abstração DIY2 [mono-vibrato],
+que implementa um ring modulator mais complexo. 
 
 \subsection{Delay variável}
 
 
-- delay variável
+\begin{figure}
+\includegraphics[scale=.5]{sinc-delay}
+\caption{Abstração de controle de delay variável}
+\label{sinc-delay}
+\end{figure}
 
-- efeitos com FFT (vocoder? - delay espectral)
+
+O delay é um efeito que cria uma linha de atraso de áudio e possibilita
+um leque grande de gestos sonoros.
+
+Num módulo  de delay analógico, o músico escolhe diferentes elementos
+da execução para aplicar delay de tempo variável: uma nota, um acorde 
+da guitarra ou uma palavra do cantor. Essas decisões de certa forma 
+sublinham esses elementos colocando marcas na audição. Essa chamada de
+atenção para esses elementos acabam criando uma sensação de narrativa musical
+interessante do ponto de vista composicional.
+
+Foi criada uma abstração que possibilita uma linha de delay simples com valores
+de tempo e feedback variáveis. A estrutura básica está na figura \ref{sinc-delay}. O objeto 
+[delwrite\texttildelow] escreve uma linha de atraso de áudio de 500 milisegundos
+num buffer de memória temporária com a variável \$0-delay. Essa linha é executada
+pelo objeto [vd\texttildelow] colocando nele o argumento \$0-delay. Para se criar
+o efeito de ``eco'' ou feedback, podemos enviar o áudio para ser somado com o sinal
+original e enviado para [delwrite\texttildelow] novamente, criando assim, uma retro-alimentação
+contínua de áudio. Para se determinar a quantidade de feedback podemos controlar a 
+amplificação do sinal resultante antes de retornar a [delwrite\texttildelow].
 
 
+Uma possibilidade de implementação mais refinada de delay é ``delay espectral'', descrito
+no apêndice \ref{sec:fftpd}, onde além da linha de atraso e feedback, pode-se controlar elementos
+do timbre.
 
-\subsection{Objeto [sinc-loop]}
+\subsection{Repetição}
 
 
 A repetição e contraste podem ser consideradas as duas principais forças
@@ -3625,6 +4246,10 @@ Nesse caso particular o objetivo é determinar outras construções rítmicas,
 fora de controles MIDI e sequenciadores baseados em objetos [metro], ainda que essa opção
 esteja sinalizada na implementação. A repetição
 é baseada no tamanho da prórpia linha de áudio gravada.
+
+
+\subsubsection{Objeto [sinc-loop]}
+
 
 Em uma primeira implementação  vista na figura \ref{sinc-looper}, foi pensado um loop simples. Com um botão
 que seleciona o canal, outro botão que quando pressionado começa 
@@ -3687,10 +4312,33 @@ ajuste o loop a qualquer tempo pré-definido por algum sequenciador.
 \end{figure}
 
 
-\subsection {Navalha}
+\subsection {Fragmentação}
+
 
 \begin{figure}
-\includegraphics[scale=.2]{slicer3}
+\includegraphics[scale=.6]{sinc-gravador}
+\caption{[sinc-gravador]}
+\label{sinc-gravador}
+\end{figure}
+
+
+
+A recombinação de trechos sonoros executados previamente é uma grande fonte
+de gestos musicais e experimentação sonora. Um fluxo de áudio quando gravado
+e fragmentado em trechos pode criar uma sensação de descontinuidade e não-linearidade
+da memória curta ao mesmo tempo que guarda uma unidade perceptual em função de estar usando
+o áudio que acabou de acontecer.
+
+O objetivo desse módulo é fazer com que trechos do áudio da performance sejam segmentados e 
+passíveis de recombinação em diversos modos e também controlados pela execução musical.
+
+O primeiro elemento dessa abstração é um gravador de áudio que escreva um fluxo
+de áudio em uma tabela (array) que possa ser acessado pelo motor de recombinação de "fatias" de áudio.
+Uma pequena abstração com essa finalidade pode ser vista na figura \ref{sinc-gravador}.
+%% descrever entradas e saídas de [sinc-gravador]
+
+\begin{figure}
+\includegraphics[scale=.6]{slicer3}
 \caption{Fatiador automático de segmentos simétricos}
 \label{slicer3}
 \end{figure}
@@ -3701,11 +4349,15 @@ ajuste o loop a qualquer tempo pré-definido por algum sequenciador.
 \label{sinc-slicer}
 \end{figure}
 
-\begin{figure}
-\includegraphics[scale=.6]{sinc-gravador}
-\caption{[sinc-gravador]}
-\label{sinc-gravador}
-\end{figure}
+O funcionamento básico de um sistema de segmentação de amostras de áudio pode ser visto na figura \ref{slicer3},
+baseado nos objetos [vline\texttildelow] e [tabread4\texttildelow]. Nesse caso os segmentos são feitos
+automaticamente baseados na duração total da amostra e feitos de maneira simétrica.
+O motor central da execução dos segmentos é mostrado no detalhe da figura \ref{slice-motor}.
+A relação está no fato do objeto [vline\texttildelow] cria uma linha de leitura que é interpretada
+por [tabread4\texttildelow] como valor de início e fim de leitura em samples e tempo dessa
+leitura o que acaba por afetar a duração ea frequência do áudio resultante. 
+A abstração [sinc-slicer], é uma interface mais refinada e pode ser vista na imagem \ref{sinc-slicer}, 
+onde os pontos de início e fim do segmento são definidos pelos dois sliders abaixo da forma de onda.
 
 \begin{figure}
 \includegraphics[scale=.6]{slice-motor}
@@ -3713,27 +4365,8 @@ ajuste o loop a qualquer tempo pré-definido por algum sequenciador.
 \label{slice-motor}
 \end{figure}
 
-A recombinação de trechos sonoros executados previamente é uma grande fonte
-de gestos musicais e experimentação sonora.
-
-O objetivo desse módulo é fazer com que trechos do áudio da performance sejam segmentados e 
-passíveis de recombinação em diversos modos e também controlados pela execução musical.
-
-O primeiro elemento dessa abstração é um gravador de áudio que escreva um fluxo
-de áudio em uma tabela (array) que possa ser acessado pelo motor de recombinação de "fatias" de áudio.
-Uma pequena abstração com essa finalidade pode ser vista na figura \ref{sinc-gravador}.
-%% descrever entradas e saídas de [sinc-gravador]
-
-O funcionamento básico de um sistema de segmentação de amostras de áudio pode ser visto na figura \ref{slicer3},
-baseado nos objetos [vline\texttildelow] e [tabread4\texttildelow]. Nesse caso os segmentos são feitos
-automaticamente baseados na duração total da amostra e feitos de maneira simétrica.
-O motor central da execução dos segmentos é mostrado no detalhe da figura \ref{slice-motor}.
-A abstração [sinc-slicer], é uma interface mais refinada e pode ser vista na imagem \ref{sinc-slicer}, 
-onde os pontos de início e fim do segmento são definidos pelos dois sliders abaixo da forma de onda.
-
-Durante o andamento da pesquisa, foi decidido usar a interface do projeto Navalha de Guilherme Soares.
-O principal motivo é que ambos projetos usam a linguagem Pd e portanto guardam compatibilidade de dependências 
-para desenvolvimentos futuros.
+Durante o andamento da pesquisa, foi usada a interface do projeto Navalha de Guilherme Soares,
+como princípio de experimentação.
 O Navalha é uma ferramenta que estabelece
 um método para segmentação e sequenciamento de recortes de amostras de áudio. A interface gráfica
 provê acesso as funcionalidades, como carregar sample, segmentar trechos manualmente, sequenciar e 
@@ -3841,7 +4474,7 @@ Nesse projeto, o mapeamento do áudio do músico controla aspectos do sequenciad
 o número de segmentos e acionamento individual de cada segmento. O funcionamento
 pode ser visto numa interface minimalista do objeto [nvl] na figura \ref{mininvl}.
 Muitas outras variações de controle podem
-ser pensadas e definidas na seção sobre cenários de interação.
+ser pensadas e definidas em diferentes cenários de interação.
 
 
 
@@ -3870,11 +4503,7 @@ ser pensadas e definidas na seção sobre cenários de interação.
 \subsection{Síntese granular}
 
 
-\begin{figure}
-\includegraphics[scale=.6]{granular-geral}
-\caption{Visão geral de funcionamento de síntese granular}
-\label{granular-geral}
-\end{figure}
+
 
 \begin{figure}
 \includegraphics[scale=.6]{granular2}
@@ -3929,6 +4558,13 @@ todos os geradores de grãos ([grainvoice]) do patch inteiro. As variáveis glob
 por versões locais (com prefixo \$0-my) que determinam parâmetros únicos para cada instância de [grainvoice].
 Quanto maior a diferença entre os parâmetros de cada voz mais nos aproximamos do efeito de "nuvens de grãos".
 
+\begin{figure}
+\includegraphics[scale=.6]{granular-geral}
+\caption{Visão geral de funcionamento de síntese granular}
+\label{granular-geral}
+\end{figure}
+
+
 Na figura \ref{granular-geral} são usadas quatro instâncias de [grainvoice]. No canto inferior esquerdo da figura
 vemos o controle das quatro variáveis globais. Observando que o objeto [soundfiler] envia o tamanho do arquivo
 carregado, em número de amostras, através da variável filesize. O primeiro controle usa esse valor para escalonar
@@ -3977,12 +4613,232 @@ Com finalidade de facilitar a interação em tempo-real com um músico.
 Outra parte da abstração, diz respeito ao mapeamento dos dados de análise para controle
 dos prâmetros de síntese. Um elemento alterado em relação ao exemplo original de Andy
 Farnell é a definição da variável local \$0-mydur, onde é acrescentado um subpatch que 
-possibilita definir um valor fixo ou randômico para todas as vozes, aternando assim entre
+possibilita definir um valor fixo ou randômico para todas as vozes, resultando assim, numa variação entre
 uma textura mais síncrona e outra mais assícrona. Como pode ser visto na figura \ref{sinc-gran1},
 e no detalhe do subpatch na figura \ref{sub-randomize}.
 
 
 \pagebreak
+
+\section{Cenário de interação}
+
+
+O conceito de cenário aqui é usado como a maneira de concatenação
+entre os parâmetros da análise de áudio e os geradores de material
+musical.
+
+
+Cada parâmetro da análise da performance do músico pode ser mapeado como controlador
+de algum aspecto da geração de material musical. Por exemplo,
+a instabilidade rítmica pode ser mapeada para a geração de durações
+de notas MIDI. De forma imitativa ou contrastante, a depender da
+proposta composicional.
+
+O cenário de interação é uma parte do sistema onde se declaram
+as maneiras de mapeamento dos parâmetros da composição final. A maneira
+como o sistema interpreta cada parâmetro da análise da performance pode
+variar ao longo da composição e é definido em cada cenário.
+
+Pode-se propôr a idéia que o ato composicional está na definição
+do cenário de interação. A relação entre gesto musical/instrumental e 
+o resultado sonoro vai depender dos mapeamentos descritos no cenário
+de interação. Durante uma performance instrumental acústica, a relação
+cinestésica entre gesto físico e resultado sonoro é absoluta. Na descrição
+do cenário de interação essa relação pode sofrer alterações ao ponto
+do próprio instrumentista perder o controle e a atenção de como cada
+gesto está mapeado.
+
+A atual implementação de cenário de interação ainda se encontra em fase 
+experimental. Os próximos passos do trabalho serão no sentido da implementação
+de elementos de modelagem física entre os dados das análises e os geradores.
+Por modelagem física, entende-se a simulação de força, gravidade e massa. O 
+objetivo seria o de aumentar a cinestesia experimentada pelo instrumentista 
+durante a performance.
+
+Atualemnte fazem parte do cenário de interação os objetos [sinc-cenario], [sinc-pedal],
+[sinc-mixer] e [sinc-pan]. Sendo [sinc-cenario], o objeto central responsável
+por organizar o mapeamento dos parâmetros.
+
+\begin{figure}
+\includegraphics[scale=.4]{teclado}
+\caption{teclado USB adaptado como pedal}
+\label{teclado}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.6]{sinc-controle-teclado}
+\caption{[sinc-controle-teclado]}
+\label{sinc-controle-teclado}
+\end{figure}
+
+Os cenários são alternados através de teclado USB, modificado e usado como
+um pedal durante a performance. Como pode ser visto na figura \ref{teclado}.
+O teclado é modificado retirando-se as teclas que não são usadas no desenho escolhido
+para melhor se adaptar a função de pedal.
+
+Foi desenvolvido também uma abstração para organizar as funções do teclado.
+Pode-se observar na figura \ref{sinc-controle-teclado}, a função condicional
+que mapeia a tecla ESC para alternar entre 4 cenas acionadas pelas variáveis
+cena1, cena2, cena3 e cena4, respectivamente.
+
+O teclado pode servir, além dos cenários de interação, como controlador
+de sequências pré-definidas. Podendo disparar qualquer formato de sequência como
+áudio, midi ou descrição de eventos com arquivos de texto. Bem como formatos mistos
+de sequências automatizadas com parâmetros definidos pela análise da performance.
+
+%%Falar sobre biblioteca mapping e Modelagem física
+
+\subsection{Mapeamento}
+
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping1}
+\caption{mapping1}
+\label{mapping1}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping2}
+\caption{mapping2}
+\label{mapping2}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping3}
+\caption{mapping3}
+\label{mapping3}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping4}
+\caption{mapping4}
+\label{mapping4}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{mapping5}
+\caption{mapping5}
+\label{mapping5}
+\end{figure}
+
+Por mapeamento aqui entende-se a tradução de uma escala
+de valores numéricos para outra escala. A maneira como
+se faz essa tradução pode conduzir a resultados diversos.
+Por exemplo, um parâmetro que varia de 0 a 127 pode ser 
+mapeado para uma escala de -1 a 1 de maneira linear de modo
+que o valor original 64 (centro da escala) seja mapeado para o valor 0 (centro
+da nova escala).
+
+Os parâmetros da análise do áudio em tempo-real possuem diferentes
+escalas e ainda, no caso da amplitude e timbre, apresentam variações de uma
+performance para outra. A precisão e previsibilidade na análise do áudio 
+depende de diversos fatores externos como por exemplo a constituição do instrumento, da
+amplificação ou do timbre do instrumentista.
+
+Qualquer técnica de mapeamento escolhida deve manter uma flexibilidade
+de ajuste adequado a essas variáveis. A biblioteca ``mapping'' presente no
+Pd-extended apresenta algumas alternativas para diferentes tipos de mapeamento.
+Aqui serão discutidos mapeamento linear, exponencial, logarítmico e customizado.
+Os patchs de ajuda de alguns objetos são mostrados nas figuras \ref{mapping1}, \ref{mapping2},
+\ref{mapping3}, \ref{mapping4} e \ref{mapping5}.
+
+
+\subsection{[sinc-cenario]}
+
+\begin{figure}
+\includegraphics[scale=.4]{sinc-cenario}
+\caption{visão geral de [sinc-cenario]}
+\label{sinc-cenario}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{tabela-cenario}
+\caption{fluxograma do mapeamento do patch na figura \ref{pd-cena1}}
+\label{tabela-cenario}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{pd-cena1}
+\caption{subpatch [pd cena 1]}
+\label{pd-cena1}
+\end{figure}
+
+Essa abstração foi desenvolvida para organização e controle de diferentes cenários
+interativos. Na figura \ref{sinc-cenario} podemos observar um exemplo de funcionamento
+global com 4 parâmetros de análise da performance do músico recebendo dados em tempo-real.
+
+O objetivo da abstração é receber esses dados e re-escalar os valores para controle dos
+parâmetros dos módulos generativos e transformativos do sistema. Na figura \ref{pd-cena1},
+vemos um detalhe do subpatch [pd cena 1] onde o índice de estabilidade rítmica é escalado para
+os valores de 0 a 100, e posteriormente filtrado com o objeto [moses], para então selecionar um
+dos quatro geradores rítmicos disponíveis. 
+
+É importante observar que nesse caso, na figura \ref{tabela-cenario}, a relação entre
+análise e geração de material musical se dá de maneira imitativa. Pois a medida que as durações
+das notas do músico se mantém mais estáveis, os geradores rítmicos tendem a ser imitativos. E quanto
+mais instáveis as durações os geradores rítmicos alternam randomicamente entre um gerador rítmico
+baseado em movimento browniano e outro totalmente randômico.
+
+
+
+\subsection{Objetos [sinc-mixer] e [sinc-pan]}
+
+\begin{figure}
+\includegraphics[scale=.4]{mixer}
+\caption{[sinc-mixer]}
+\label{mixer}
+\end{figure}
+
+Na figura \ref{mixer} vemos a composição interna do objeto
+[sinc-mixer] que tem como objetivo implementar um mixer
+de áudio de quatro canais independentes.
+
+\begin{figure}
+\includegraphics[scale=.4]{pan}
+\caption{[sinc-pan]}
+\label{pan}
+\end{figure}
+
+Além do volume global de cada canal, podemos também ter o controle
+independente de espacialização simples como pode ser visto
+na composição interna da abstração [sinc-pan] na figura \ref{pan}.
+
+
+\section {Experimentos}
+
+Nessa seção serão demonstrados alguns experimentos práticos usando as abstrações
+descritas anteriormente.
+
+\subsection{Experimento 1 - Interação com Controlador MIDI}
+
+
+* score follower
+
+
+\subsection{Experimento 2 - Geradores melódicos e rítmicos}
+
+\begin{figure}
+\includegraphics[scale=.4]{experimento1}
+\caption{Experimento 1 - Geradores melódicos e rítmicos}
+\label{experimento1}
+\end{figure}
+
+
+O experimento mostrado na figura \ref{experimento1} mostra um diálogo
+entre um instrumentista com os geradores MIDI descritos na pesquisa.
+
+
+
+
+\subsection{Experimento 3 - Loop e controle rítmico}
+
+
+
+
+
+
+
+
 
 
 
@@ -4157,193 +5013,6 @@ Podemos ver o uso do objeto [gemnotes] na figura \ref{gemnotes1} e no arquivo "h
 
 
 
-\section{Cenário de interação}
-
-
-O conceito de cenário aqui é usado como a maneira de concatenação
-entre os parâmetros da análise de áudio e os geradores de material
-musical.
-
-
-Cada parâmetro da análise da performance do músico pode ser mapeado como controlador
-de algum aspecto da geração de material musical. Por exemplo,
-a instabilidade rítmica pode ser mapeada para a geração de durações
-de notas MIDI. De forma imitativa ou contrastante, a depender da
-proposta composicional.
-
-O cenário de interação é apenas uma parte do sistema onde se declaram
-as maneiras de mapeamento dos parâmetros da composição final. A maneira
-como o sistema interpreta cada parâmetro da análise da performance pode
-variar ao longo da composição e é definido em cada cenário.
-
-%% No futuro poderá expandir o conceito de cenário usando data strutctures
-%%para um controle  dos comportamentos
-
-Fazem parte do cenário de interação os objetos [sinc-cenario], [sinc-teclado],
-[sinc-mixer] e [sinc-pan]. Sendo [sinc-cenario], o objeto central responsável
-por organizar o mapeamento dos parâmetros.
-
-\begin{figure}
-\includegraphics[scale=.4]{teclado}
-\caption{teclado USB adaptado como pedal}
-\label{teclado}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{sinc-controle-teclado}
-\caption{[sinc-controle-teclado]}
-\label{sinc-controle-teclado}
-\end{figure}
-
-Os cenários são alternados através de teclado USB, modificado e usado como
-um pedal durante a performance. Como pode ser visto na figura \ref{teclado}.
-O teclado é modificado retirando-se as teclas que não são usadas no desenho escolhido
-para melhor se adaptar a função de pedal.
-
-Foi desenvolvido também uma abstração para organizar as funções do teclado.
-Pode-se observar na figura \ref{sinc-controle-teclado}, a função condicional
-que mapeia a tecla ESC para alternar entre 4 cenas acionadas pelas variáveis
-cena1, cena2, cena3 e cena4, respectivamente.
-
-O teclado pode servir, além dos cenários de interação, como controlador
-de sequências pré-definidas. Podendo disparar qualquer formato de sequência como
-áudio, midi ou descrição de eventos com arquivos de texto. Bem como formatos mistos
-de sequências automatizadas com parâmetros definidos pela análise da performance.
-
-%%Falar sobre biblioteca mapping e Modelagem física
-
-\subsection{mapping}
-
-
-\begin{figure}
-\includegraphics[scale=.4]{mapping1}
-\caption{mapping1}
-\label{mapping1}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{mapping2}
-\caption{mapping2}
-\label{mapping2}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{mapping3}
-\caption{mapping3}
-\label{mapping3}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{mapping4}
-\caption{mapping4}
-\label{mapping4}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{mapping5}
-\caption{mapping5}
-\label{mapping5}
-\end{figure}
-
-
-
-\subsection{[sinc-cenario]}
-
-\begin{figure}
-\includegraphics[scale=.4]{sinc-cenario}
-\caption{visão geral de [sinc-cenario]}
-\label{sinc-cenario}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{tabela-cenario}
-\caption{fluxograma do mapeamento do patch na figura \ref{pd-cena1}}
-\label{tabela-cenario}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{pd-cena1}
-\caption{subpatch [pd cena 1]}
-\label{pd-cena1}
-\end{figure}
-
-Essa abstração foi desenvolvida para organização e controle de diferentes cenários
-interativos. Na figura \ref{sinc-cenario} podemos observar um exemplo de funcionamento
-global com 4 parâmetros de análise da performance do músico recebendo dados em tempo-real.
-
-O objetivo da abstração é receber esses dados e re-escalar os valores para controle dos
-parâmetros dos módulos generativos e transformativos do sistema. Na figura \ref{pd-cena1},
-vemos um detalhe do subpatch [pd cena 1] onde o índice de estabilidade rítmica é escalado para
-os valores de 0 a 100, e posteriormente filtrado com o objeto [moses], para então selecionar um
-dos quatro geradores rítmicos disponíveis. 
-
-É importante observar que nesse caso, na figura \ref{tabela-cenario}, a relação entre
-análise e geração de material musical se dá de maneira imitativa. Pois a medida que as durações
-das notas do músico se mantém mais estáveis, os geradores rítmicos tendem a ser imitativos. E quanto
-mais instáveis as durações os geradores rítmicos alternam randomicamente entre um gerador rítmico
-baseado em movimento browniano e outro totalmente randômico.
-
-
-
-\subsection{Objetos [sinc-mixer] e [sinc-pan]}
-
-\begin{figure}
-\includegraphics[scale=.4]{mixer}
-\caption{[sinc-mixer]}
-\label{mixer}
-\end{figure}
-
-Na figura \ref{mixer} vemos a composição interna do objeto
-[sinc-mixer] que tem como objetivo implementar um mixer
-de áudio de quatro canais independentes.
-
-\begin{figure}
-\includegraphics[scale=.4]{pan}
-\caption{[sinc-pan]}
-\label{pan}
-\end{figure}
-
-Além do volume global de cada canal, podemos também ter o controle
-independente de espacialização simples como pode ser visto
-na composição interna da abstração [sinc-pan] na figura \ref{pan}
-
-
-\section {Experimentos}
-
-Nessa seção serão demonstrados alguns experimentos práticos usando as abstrações
-descritas anteriormente.
-
-\subsection{Experimento 1 - Interação com Controlador MIDI}
-
-
-
-
-
-\subsection{Experimento 2 - Geradores melódicos e rítmicos}
-
-\begin{figure}
-\includegraphics[scale=.4]{experimento1}
-\caption{Experimento 1 - Geradores melódicos e rítmicos}
-\label{experimento1}
-\end{figure}
-
-
-O experimento mostrado na figura \ref{experimento1} mostra um diálogo
-entre um instrumentista com os geradores MIDI descritos na pesquisa.
-
-
-
-
-\subsection{Experimento 3 - Loop e controle rítmico}
-
-
-
-
-
-
-
-
-
 
 \chapter{Resultados e Conclusão}
 \label{sec:conclusao}
@@ -4401,6 +5070,79 @@ em projetos maiores.
 
 \chapter{Apêndice}
 \label{chap:anexos}
+
+\section{Lista de objetos de SInCoPA}
+\label{lista-sincopa}
+
+% sinc-alternate.pd
+% sinc-analise-help.pd
+% sinc-analise.pd
+% sinc-audioanalise-help.pd
+% sinc-audioanalise.pd
+% sinc-audioin.pd
+% sinc-buffer_temp.pd
+% sinc-calc_melodico.pd
+% sinc-calc_ritmo.pd
+% sinc-cenario.pd
+% sinc-cenarios.pd
+% sinc-cenas.pd
+% sinc-chord-list.pd
+% sinc-chord.pd
+% sinc-chordseq.pd
+% sinc-chord-table.pd
+% sinc-controle_teclado.pd
+% sinc-dens_ritmica-help.pd
+% sinc-dens_ritmica.pd
+% sinc-escala-linear.pd
+% sinc-estabilidade_ritmica.pd
+% sinc-fx.pd
+% sinc-gera_dinamica.pd
+% sinc-gera_melodico.pd
+% sinc-gera_melodicos.pd
+% sinc-gera_ritmo.pd
+% sinc-gera_sintese-help.pd
+% sinc-gera_sintese.pd
+% sinc-gravador.pd
+% sinc-harmonia.pd
+% sinc-harmonia-table.pd
+% sinc-idtimbre.pd
+% sinc-looper4.pd
+% sinc-looper-help.pd
+% sinc-looper.pd
+% sinc-looper-pedal.pd
+% sinc-loop-help.pd
+% sinc-loop_master.pd
+% sinc-loop_slave.pd
+% sinc-mandanotacao.pd
+% sinc-midiin-help.pd
+% sinc-midiin.pd
+% sinc-midi_osc1-help.pd
+% sinc-midi_osc1.pd
+% sinc-midiout.pd
+% sinc-mixer-help.pd
+% sinc-mixer.pd
+% sinc-nota1.pd
+% sinc-notacao.pd
+% sinc-nota.pd
+% sincopa.pd
+% sinc-ouvido.pd
+% sinc-pan~.pd
+% sinc-pauta1.pd
+% sinc-pauta.pd
+% sinc-permeabilidade.pd
+% sinc-prob.pd
+% sinc-recebenotacao.pd
+% sinc-sample.pd
+% sinc-slicer.pd
+% sinc-teclado.pd
+% sinctest_delay1.pd
+% sinctest_delayspecial2.pd
+% sinctest_delayspecial.pd
+% sinctest_fm1.pd
+% sinctest_fm2.pd
+% sinctest_fmdelay2.pd
+% sinctest_fmdelay.pd
+% sinctest_teclado.pd
 
 
 \section{PDMTL}
@@ -4472,7 +5214,7 @@ Pure data.
 \section{FFT no Pd}
 \label{sec:fftpd}
 
-Tradução do documento "Beginners Guide to FFT-objects in Pd" de Frank Barchnet 
+Tradução livre do documento "Beginners Guide to FFT-objects in Pd" de Frank Barchnet 
 (http://footils.org/2007/02/20/beginners-guide-fft-objects-pd/)
 
 A transformada de Fourier (FFT) é uma operação poderosa em processamento de sinal digital.
@@ -4751,6 +5493,7 @@ Passos:
 
 
 \section{Como escrever um external para Pure-data}
+\label{C-external}
 
 Tradução dos primeiros 3 capítulos do documento
 "HOWTO write an external for pd"(Copyright (c) 2001-2006 by IOhannes m zmölnig).

@@ -1,0 +1,1214 @@
+#LyX file created by tex2lyx 1.6.7
+\lyxformat 264
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+\usepackage{sbc2003}
+
+     
+\sloppy
+
+\title{}
+
+\author{Cristiano FigueirÃ³\inst{1} \and 
+        Pedro Kroger\inst{1}}
+
+\address{Genos---Grupo de Pesquisa em ComputaÃ§Ã£o Musical \\
+         Escola de MÃºsica da Universidade Federal da Bahia \\
+         Parque UniversitÃ¡rio Edgard Santos, Canela \\
+         40110-150 Salvador Bahia
+         \email{figocris@gmail.com, pedro.kroger@gmail.com}
+}
+
+
+\end_preamble
+\language brazilian
+\inputencoding latin1
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize 12
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+graphicspath
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+figs/
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{resumo}
+\end_layout
+
+\end_inset
+
+ A mÃºsica eletroacÃºstica interativa em tempo-real, prevÃª uma sÃ©rie de desafios ao compositor ao exigir o cuidado na interaÃ§Ã£o tÃ­mbrica, no controle dos eventos e forma e no fluxo de dados no mesmo projeto. O presente trabalho procura apresentar alguns aspectos particulares da criaÃ§Ã£o de mÃºsica interativa em tempo-real usando o software Pure-data (Pd). SerÃ£o abordados temas como as caracterÃ­sticas de controle temporal e manipulaÃ§Ã£o da forma como tambÃ©m tÃ©cnicas clÃ¡ssicas de sÃ­ntese sonora e manipulaÃ§Ã£o de samples no Pd. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{resumo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+IntroduÃ§Ã£o
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "sec:introducao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+O presente artigo visa descrever a fase introdutÃ³ria de meu projeto de doutorado o qual trata da questÃ£o da interaÃ§Ã£o em tempo-real entre mÃºsicos e computadores atravÃ©s de um sistema computacional escrito no software Pure-data. A mÃºsica eletroacÃºstica interativa (em tempo-real), prevÃª uma sÃ©rie de desafios ao compositorao exigir o cuidado nainteraÃ§Ã£o tÃ­mbrica, no controle dos eventos e da forma e no fluxo de dados no mesmo projeto. O presente trabalho procura apresentar alguns aspectos particulares da criaÃ§Ã£o de mÃºsica interativa em tempo-real usando o software Pure-data (Pd).
+\end_layout
+
+\begin_layout Standard
+
+O Pure-data Ã© um ambiente de programaÃ§Ã£o sonora e visual grÃ¡fico orientado ao objeto.O cÃ³digo Ã© escrito em patches visuais, onde os objetos e seus controles sÃ£o conectados via caixas com entradas e saÃ­das atravÃ©s de cabos. O Pd pertence a famÃ­lia de programas oriundos do Max, que usam a metÃ¡fora do fluxograma tradicional de sÃ­ntese sonora como gramÃ¡tica da criaÃ§Ã£o de patches. O Pd Ã© escrito em C++ e aceita expressÃµes de C++ como argumentos de controle. Ã um software livre e multi-plataforma, alÃ©m de contar com uma extensa comunidade de desenvolvedores.
+\end_layout
+
+\begin_layout Standard
+
+Esse projeto tem como objetivo fornecer informaÃ§Ãµes no desenvolvimento de uma composiÃ§Ã£o escrita toda em Pd. onde todos os eventos sonoros sejam determinados pela programaÃ§Ã£o do prÃ³prio patch e nÃ£o dependam de interaÃ§Ã£o com nenhuma fonte externa como teclado e mouse, entrada de Ã¡udio em tempo-real e controle Midi externo. No processo de aquisiÃ§Ã£o de tÃ©cnicas de programaÃ§Ã£o musical em Pd, julgo importante esse tipo de projeto pois apesar de todos parÃ¢metros de eventos estarem descritos estaticamente no patch, a mÃºsica sempre ocorre em tempo-real, ao contrÃ¡rio do Csound[Bou00] onde vocÃª edita o score e a orchestra e depois compila o programa e confere o arquivo de Ã¡udio resultante. O paradigma composicional no Csound pode ser visto como semelhante ao trabalho tradicional do compositor que descreve eventos atravÃ©s de dois arquivos: uma orchestra e um score, onde no primeiro sÃ£o descritas as qualidades fixas do timbre e no segundo os eventos e os parÃ¢metros dinÃ¢micos do timbre. A arquitetura de programas como Max e Pd, a primeira vista pode ser vista como simples e convidativa pelo fato de possibilitar uma programaÃ§Ã£o intuitiva e parecer com um fluxograma. Mas logo se dÃ£o as primeiras dificuldades pelo fato de o paradigma da linguagem ser muito calcado na performance em tempo-real causando a dificuldade de organizaÃ§Ã£o dos dados composicionais, como notas, acordes, eventos e mudanÃ§as de parÃ¢metros de sÃ­ntese.
+\end_layout
+
+\begin_layout Standard
+
+Os mÃºsicos tem sua formaÃ§Ã£o baseada na notaÃ§Ã£o musical tradicional que estabelece uma cadeia de binÃ´mios de parÃ¢metros de estruturaÃ§Ã£o sonora
+\begin_inset LatexCommand cite
+after ""
+key "zampronha00:notacao"
+
+\end_inset
+
+ como altura versus ataque, duraÃ§Ã£o versus articulaÃ§Ã£o ou mÃ©trica versus expressÃ£o. O sistema da notaÃ§Ã£o tradicional tem uma estrutura que possui uma sequencialidade temporal dos eventos implÃ­cita. A migraÃ§Ã£o dos mÃºsicos para ambientes de composiÃ§Ã£o e design sonoro como Csound 
+\begin_inset LatexCommand cite
+after ""
+key "boulanger00:csound"
+
+\end_inset
+
+ tende a ser mais natural pela adaptaÃ§Ã£o de um tipo de estrutura temporal (partitura) para outro (Score), e tambÃ©m pela oposiÃ§Ã£o binÃ¡ria entre "orchestra" e "score". No Csound, a base de dados Ã© chamada "Score". Scores em Csound consistem na maioria das vezes em "notas", que sÃ£o comandos para um sintetizador (orchestra). O score Ã© essencialmente uma sequÃªncia temporal. Uma possÃ­vel sequÃªncia temporal em Csound pode ser vista:
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ ;orchestra instr 1 k1 linen 10000, .2, p3, .5 a1 oscil k1, p4, 1 out a1 endin
+\end_layout
+
+\begin_layout Standard
+
+;score f1 0 2096 10 1 .2 .3 i1 0 1 440 i1 1 1 660
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Programadores tambÃ©m sÃ£o acostumados com linguagens de programaÃ§Ã£o que tem sua gramÃ¡tica baseada na sequencialidade das aÃ§Ãµes. A vantagem de usar uma ferramenta de sÃ­ntese embutida em uma linguagem de programaÃ§Ã£o Ã© que se pode ter uma flexibilidade muito maior na criaÃ§Ã£o relaÃ§Ãµes entre os elementos devido a possiblidade de criar novas abstraÃ§Ãµes. Abaixo temos um exemplo de cÃ³digo em Comonn lisp music.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ (definstrument simp (start dur frequency amp &optional (amp-env '(0 0 .5 1.0 1.0 0))) (multiple-value-bind (beg end) (times->samples start dur) (let ((osc (make-oscil :frequency frequency)) (amp-env (make-env :envelope amp-env :scaler amp :dur dur))) (run (loop for i from beg below end do (outa i (* (env amp-env) (oscil osc)))))))) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ (with-sound () (simp 0 1 440 1) (simp 1 1 660 1)) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ (with-sound () (loop for freq from 100 to 1000 by 100 for dur from 0 to 10 do (simp dur 1 freq 1)) 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Se formos tentar implementar esse cÃ³digo em Pd. Podemos encontrar algo assim:
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename exemplopd1.png
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+2 notas num oscilador simples
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:exemplopd1"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+O fato do Pd ser uma linguagem grÃ¡fica possibilita uma facilidade de descriÃ§Ã£o do processo de sÃ­ntese sonora pelo fato de que o prÃ³prio cÃ³digo Ã© semelhante ao fluxograma tradicional de representaÃ§Ã£o da sÃ­ntese (inserir figura de fluxograma). A estrutura de um fluxograma possui uma sequencialidade implÃ­cita (da saÃ­da final atÃ© os parÃ¢metros de cada gerador), mas nÃ£o explicita como vÃ£o ser manipulados os parÃ¢metros nem qual serÃ¡ a duraÃ§Ã£o da mÃºsica.
+\end_layout
+
+\begin_layout Standard
+
+Os ambientes Max/Msp e Pd sÃ£o construÃ­dos sob o paradigma do "envio da mensagem" que nÃ£o necessariamente possibilita que a linguagem seja adequada para o estoque e a recuperaÃ§Ã£o de dados. O usuÃ¡rio Ã© praticamente forÃ§ado a colocar os dados dentro de conteiners - bases de dados, essencialmente - e a usar um leque de objetos como acessÃ³rios para estocar e recuperar dados dentro do controle de passagem de mensagens em tempo-real.
+\end_layout
+
+\begin_layout Standard
+
+A abordagem do Max/ Msp quanto aos dados Ã© ao mesmo tempo simples e evasiva: objetos especiais de estocagem de dados como table, qlist, etc...sÃ£o disponibilizados; os dados sÃ£o essencialmente colocados dentro de objetos conteiners, e para cada tipo de objeto-conteiner uma abordagem particular Ã© colocada para sua estocagem, ediÃ§Ã£o, interface e comunicaÃ§Ã£o com o resto do patch.
+\end_layout
+
+\begin_layout Standard
+
+RecuperaÃ§Ã£o de dados (a grande maioria das transaÃ§Ãµes de bases de dados) Ã© a pior qualidade do Max, porque mensagens nÃ£o tem valores de retorno (por exemplo, uma caixa de nÃºmero manipulada com o mouse nÃ£o retorna os dados da manipulaÃ§Ã£o, que devem ser recuperados com outros objetos); os dados recuperados devem ser mandados como uma mensagem separada de retorno. Isso leva muitos programadores de Max a achar soluÃ§Ãµes diferentes que facilite a interaÃ§Ã£o do patch com o nÃ­vel composicional.
+\end_layout
+
+\begin_layout Standard
+
+A idÃ©ia original por trÃ¡s da criaÃ§Ã£o do Pd foi remover a barreira entre a computaÃ§Ã£o dirigida por eventos em tempo-real (como no estilo do Max de passagem de mensagens) e dos dados (como em pontos num grÃ¡fico ou notas numa partitura). Em Pd os dois (caixas de objetos e estruturas de dados) podem facilmente coexistir em uma mesma janela. Essa "promiscuidade", no entanto, nÃ£o acaba deixando os objetos funcionais e os dados intimamente conectados. De fato, no design presente, o acesso aos dados tem que ser feito atravÃ©s de uma sequÃªncia de objetos como acessÃ³rios .
+\end_layout
+
+\begin_layout Standard
+
+Em relaÃ§Ã£o a essa divisÃ£o do aspecto "performÃ¡tico" e "composicional" do Pd, Miller puckette explica 
+\begin_inset LatexCommand cite
+after ""
+key "puckette04:divide"
+
+\end_inset
+
+ : " In its most succinct form, the problem is that, while we have good paradigms for describing processes (such as in the Max or Pd programs as they stand today), and while much work has been done on representations of musical data (ranging from searchable databases of sound to Patchwork and OpenMusic, and including Pd's unfinished data editor), we lack a fluid mechanism for the two worlds to interoperate."
+\end_layout
+
+\begin_layout Standard
+
+Dentro de uma proposta de trabalho de composiÃ§Ã£o de mÃºsica interativa, o objetivo musical deve ser o mais claro possÃ­vel de maneira que o cÃ³digo emerja naturalmente dos problemas musicais ao invÃ©s de atrapalhar mais ainda os problemas composicionais. Abordando o assunto a partir de uma visÃ£o didÃ¡tico-metodolÃ³gica um primeiro projeto composicional em Pd, deve compreender a clara distinÃ§Ã£o entre os aspectos performÃ¡ticos e composicionais do ambiente. Um primeiro projeto composicional deve dar conta de fornecer elementos para o estabelecimento de uma metodologia apropriada de controle dos eventos temporais. A proposta aqui Ã© a de abordar o uso prÃ¡tico e algumas possÃ­veis implementaÃ§Ãµes em Pd que apontem para a criaÃ§Ã£o de composiÃ§Ãµes interativas mistas de maior porte. O objetivo Ã© dispÃ´r de elementos que possam apontar para uma possÃ­vel poÃ©tica composicional. SerÃ£o abordados temas como tÃ©cnicas clÃ¡ssicas de sÃ­ntese sonora e manipulaÃ§Ã£o de samples e tambÃ©m aspectos como controle temporal e macro-estruturas no Pd.
+\end_layout
+
+\begin_layout Section
+
+TÃ©cnicas de sÃ­ntese e manipulaÃ§Ã£o
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "sec:tecnicas-de-sintese"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+[texto introdutÃ³rio]
+\end_layout
+
+\begin_layout Subsection
+
+SÃ­ntese Aditiva
+\end_layout
+
+\begin_layout Standard
+
+A sÃ­ntese aditiva pode ser entendida como o reverso da anÃ¡lise de Fourier. A figura 
+\begin_inset LatexCommand ref
+reference "fig:aditivo"
+
+\end_inset
+
+ mostra um exemplo tÃ­pico de sÃ­ntese aditiva em Pd onde os osciladores sÃ£o somados em pares e tem a amplitude final controlada pelo objeto line\InsetSpace ~
+. Nesse caso cada oscilador poderia ter seus parÃ¢metros de frequÃªncia (no caso fixos como argumentos numÃ©ricos escritos dentro das caixas de oscil\InsetSpace ~
+) e amplitude (objetos line\InsetSpace ~
+, ou outro gerador de envelopes) independentes uns dos outros..
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename aditivo
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+SÃ­ntese aditiva
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:aditivo"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+FrequÃªncia e Amplitude modulada
+\end_layout
+
+\begin_layout Standard
+
+FrequÃªncia e amplitude modulada sÃ£o algumas das formas mais ricas de possibilidades tÃ­mbricas, onde a frequÃªncia, ou a amplitude respectivamente de um sinal de Ã¡udio Ã© modulada por outro sinal de Ã¡udio. Na figura
+\begin_inset LatexCommand ref
+reference "fig:modulada"
+
+\end_inset
+
+, abaixo os parÃ¢metros da sÃ­ntese sÃ£o controlados por caixas de nÃºmeros e slides. No caso, uma possÃ­vel interaÃ§Ã£o em tempo-real com um instrumentista poderia prever o endereÃ§amento dos valores de frequÃªncia e amplitude do sinal de Ã¡udio de entrada para agendar respostas sonoras variando os valores dos parÃ¢metros baseados nos dados do Ã¡udio de entrada.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename exfm1
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename exam1
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+frequÃªncia modulada
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:modulada"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+ManipulaÃ§Ã£o de samples
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "sec:manip-de-sampl"
+
+\end_inset
+
+ Sampling Ã© uma tÃ©cnica simples de ser realizada no Pd. O endereÃ§amento de samples externos Ã© feito apenas salvando os samples no mesmo diretÃ³rio em que o patch que os usa estÃ¡ salvo. Na figura 
+\begin_inset LatexCommand ref
+reference "figurasamples"
+
+\end_inset
+
+ o objeto âsoundfilerâ faz a leitura de samples a partir da mensagem âreadâ, o sample no caso Ã© endereÃ§ado para um âarrayâ, onde Ã© especificado o tamanho do arquivo que vai ser lido. Os samples sÃ£o manipulados por trÃªs mÃ³dulos. O primeiro realiza um âscratchâ (âsurfaâ pelo sample) atravÃ©s de um âline\InsetSpace ~
+â que tem seu parÃ¢metro controlado em tempo real por uma caixa de nÃºmero (no caso Ã© uma das variÃ¡veis dessa abstraÃ§Ã£o e estÃ¡ conectada a um âlineâ, controlado por diferentes valores de âmetroâ). O segundo mÃ³dulo realiza um loop com âtabplay\InsetSpace ~
+â que Ã© um objeto que manda um âbangâ quando acaba de tocar o sample especificado. O terceiro mÃ³dulo Ã© um loop com âtabread4\InsetSpace ~
+â controlado por âphasorâ que manda um sinal contÃ­nuo de Ã¡udio podendo transpÃ´r a altura do sample.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename sample2
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+Fluxo de dados
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "sec:fluxo-de-dados"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Uma das partes mais importantes de um projeto composicional com Pd Ã© o controle do fluxo de dados, pelo fato de que o programa nÃ£o tem uma sintaxe uniforme de descriÃ§Ã£o de eventos, e cada objeto especÃ­fico vai ter uma gramÃ¡tica prÃ³pria de controle de dados. Na figura 
+\begin_inset LatexCommand ref
+reference "fig:extempo1"
+
+\end_inset
+
+ vemos um gerador âosc\InsetSpace ~
+â sendo modulado por um gerador de envelopes de sinal de Ã¡udio âvline\InsetSpace ~
+â. Esse gerador de envelopes agenda segmentos lineares e possui uma sintaxe que aceita trios de nÃºmeros, sendo respectivamente: amplitude (objetivo de chegada do segmento) ,tempo inicial (tempo de comeÃ§o do segmento) e tempo de duraÃ§Ã£o do segmento. A recuperaÃ§Ã£o dos dados da performance de âvline\InsetSpace ~
+â Ã© feita pelo objeto âsnapshot\InsetSpace ~
+â que transforma dados de sinal de Ã¡udio em nÃºmeros. O objeto âsnapshot\InsetSpace ~
+â por sua vez Ã© acionado pelo objeto âmetroâ que Ã© um controlador temporal que manda âbangsâ (mensagem: âfaÃ§aâ) regulares no andamento especificado pelo seu argumento descrito em milisegundos. O seja, âvline\InsetSpace ~
+â vai envelopar a amplitude de âosc\InsetSpace ~
+â enquanto âsnapshotâ vai fazer leituras do fluxo de Ã¡udio numa frequÃªncia de 10 vezes por segundo.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename extempo1
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:extempo1"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+AbstraÃ§Ãµes e subpatchs
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "sec:abstr-e-subp"
+
+\end_inset
+
+ Na figura 
+\begin_inset LatexCommand ref
+reference "fig:2a"
+
+\end_inset
+
+ estÃ¡ exposta uma abstraÃ§Ã£o que tem a funÃ§Ã£o de mandar um âbangâ no tempo prÃ©-estabelecido (argumento de delay). Essa abstraÃ§Ã£o estÃ¡ sendo usada na peÃ§a para âdesligarâ os mÃ³dulos geradores no tempo especificado. AbstraÃ§Ãµes sÃ£o patchs que assumem funÃ§Ãµes de objetos externos e podem ser usados por vÃ¡rios patchs diferentes ao mesmo tempo. AlÃ©m disso possibilitam um certo controle grÃ¡fico, definido pelo programador. No caso, vemos que no patch temos um âbangâ e uma âcaixa de nÃºmeroâ contidos num retÃ¢ngulo, consequentemente quando essa abstraÃ§Ã£o for chamada num patch vai assumir a forma da figura 
+\begin_inset LatexCommand ref
+reference "fig:2b"
+
+\end_inset
+
+. 
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename ex2a
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:2a"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename ex2b
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:2b"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+Objetos de controle temporal
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "sec:objetos-de-controle"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename forma
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:forma"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+Compondo com o PD
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "sec:compondo-com-o"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Uma vez tendo prontos os geradores sonoros e os controladores dos dados desses geradores - em formatos de abstraÃ§Ãµes e/ou sub-patchs, podemos pensar em controlar a macro-forma da composiÃ§Ã£o. Na figura 
+\begin_inset LatexCommand ref
+reference "fig:forma"
+
+\end_inset
+
+ estÃ¡ exposto o controle da macro-forma da peÃ§a. Essa maneira visual de controlar a forma Ã© mais familiar aos mÃºsicos pelo fato de termos uma linha do tempo mostrando a ordem de acontecimento dos eventos. O que permite uma maior controle de justaposiÃ§Ã£o e superposiÃ§Ã£o dos macro-eventos. A abstraÃ§Ã£o "contador", cria um novo nÃºmero no andamento especÃ­fico e o objeto "select" cria pontos temporais de ataque que sÃ£o endereÃ§ados a diferentes geradores sonoros.
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset Float figure
+placement hp
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename gerador
+	scale 50
+
+\end_inset
+
+ 
+\begin_inset Caption
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "fig:gerador"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+A figura 
+\begin_inset LatexCommand ref
+reference "fig:gerador"
+
+\end_inset
+
+ mostra o patch encapsulado âpd gerador1 gerador2â, que apareceu na figura 
+\begin_inset LatexCommand ref
+reference "fig:forma"
+
+\end_inset
+
+ e tem seu gerador sonoro baseado em sÃ­ntese aditiva. O controle Ã© feito por uma combinaÃ§Ã£o dos objetos line e metro, onde o line controla o parÃ¢metro de tempo de metro, causando linhas de acelerando ou desacelerando. O momento de âdesligamentoâ de cada gerador Ã© agendado pela abstraÃ§Ã£o âdelayabsâ.
+\end_layout
+
+\begin_layout Section
+
+ConclusÃ£o
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset LatexCommand label
+name "sec:conclusao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+A composiÃ§Ã£o em Pd tem como caracterÃ­stica a facilidade do controle de sÃ­ntese, porÃ©m exige um tratamento especial na metodologia empregada no controle de eventos temporais. Segundo
+\begin_inset LatexCommand cite
+after ""
+key "puckette04:divide"
+
+\end_inset
+
+: "The Pd patch looks more complex than the C code. One possible reason for the complexity is the dificulty of sequencing actions in Pd patches, which lack the natural sequentiality of a text programming language like C. â O fato de cada objeto de controle temporal apresentar uma sintaxe diferente pode ser antes um convite a criatividade composicional do que um problema estrutural da mÃºsica resultante. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+nocite{*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+bibliographystyle{apalike}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset LatexCommand bibtex
+bibfiles "bibliografia"
+options "apalike"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
