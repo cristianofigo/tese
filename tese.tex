@@ -157,6 +157,13 @@ criação de música e arte interativa.Também são apresentados três protótip
 SInCoPA é a de uma biblioteca de objetos de Pd e sua documentação de uso, e um catálogo de protótipos e projetos
 utilizando essa biblioteca que servem como campo de avaliação de possibilidades e experimentação sonora.
 
+O texto é ilustrado com muitas imagens do código. Um ideal perseguido foi o de que a correta
+digitação do código nas imagens permita a re-criação de todos experimentos e conceitos apresentados
+em SInCoPA. Apesar do código ser distribuído livremente.
+A função das imagens varia da documentação do código desenvolvido a ilustração de um conceito.
+Apesar de muitas imagens serem auto-explicativas e explicadas no corpo do texto, muitas vezes a apreensão 
+correta do sentido e funcionamento do código em questão só se dá na experiência do manuseio. 
+
 
 Foram usadas diversas bibliotecas externas ao Pd, algumas que são encontradas na distribuição pd-extended
 \footnote{pd-extended é uma distribuição do Pd com várias bibliotecas externas já compiladas na maioria dos
@@ -374,7 +381,7 @@ Trecho do Sílvio Ferraz
 \begin{quotation}
  
 
-O eterno retorno não pode significar o retorno do Idêntico, poisele supõe, 
+O eterno retorno não pode significar o retorno do Idêntico, pois ele supõe, 
 ao contrário, um mundo (o da vontade de potência)em que todas as identidades 
 prévias são abolidas edissolvidas. Retornar é o ser, mas somente o ser do devir. 
 O eterno retorno não faz “o mesmo” retornar, mas o retornar constitui o único 
@@ -385,10 +392,10 @@ Tal identidade, produzida pela diferença, é determinada como “repetição”
 
 .......
 
-No primeiro tipo de repetição, as referências mais comuns sãoas repetições de frases, 
-de notas ou de sonoridadesespecíficas dentro de um enunciado musical. Esses elementos podem 
+No primeiro tipo de repetição, as referências mais comuns são as repetições de frases, 
+de notas ou de sonoridades específicas dentro de um enunciado musical. Esses elementos podem 
 ou não estar associados ao segundo tipo de repetição;a repetição de emoções, de associações e 
-sentimentos queafloram em forma de lembranças quando evocados por um fatosonoro experienciado 
+sentimentos que afloram em forma de lembranças quando evocados por um fato sonoro experienciado 
 anteriormente.
 
 \end{quotation}
@@ -1809,12 +1816,13 @@ Além de SInCoPA ser a abreviação de Sistema Interativo de Composição Perfor
 no sentido poético dessa pesquisa. Como uma metáfora, significando a busca de um gesto musical não determinado pela notação
 ou por uma pré-configuração de software que determine de forma dominante a narrativa musical.
 
-
   Nesse capítulo serão expostas as abstrações desenvolvidas para o sistema, como também
 os protótipos e programas auxiliares desenvolvidos para explicar o uso correto das 
 abstrações apresentadas. O conjunto de abstrações cumpre funções básicas necessárias
 a projetos de música interativa que relacionem análise de áudio e geradores musicais
-baseados nos dados da análise do áudio de entrada em tempo-real.
+baseados nos dados da análise do áudio de entrada em tempo-real. Como é um sistema 
+em contínuo desenvolvimento, muitos patchs mostrados apresentam experimentos ou apontam
+elementos e idéias para futuras implementações.
 
   Foi desenvolvida uma biblioteca de funções utilitárias em forma de abstrações, 
 tornando fácil seu re-uso em outros projetos. As abstrações se dividem em 7 categorias:
@@ -1833,8 +1841,9 @@ do áudio de entrada com diversos níveis de controle;
  
 \end{enumerate}
 
-
-Uma composição musical usando o SInCoPA, consiste na concatenação de
+Algumas abstrações são maiores e com funcionalidade mais geral, enquanto
+que outras são bem menores e mais específicas.
+Uma composição musical utilizando SInCoPA, consiste na concatenação de
 regras que coordenam os comportamentos das várias partes envolvidas.
 Esse conjunto de regras foi denominado de ``cenário''. Na composição
 de um cenário o compositor escolhe, por exemplo,  se determinado gerador 
@@ -1937,14 +1946,14 @@ irá retornar valores encontrados de amplitude e fase para 512 frequências múl
 Que é a frequência resultado da taxa de amostragem (44100) dividida pelo tamanho do bloco (1024).
 
 A amplitude de cada parcial é retornada em pares reais e imaginários descritos em coordenadas
-polares.Podemos converter as coordenadas do sistema polar para cartesiano tirando uma raiz quadrada
-da soma do valor real e imaginário elevados a própria potência. Isso pode ser feito no Pd com os
-objetos [*\texttildelow] abaixo de [rfft\texttildelow] realizando a potência e enviando o resultado 
+polares. Podemos calcular as amplitudes convertendo as coordenadas do sistema polar para cartesiano 
+através da raiz quadrada aplicada
+a soma do valor real e imaginário elevados, cada um, a própria potência. Isso pode ser feito no Pd com os
+objetos [*\texttildelow] localizados abaixo de [rfft\texttildelow] realizando a potência e enviando o resultado 
 simultaneamente para o objeto [sqrt\texttildelow] que opera a raiz quadrada.
 
 O objeto [clip\texttildelow], com os argumentos 0 e 1 apenas filtra os valores negativos para uma
 melhor vizualização gráfica.
-
 
 \begin{figure}
 \includegraphics[scale=.55]{sinc-fft-help}
@@ -1953,15 +1962,18 @@ melhor vizualização gráfica.
 \end{figure}
 
 
+A presente abstração é muito útil em situações de filtragem de entrada de áudio em tempo-real, principalmente
+quando utilizados microfones condensadores que são muito sensíveis.
+A vizualização da análise FFT no array permite que se tenha uma boa medida na parametrização de filtros.
+Como é o caso do exemplo na figura \ref{sinc-fft-help}. Onde a entrada de áudio passa por um filtro
+de áudio [bp\texttildelow]. O filtro implementado em [bp\texttildelow] deixa passar uma senóide ao
+redor da frequência central enquanto as outras frequências são atenuadas de acordo com o fator ``Q''
+\footnote{Para uma explicação completa sobre o fator Q : http://en.wikipedia.org/wiki/Q-factor} .
+Na entrada da esquerda entra o sinal de áudio, na entrada do meio é definida a frequência central e na
+entrada da direita se controla o fator ``Q''. O resultado da filtragem é enviada para [sinc-fft] onde 
+pode-se ter uma maior precisão na filtragem através da comparação gráfica.
 
-bp~ passes a sinusoid at the center frequency at unit gain (approximately). Other frequencies are attenuated.
-
-The left inlet is the incoming audio signal, the middle control input sets center frequency and the rigth input sets "Q".
-
-
- elevando seu valor 
-a própria potência e 
-
+ 
 
 \subsection{Manipulação de amostras}
 
@@ -2582,17 +2594,6 @@ músico treinado.
 
 \subsection{Análise de timbre}
 
-\subsubsection{FFT}
-
-FFT é a sigla para Fast Fourier Transformation, e é a principal técnica para realizar uma análise no domínio 
-da frequência. No Pd encontramos o objeto [rfft\texttildelow] que permite o 
-acesso aos dados completos da análise do espectro sonoro.
-Nessa seção será apresentada uma introdução sucinta a 
-análise FFT no Pd e a manipulação dos dados resultantes dessa análise.
-
-Uma explicação mais aprofundada da FFT no Pd é visto no apêndice \label{fftpd}.
-
-* resumo rápido de FFT crua , acessando, visualizando e salvando e recuperando
 
 \subsubsection{[bonk\texttildelow]}
 
@@ -3101,19 +3102,45 @@ por um [metro].
 
 %% figuras :[sinc-teclado] interno + visão geral do mapa de [kbkey2] + figura que explica os argumentos de [kbkey2]
 
-A abstração [sinc-teclado] foi feita como um acessório para rápida prototipação de 
-uma situação de performance com dados MIDI onde não se dispõe de um controlador externo. O objetivo
-é transformar o teclado alfa-numérico do computador em um controlador MIDI sem o controle de velocity
-de cada nota. Cada tecla é mapeada com a abstração [kbkey2] o que permite que se defina como quiser
-as relações das teclas com uma respectiva nota MIDI.
+\begin{figure}
+\includegraphics[scale=.5]{sinc-teclado-interno}
+\caption{Visão interna de [sinc-teclado]}
+\label{sinc-teclado-interno}
+\end{figure}
 
-Na figura XXX podemos ver o panorama interno da abstração [sinc-teclado], onde podemos notar
-que cada tecla envia uma mensagem MIDI por [noteout] para o canal 2. 
-Na figura XXX vemos a distribuição das instâncias de [kbkey2] mapeando
-cada tecla. Na figura XXX vemos o detalhamento dos argumentos de criação de [kbkey2], que além de mapear
+\begin{figure}
+\includegraphics[scale=.5]{sinc-teclado-mapa}
+\caption{Mapa de distribuição das teclas de [sinc-teclado]}
+\label{sinc-teclado-mapa}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.5]{kbbey2}
+\caption{Abstração [kbkey2] mapeia cada tecla}
+\label{kbbey2}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.5]{kbkey}
+\caption{Abstração [kbkey]}
+\label{kbkey}
+\end{figure}
+
+
+A abstração [sinc-teclado] foi feita como um acessório para rápida prototipação de 
+performance com dados MIDI quando não se dispõe de um controlador externo. O objetivo
+é transformar o teclado alfanumérico do computador em um controlador MIDI sem o controle de velocity
+de cada nota. Cada tecla é mapeada com a abstração [kbkey2] o que permite que se defina como quiser
+as relações de cada tecla com uma respectiva nota MIDI.
+
+Na figura \ref{sinc-teclado-interno} podemos ver o panorama interno da abstração [sinc-teclado], onde podemos notar
+que cada tecla envia uma mensagem MIDI por [noteout] para o canal 2.
+Cada tecla é mapeada com a abstração [kbkey2] que é vista na figura \ref{kbbey2}. 
+Na figura \ref{sinc-teclado-mapa} vemos a distribuição das instâncias de [kbkey2] para
+cada tecla. Na figura \ref{kbbey2} vemos o detalhamento dos argumentos de criação de [kbkey2], que além de mapear
 uma tecla específica para uma nota midi correspondente, envia informação para um objeto toogle [tgl],
 correspondente a sua representação no teclado gráfico, o que possibilita a vizualização para qual nota
-a tecla foi mapeada.
+a tecla foi mapeada. O primeiro objeto de [kbkey2] é a abstração [kbkey] que pode ser vista na figura \ref{kbkey}.
 
 
 
@@ -3270,26 +3297,43 @@ da tabela de durações. Essas variações podem ser:
 
 \subsection{Randômicos}
 
-A maioria das linguagens de programação, pacotes estatísticos ou planilhas de cálculo possuem um 
-gerador de números aleatórios, que gera a partir de uma distribuição uniforme, com valores entre 0 e 1. 
-Esse número é chamado de pseudo-aleatório, porque é possível repetir a mesma sequência a partir de uma 
-mesma semente (valor inteiro).
+%% imagem de patch mostrando resultados de print de random com notas na pauta
 
-Em estatística e probabilidade, a distribuição uniforme é a distribuição de probabilidades contínua 
-mais simples de conceituar: a probabilidade de se gerar qualquer ponto em um intervalo contido no 
+
+A maioria das linguagens de programação possuem um 
+gerador de números randômicos, que gera a partir de uma distribuição uniforme, com valores entre 0 e 1. 
+Esse número é chamado de pseudo-aleatório, porque é possível repetir a mesma sequência a partir de uma 
+mesma semente (valor inteiro). A distribuição uniforme é a distribuição de probabilidades  
+mais simples de definir, onde a probabilidade de se gerar qualquer ponto em um intervalo contido no 
 espaço amostral é proporcional ao tamanho do intervalo.
 
-Random numbers are generated via a complex equation which produces a pseudo-predictable sequence of numbers. 
-Each [random] object's equation is provided with a "seed" which is really just one of the variables in the 
-equation which produces the sequence. The "seed" is generated by Pd based on specific parameters in each 
-patch which contains a [random] object. If more than one [random] objects are contained within a single 
-patch, they each get a different "seed".
+Cada implementação define uma equação complexa que produz uma sequência de números
+pseudo-previsíveis. No Pd o objeto [random] retorna um valor randômico entre 0 e seu argumento
+de criação. O resultado pode ser escalado utilizando objetos matemáticos como visto na seção \ref{tecnicas}.
+ 
 
-However, "seeds" can be inputted into [random] by sending a message, like below:
+\begin{figure}
+\includegraphics[scale=.6]{sinc-randplay}
+\caption{Patch com dois geradores [random] alternando entre valores de seed}
+\label{sinc-randplay}
+\end{figure} 
 
-Seeds are kept locally so that if two [random]s are seeded the same, they will have the same output - 
-as demonstrated below. Furthermore, you can seed the same one twice to repeat the output.
 
+\begin{figure}
+\includegraphics[scale=.6]{rand-editar}
+\caption{Sequência de notas geradas pelo patch da figura \ref{sinc-randplay}}
+\label{rand-editar}
+\end{figure} 
+
+Cada instância de [random] é provida com uma semente (seed) que é apenas uma das variáveis na
+equação que produz a sequência. A ``semente'' é gerada pelo Pd baseado em parâmetros específicos
+em cada patch que contém um objeto [random]. Se mais de um objeto [random] é colocado em um único
+patch, cada um recebe uma semente diferente. Entretanto, sementes podem ser enviadas para [random]
+com a mensagem \textit{seed \$1}. Se mais de um objeto [random] recebem a mesma semente, ambos retornam
+o mesmo resultado, e se a semente for atualizada com o mesmo valor, a mesma sequência 
+de resultados volta ao início.
+
+%% comentar as figuras
 
 
 \begin{figure}
@@ -3297,6 +3341,7 @@ as demonstrated below. Furthermore, you can seed the same one twice to repeat th
 \caption{[pd gerador-melodico3]}
 \label{gera-melodico3}
 \end{figure}  
+
 Musicalmente podemos pensar num gerador randômico aplicado a geração de alturas, 
 que representa o oposto da impermeabilidade melódica, como descrito por Ligeti e citado
 no capítulo \ref{sec:rev}.
@@ -3588,19 +3633,41 @@ Basicamente, a cada instância temporal, os parâmetros espaciais de cada boid s
 levando em conta um centro de atração e os comportamentos dos vizinhos.
 Esse algoritmo tem potencial enquanto gerador de material musical numa perspectiva de interação.
 
+\begin{figure}
+\includegraphics[scale=.6]{midi-boid}
+\caption{Objeto [boids2d] controlando 3 boids geradores de notas MIDI}
+\label{midi-boid}
+\end{figure}  
+
+
 O Pd-extended traz uma implementação de boids na forma de um objeto que recebe mensagens de parâmetros
 de comportamento global, parâmetros do centro de atração e calcula as novas posições XYZ de cada
 boid. Foi feita uma abstração que representa cada boid que pode ser vista na figura BOIDZZ.
 
+
+No caso de uma aplicação musical desse algoritmo foi pensado num primeiro momento que as frequências
+podem representar o eixo X e as amplitudes o eixo Y. 
+
+
 Nesse patch podemos observar que.
+
+\begin{figure}
+\includegraphics[scale=.6]{boids-param}
+\caption{Lista de parâmetros enviados para [boids2d]}
+\label{boids-param}
+\end{figure} 
+
 
 
 As mensagens de parâmetros de comportamento global podem ser vistas na figura GLOBAL. Onde vemos
 parâmetros como ``atracttion'' que é um fator de maior atração do grupo de boids em direção
 ao centro de atração que é definido pela mensagem ``atractioncenter'' (?)
 
-No caso de uma aplicação musical desse algoritmo foi pensado num primeiro momento que as frequências
-podem representar o eixo X e as amplitudes o eixo Y. 
+\begin{figure}
+\includegraphics[scale=.6]{boids-pianoroll}
+\caption{Visão de resultado de 3 boids seguindo perfil melódico no piano-roll}
+\label{boids-pianoroll}
+\end{figure} 
 
 O efeito musical é uma textura heterofônica, pois a nota da análise do aúdio do músico se torna
 o centro de atração do grupo de boids.
