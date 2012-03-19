@@ -133,13 +133,31 @@ Texto entregue como requisito parcial para Processo de Doutoramento.
 
 %% aqui na introdução usar os termos sugeridos por sérgio: objeto e recorte
 
-Essa pesquisa apresenta a busca por um modelo de composição e
+Essa pesquisa apresenta o desenvolvimento de aplicativos e métodos
+de organização de materiais musicais e sonoros aplicados a composição
+de música interativa. Por música interativa entende-se aqui um tipo
+de composição que é feita sob o paradigma da interação homem-máquina.
+
+
+ SInCoPA é um conjunto de aplicativos e idéias que exploram soluções
+na busca por um modelo de ambiente de composição e
 performance de música interativa – evento sonoro gerado a partir da
 performance de um músico sobre uma base de programas, materiais
-estocados e análise das informações da performance em tempo-real. O
-modelo é materializado na forma de um sistema computacional que seja
+estocados e análise das informações da performance em tempo-real. SInCoPA
+ é materializado na forma de um sistema computacional que seja
 capaz de extrair informações diversas sobre a performance e
 categorizar aspectos da performance musical e interagir com essa performance.
+
+
+O objetivo musical é a criação de uma polifonia densa, onde o músico controla
+aspectos da textura resultante com o próprio gesto sonoro. Nesse panorama, a
+polifonia resultante pode variar da completa fusão sonora e comportamental até o extremo
+contraste de materiais sonoros e musicais. Diversos problemas advém da prática
+musical na interação homem-máquina. Nesse sentido, o 
+objeto de pesquisa é o percurso que vai da idéia composicional, calcada
+no paradigma da interação homem-máquina,  passa pela implementação
+e posteriormente pela experimentação, performance e análise dos resultados.
+
 
 
 O sistema é construído com a linguagem \textit{Pure Data} (\pd). O Pd é uma linguagem gráfica orientada ao objeto que surgiu
@@ -157,6 +175,9 @@ criação de música e arte interativa.Também são apresentados três protótip
 SInCoPA é a de uma biblioteca de objetos de Pd e sua documentação de uso, e um catálogo de protótipos e projetos
 utilizando essa biblioteca que servem como campo de avaliação de possibilidades e experimentação sonora.
 
+
+
+
 O texto é ilustrado com muitas imagens do código. Um ideal perseguido foi o de que a correta
 digitação do código nas imagens permita a re-criação de todos experimentos e conceitos apresentados
 em SInCoPA. Apesar do código ser distribuído livremente.
@@ -173,6 +194,34 @@ e estágios de desenvolvimento locais, como JMax, Max-Ircam, DesireData, etc...E
 a versão atual do pd-extended com algumas adições de bibliotecas de objetos feitos em Pd e alguns objetos codados
 em C e compilados como objetos de Pd.}, 
 e outras contribuições da comunidade de desenvolvedores.
+
+% 
+% pd2live is a digital music performance system, built in Pure Data (extended 0.42.5), designed 
+% specifically to function with a polyphonic audio output (audio per string) of an augmented 
+% electric guitar provided by bespoke audio break-out hardware. The system was designed in support 
+% of my doctoral thesis (available shortly), providing a digital performance environment from which a
+% n instrumentalist may interrogate instrumental percepts in relation to the creation of sophisticated 
+% timbral and spatial digital audio signal processes.
+% 
+% On a fundamental level, the user may design and implement unique real-time signal processes per 
+% string of the guitar, permitting the creation of dense polyphonic instrumental musical structures. 
+% The (spectromorphological) design of each string may correspond to real-time instrumental figuration 
+% executed by the performer.
+% 
+% The system currently operates on a note-event basis, storing pitch and amplitude data per string for 
+% use with a series of (predominantly monophonic) instrumental cognition-based abstractions, concerning 
+% melodic contour and  improvisatory syntax (such as linear completion, melodic attraction, tension, 
+% asymmetry and extrapolation of sequential note-events; cf. Lerdahl, 2001). Instrumental control-rate 
+% abstractions function specifically to attend to melodic content only, concerning the quantification (
+% and extrapolation) of tonal attraction relationships between tones and the extraction of hierarchical 
+% melodic contour structures (per string - solo; and for all instrumental registers - global) on a 4 to 
+% 7 note basis, relative to short-term memory contraints (cf. Snyder, 2000). Cognition-based data may 
+% then be applied to timbral and spatial parametric control processes in an attempt to reflect instrumental 
+% cognition-based constructs (in memory) within the resultant sound structure, potentially establishing 
+% unique performance gesture relationships within a physical (multi-channel) performance space.
+
+
+
 
 \section{Problemas}
 
@@ -215,9 +264,34 @@ e o processamento de blocos de áudio.
 % uma intersecção entre os procedimentos de pesquisa em computação musical e 
 % a poética composicional.
 
+% Pode-se afirmar que ``música interativa'' é um termo que num primeiro
+% momento parece descrever somente a ferramenta usada o que consequentemente
+% causa uma estetização da ferramenta. O objetivo é uma posição radical
+% contra a estetização da ferramenta em detrimento a livre expressão humana.
+% Quando apontamos técnicas que convergem elementos de diferentes linguagens, 
+% como por exemplo, conceitos de linguagem musical (notas, acordes, melodia),
+% aplicados em programas através de linguagens de programação, aproximamos
+% o pensamento musical de outra ferramenta.
 
-O paradigma composicional no Csound\footnote{Csound é um ambiente de programação
-sonora open-source e baseado na linguagem C - www.csounds.com} pode ser visto como semelhante ao
+Podemos colocar que o fazer composicional de música interativa, está 
+totalmente conectado com a atividade de programação. No resultado de uma
+obra musical interativa, não há como separar a idéia da técnica. Um 
+problema deriva dessa intersecção de linguagens. Quando um instrumentista
+vai interpretar uma composição escrita em notação tradicional, ou um conjunto de 
+músicos começam a improvisar coletivamente, diversos elementos da narrativa e 
+das escolhas individuais entram em jogo: agógica, flutuações do tempo, substituições
+harmônicas, etc.. A atividade musical pressupõe ambígüidades de narrativa todo o tempo.
+Essas ambígüidades constituem uma parte importante do ritual de fazer
+e escutar música. Quando se compõe música com computador,  nos
+deparamos com linguagens de programação que não aceitam ambígüidades.
+Essa pesquisa oferece um caminho a ser trilhado no sentido da convivência
+entre a composição musical e a programação de computadores.
+
+A composição musical com computadores tem uma história intensa de desenvolvimento
+contínuo ao longo das últimas 4 décadas. Nesse percurso, uma das ferramentas mais
+importantes criadas é o ambiente de programação Csound\footnote{Csound é um ambiente de programação
+sonora open-source e baseado na linguagem C - www.csounds.com}.
+O paradigma composicional no Csound pode ser visto como semelhante ao
 trabalho tradicional do compositor que descreve eventos através de
 dois arquivos: uma orchestra e um score, onde no primeiro são
 descritas as qualidades fixas do timbre e no segundo os eventos e os
@@ -363,7 +437,7 @@ Em relação a essa divisão do aspecto ``performático'' e
 Dentro de uma proposta de trabalho de composição de música interativa,
 o objetivo musical deve ser o mais claro possível de maneira que o
 código emerja naturalmente dos problemas musicais ao invés de
-atrapalhar mais ainda os problemas composicionais. Abordando o assunto
+atrapalhar os problemas composicionais. Abordando o assunto
 a partir de uma visão didático-metodológica um primeiro projeto
 composicional em Pd, deve compreender a clara distinção entre os
 aspectos performáticos e composicionais do ambiente. Um primeiro
@@ -376,6 +450,309 @@ elementos que possam apontar para uma possível poética composicional.
 
 Sobre o aspecto mais amplo do que é composição (rowe pg 202)
  
+
+
+\subsection{Análise de áudio}
+
+
+- MIDI como padrão
+
+rowe:
+
+1 MIDI Love/Hate
+MIDI was the dominant protocol for the
+design and implementation of interactive music
+systems for a long time, and its use still persists
+today. There were good reasons for this
+dominance, particularly at the end of the 20th
+century when these systems were first being
+developed. MIDI synthesis, sampling, and
+effects gear produced high-quality digital audio
+at an affordable price. Moreover, offloading the
+synthesis duties onto a dedicated piece of
+hardware freed the CPU of the computer to
+concentrate on control level analysis and
+composition.
+
+On the other hand, MIDI transmission
+rates are too slow to handle large control
+streams. Synthesizer manufacturers retreated
+into bland repetitions of the same sampling-
+based architectures. The need to stimulate
+demand by introducing new models every few
+years meant that works written for commercial
+gear faced technical obsolescence in a very short
+period of time as specific boxes broke down and
+could no longer be replaced.
+
+Small wonder, then, that composers have
+embraced a new generation of technology that
+allows the rendering part of interactive music
+systems (synthesis, sampling, and effects) to be
+handled by the CPU of the same computer
+calculating larger control structures. The most
+widespread instance of this phenomenon is the
+Max/MSP platform, which itself reflects the
+evolution of the technology: Max alone is a
+MIDI-processing environment, while the later
+MSP extensions incorporate real-time digital
+audio processing into the control-level structures
+organized by Max.
+
+The strength of the concept has led to a
+wealth of alternatives, however. Miller
+Puckette's open source Pd system is itself a
+primary reference for the development of MSP
+[Puckette, Apel, & Zicarelli 98]. A phenomenal
+outpouring of open source digital audio
+applications is listed on Sourceforge
+[sourceforge.net], and distributed through the
+AGNULA project [www.agnula.org]. Beyond
+the fervor of commercial and individual
+developers, which has led to such influential
+packages as Cook and Scavone's Synthesis
+Toolkit (STK) [Cook & Scavone 99] and the
+CLAM library [Amatriain, Arumi, & Ramirez
+02], there have been several efforts to
+standardize digital audio rendering protocols for
+various reasons.
+
+2 Digital audio  standards
+
+The Open Sound Control standard
+(OSC) is one of the most direct approaches to
+resolving the networking and representational
+limitations of MIDI [Wessel & Wright 98].
+Other platforms have been shaped by
+international standards organizations, or by their
+connection to existing specifications. Two of
+these are the Structured Audio Orchestra
+Language (SAOL) [Vercoe, Gardner & Scheirer
+98] and JSyn [Burk 98].
+
+Both are deserving of discussion for
+different reasons: JSyn because a working
+implementation exists and is in widespread use.
+SAOL is of particular interest because it is
+defined as part of the MPEG-4 standard, and it
+may come to pass that MPEG-4-compliant
+devices will implement some version of it as
+adoption increases.
+
+
+
+3 Navigating the choices 
+
+Given the embarrassment of choices,
+composers may be forgiven for hesitating over
+which way to turn. The author's solution has
+been to develop a personal library of audio
+sampling, synthesis, and effects routines in C++.
+While starting anew with such a project
+inevitably entails reinventing several wheels, it
+facilitates coordination with an existing control
+layer [Rowe 01] and seems the most expressive
+way to develop new ideas: a set of personal
+effects.
+Moreover, some years of experience
+with this approach has led to an appreciation of
+MIDI despite its flaws. In particular, the signals
+coming from a MIDI instrument are often far
+faster and more accurate than that which can be
+produced by a real-time analysis of the
+corresponding audio signal. Pitch-tracking of a
+piano is unlikely to be better than the MIDI
+signal emanating from a disklavier anytime
+soon. The combination of open source references
+into a personal library (itself open source) has
+proved a flexible and enduring way to
+incorporate the lessons from such hard-won
+experience.
+
+
+
+
+[Puckette, Apel, & Zicarelli 98] Puckette, M.,
+                        Apel, T., and Zicarelli, D. (1998). “Real-time
+                         audio analysis tools for Pd and MSP”,
+                          Proceedings of the 1998 International Computer
+                         Music Conference. San Francisco: International
+                        Computer Music Association.
+
+
+
+- problema do violão e guitarra - citar o miller no patch for guitar + ricky grahan
+
+miller:
+
+
+Abstract:
+Now that it's easy to get multiple channels of sound into and out of a computer with pretty low 
+throughput latency (thanks partly to the well-designed linux operating system), an obvious and 
+attractive application is signal-processing an electric guitar separately string by string. 
+This permits a wide variety of non-linear processes which, if properly designed, preserve the 
+periodicity of the individual string while making possible a wide variety of new sounds. 
+Pitch-synchronous algorithms also become available. It is also possible to separate the effect 
+of amplitude change from that of changing harmonics, thus preserving the playability of the instrument.
+
+Introductory polemic
+
+Although computer music overall has seen great advances in the past fifty years, in one area, 
+using computers in live instrumental music performance, our understanding is still crude. 
+The main advances in live computer music performance have largely consisted of building an 
+infrastructure, so that now a musician can combine a computer, audio and control hardware, 
+and software (Pd being one possibility) to make a live interactive computer music application. 
+But visits to a club or concert hall reveal that the computer is mostly used as a recording and/or 
+sequencing device, rather than as a musical instrument. The main payoff of computing in music 
+performance has been to reduce and replace the role of musicianship.
+
+If playing a musical instrument and/or singing were pure drudgery this would be all to the good, 
+but it seems likely that much of musical knowledge is built up through the physical act of 
+making music in time. Musical cultures, at least up to now, have been at least partly maintained in 
+a performance tradition, and even composers (all but the most theoretically inclined) rely on the sort 
+of musicianship that is learned and transmitted through music making. And even though there is clearly 
+much music to be made using studio techniques and/or sequencers, there is also much to be made 
+instrumentally. The computer is very handy for the former, but is still only with difficulty applied to 
+the latter.
+
+Guitar project
+
+With these thoughts in mind, I've been at work on a long-term project to design a rather personalized 
+computer music instrument to try to bring out and confront some of the difficulties encountered by 
+musicians trying to use computers in live performance. The instrument is based on a compact electric 
+guitar (Steinberger/Gibson) with an added six-string separated pickup (Roland). Not finding an 
+inexpensive and compact 6-channel preamp on the market, I designed and built a very crude one. 
+This is interfaced to a computer using a multichannel PCI interface (Midiman). A Pd patch, running in 
+linux, then performs a variety of interesting transformations on the six audio signals, and mixes them 
+to stereo for output.
+
+This is entirely different from standard ``guitar synthesizers" which pitch track the strings to drive 
+synthesizers. Such instruments make lots of audible mistakes, and they also suffer from the added latency 
+the comes from the pitch tracker. In the instrument described here, the latency of the whole affair is 
+only that of Pd itself, about 10 milliseconds (it's probably not hard to reduce it to 5 or 6 using 
+real-time kernel patches but I preferred to use off-the-shelf linux). 
+
+
+
+
+\subsection{Segmentação e Classificação}
+
+problema da distância entre o fenômeno físico de áudio e fenômeno
+simbólico - nota
+
+segmentação de nota - problema estrutural
+
+segmentação automática estática ou dinâmica
+
+segmentação e classificação automática - redes neurais ou outro algoritmo
+
+segmentação com controle do músico - teclado hackeado ou
+algum botão com arduino criando um hyper-instrumento
+
+
+\subsection{Interação e Automação}
+
+
+* tópicos:
+
+- composição algoritmica (rowe pg 201-203)
+
+- score following (212)
+
+- sequencias em improvisação (279)
+
+- influência na improvisação
+
+- transformação na improvisação
+
+
+em minha dissertação:
+
+Composição algorítmica – interação entre compositor e  processo composicional
+
+Um algoritmo é uma sequência não ambígua de instruções que é executada até que determinada condição se 
+verifique. Mais especificamente, em matemática, constitui o conjunto de processos 
+(e símbolos que os representam) para efetuar um cálculo. Na composição algorítmica, delegamos tarefas 
+ao computador, transformando-o em nosso assistente composicional. Segundo Roads (1996):
+
+“Modelos de processos são naturais ao pensamento musical. Enquanto escutamos, parte de nós bebe na 
+sensual experiência do som , enquanto outra parte está constantemente colocando uma espera perceptual, 
+e fazendo isso, construindo hipóteses de processos musicais. Compositores sabem há séculos que qualquer 
+processo musical pode ser formalizado em uma representação simbólica. Uma composição algoritmica formal 
+é uma máquina de criação musical; neste caso o computador pode servir como um veículo para idéias musicais.
+”*
+Com a possibilidade da composição algorítmica, o compositor pode ampliar a sua “personalidade musical”, 
+descobrindo sons e estruturas que ainda não conhecia. Segundo Burt (1996):” …eu, a qualquer preço, acho 
+muito mais válido usar métodos algorítmicos como meios de descobrir o que eu não sei, antes de fazer o 
+que eu já sei. Para mim, este tem sido um método de expansão dos meus gostos, uma ferramenta para o 
+crescimento individual, antes de um método de expressar o que eu já senti.” 
+Esssa colocação sintetiza a estratégia pessoal do compositor no sentido de se expressar criando um 
+espaço de diálogo com a subjetividade de seu próprio gosto que é um sentimento não-passivo, que se 
+diferencia da sensação que é modo como nos relacionamos com os objetos externos, sendo portanto, 
+receptiva; ao contrário, o gosto não é uma simples faculdade de registro e análise. 
+Ele possui uma verdadeira virtude criadora, portanto ponto fundamental de auto-análise no trabalho 
+composicional. Neste sentido, a composição por algoritmos pode fornecer material em diversos níveis 
+como timbres/processamento de sinais, sequências de notas, dinâmicas, articulações, gestos, estruturas 
+ou até a forma.
+Ao pensarmos em composição assistida por computador e ambientes composicionais interativos, podemos dizer 
+que a pesquisa nesse contexto se torna o processo em si, antes do produto. O que coloca um novo paradigma 
+para o fazer musical mais próximo da pesquisa científica. A relação criada através da analogia entre 
+composição musical e pesquisa tecnológica provoca mal entendidos no senso-comum. Em relação a isso, 
+Ferraz (1999), acrescenta:
+“[...]a pesquisa corre exatamente no rumo em que corre o compositor, ela é ato de criação. 
+Mas o que ela cria não é a composição musical, se bem que se cruzem. A música não tem por papel 
+criar funções ou conceitos. Ela cria sensações, ela distorce funções e conceitos. 
+Veja-se por exemplo todo o trabalho de composição com algoritmos, o que resulta não são números, 
+nem sequer são relações numéricas, e não é isto que ouvimos. Até as composições por algoritmos 
+desembocam num jogo de sensações, de perceptos e afectos.”
+Pode-se ainda acrescentar que a aproximação do fazer musical com a pesquisa científica permeia toda 
+a vanguarda musical do século XX, resultando esta característica da ênfase no processo, ter chegado 
+ao nível de que, muitas vezes pré-conduz a percepção de uma obra.
+Quando propõe-se a desenvolver um processo composicional em determinado software, deve-se perguntar: 
+o que veio primeiro, a idéia ou a possibilidade? Minhas idéias são limitadas pelas possibilidades 
+existentes? Em qual nível o algoritmo pré-definido desse programa está conduzindo meu fluxo 
+criativo-musical? O compositor Sílvio Ferraz, que no seu artigo “Criação musical com suporte tecnológico” 
+(1999), trabalha com a idéia de que o pensamento composicional induz a criação de ambientes de 
+composição ao computador, expõe:
+
+“É interessante notar que esta passagem da matéria sonora a material composicional, embora pareça rápida, 
+ela já vem permeada por processos previstos no próprio software. Ou seja, a passagem não é tão rápida assim, 
+tal qual quando nos defrontamos com composições realizadas com base em processos composicionais já 
+tradicionais (a tonalidade, as improvisações modais ou os modelos seriais): a aparente intuição e 
+rapidez com que a matéria sonora se torna material composicional não se dá senão por ingenuidade, 
+pois os processos todos de transformação já vem previstos e largamente desenvolvidos no próprio campo 
+de composição.”
+Em relação à interação que a composição algorítmica propicia ao compositor, Roads (1996) nos fala:
+
+“Para um compositor que não é um programador, programas de composição totalmente automatizados exigem 
+pouco em termos de criatividade. A interação com o compositor é limitada em suprir uma pequena quantidade 
+de dados, como sementes, necessários a execução do programa[...].Um caminho de passar através da estratégia 
+fixa é modificar a lógica do programa. Neste caso, um compositor que também é programador retém toda a 
+responsabilidade.”
+Este parágrafo sintetiza o desafio do compositor contemporâneo, que é o fato de dispôr de um 
+arsenal sonoro em um computador e ter que aprender a controlar isso de maneira que sua inventividade 
+composicional não seja guiada por pré-configurações de software.
+
+
+\subsection{Poética da interação}
+
+
+Rodolfo Caesar:
+
+\begin{quotation}
+ Nos loops de áudio quanto mais semelhança entre as partes final e inicial, mais mascarada fica a
+emenda. Quanto mais disfarçada a parte da ‘cola’, mais garantido o efeito de um ‘sem fim’. A finalidade
+desta emenda bem-feita manifesta premonitoriamente (no século XIX), o desejo de ‘imersão’ de algumas
+artes ‘digitais’, ‘multimídias’ ou ‘tecnológicas’, projeto típico de décadas finais do século XX e início do
+XXI. O sonho da ‘obra de imersão total’ – que portanto depende de um confinamento e um mascaramento -
+é criteriosamente representado no filme ‘Brainstorm’ (1983), de Douglas Trumbull, no qual um grupo de
+cientistas inventa um gravador que registra integralmente as emoções humanas. O grau máximo e total de
+satisfação onanista é perseguido por um dos cientistas - personagem representando o mau uso da ciência -
+que finalmente realiza seu super-loop:
+Clip: trecho de ‘Brainstorm’, em que se vê o ‘mau’ cientista aprisionado ao loop de seu orgasmo, gravado na
+companhia de uma prostituta, que não receberá royalties pelo uso de sua imagem.
+\end{quotation} 
+
 Trecho do Sílvio Ferraz
  
 \begin{quotation}
@@ -400,48 +777,9 @@ anteriormente.
 
 \end{quotation}
 
-\subsection{Análise de áudio}
 
 
-- MIDI como padrão
 
-- problema do violão e guitarra - citar o miller no patch for guitar + ricky grahan
-
-
-\subsection{Segmentação e Classificação}
-
-problema da distância entre o fenômeno físico de áudio e fenômeno
-simbólico - nota
-
-segmentação automática estática ou dinâmica
-
-segmentação e classificação automática - redes neurais ou outro algoritmo
-
-segmentação com controle do músico - teclado hackeado ou
-algum botão com arduino criando um hyper-instrumento
-
-
-\subsection{Interação e Automação}
-
-
-\subsection{Poética da interação}
-
-
-Rodolfo Caesar:
-
-\begin{quotation}
- Nos loops de áudio quanto mais semelhança entre as partes final e inicial, mais mascarada fica a
-emenda. Quanto mais disfarçada a parte da ‘cola’, mais garantido o efeito de um ‘sem fim’. A finalidade
-desta emenda bem-feita manifesta premonitoriamente (no século XIX), o desejo de ‘imersão’ de algumas
-artes ‘digitais’, ‘multimídias’ ou ‘tecnológicas’, projeto típico de décadas finais do século XX e início do
-XXI. O sonho da ‘obra de imersão total’ – que portanto depende de um confinamento e um mascaramento -
-é criteriosamente representado no filme ‘Brainstorm’ (1983), de Douglas Trumbull, no qual um grupo de
-cientistas inventa um gravador que registra integralmente as emoções humanas. O grau máximo e total de
-satisfação onanista é perseguido por um dos cientistas - personagem representando o mau uso da ciência -
-que finalmente realiza seu super-loop:
-Clip: trecho de ‘Brainstorm’, em que se vê o ‘mau’ cientista aprisionado ao loop de seu orgasmo, gravado na
-companhia de uma prostituta, que não receberá royalties pelo uso de sua imagem.
-\end{quotation} 
 
 Flo Menezes:
 
@@ -3349,6 +3687,19 @@ O gerador da figura \ref{gera-melodico3} é baseado no
 objeto [random.integer]. O objetivo desse gerador é 
 ter um gerador com alto grau de permeabilidade melódica.
 
+\begin{figure}
+\includegraphics[scale=.6]{filtro-alturas}
+\caption{Filtro de alturas baseado em array, através da abstração [musical.closest.note]}
+\label{filtro-alturas}
+\end{figure}  
+
+Em alguns casos pode-se desejar realizar um filtragem
+dos resultados de um gerador algorítmico. De maneira que
+todos resultados do algoritmo se encaixe numa sequência
+de valores definidos. Nesse sentido podemos citar a abstração
+[musical.closest.note] da biblioteca PDMTL.
+
+%% aqui falar de filtragem de alturas? 
 
 
 %% aqui usar o [randomrange] - figura disso
@@ -3640,16 +3991,15 @@ Esse algoritmo tem potencial enquanto gerador de material musical numa perspecti
 \end{figure}  
 
 
-O Pd-extended traz uma implementação de boids na forma de um objeto que recebe mensagens de parâmetros
+O Pd-extended traz uma implementação de boids na forma do objeto [boids2d] que recebe mensagens de parâmetros
 de comportamento global, parâmetros do centro de atração e calcula as novas posições XYZ de cada
-boid. Foi feita uma abstração que representa cada boid que pode ser vista na figura BOIDZZ.
+boid. No caso de uma aplicação musical desse algoritmo foi pensado num primeiro momento que as frequências
+podem representar o eixo X e o tempo de execução o eixo Y. 
+Na figura \ref{midi-boid} vemos um array que representa a entrada de alturas do músico. Esse array atua como
+o ``líder'' que é seguido por outros três boids. A altura e a velocity são enviadas para o objeto [boids2d],
+que retorna o valor de altura e intensidade dos três boids que representam três vozes. Cada voz é escrita
+em um canal MIDI.
 
-
-No caso de uma aplicação musical desse algoritmo foi pensado num primeiro momento que as frequências
-podem representar o eixo X e as amplitudes o eixo Y. 
-
-
-Nesse patch podemos observar que.
 
 \begin{figure}
 \includegraphics[scale=.6]{boids-param}
@@ -3657,11 +4007,10 @@ Nesse patch podemos observar que.
 \label{boids-param}
 \end{figure} 
 
-
-
-As mensagens de parâmetros de comportamento global podem ser vistas na figura GLOBAL. Onde vemos
-parâmetros como ``atracttion'' que é um fator de maior atração do grupo de boids em direção
-ao centro de atração que é definido pela mensagem ``atractioncenter'' (?)
+As mensagens de parâmetros de comportamento global podem ser vistas na figura \ref{boids-param}. 
+Cada parâmetro tem uma frase que explica a influência no comportamento global. Nesse experimento,
+apenas o parâmetro \textit{attractpt} é atualizado em tempo-real, enquanto todos os outros são
+fixos nos valores vistos em \ref{boids-param}.
 
 \begin{figure}
 \includegraphics[scale=.6]{boids-pianoroll}
@@ -3669,16 +4018,45 @@ ao centro de atração que é definido pela mensagem ``atractioncenter'' (?)
 \label{boids-pianoroll}
 \end{figure} 
 
-O efeito musical é uma textura heterofônica, pois a nota da análise do aúdio do músico se torna
-o centro de atração do grupo de boids.
+O resultado do patch visto na figura \ref{midi-boid} pode ser visto
+na figura \ref{boids-pianoroll}. Onde vemos que as notas executadas pelo array estão destacadas
+em cores, enquanto que as notas geradas pelos boids estão em cinza. Podemos notar um certo ``atraso''
+ na ação de seguir o ``líder''. Esse atraso pode ser alterado através dos parâmetros, por exemplo
+o parâmetro \textit{inertia} que controla essa ``disposição'' para mudar de velocidade e de direção
+está muito baixo (valor 2 na fig. \ref{boids-param}), a medida que aumentamos esse valor iremos notar
+os boids seguindo com mais rapidez o ``líder''.
+O efeito musical é uma textura que varia de uma polifonia densa e aparentemente disconexa até uma 
+heterofonia radical, a depender dos parâmetros de comportamento.
 
 
 %%fazer imagens: boidzz + mensagens globais + partitura de uma resultado com 4 vozes?
 
-Outros algoritmos podem ser encontrados na biblioteca ``flatspace'' como chaos attractors:
+Outra classe de algoritmos podem ser encontrados na biblioteca ``flatspace'', especializada
+em geradores fractais que aceitam parâmetros de ``atratores'' baseados em modelos da teoria
+do caos. São objetos passíveis da atualização dos parâmetros em tempo-real. 
+Segue abaixo uma lista dos objeto geradores fractais:
 
-attract1 base base3 gingerbreadman henon hopalong ikeda latoocarfian latoomutalpha latoomutbeta 
-latoomutgamma lorenz martin popcorn quadruptwo rossler standardmap
+\begin{itemize}
+ \item attract1 
+  \item base 
+   \item base3 
+   \item gingerbreadman 
+\item henon 
+\item hopalong
+\item  ikeda 
+\item latoocarfian 
+\item latoomutalpha 
+\item latoomutbeta 
+\item latoomutgamma 
+\item lorenz 
+\item martin 
+\item popcorn 
+\item quadruptwo 
+\item rossler 
+\item standardmap
+\end{itemize}
+
+
 
 %%fazer imagem comparando essas desgraças
 
@@ -5217,7 +5595,8 @@ uma outra etapa será combinar todas essas técnicas em peças de música mais l
 onde se possa experimentar diversas narrativas e como as ferramentas se comportam
 em projetos maiores.
 
-
+O RECORTE da pesquisa  focado em XXX permitiu aprofundar alguns conceitos e apontar
+novos problemas de pesquisa que complementam esse objeto de pesquisa.
 
 
 \bibliographystyle{kchicago} 
