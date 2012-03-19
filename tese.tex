@@ -273,14 +273,14 @@ e o processamento de blocos de áudio.
 % aplicados em programas através de linguagens de programação, aproximamos
 % o pensamento musical de outra ferramenta.
 
-Podemos colocar que o fazer composicional de música interativa, está 
+Pode-se dizer que o fazer composicional de música interativa, está 
 totalmente conectado com a atividade de programação. No resultado de uma
-obra musical interativa, não há como separar a idéia da técnica. Um 
+obra musical interativa, não há como separar a idéia da implementação. Um 
 problema deriva dessa intersecção de linguagens. Quando um instrumentista
 vai interpretar uma composição escrita em notação tradicional, ou um conjunto de 
 músicos começam a improvisar coletivamente, diversos elementos da narrativa e 
-das escolhas individuais entram em jogo: agógica, flutuações do tempo, substituições
-harmônicas, etc.. A atividade musical pressupõe ambígüidades de narrativa todo o tempo.
+das escolhas individuais entram em jogo como por exemplo agógica, flutuações do tempo ou
+ substituições harmônicas. A atividade musical pressupõe ambígüidades de narrativa todo o tempo.
 Essas ambígüidades constituem uma parte importante do ritual de fazer
 e escutar música. Quando se compõe música com computador,  nos
 deparamos com linguagens de programação que não aceitam ambígüidades.
@@ -436,8 +436,7 @@ Em relação a essa divisão do aspecto ``performático'' e
 
 Dentro de uma proposta de trabalho de composição de música interativa,
 o objetivo musical deve ser o mais claro possível de maneira que o
-código emerja naturalmente dos problemas musicais ao invés de
-atrapalhar os problemas composicionais. Abordando o assunto
+código emerja naturalmente dos problemas musicais. Abordando o assunto
 a partir de uma visão didático-metodológica um primeiro projeto
 composicional em Pd, deve compreender a clara distinção entre os
 aspectos performáticos e composicionais do ambiente. Um primeiro
@@ -451,134 +450,99 @@ elementos que possam apontar para uma possível poética composicional.
 Sobre o aspecto mais amplo do que é composição (rowe pg 202)
  
 
+* Quando falamos de interação entre humanos pensamos em modelos
+de cooperação. Mas quando pensamos em interação homem-máquina, 
+pensamos em controle. 
 
-\subsection{Análise de áudio}
-
-
-- MIDI como padrão
-
-rowe:
-
-1 MIDI Love/Hate
-MIDI was the dominant protocol for the
-design and implementation of interactive music
-systems for a long time, and its use still persists
-today. There were good reasons for this
-dominance, particularly at the end of the 20th
-century when these systems were first being
-developed. MIDI synthesis, sampling, and
-effects gear produced high-quality digital audio
-at an affordable price. Moreover, offloading the
-synthesis duties onto a dedicated piece of
-hardware freed the CPU of the computer to
-concentrate on control level analysis and
-composition.
-
-On the other hand, MIDI transmission
-rates are too slow to handle large control
-streams. Synthesizer manufacturers retreated
-into bland repetitions of the same sampling-
-based architectures. The need to stimulate
-demand by introducing new models every few
-years meant that works written for commercial
-gear faced technical obsolescence in a very short
-period of time as specific boxes broke down and
-could no longer be replaced.
-
-Small wonder, then, that composers have
-embraced a new generation of technology that
-allows the rendering part of interactive music
-systems (synthesis, sampling, and effects) to be
-handled by the CPU of the same computer
-calculating larger control structures. The most
-widespread instance of this phenomenon is the
-Max/MSP platform, which itself reflects the
-evolution of the technology: Max alone is a
-MIDI-processing environment, while the later
-MSP extensions incorporate real-time digital
-audio processing into the control-level structures
-organized by Max.
-
-The strength of the concept has led to a
-wealth of alternatives, however. Miller
-Puckette's open source Pd system is itself a
-primary reference for the development of MSP
-[Puckette, Apel, & Zicarelli 98]. A phenomenal
-outpouring of open source digital audio
-applications is listed on Sourceforge
-[sourceforge.net], and distributed through the
-AGNULA project [www.agnula.org]. Beyond
-the fervor of commercial and individual
-developers, which has led to such influential
-packages as Cook and Scavone's Synthesis
-Toolkit (STK) [Cook & Scavone 99] and the
-CLAM library [Amatriain, Arumi, & Ramirez
-02], there have been several efforts to
-standardize digital audio rendering protocols for
-various reasons.
-
-2 Digital audio  standards
-
-The Open Sound Control standard
-(OSC) is one of the most direct approaches to
-resolving the networking and representational
-limitations of MIDI [Wessel & Wright 98].
-Other platforms have been shaped by
-international standards organizations, or by their
-connection to existing specifications. Two of
-these are the Structured Audio Orchestra
-Language (SAOL) [Vercoe, Gardner & Scheirer
-98] and JSyn [Burk 98].
-
-Both are deserving of discussion for
-different reasons: JSyn because a working
-implementation exists and is in widespread use.
-SAOL is of particular interest because it is
-defined as part of the MPEG-4 standard, and it
-may come to pass that MPEG-4-compliant
-devices will implement some version of it as
-adoption increases.
+Nessa pesquisa, foram exploradas maneiras de
+realizar esse controle baseado na própria análise musical da
+performance do músico.
 
 
+\subsection{Análise}
 
-3 Navigating the choices 
+%% pq analise
 
-Given the embarrassment of choices,
-composers may be forgiven for hesitating over
-which way to turn. The author's solution has
-been to develop a personal library of audio
-sampling, synthesis, and effects routines in C++.
-While starting anew with such a project
-inevitably entails reinventing several wheels, it
-facilitates coordination with an existing control
-layer [Rowe 01] and seems the most expressive
-way to develop new ideas: a set of personal
-effects.
-Moreover, some years of experience
-with this approach has led to an appreciation of
-MIDI despite its flaws. In particular, the signals
-coming from a MIDI instrument are often far
-faster and more accurate than that which can be
-produced by a real-time analysis of the
-corresponding audio signal. Pitch-tracking of a
-piano is unlikely to be better than the MIDI
-signal emanating from a disklavier anytime
-soon. The combination of open source references
-into a personal library (itself open source) has
-proved a flexible and enduring way to
-incorporate the lessons from such hard-won
-experience.
+O processo de análise musical, consiste em separar elementos
+do discurso com o objetivo de revelar uma possível estrutura fundamental
+ou vetores de força que moldaram aspectos do resultado final.
+
+Sobre a análise feita por computadores, Rowe(\ref{rowe09:levels})
+acrescenta:
+
+\begin{quotation}
+There is a certain paradox at the heart of the transfer of musical
+knowledge to a machine. We must labor mightily to make a computer
+program perform the analysis required of a freshman music student.
+Once the work is done, however, the program can make analyses more reliably
+and certainly much more quickly than the freshman. The computer can deliver 
+complete descriptions of each chord in a dictation within miliseconds
+of its performance, for example.
+\end{quotation}
+
+%% diferença entre análise e composição
+
+Nesse sentido, a análise assistida por computador, auxilia
+o processo composicional durante tarefas de descrição que seriam
+extremamente trabalhosas durante o processo de composição.
+A diferença entre análise e composição é de que na análise, ao final do
+processo, não conseguimos retornar ao pensamento composicional
+original. Pelo fato de que o compositor durante seu trabalho tem a 
+liberdade de criar e subverter regras, e determinar qualquer tipo de relação
+entre os materiais e os procedimentos. Tornando praticamente impossível
+de se modelar a atividade cognitiva durante o ato de compôr.
+
+\begin{figure}
+\includegraphics[scale=.3]{analise}
+\caption{Diagrama ideal das etapas de análise para música interativa com instrumento tradicional}
+\label{analise-geral}
+\end{figure} 
+
+Uma boa descrição dos níveis de análise que estão envolvidos em um projeto
+de música interativa é fornecido por Rowe:
+
+\begin{quotation}
+ The first wave of interactive music systems relied almost exclusively on the Musical 
+Instrument Digital Interface (MIDI) standard, a symbolic representation of music modeled 
+closely on the behavior of a piano keyboard, as well as traditional concepts of music notation. 
+The second wave takes as its input raw audio signals, a sub-symbolic data representation that is far 
+more flexible while being far less structured. 
+\end{quotation}
 
 
 
 
-[Puckette, Apel, & Zicarelli 98] Puckette, M.,
-                        Apel, T., and Zicarelli, D. (1998). “Real-time
-                         audio analysis tools for Pd and MSP”,
-                          Proceedings of the 1998 International Computer
-                         Music Conference. San Francisco: International
-                        Computer Music Association.
+Apesar da análise ser um dos principais elementos dessa pesquisa, é preciso
+definir que o objeto final é uma ferramenta de composição e não de análise.
+Nesse caso, a análise serve como uma etapa da composição. 
 
+Um possível diagrama ideal das etapas de análise, necessárias a
+constituição de um sistema de interação musical com um instrumento
+tradicional pode ser visto na figura \ref{analise-geral}. Onde temos um
+primeiro nível (sub-simbólico?) de análise do áudio e primeira segmentação
+e classificação de notas (pitch), amplitude, ataque e tempo entre ataques (IOI\footnote{Inter-
+Onset-Interval (\cite{rowe01})}) e timbre.
+
+
+
+
+\subsubsection{Análise de áudio}
+
+
+O objetivo da análise de áudio é extrair informações em tempo-real
+que possam ser convertidas em elementos de simbologia musical, como notas, durações e dinâmica.
+A partir dessa conversão podemos implementar outras análises no 
+âmbito dos elementos musicais, como análise de contornos, estabilidade e 
+densidade rítmica e outros modelos de análise aplicados aos elementos
+simbólico-musicais. 
+
+Outro nível de informação é fornecido pela análise do timbre, capaz
+de revelar detalhes do comportamento espectral de cada evento, que no caso de uma 
+performance instrumental, pode ajudar a expôr aspectos narrativos.
+
+* dificuldade de definir uma ferramenta genérica de análise de áudio,
+por conta das muitas variáveis envolvidas, como instrumentos, microfones, captadores,
+placas de som, etc..
 
 
 - problema do violão e guitarra - citar o miller no patch for guitar + ricky grahan
@@ -635,7 +599,153 @@ real-time kernel patches but I preferred to use off-the-shelf linux).
 
 
 
-\subsection{Segmentação e Classificação}
+
+\subsubsection{Representação musical}
+
+Nessa pesquisa, optou-se pelo protocolo MIDI como um intermediário
+entre as descrições da análise de áudio e o conjunto de representações
+simbólicas envolvidas no sistema.
+
+- MIDI como padrão
+
+rowe:
+
+1 MIDI Love/Hate
+MIDI was the dominant protocol for the
+design and implementation of interactive music
+systems for a long time, and its use still persists
+today. There were good reasons for this
+dominance, particularly at the end of the 20th
+century when these systems were first being
+developed. MIDI synthesis, sampling, and
+effects gear produced high-quality digital audio
+at an affordable price. Moreover, offloading the
+synthesis duties onto a dedicated piece of
+hardware freed the CPU of the computer to
+concentrate on control level analysis and
+composition.
+
+On the other hand, MIDI transmission
+rates are too slow to handle large control
+streams. Synthesizer manufacturers retreated
+into bland repetitions of the same sampling-
+based architectures. The need to stimulate
+demand by introducing new models every few
+years meant that works written for commercial
+gear faced technical obsolescence in a very short
+period of time as specific boxes broke down and
+could no longer be replaced.
+
+Small wonder, then, that composers have
+embraced a new generation of technology that
+allows the rendering part of interactive music
+systems (synthesis, sampling, and effects) to be
+handled by the CPU of the same computer
+calculating larger control structures. The most
+widespread instance of this phenomenon is the
+Max/MSP platform, which itself reflects the
+evolution of the technology: Max alone is a
+MIDI-processing environment, while the later
+MSP extensions incorporate real-time digital
+audio processing into the control-level structures
+organized by Max.
+% % 
+% % The strength of the concept has led to a
+% % wealth of alternatives, however. Miller
+% % Puckette's open source Pd system is itself a
+% % primary reference for the development of MSP
+% % [Puckette, Apel, & Zicarelli 98]. A phenomenal
+% % outpouring of open source digital audio
+% % applications is listed on Sourceforge
+% % [sourceforge.net], and distributed through the
+% % AGNULA project [www.agnula.org]. Beyond
+% % the fervor of commercial and individual
+% % developers, which has led to such influential
+% % packages as Cook and Scavone's Synthesis
+% % Toolkit (STK) [Cook & Scavone 99] and the
+% % CLAM library [Amatriain, Arumi, & Ramirez
+% % 02], there have been several efforts to
+% % standardize digital audio rendering protocols for
+% % various reasons.
+% % 
+% % 2 Digital audio  standards
+% % 
+% % The Open Sound Control standard
+% % (OSC) is one of the most direct approaches to
+% % resolving the networking and representational
+% % limitations of MIDI [Wessel & Wright 98].
+% % Other platforms have been shaped by
+% % international standards organizations, or by their
+% % connection to existing specifications. Two of
+% % these are the Structured Audio Orchestra
+% % Language (SAOL) [Vercoe, Gardner & Scheirer
+% % 98] and JSyn [Burk 98].
+% % 
+% % Both are deserving of discussion for
+% % different reasons: JSyn because a working
+% % implementation exists and is in widespread use.
+% % SAOL is of particular interest because it is
+% % defined as part of the MPEG-4 standard, and it
+% % may come to pass that MPEG-4-compliant
+% % devices will implement some version of it as
+% % adoption increases.
+% % 
+
+
+3 Navigating the choices 
+
+Given the embarrassment of choices,
+composers may be forgiven for hesitating over
+which way to turn. The author's solution has
+been to develop a personal library of audio
+sampling, synthesis, and effects routines in C++.
+While starting anew with such a project
+inevitably entails reinventing several wheels, it
+facilitates coordination with an existing control
+layer [Rowe 01] and seems the most expressive
+way to develop new ideas: a set of personal
+effects.
+Moreover, some years of experience
+with this approach has led to an appreciation of
+MIDI despite its flaws. In particular, the signals
+coming from a MIDI instrument are often far
+faster and more accurate than that which can be
+produced by a real-time analysis of the
+corresponding audio signal. Pitch-tracking of a
+piano is unlikely to be better than the MIDI
+signal emanating from a disklavier anytime
+soon. The combination of open source references
+into a personal library (itself open source) has
+proved a flexible and enduring way to
+incorporate the lessons from such hard-won
+experience.
+
+
+
+
+
+
+Conclusão do MIDI:
+
+* na comunicação entre programas em tempo-real
+
+* na opção de salvar e abrir em outro programa, existem protocolos ainda em
+desenvolvimento de comunicação (por exemplo a conversão de arquivos midi em lilypond)
+
+* OSC não substitui MIDI, na questão de rede podemos enviar midi dentro do OSC
+
+* MIDI é usado na prototipação de algoritmos que dizem respeito as questões de 
+altura, duração e dinâmica. Não faz sentido usar MIDI em situações onde o 
+pensamento composicional extrapola os limites da representação. O que não é
+necessariamente uma regra, pois ainda nesses casos o protocolo MIDI pode ser
+útil.
+
+
+
+
+
+
+\subsubsection{Segmentação e Classificação}
 
 problema da distância entre o fenômeno físico de áudio e fenômeno
 simbólico - nota
@@ -655,7 +765,12 @@ algum botão com arduino criando um hyper-instrumento
 
 * tópicos:
 
+
 - composição algoritmica (rowe pg 201-203)
+
+- desenvolvimento de geradores algorítmicos com modelos matemáticos.
+
+- hyperinstrumento - instrumento aumentado - pedais de controle
 
 - score following (212)
 
@@ -872,6 +987,19 @@ meu trabalho de mestrado, na peça ''Enquanto eles riem``(2005) para Clarinete e
 
 \section{Processo}
 
+
+\subsection{Experiências prévias}
+
+* graduação - csounds
+* mestrado - max
+* improvisação com eletrônica
+* manipulação de diferentes linguagens composicionais - eletroacústica - tradicional -vanguarda - rock/pop
+* estudo de outras linguagens no doutorado como lisp e C
+
+\subsection{Aplicações composicionais}
+
+* peça para flauta
+
 O desenvolvimento cronológico dessa pesquisa levou a um primeiro momento de intenso aprendizado
 dos detalhes e técnicas de programação com Pd, desenvolvendo materiais didáticos, traduções, e uma
 sequência de estudos interativos usados em peças musicais e performances sonoras. Um exemplo pode ser visto
@@ -884,6 +1012,8 @@ processamento do som da flauta e harmoniza certos trechos da peça de acordo com
 \label{flauta2007}
 \end{figure} 
 
+* ensinando computadores a dialogar rudmente para performance de laptop solo 2008
+
 A comunidade de desenvolvimento do Pd é muito ativa, e explicitamente projetos open-source
 se esforçam para mudar a condição do interessado no software de usuário passivo a participante ativo do desenvolvimento
 e das decisões coletivas sobre os caminhos que a linguagem deve tomar. Esse  fator acarretou na
@@ -893,8 +1023,16 @@ Computacionais Livres (wwww.iscl2009.wordpress.com) em Salvador em 2009.}, desen
 tradicionais e computador, oficinas de extensão, participação em desenvolvimento de projetos coletivos
 usando pure data, como navalha e mimosalib usada nos protótipos.
 
+* oferenda para sax e pd controlado em tempo-real (2009)
 
-\subsection{Redes Neurais artificiais}
+* guitar pong (2009)
+
+* Impressões oníricas - GNU (2010)
+
+* /usr/maquina4/compartida~ (2011)
+
+\subsection{Desenvolvimento de SInCoPA}
+
 
 % Na prática o sistema funcionará em duas instâncias: num primeiro momento
 % as redes precisam ser treinadas. Nessa fase o músico executa uma performance, esse
@@ -907,7 +1045,7 @@ usando pure data, como navalha e mimosalib usada nos protótipos.
 % que a resposta do sistema ao estímulo do músico depende da resposta das redes que 
 % procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
 
-
+* Qual era o projeto original
 
 
 \begin{figure}
@@ -1032,18 +1170,24 @@ deve fazer um reconhecimento estrito ou pode realizar uma classificação de apr
 similaridades? As melodias/motivos terão um tamanho fixo de notas ou tempo, ou serão variáveis? 
 O que acontece se um motivo curto é um sub-conjunto de um motivo maior?
 
+* Qual a falha desse modelo?
+
+* Porque abandonei temporariamente as redes neurais
+
+* Problema de desenvolvimento de aplicativos genéricos vs aplicativos especializados
+
+* recorte da pesquisa focada na ferramenta de composição 
 
 
-
-\subsection{Composição algorítmica e interação}
-
-
-
-Aqui falar do RTC + MEPSOM
-
-Falar das razões da pesquisa de termos dado um passo atrás, desistido
-das redes neurais e focado num sistema estável bem documentado sobre todos
-os componentes de um sistema interativo
+% \subsection{Composição algorítmica e interação}
+% 
+% 
+% 
+% Aqui falar do RTC + MEPSOM
+% 
+% Falar das razões da pesquisa de termos dado um passo atrás, desistido
+% das redes neurais e focado num sistema estável bem documentado sobre todos
+% os componentes de um sistema interativo
  
 
 % Pode-se, portanto, definir que uma boa abordagem de pesquisa em sistemas musicais interativos engloba um vasto campo 
