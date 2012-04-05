@@ -1,0 +1,60 @@
+\subsubsection{Representação musical}
+
+A análise de áudio conduz para a representação simbólica de 
+primeira instância. A primeira segmentação da análise
+de áudio, diz respeito ao nível da nota, sua frequência (pitch),
+amplitude e ataque. O resultado da análise de áudio é convertido
+em um fluxo de eventos MIDI.
+
+Nessa pesquisa, optou-se pelo protocolo MIDI como um intermediário
+entre as descrições da análise de áudio e o conjunto de representações
+simbólicas envolvidas no sistema. Especialmente os algoritmos de geração
+de alturas e amplitudes, além dos harmonizadores.
+
+Muitos autores já discorreram sobre os limites da representação musical
+com o protocolo MIDI. O objetivo é usar o MIDI como protocolo de comunicação
+com outros programas para manipulação dos algoritmos geradores.
+De certa maneira a forte relação do protocolo MIDI com a música instrumental
+é um ponto positivo nessa pesquisa que prevê interação musical através de 
+instrumentos tradicionais. 
+%%original: http://www.lamut.musica.ufrj.br/lamutpgs/rcpesqs/02coper.htm
+A reação dos compositores de música eletroacústica em relação ao protocolo MIDI
+é bem exposto por Rodolfo Caesar \cite{caesarcopa}:
+
+\begin{quotation}
+A música eletroacústica e o protocolo MIDI não foram feitos um para o outro: a especificidade da 
+primeira não encontra ressonância imediata no segundo. Se quisermos fazer uso do protocolo MIDI 
+para a música eletroacústica, é preciso algum empenho contra suas limitações. 
+\end{quotation}
+
+
+Podemos entender esse tipo de reação, se pensarmos que o MIDI foi um padrão
+que percorreu desde os estúdios de música comercial até as pesquisas experimentais
+de música interativa nos anos 80. Robert Rowe explica \cite{rowe05}:
+
+\begin{quotation}
+ Interactive music systems in early implementations usually made use of the Musical
+Instrument Digital Interface (MIDI) standard. The MIDI standard has been recognized since its inception
+to be slow and limited in its scope of representation. Reliance on outboard MIDI gear has
+doomed a generation of interactive works to obsolescence as the requisite hardware becomes unavailable.
+Faster and cheaper machines have in recent years made it possible to perform analysis, synthesis,
+sampling, and effects on the CPU of a general purpose personal computer, simultaneously with the
+execution of control level software.
+\end{quotation}
+
+
+MIDI é usado na prototipação de algoritmos que dizem respeito as questões de 
+altura, duração e dinâmica. De maneira geral, não faz sentido usar MIDI em situações 
+musicais que não são pensadas sob o paradigma da nota tocada. O que não é
+necessariamente uma regra, pois ainda nesses casos o protocolo MIDI pode ser
+útil.
+
+No nível da representação simbólica, os dados são convertidos para MIDI e manipulados
+com estruturas híbridas como arrays e listas de números. Apesar de obsoleto, muito desenvolvimento
+ainda é feito pensando no protocolo MIDI. O protocolo OSC\footnote{Open Sound Control} permite que
+sejam enviados pacotes de dados via rede pelo protocolo UDP/IP. Nesses pacotes podemos incluir
+mensagens MIDI inteira ou fragmentadas e reconstruídas na extremidade de quem está recebendo.
+O modelo de representação musical no Pd é uma combinação dos principais protocolos disponíveis para
+música interativa. Isso permite uma definição híbrida na representação dos dados, como é o caso
+nessa pesquisa.
+
