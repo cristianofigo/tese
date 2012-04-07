@@ -23,12 +23,8 @@
 \setcounter{totalnumber}{20}
 \setcounter{dbltopnumber}{9}
 
+%\autorbib{Figueiró, Cristiano Severo}
 
-
-
-%% newcommand e uma macro local
-
-\autorbib{Figueiró, Cristiano Severo}
 \titulo{SinCoPA- Sistema Interativo de Composição, Performance e Análise - Técnicas, Reflexões e Poéticas}
 \autor{Cristiano Severo Figueiró}
 \ano{2010}
@@ -38,13 +34,11 @@
 \orientador{Prof. Dr. Pedro Ribeiro Kröger Jr.}
 \mes{Maio}
 
-% \cutter{S192}
-% Palavras-chave com termos da biblioteca nacional
-% \chavei{Composição (Música) --- Programas de computador}
-% \chaveii{Música --- Análise, apreciação}
-% Para funcionar em qualquer ppgmus.cls
-% \chaveiii{}
-% \chaveiv{}
+\cutter{S192}
+\chavei{Composição (Música) --- Programas de computador}
+\chaveii{Música --- Análise, apreciação}
+\chaveiii{}
+\chaveiv{}
 
 %% Palavras-chave corretas
 % \chavei{Composição musical}
@@ -54,47 +48,62 @@
 %\cdu{78.02}
 %\cdd{781.3}
 
-% \dataDefesa{Salvador}
-% \localDefesa{28 de novembro de 2008}
-% 
-% %\figuraTermo{termo-de-aprovacao}
-% %\escala{.2}
-% 
-% \bancaiNome{Pedro Ribeiro Kröger Júnior}
-% \bancaiTitulo{Doutor em Composição}
-% \bancaiEstudo{Universidade Federal da Bahia (UFBA)}
-% \bancaiAtuacao{Universidade Federal da Bahia}
-% 
-% \bancaiiNome{Jamary Oliveira}
-% \bancaiiTitulo{Doutor em Composição}
-% \bancaiiEstudo{\textit{University of Texas at Austin}, EUA}
-% \bancaiiAtuacao{Universidade Federal da Bahia}
-% 
-% \bancaiiiNome{Liduino José Pitombeira de Oliveira}
-% \bancaiiiTitulo{Doutor em Composição}
-% \bancaiiiEstudo{\textit{Louisiana State University System}, EUA}
-% \bancaiiiAtuacao{Universidade Federal da Paraíba}
+% \figuraTermo{termo-de-aprovacao}
+% \escala{.2}
 
+\dataDefesa{Salvador}
+\localDefesa{12 de dezembro de 2012}
+  
+\bancaiNome{Pedro Kroger}
+\bancaiTitulo{Doutor em Composição}
+\bancaiEstudo{Universidade Federal da Bahia}
+\bancaiAtuacao{Universidade Federal da Bahia}
+  
+\bancaiiNome{Lucas Robatto}
+\bancaiiTitulo{Doutor em Flauta}
+\bancaiiEstudo{Universidade de Washington, EUA}
+\bancaiiAtuacao{Universidade Federal da Bahia}
+  
+\bancaiiiNome{Lucas Robatto}
+\bancaiiiTitulo{Doutor em Flauta}
+\bancaiiiEstudo{Universidade de Washington, EUA}
+\bancaiiiAtuacao{Universidade Federal da Bahia}
+  
+\bancaivNome{Jamary Olveira}
+\bancaivTitulo{Doutor em Composição}
+\bancaivEstudo{\textit{University of Texas at Austin}, EUA}
+\bancaivAtuacao{Universidade Federal da Bahia}
+  
+\bancavNome{Jamary Olveira}
+\bancavTitulo{Doutor em Composição}
+\bancavEstudo{\textit{University of Texas at Austin}, EUA}
+\bancavAtuacao{Universidade Federal da Bahia}
 
-%\titulofonte{Qualificativo}
 \begin{document}
  
+\frontmatter
+\maketitle
 
+\chapter*{Agradecimentos}
+\label{cha:agradecimentos}
 
-\capa
-\begin{dadosTese}
-Texto entregue como requisito parcial para Processo de Doutoramento.
-\end{dadosTese}
+\chapter*{Resumo}
+\label{cha:resumo}
 
+\chapter*{Abstract}
+\label{cha:abstract}
 
-\title{Tese}
-\author{Cristiano Figueiró}
-
-
-
+%% remove sumário do sumário
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-2}}
 \tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{5}}
 
-\newpage
+\listoftables
+\listoffigures
+
+%% é importante ter esse mainmatter para indicar que começa o corpo do
+%% texto
+\mainmatter
 
 % \begin{abstract}
 %  
@@ -5802,7 +5811,7 @@ fosse uma ferramenta genérica, modular e re-utiliźavel.
 Os caminhos apontados nesse trabalho, permitiram aprofundar alguns conceitos e apontar
 novos problemas de pesquisa que complementam esse objeto de pesquisa.
 
-
+\addcontentsline{toc}{chapter}{\bibname}
 \bibliographystyle{kchicago} 
 \bibliography{biblio}
 
