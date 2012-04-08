@@ -9,7 +9,8 @@
 \clubpenalty=10000
 \widowpenalty=10000
 
-\newcommand{\pd}{PD}
+
+\newcommand{\pd}{Pd}
 \newcommand{\objeto}[1]{[#1\texttildelow]}
 %teste pra arrumar figs: http://www.tex.ac.uk/cgi-bin/texfaq2html?label=floats
 \renewcommand{\topfraction}{.85}
@@ -27,7 +28,7 @@
 
 \titulo{SinCoPA- Sistema Interativo de Composição, Performance e Análise - Técnicas, Reflexões e Poéticas}
 \autor{Cristiano Severo Figueiró}
-\ano{2010}
+\ano{2012}
 \tipo{doutorado}
 \area{Composição}
 \lugar{Salvador}
@@ -52,16 +53,16 @@
 % \escala{.2}
 
 \dataDefesa{Salvador}
-\localDefesa{12 de dezembro de 2012}
+\localDefesa{10 de maio de 2012}
   
 \bancaiNome{Pedro Kroger}
 \bancaiTitulo{Doutor em Composição}
 \bancaiEstudo{Universidade Federal da Bahia}
 \bancaiAtuacao{Universidade Federal da Bahia}
   
-\bancaiiNome{Lucas Robatto}
-\bancaiiTitulo{Doutor em Flauta}
-\bancaiiEstudo{Universidade de Washington, EUA}
+\bancaiiNome{Ivani Santana}
+\bancaiiTitulo{Doutora em Comunicação e Semiótica}
+\bancaiiEstudo{Pontifícia Universidade Católica de São Paulo}
 \bancaiiAtuacao{Universidade Federal da Bahia}
   
 \bancaiiiNome{Lucas Robatto}
@@ -89,6 +90,34 @@
 
 \chapter*{Resumo}
 \label{cha:resumo}
+
+A criação de música interativa é uma tarefa que envolve diversos 
+conhecimentos como técnicas de composição musical, síntese sonora,
+análise e processamento de sinal digital e design de interface.
+Nos últimos anos, diversos projetos vem sendo desenvolvidos e adotados
+pela comunidade de compositores interessados em compôr música baseada
+na interação homem-máquina. Notadamente a linguagem Pure data (Pd),
+vem sendo amplamente adotada pela flexibilidade de extensão de objetos 
+e capacidade de se integrar a outras linguagens e soluções existentes
+no campo da computação musical. Pd é uma linguagem gráfica...
+
+Mesmo possibilitando diversas soluções ao compositor, o Pd exige
+o estudo formal de sua gramática tal qual qualquer linguagem de 
+programação. Muitas das soluções apresentadas pela comunidade
+são específicas e dificilmente adaptáveis a problemas gerais de 
+composição.
+
+Nesta pesquisa investigamos o problema da criação de uma biblioteca
+de utilitários que realizem a interação entre os conhecimentos necessários
+para criação de música interativa. A criação dessa biblioteca permite
+soluções híbridas interligando diversas outras bibliotecas gerais e
+específicas desenvolvidas pela comunidade. O uso da biblioteca
+propicia ao compositor uma rápida prototipagem em música interativa e 
+integração com outros fluxos de trabalho, ao mesmo tempo em que permite
+um estudo mais aprofundado da linguagem e customização da própria biblioteca
+apresentada aqui.
+
+
 
 \chapter*{Abstract}
 \label{cha:abstract}
@@ -146,19 +175,19 @@ Essa pesquisa apresenta o desenvolvimento de aplicativos e métodos
 de organização de materiais musicais e sonoros aplicados a composição
 de música interativa. Por música interativa entende-se aqui um tipo
 de composição que é feita sob o paradigma da interação homem-máquina.
+De maneira geral, o objeto da música interativa é o evento sonoro gerado a partir da
+performance de um músico sobre uma base de programas, materiais
+armazenados e análise das informações da performance em tempo-real.
 
 
  SInCoPA é um conjunto de aplicativos e idéias que exploram soluções
-na busca por um modelo de ambiente de composição e
-performance de música interativa – evento sonoro gerado a partir da
-performance de um músico sobre uma base de programas, materiais
-estocados e análise das informações da performance em tempo-real. SInCoPA
- é materializado na forma de um sistema computacional que seja
-capaz de extrair informações diversas sobre a performance e
+na busca por um ambiente de composição e
+performance de música interativa. SInCoPA
+ é um sistema computacional capaz de extrair informações diversas sobre a performance e
 categorizar aspectos da performance musical e interagir com essa performance.
 
 
-O objetivo musical é a criação de uma polifonia densa, onde o músico controla
+Meu objetivo musical é a criação de uma polifonia densa, onde o músico controla
 aspectos da textura resultante com o próprio gesto sonoro. Nesse panorama, a
 polifonia resultante pode variar da completa fusão sonora e comportamental até o extremo
 contraste de materiais sonoros e musicais. Diversos problemas advém da prática
@@ -167,29 +196,29 @@ objeto de pesquisa é o percurso que vai da idéia composicional, calcada
 no paradigma da interação homem-máquina,  passa pela implementação
 e posteriormente pela experimentação, performance e análise dos resultados.
 
+O sistema é construído com a linguagem \textit{Pure data} (\pd). 
+Pd \cite{pd:96} é uma linguagem gráfica orientada a objetos desenvolvida por Miller Puckette
+para a criação de música eletrônica. Desde o seu lançamento em 1996, o projeto do Pd se manteve
+com código aberto e distribuído livremente pela internet, o que agregou uma comunidade de 
+artistas e desenvolvedores ao redor do projeto.
+Nos últimos anos a comunidade tem desenvolvido inúmeras bibliotecas de objetos especializados em modelos matemáticos, modelamentos de interface gráfica, diversas 
+processamento e análise em tempo-real de sinal de áudio, vídeo, rede e hardware. 
+Os módulos de SInCoPA são construídos usando objetos ``nativos'' e ``externals'', 
+conceitos que serão aprofundados no capítulo \ref{metodologia}. 
 
-
-O sistema é construído com a linguagem \textit{Pure Data} (\pd). O Pd é uma linguagem gráfica orientada ao objeto que surgiu
-como linguagem voltada para a criação de música eletrônica e nos últimos anos foi-se desenvolvendo inúmeras
-bibliotecas de objetos especializados em modelos matemáticos, modelamentos de interface gráfica, diversas 
-implementações
-em processamento e análise em tempo-real de sinal de áudio, vídeo, rede e hardware. 
-A análise dos dados da performance musical é construída usando objetos ``nativos`` e ``externals`` 
-discussão que será
-aprofundada no capítulo da metodologia. 
 Todas as partes do sistema são construídas em Pd, no formato de objetos
 modulares. Os objetos criados tem a função de agregar diversos outros objetos e organizar o fluxo de dados
-de análise e performance num contexto que possibilite o re-uso em diferentes projetos e contextos de 
-criação de música e arte interativa.Também são apresentados três protótipos de uso do sistema. A visão geral do
-SInCoPA é a de uma biblioteca de objetos de Pd e sua documentação de uso, e um catálogo de protótipos e projetos
-utilizando essa biblioteca que servem como campo de avaliação de possibilidades e experimentação sonora.
-
-
+de análise e performance num contexto que possibilite a reutilização em diferentes projetos de arte interativa.
+Também são apresentados três protótipos de uso do sistema. A visão geral do
+SInCoPA é a de uma biblioteca de objetos de Pd e sua documentação de uso, 
+além de exemplos práticos de projetos
+utilizando a biblioteca que servem como campo de avaliação de possibilidades e experimentação sonora.
 
 
 O texto é ilustrado com muitas imagens do código. Um ideal perseguido foi o de que a correta
-digitação do código nas imagens permita a re-criação de todos experimentos e conceitos apresentados
-em SInCoPA. Apesar do código ser distribuído livremente.
+digitação do código das imagens permita a re-criação de todos experimentos e conceitos apresentados
+em SInCoPA. Muitas figuras ao longo do texto não são uma representação ou esquemático das idéias, mas sim a própria
+implementação em código mostrando os detalhes da sintaxe e do estilo de programação.
 A função das imagens varia da documentação do código desenvolvido a ilustração de um conceito.
 Apesar de muitas imagens serem auto-explicativas e explicadas no corpo do texto, muitas vezes a apreensão 
 correta do sentido e funcionamento do código em questão só se dá na experiência do manuseio. 
@@ -199,7 +228,7 @@ Foram usadas diversas bibliotecas externas ao Pd, algumas que são encontradas n
 \footnote{pd-extended é uma distribuição do Pd com várias bibliotecas externas já compiladas na maioria dos
 sistemas operacionais existentes. É o principal ''fork`` do Pd, e possui versão estável e versão de desenvolvimento.
 A história de desenvolvimento do Pd pode ser entendida como uma sequência de Forks levando a diferentes versões 
-e estágios de desenvolvimento locais, como JMax, Max-Ircam, DesireData, etc...Essa pesquisa assume como padrão
+e estágios de desenvolvimento locais, como JMax, Max-Ircam, DesireData, etc... Essa pesquisa assume como padrão
 a versão atual do pd-extended com algumas adições de bibliotecas de objetos feitos em Pd e alguns objetos codados
 em C e compilados como objetos de Pd.}, 
 e outras contribuições da comunidade de desenvolvedores.
@@ -232,7 +261,7 @@ e outras contribuições da comunidade de desenvolvedores.
 
 
 
-\section{Problemas}
+\section{Problemas de pesquisa}
 
 %% aqui mudar de "problemas" para "elementos" ou.. em:
 %% 1) sons acústicos e eletrônicos
@@ -249,10 +278,8 @@ e outras contribuições da comunidade de desenvolvedores.
 A criação de música interativa é uma tarefa que envolve diversos 
 conhecimentos como técnicas de composição musical, síntese sonora,
 análise e processamento de sinal digital e design de interface.
-
-Nesta pesquisa investigamos o problema da criação de uma biblioteca
-de utilitários que realizem a interação entre os conhecimentos necessários
-para criação de música interativa.
+Nesta pesquisa investigamos o problema do desenvolvimento de uma biblioteca
+de utilitários para criação de música interativa. 
 
 
 Diversos problemas derivam da intersecção entre descrições simbólicas
@@ -282,9 +309,10 @@ e o processamento de blocos de áudio.
 % aplicados em programas através de linguagens de programação, aproximamos
 % o pensamento musical de outra ferramenta.
 
-Pode-se dizer que o fazer composicional de música interativa, está 
+Pode-se dizer que o fazer composicional de música interativa está 
 totalmente conectado com a atividade de programação. No resultado de uma
-obra musical interativa, não há como separar a idéia da implementação. Um 
+obra musical interativa existe uma relação intrínseca entre idéia, ferramenta e 
+implementação. Um 
 problema deriva dessa intersecção de linguagens. Quando um instrumentista
 vai interpretar uma composição escrita em notação tradicional, ou um conjunto de 
 músicos começam a improvisar coletivamente, diversos elementos da narrativa e 
@@ -296,10 +324,12 @@ deparamos com linguagens de programação que não aceitam ambígüidades.
 Essa pesquisa oferece um caminho a ser trilhado no sentido da convivência
 entre a composição musical e a programação de computadores.
 
+%% aqui dizer porque vou falar de csound e clm - o pq dessa comparação
+
 A composição musical com computadores tem uma história intensa de desenvolvimento
-contínuo ao longo das últimas 4 décadas. Nesse percurso, uma das ferramentas mais
+contínuo ao longo das últimas 5 décadas. Nesse percurso, uma das ferramentas mais
 importantes criadas é o ambiente de programação Csound\footnote{Csound é um ambiente de programação
-sonora open-source e baseado na linguagem C - www.csounds.com}.
+sonora open-source e baseado na linguagem C. Disponível em: www.csounds.com}.
 O paradigma composicional no Csound pode ser visto como semelhante ao
 trabalho tradicional do compositor que descreve eventos através de
 dois arquivos: uma orchestra e um score, onde no primeiro são
