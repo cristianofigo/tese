@@ -209,7 +209,7 @@ conceitos que serão aprofundados no capítulo \ref{metodologia}.
 Todas as partes do sistema são construídas em Pd, no formato de objetos
 modulares. Os objetos criados tem a função de agregar diversos outros objetos e organizar o fluxo de dados
 de análise e performance num contexto que possibilite a reutilização em diferentes projetos de arte interativa.
-Também são apresentados três protótipos de uso do sistema. A visão geral do
+Também é apresentada uma composição como protótipo de uso do sistema. A visão geral do
 SInCoPA é a de uma biblioteca de objetos de Pd e sua documentação de uso, 
 além de exemplos práticos de projetos
 utilizando a biblioteca que servem como campo de avaliação de possibilidades e experimentação sonora.
@@ -319,7 +319,7 @@ músicos começam a improvisar coletivamente, diversos elementos da narrativa e
 das escolhas individuais entram em jogo como por exemplo agógica, flutuações do tempo ou
  substituições harmônicas. A atividade musical pressupõe ambígüidades de narrativa todo o tempo.
 Essas ambígüidades constituem uma parte importante do ritual de fazer
-e escutar música. Quando se compõe música com computador,  nos
+e escutar música. Quando se compõe música com computador, nos
 deparamos com linguagens de programação que não aceitam ambígüidades.
 Essa pesquisa oferece um caminho a ser trilhado no sentido da convivência
 entre a composição musical e a programação de computadores.
@@ -1011,304 +1011,9 @@ excludente com relação à outra esfera sonora.
 
 
 
-\section{Referências}
-
-Alguns projetos relacionados podem servir como fonte de inspiração pra
-a presente pesquisa como o Cypher \cite{rowe93:interactive}   de Rowe que usa a metáfora da
-sociedade da mente de Minsky na forma de músicos artificiais dentro de
-um sistema multi-agente - o Meta-Cypher inclui múltiplos ouvintes e
-performers além de um meta-ouvinte.  O Drum Circle \cite{eigenfeld07:drum} é um sistema escrito em Max/MSP e explora o uso de
-multi-agentes sobre uma rede local onde cada agente emula um
-percussionista improvisando em um grupo de tambores, tendo como
-resultante um ritmo evolutivo.
-
-Um dos projetos mais amplos nessa área é o projeto Omax Brothers \cite{assayag06:omax}
-desenvolvido no Ircam. Um sistema multi-agente criado para
-improvisação musical entre homem-máquina que aprende em tempo-real com
-o performer humano. O núcleo da improvisação é baseado em modelamento
-de sequência e aprendizado estatístico. O sistema envolve uma
-arquitetura híbrida usando dois ambientes populares para composição e
-performance, OpenMusic (baseado em Lisp) para modelamento e
-programação de alto nível e Max/MSP para a performance do sistema e
-processamento de áudio em tempo-real.
-
-Da parte musical diversas peças motivaram o desenvolvimento desse trabalho como as peças
-''Jupiter'' e ''En Echo'' de Philippe Manoury para flauta e computador e soprano e computador respectivamente.
-Essas músicas foram desenvolvidas em colaboração com Miller Puckette o criador do Max e do Pd. As duas 
-peças empregam o uso da técnica de ''Score-follower``, uma técnica que também foi explorada por mim em
-meu trabalho de mestrado, na peça ''Enquanto eles riem``(2005) para Clarinete e computador com Max/MSP.
-
-\section{Processo}
-
-Nessa seção serão apresentadas algumas reflexões acerca
-do processo de pesquisa e alguns resultados alcançados.
-O objetivo dessa seção e mostrar como o processo avançou
-e apontar pontos fortes e fracos aolongo do desenvolvimento da pesquisa.
-
-\subsection{Experiências prévias}
-
-Alguns fatores anteriores propiciaram o pleno desenvolvimento
-dessa pesquisa. Durante minha graduação em Violão, participei
-de um grupo de pesquisa em síntese sonora onde aprendi a programar
-em Csound onde desenvolvi uma série de peças acusmáticas. 
-Essa experiência chamou minha atenção para a música
-eletroacústica e para a computação musical. 
-
-Durante o mestrado tive o primeiro contato com o ambiente
-Max/MSP e desenvolvi uma série de composições para instrumentos
-tradicionais como clarinete, marimba e violão. Ao mesmo tempo
-desenvolvi uma série de improvisações coletivas usando computador,
-no circuito artístico da música experimental brasileira.
-
-De certa maneira, a experiência intensa como instrumentista
-durante a graduação sempre ficou distante da rotina da
-computação musical. Durante essa pesquisa o objetivo musical central 
-foi a união dessa duas dimensões do fazer musical.
-
-
-\subsection{Aplicações composicionais}
-
-
-O desenvolvimento cronológico dessa pesquisa levou a um primeiro momento de intenso aprendizado
-dos detalhes e técnicas de programação com Pd, desenvolvendo materiais didáticos, traduções, e uma
-sequência de estudos interativos usados em peças musicais e performances sonoras. Um exemplo pode ser visto
-na figura \ref{flauta2007}, onde um Score-follower controla os parâmetros de 
-processamento do som da flauta e harmoniza certos trechos da peça de acordo com as notas da flauta.
-Essa peça se chama ``Pure flute'' (2007) e foi um bom exercício de escrita para instrumento acústico
-e Pd. Ainda que a programação seja rude e mereça uma re-fatoração do código, musicalmente 
-obteve-se uma fusão de sonoridades que garantiu uma certa ``unidade'' na peça.
-
-\begin{figure}
-\includegraphics[scale=.3]{flauta2007}
-\caption{estudo interativo pra flauta e computador (2007)}
-\label{flauta2007}
-\end{figure} 
-
-Em 2008 programei um patch grande com vários sintetizadores e controles de sequências estocadas
-em arrays gráficos que se chamou ``Ensinando instrumentos virtuais a dialogarem de maneira rude''.
-O que se transformou numa performance de laptop solo apresentada algumas vezes em várias
-cidades no Brasil. Nessa performance toda a interação é feita através do mouse e do 
-teclado alfanumérico. Foram usados somente geradores de sinal do Pd e nenhum objeto de sampleamento.
- Procurei explorar um contraste entre gestos de modulações com AM e FM e filtragem de ruído branco.
-
-A comunidade de desenvolvimento do Pd é muito ativa, e explicitamente projetos open-source
-se esforçam para mudar a condição do interessado no software de usuário passivo a participante ativo do desenvolvimento
-e das decisões coletivas sobre os caminhos que a linguagem deve tomar. Esse  fator acarretou na participação na
-organização de 2 eventos com desenvolvedores e forte interação com a comunidade\footnote{III International
-Convention of Puredata (PdCon) em São Paulo e o I Simpósio Internacional de Interatividade nos Sistemas
-Computacionais Livres (wwww.iscl2009.wordpress.com) em Salvador em 2009.}, oficinas de extensão, 
-participação em desenvolvimento de projetos coletivos usando pure data, como mimosalib\footnote
-{https://github.com/glerm/mimosalib} também usada como referência nos protótipos.
-
-Outra experiência de composição mista foi a peça ``Oferenda''(2009) para sax contralto e Pd, 
-apresentada na PdCon em São Paulo. Nessa peça, a parte do sax é totalmente improvisada e 
-o computador funciona como um instrumento com outro músico controlando apsectos de 
-processamento de áudio e sincronizando samples de percussão com a performance do sax. 
-Nesse mesmo ano, foi desenvolvido um patch para interação entre duas guitarras, onde a
-análise de pitch controla um jogo do tipo ``Pong'', implementado em Pd/GEM. 
-
-Uma experiência que envolveu essa pesquisa também foi a peça ``Impressões oníricas'' (2010) para flauta,
-violão e computador, escrita para o grupo GNU, onde em alguns trechos, a análise do áudio
-disparava amostras de áudio e controlava alguns parâmetros de processamento dos samples. 
-Nessa composição a análise de áudio de dois instrumentos acústicos distintos no mesmo palco foi 
-um desafio, nesse caso a falta de precisão do sistema foi susbtituída pelo controle manual
-do computador.
-
-A experiência mais recente foi a composição coletiva ``/usr/maquina4/compartida~''\footnote
-{http://www.youtube.com/user/figocris/videos?view=1}(2012), onde puderam
-ser postos a prova os aplicativos desenvolvidos nessa pesquisa. Essa peça contou com quatro
-músicos controlando instrumentos digitais feitos com Pd, e consistiu de um improviso que foi
-sendo construído durante alguns ensaios. O fato de usar guitarra elétrica
-contribuiu para maior precisão dos elementos de análise e segmentação em tempo-real.
-Outro elemento positivo foi de que as ferramentas apresentadas aqui foram úteis na 
-improvisção coletiva. Outros músicos de adaptam bem as respostas musicais de SInCoPA, nos momentos que 
-os resultados são perceptivelmente conectados o resto do grupo visivelmente se sentia mais
-a vontade musicalmente.
-
-
-\subsection{Redes neurais artificiais}
-
-
-% Na prática o sistema funcionará em duas instâncias: num primeiro momento
-% as redes precisam ser treinadas. Nessa fase o músico executa uma performance, esse
-% áudio é captado, analisado e colocado numa base de dados que vai servir como
-% arquivos de treinamento das redes. O segundo momento será o momento da performance interativa,
-% onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real
-% com esse banco de dados previamente estocado.
-% Uma visão geral do sistema pode ser vista na figura \ref{geral} onde 
-% podemos ver o fluxo geral dos dados ao longo das partes do sistema. Podemos ver
-% que a resposta do sistema ao estímulo do músico depende da resposta das redes que 
-% procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
-
-
-\begin{figure}
-\includegraphics[scale=.7]{geral}
-\caption{Diagrama geral do sistema}
-\label{geral}
-\end{figure}
 
 
 
-%colocar parágrafo de como que está agora
-
-%Na figura\ref{mecanismo}
-
-\begin{figure}
-\includegraphics[scale=.7]{escuta}
-\caption{Mecanismo de escuta e análise}
-\label{escuta}
-\end{figure}
-
-%%%%%% artigo pdcon09
-
-
-Em determinado momento, a pesquisa convergiu para o desenvolvimento de um sistema baseado em redes neurais.
-Essa seção expõe esse momento da pesquisa, descrevendo como se pode trabalhar com redes neurais artificiais 
-integrando a um sistema de música interativa com Pd.
-
-A figura \ref{escuta} representou o planejamento inicial do projeto onde podemos observar como a 
-análise do áudio seria separada nos parâmetros de
-densidade, durações, classes de intervalos, variações de timbre e registro. Após uma primeira análise do
-áudio, todas as classificações seriam realizadas por redes neurais artificiais. Cada parâmetro passaria
- por uma cadeia de redes locais de tamanhos diferentes que seriam agrupadas em duas 
-redes globais também de tamanhos diferentes.
-
-\begin{figure}
-\includegraphics[scale=.7]{mecanismo}
-\caption{Mecanismo de funcionamento de um sistema interativo baseado em redes neurais}
-\label{mecanismo}
-\end{figure}
-
-
-
-Por um lado, essa idéia original não apresentava uma clara distinção entre os níveis simbólico e sub-simbólico.
-A idéia era se aproximar de modelos cognitivos, tentando simular situações de aprendizado musical.
-Nesse sentido, simular as habilidades de músicos humanos em fluidez de ação, capacidade de 
-resposta a situações novas e referências culturais, transformam a capacidade de interação dos sistemas computacionais 
-numa árdua tarefa. Na prática o sistema funcionaria em duas instâncias: num primeiro momento as redes precisam ser 
-treinadas. Nessa fase o músico executa uma performance, esse áudio é captado, analisado e colocado numa base de dados 
-que vai servir como arquivos de treinamento das redes. O segundo momento será o momento da performance interativa, 
-onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real com esse 
-banco de dados previamente estocado. Uma visão geral do sistema pode ser vista na figura \ref{mecanismo} onde podemos ver o fluxo 
-geral dos dados ao longo das partes do sistema. Podemos ver que a resposta do sistema ao estímulo do músico depende 
-da resposta das redes que procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por 
-sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
-   
-
-Os resultados das análises de áudio seriam passados por um sistema de redes neurais artificiais, 
-construídos com a biblioteca FANN\cite{fann}  portada para ser usada como uma external de Pd. As redes neurais serão organizadas 
-por ordem de tamanho de segmentos temporais. Por exemplo, a primeira rede vai procurar por padrões a cada 20 segundos e 
-mandar os resultados para a segunda rede que vai avaliar a presença de padrões a cada 60 segundos e assim por diante. 
-Esse processo feito em todos parâmetros descritos, seriam enviados para um banco de dados
- para comparação com o banco de dados usado no treinamento das redes. A comparação entre os bancos de dados do 
-treinamento e da performance em tempo-real possibilitaria regular as decisões de resposta do sistema.
-
-\begin{figure}
-\includegraphics[scale=.5]{fann1}
-\caption{Patch central do experimento com redes neurais}
-\label{fann1}
-\end{figure} 
- 
-Foi feito um pequeno experimento da pesquisa  foi usado o external [ann-mlp] com o objetivo de detectar  em tempo-real padrões 
-rítmicos pré-estabelecidos na fase de treinamento da rede.
-    O principal elemento explorado  nesse primeiro experimento foi a variação de andamento. Uma das principais 
-características de um diálogo musical é o fato dos músicos reconhecerem facilmente padrões rítmicos independente do 
-andamento em que são apresentados. Para isso é necessário que seja levado em consideração a distância temporal entre 
-ataques de eventos sonoros ao invés da duração desses eventos ou do posicionamento temporal dentro da duração total da 
-performance. Para o trabalho de segmentação rítmica foi usada a biblioteca Aubio para identificar os ataques (onsets) de eventos 
-sonoros. Na figura \ref{fann1} vemos o patch central do experimento com o objeto  [aubioonset\texttildelow] recebendo um fluxo de 
-dados de áudio e respondendo com bang em tempo-real para cada ataque reconhecido.
-
-  
-\begin{figure}
-\includegraphics[scale=.5]{fann2}
-\caption{Agrupador de listas de quatro durações para envio para a rede neural artificial}
-\label{fann2}
-\end{figure} 
-
-Foi escolhido uma metodologia de segmentação agrupando conjuntos de quatro ataques. 
-Na figura \ref{fann2} podemos ver no patch como foi implementado 
-o agrupamento de cada quatro  ataques dentro do sub-patch [pd contador de ritmos e estocando beta].
-
-As redes neurais artificiais funcionam em dois tempos, o treinamento e a performance. No treinamento as redes os pesos e 
-dos padrões de maneira a criar um arquivo de treinamento que funciona como um banco de dados . No arquivo de treinamento 
-podemos editar manualmente e identificar e rotular os padrões de maneira a refinar a base de dados. Nesse experimento foi 
-desenvolvido um subpatch que cria automaticamente o arquivo de treinamento, que determina a quantidade de neurônios da 
-rede, número de padrões a serem estocados e a quantidade de elementos de cada padrão.
-   No experimento em questão foi usado um arquivo de áudio com um timbre percussivo e ataques bem claros. Esse arquivo 
-contém 3 padrões rítmicos apresentados 3 vezes com  andamento diferentes. No resultado observamos que mesmo quando se 
-altera o andamento, as redes continuam a detectar os padrões, porque durante a fase de treinamento os padrões foram 
-apresentados diversas vezes em andamentos diferentes.
-
-
-Apesar da experiência valiosa, foi decidido suspender as implementações com redes neurais e
-focar o desenvolvimento nos níveis de análise descritos na seção \ref{analise-geral}.
-A prática com redes neurais demonstrou um grande potencial como ferramenta para análise.
-Dentro do recorte dessa pesquisa, a análise tem um espaço importante, entretanto o objetivo
-final é o desenvolvimento de uma ferramenta para a composição de música interativa.
-O desenho geral do presente sistema como é concebido atualmente, pode ser visto na 
-figura XXX
-
-Outra possibilidade seria o uso de mapas auto-organizáveis (redes de Kohonen), que é
-um tipo de rede neural artificial não supervisionada, que não necessita
-da fase de terinamento, o algoritmo fica constantemente mudando os valores dos pesos internos.
-Esse experimento mostrou um caminho para o refinamento de um modelo de detecção de padrão.
-Um problema apontado foi o de que aplicações com redes neurais são voltadas
-para a resolução de problemas específicos. O foco em classificações mais gerais
-pode ser implementado com operações matemáticas como média e probabilidades.
-
-%% faltou um subpatch mostrando o objeto [ann_mlp]
-
-
-% \subsection{Composição algorítmica e interação}
-% 
-% 
-% 
-% Aqui falar do RTC + MEPSOM
-% 
-% Falar das razões da pesquisa de termos dado um passo atrás, desistido
-% das redes neurais e focado num sistema estável bem documentado sobre todos
-% os componentes de um sistema interativo
- 
-
-% Pode-se, portanto, definir que uma boa abordagem de pesquisa em sistemas musicais interativos engloba um vasto campo 
-% multidisciplinar realizando uma fusão de pesos iguais entre as áeas de psicologia cognitiva, computação e teoria da 
-% composição musical.
-
-
-\subsection{Papel do músico na interação homem-máquina}
-
-
-Do ponto de vista do instrumentista, alguns aspectos podem ser apontados nessa pesquisa.
-Por um lado o gesto instrumental é ao mesmo tempo o impulso inicial e uma espécie
-de ``cola'' narrativa. Por mais que se forneçam elementos de análise para o sistema
-computacional, as narrativas geradas tendem a ser repetitivas e óbvias. Nesse contexto
-se abre um campo grande para experimentação instrumental. Se pensarmos na lei da ``boa continuidade''
-na \textit{Gestalt}, podemos investigar que o instrumentista treinado tende a completar
-os espaços de pausa e realizar movimentos cadenciais. Criando significado narrativo
-para gestos a princípio ligados pelo vínculo com a análise do instrumentista, mas muitas
-vezes sem conexão interna.
-
-Outro campo de possível investigação é a análise de em que
-nível a prática instrumental com um ambiente reativo como
-esse proposto aqui, influencia o gestual do instrumentista.
-Um estudo minucioso poderia incluir a avaliação do gestual
-instrumental antes e depois do contato do instrumentista com 
-o sistema.
-
-De certa maneira, o instrumentista treinado é o profissional
-mais preparado para conceber um sistema interativo dessa natureza.
-Primeiro porque conhece os detalhes de comportamento sonoro de seu
-instrumento a partir da prática instrumental ao invés da pura análise
-espectral. Em segundo lugar porque entende o idioma instrumental
-de maneira empírica. A complicada trama entre fisicalidade instrumental
-e narrativa sonora exige um conhecimento empírico sobre a prática
-instrumental.
-
-
-%% ligar esse último parágrafo com o tema dessa introdução
-
-%% parágrafo de conclusão
 
 \chapter{Revisão Bibliográfica}
 \label{sec:rev}
@@ -1714,6 +1419,32 @@ de um diálogo interativo onde ocorrências e consequências podem trocar seus p
 Dentro de um trabalho eletroacústico interativo, \textit{Textura} e \textit{Gesto} 
 estão em fluxo constante, um como consequência do outro. 
 
+\section{Projetos relacionados}
+
+Alguns projetos relacionados podem servir como fonte de inspiração pra
+a presente pesquisa como o Cypher \cite{rowe93:interactive}   de Rowe que usa a metáfora da
+sociedade da mente de Minsky na forma de músicos artificiais dentro de
+um sistema multi-agente - o Meta-Cypher inclui múltiplos ouvintes e
+performers além de um meta-ouvinte.  O Drum Circle \cite{eigenfeld07:drum} é um sistema escrito em Max/MSP e explora o uso de
+multi-agentes sobre uma rede local onde cada agente emula um
+percussionista improvisando em um grupo de tambores, tendo como
+resultante um ritmo evolutivo.
+
+Um dos projetos mais amplos nessa área é o projeto Omax Brothers \cite{assayag06:omax}
+desenvolvido no Ircam. Um sistema multi-agente criado para
+improvisação musical entre homem-máquina que aprende em tempo-real com
+o performer humano. O núcleo da improvisação é baseado em modelamento
+de sequência e aprendizado estatístico. O sistema envolve uma
+arquitetura híbrida usando dois ambientes populares para composição e
+performance, OpenMusic (baseado em Lisp) para modelamento e
+programação de alto nível e Max/MSP para a performance do sistema e
+processamento de áudio em tempo-real.
+
+Da parte musical diversas peças motivaram o desenvolvimento desse trabalho como as peças
+''Jupiter'' e ''En Echo'' de Philippe Manoury para flauta e computador e soprano e computador respectivamente.
+Essas músicas foram desenvolvidas em colaboração com Miller Puckette o criador do Max e do Pd. As duas 
+peças empregam o uso da técnica de ''Score-follower``, uma técnica que também foi explorada por mim em
+meu trabalho de mestrado, na peça ''Enquanto eles riem``(2005) para Clarinete e computador com Max/MSP.
 
 % mais referências:
 % *navalha - glerm
@@ -1784,114 +1515,278 @@ diversos experimentos de estúdio onde cada parte do sistema será
 testada individualmente e em grupo.
 
 
+\section{Processo}
+
+Nessa seção serão apresentadas algumas reflexões acerca
+do processo de pesquisa e alguns resultados alcançados.
+O objetivo dessa seção e mostrar como o processo avançou
+e apontar pontos fortes e fracos aolongo do desenvolvimento da pesquisa.
+
+\subsection{Experiências prévias}
+
+Alguns fatores anteriores propiciaram o pleno desenvolvimento
+dessa pesquisa. Durante minha graduação em Violão, participei
+de um grupo de pesquisa em síntese sonora onde aprendi a programar
+em Csound onde desenvolvi uma série de peças acusmáticas. 
+Essa experiência chamou minha atenção para a música
+eletroacústica e para a computação musical. 
+
+Durante o mestrado tive o primeiro contato com o ambiente
+Max/MSP e desenvolvi uma série de composições para instrumentos
+tradicionais como clarinete, marimba e violão. Ao mesmo tempo
+desenvolvi uma série de improvisações coletivas usando computador,
+no circuito artístico da música experimental brasileira.
+
+De certa maneira, a experiência intensa como instrumentista
+durante a graduação sempre ficou distante da rotina da
+computação musical. Durante essa pesquisa o objetivo musical central 
+foi a união dessa duas dimensões do fazer musical.
 
 
-\section{Glossário}
-\label{glossario}
+\subsection{Aplicações composicionais}
 
 
-\textbf{Pitch}: Termo relativo a altura das notas, em alguns módulos da pesquisa,
-o valor de pitch aparece como um símbolo da nota seguido da oitava respectiva (D4, se
-referindo a nota ré da oitava central do piano). Em outros momentos o valor de pitch
-se refere ao parâmetro MIDI de 0 a 127. Algumas funções convertem valores puros de frequência
-em pitch.
+O desenvolvimento cronológico dessa pesquisa levou a um primeiro momento de intenso aprendizado
+dos detalhes e técnicas de programação com Pd, desenvolvendo materiais didáticos, traduções, e uma
+sequência de estudos interativos usados em peças musicais e performances sonoras. Um exemplo pode ser visto
+na figura \ref{flauta2007}, onde um Score-follower controla os parâmetros de 
+processamento do som da flauta e harmoniza certos trechos da peça de acordo com as notas da flauta.
+Essa peça se chama ``Pure flute'' (2007) e foi um bom exercício de escrita para instrumento acústico
+e Pd. Ainda que a programação seja rude e mereça uma re-fatoração do código, musicalmente 
+obteve-se uma fusão de sonoridades que garantiu uma certa ``unidade'' na peça.
 
-%% acrescentar que frequência é medida numa distribuição exponencial e pitch está disposto
-% numa distribuição linear.
+\begin{figure}
+\includegraphics[scale=.3]{flauta2007}
+\caption{estudo interativo pra flauta e computador (2007)}
+\label{flauta2007}
+\end{figure} 
 
-\textbf{MIDI}: É a sigla para \textit{Musical Instrument Digital Interface} e descreve um protocolo padrão da indústria, 
-definido pela primeira vez em 1982, que permite que instrumentos musicais eletrônicos 
-(sintetizadores e máquinas geradoras de som), computadores e outros equipamentos eletrônicos (controladores MIDI , 
-placas de som, samplers) se comuniquem e se sincronizem um com o outro. 
-As principais funções MIDI incluem comunicação de mensagens de eventos sobre a notação musical,  variação de altura, 
-intensidade, sinais de controle para os parâmetros (tais como volume, vibrato, panning, pistas e sinais de 
-clock (para definir o tempo)) entre dois dispositivos, a fim de completar uma cadeia de sinal e produzir som 
-audível a partir de uma fonte de som. Como um protocolo eletrônico, é notável pela sua adoção generalizada em 
-toda a indústria da música.
+Em 2008 programei um patch grande com vários sintetizadores e controles de sequências estocadas
+em arrays gráficos que se chamou ``Ensinando instrumentos virtuais a dialogarem de maneira rude''.
+O que se transformou numa performance de laptop solo apresentada algumas vezes em várias
+cidades no Brasil. Nessa performance toda a interação é feita através do mouse e do 
+teclado alfanumérico. Foram usados somente geradores de sinal do Pd e nenhum objeto de sampleamento.
+ Procurei explorar um contraste entre gestos de modulações com AM e FM e filtragem de ruído branco.
 
+A comunidade de desenvolvimento do Pd é muito ativa, e explicitamente projetos open-source
+se esforçam para mudar a condição do interessado no software de usuário passivo a participante ativo do desenvolvimento
+e das decisões coletivas sobre os caminhos que a linguagem deve tomar. Esse  fator acarretou na participação na
+organização de 2 eventos com desenvolvedores e forte interação com a comunidade\footnote{III International
+Convention of Puredata (PdCon) em São Paulo e o I Simpósio Internacional de Interatividade nos Sistemas
+Computacionais Livres (wwww.iscl2009.wordpress.com) em Salvador em 2009.}, oficinas de extensão, 
+participação em desenvolvimento de projetos coletivos usando pure data, como mimosalib\footnote
+{https://github.com/glerm/mimosalib} também usada como referência nos protótipos.
 
-\textbf{Envelope}: É a definição de como a amplitude de cada nota se comporta.
-É um termo comum nas especificações de síntese sonora e é um aspecto decisivo na construção e 
-definição do timbre. Normalmente se dividem as fases do
-envelope sonoro em ataque, decaimento, sustentação e finalização (ADSR). Por
-exemplo, o timbre de um tambor tem um ataque curto, nenhuma sustentação
-e uma rápida finalização.
+Outra experiência de composição mista foi a peça ``Oferenda''(2009) para sax contralto e Pd, 
+apresentada na PdCon em São Paulo. Nessa peça, a parte do sax é totalmente improvisada e 
+o computador funciona como um instrumento com outro músico controlando apsectos de 
+processamento de áudio e sincronizando samples de percussão com a performance do sax. 
+Nesse mesmo ano, foi desenvolvido um patch para interação entre duas guitarras, onde a
+análise de pitch controla um jogo do tipo ``Pong'', implementado em Pd/GEM. 
 
-\textbf{Pure data (Pd)}: É uma linguagem de programação visual desenvolvida por Miller Puckette na década de 1990 
-para criar música computacional interativa e obras multimídia. Enquanto que Puckette é o autor principal do programa, 
-o Pd é um projeto open source que conta com uma base de desenvolvedores trabalhando em novas extensões e funcionalidades.
-Ele é liberado sob uma licença similar à licença BSD. Ele roda em GNU/Linux, Mac OSX, iOS, Android e Windows. 
-Versões mais antigas ainda existem para FreeBSD e IRIX. Existem diversas distribuições ou "forks" de Pd, como 
-Pd Vanilla, Pd-extended, DesireData e libpd. A principal característica do Pd é a semelhança da aparência do código com
-a representação formal do algoritmo implementado.
+Uma experiência que envolveu essa pesquisa também foi a peça ``Impressões oníricas'' (2010) para flauta,
+violão e computador, escrita para o grupo GNU, onde em alguns trechos, a análise do áudio
+disparava amostras de áudio e controlava alguns parâmetros de processamento dos samples. 
+Nessa composição a análise de áudio de dois instrumentos acústicos distintos no mesmo palco foi 
+um desafio, nesse caso a falta de precisão do sistema foi susbtituída pelo controle manual
+do computador.
 
-
-\textbf{Objetos}: São funções pré-compiladas que providem uma variedade de funções.
-Os objetos no Pd são escritos em C e possuem uma maneira própria de especificar as entradas e saídas
-de dados para que o objeto funcione em tempo-real conectado graficamente a outros objetos.
-Ao longo do texto iremos usar uma notação como por exemplo: [objeto-teste] para
-representar um objeto.
-
-\textbf{Mensagens}: São sequências de valores, listas ou símbolos. Uma mensagem pode ser usada para
-guardar dados e funciona também como um botão gráfico, podendo ser acionada com um clique de mouse.
-
-\textbf{Caixas de número}: Normalmente são usadas para teste, manipulação e/ou vizualisação
-dos dados em tempo real. Graficamente são usadas como botões de valor dinâmico.
-
-\textbf{Símbolos}: Símbolo do tipo string.
-
-\textbf{Comentários}: Ferramenta de documentação local dos patchs.
-
-\textbf{Objetos gráficos}: Alguns são úteis como sliders (objetos [vsl] ou [hsl])  e botões diversos como
-toogle (objeto [tgl]).
-
-\textbf{Arrays}: Tabelas de uma dimensão que podem ser utilizados por qualquer objeto
-que interprete formatos diversos, desde arquivos de áudio .wav até arquivos de 
-texto puro.
+A experiência mais recente foi a composição coletiva ``/usr/maquina4/compartida~''\footnote
+{http://www.youtube.com/user/figocris/videos?view=1}(2012), onde puderam
+ser postos a prova os aplicativos desenvolvidos nessa pesquisa. Essa peça contou com quatro
+músicos controlando instrumentos digitais feitos com Pd, e consistiu de um improviso que foi
+sendo construído durante alguns ensaios. O fato de usar guitarra elétrica
+contribuiu para maior precisão dos elementos de análise e segmentação em tempo-real.
+Outro elemento positivo foi de que as ferramentas apresentadas aqui foram úteis na 
+improvisção coletiva. Outros músicos de adaptam bem as respostas musicais de SInCoPA, nos momentos que 
+os resultados são perceptivelmente conectados o resto do grupo visivelmente se sentia mais
+a vontade musicalmente.
 
 
-\textbf{Patchs}: São programas escritos em Pd.
+\subsection{Redes neurais artificiais}
 
-\textbf{Sub-patchs}: É um objeto que guarda uma porção de código encapsulado, funciona
-de forma local, ou seja, restrito ao patch principal.
 
-\textbf{Abstrações}: É um patch que funciona como um objeto normal, porém escrito em Pd e pode agir de maneira global.
-Como é salvo separadamente pode ser carregado quantas vezes for preciso em diversos patchs. Formalmente na linguagem,
- uma abstração também é considerada um objeto.
-
-\textbf{int, float}: São especificações do Pd para designar números inteiros e números decimais.
-
-\textbf{Biblioteca} é um conjunto de objetos para determinada função.O desenvolvimento
-central do Pd é nos objetos de matemática e processamento de sinal de áudio. Enquanto
-que a comunidade implementou diversas bibliotecas para processamento de vídeo e sensores
-de controle. 
+% Na prática o sistema funcionará em duas instâncias: num primeiro momento
+% as redes precisam ser treinadas. Nessa fase o músico executa uma performance, esse
+% áudio é captado, analisado e colocado numa base de dados que vai servir como
+% arquivos de treinamento das redes. O segundo momento será o momento da performance interativa,
+% onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real
+% com esse banco de dados previamente estocado.
+% Uma visão geral do sistema pode ser vista na figura \ref{geral} onde 
+% podemos ver o fluxo geral dos dados ao longo das partes do sistema. Podemos ver
+% que a resposta do sistema ao estímulo do músico depende da resposta das redes que 
+% procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
 
 
 \begin{figure}
-\includegraphics[scale=.6]{help}
-\caption{exemplo de acesso ao manual do objeto metro}
-\label{help}
+\includegraphics[scale=.7]{geral}
+\caption{Diagrama geral do sistema}
+\label{geral}
 \end{figure}
 
 
-\textbf{Manual do objeto}: Se trata de um patch que exemplifica o uso de determinado
-objeto. O próprio editor gráfico do Pd entende que um patch que tenha o nome do objeto 
-acrescido de "-help" é referenciado no menu disponível com o clique direito do mouse. 
-Na figura \ref{help} vemos que o objeto metro tem o manual
-referenciando o patch metro-help.pd acessando um 
-menu com o botão direito em cima do objeto em questão.
+
+%colocar parágrafo de como que está agora
+
+%Na figura\ref{mecanismo}
+
+\begin{figure}
+\includegraphics[scale=.7]{escuta}
+\caption{Mecanismo de escuta e análise}
+\label{escuta}
+\end{figure}
+
+%%%%%% artigo pdcon09
+
+
+Em determinado momento, a pesquisa convergiu para o desenvolvimento de um sistema baseado em redes neurais.
+Essa seção expõe esse momento da pesquisa, descrevendo como se pode trabalhar com redes neurais artificiais 
+integrando a um sistema de música interativa com Pd.
+
+A figura \ref{escuta} representou o planejamento inicial do projeto onde podemos observar como a 
+análise do áudio seria separada nos parâmetros de
+densidade, durações, classes de intervalos, variações de timbre e registro. Após uma primeira análise do
+áudio, todas as classificações seriam realizadas por redes neurais artificiais. Cada parâmetro passaria
+ por uma cadeia de redes locais de tamanhos diferentes que seriam agrupadas em duas 
+redes globais também de tamanhos diferentes.
+
+\begin{figure}
+\includegraphics[scale=.7]{mecanismo}
+\caption{Mecanismo de funcionamento de um sistema interativo baseado em redes neurais}
+\label{mecanismo}
+\end{figure}
 
 
 
-\textbf{Sample}: É uma amostra de áudio, que tem suas propriedades dependentes da
-taxa de amostragem e resolução de bits do sistema.
+Por um lado, essa idéia original não apresentava uma clara distinção entre os níveis simbólico e sub-simbólico.
+A idéia era se aproximar de modelos cognitivos, tentando simular situações de aprendizado musical.
+Nesse sentido, simular as habilidades de músicos humanos em fluidez de ação, capacidade de 
+resposta a situações novas e referências culturais, transformam a capacidade de interação dos sistemas computacionais 
+numa árdua tarefa. Na prática o sistema funcionaria em duas instâncias: num primeiro momento as redes precisam ser 
+treinadas. Nessa fase o músico executa uma performance, esse áudio é captado, analisado e colocado numa base de dados 
+que vai servir como arquivos de treinamento das redes. O segundo momento será o momento da performance interativa, 
+onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real com esse 
+banco de dados previamente estocado. Uma visão geral do sistema pode ser vista na figura \ref{mecanismo} onde podemos ver o fluxo 
+geral dos dados ao longo das partes do sistema. Podemos ver que a resposta do sistema ao estímulo do músico depende 
+da resposta das redes que procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por 
+sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
+   
+
+Os resultados das análises de áudio seriam passados por um sistema de redes neurais artificiais, 
+construídos com a biblioteca FANN\cite{fann}  portada para ser usada como uma external de Pd. As redes neurais serão organizadas 
+por ordem de tamanho de segmentos temporais. Por exemplo, a primeira rede vai procurar por padrões a cada 20 segundos e 
+mandar os resultados para a segunda rede que vai avaliar a presença de padrões a cada 60 segundos e assim por diante. 
+Esse processo feito em todos parâmetros descritos, seriam enviados para um banco de dados
+ para comparação com o banco de dados usado no treinamento das redes. A comparação entre os bancos de dados do 
+treinamento e da performance em tempo-real possibilitaria regular as decisões de resposta do sistema.
+
+\begin{figure}
+\includegraphics[scale=.5]{fann1}
+\caption{Patch central do experimento com redes neurais}
+\label{fann1}
+\end{figure} 
+ 
+Foi feito um pequeno experimento da pesquisa  foi usado o external [ann-mlp] com o objetivo de detectar  em tempo-real padrões 
+rítmicos pré-estabelecidos na fase de treinamento da rede.
+    O principal elemento explorado  nesse primeiro experimento foi a variação de andamento. Uma das principais 
+características de um diálogo musical é o fato dos músicos reconhecerem facilmente padrões rítmicos independente do 
+andamento em que são apresentados. Para isso é necessário que seja levado em consideração a distância temporal entre 
+ataques de eventos sonoros ao invés da duração desses eventos ou do posicionamento temporal dentro da duração total da 
+performance. Para o trabalho de segmentação rítmica foi usada a biblioteca Aubio para identificar os ataques (onsets) de eventos 
+sonoros. Na figura \ref{fann1} vemos o patch central do experimento com o objeto  [aubioonset\texttildelow] recebendo um fluxo de 
+dados de áudio e respondendo com bang em tempo-real para cada ataque reconhecido.
+
+  
+\begin{figure}
+\includegraphics[scale=.5]{fann2}
+\caption{Agrupador de listas de quatro durações para envio para a rede neural artificial}
+\label{fann2}
+\end{figure} 
+
+Foi escolhido uma metodologia de segmentação agrupando conjuntos de quatro ataques. 
+Na figura \ref{fann2} podemos ver no patch como foi implementado 
+o agrupamento de cada quatro  ataques dentro do sub-patch [pd contador de ritmos e estocando beta].
+
+As redes neurais artificiais funcionam em dois tempos, o treinamento e a performance. No treinamento as redes os pesos e 
+dos padrões de maneira a criar um arquivo de treinamento que funciona como um banco de dados . No arquivo de treinamento 
+podemos editar manualmente e identificar e rotular os padrões de maneira a refinar a base de dados. Nesse experimento foi 
+desenvolvido um subpatch que cria automaticamente o arquivo de treinamento, que determina a quantidade de neurônios da 
+rede, número de padrões a serem estocados e a quantidade de elementos de cada padrão.
+   No experimento em questão foi usado um arquivo de áudio com um timbre percussivo e ataques bem claros. Esse arquivo 
+contém 3 padrões rítmicos apresentados 3 vezes com  andamento diferentes. No resultado observamos que mesmo quando se 
+altera o andamento, as redes continuam a detectar os padrões, porque durante a fase de treinamento os padrões foram 
+apresentados diversas vezes em andamentos diferentes.
 
 
-\textbf{Mixer}: É a designação de um controlador de volume ou intensidade de canais separados 
-e independentes.
+Apesar da experiência valiosa, foi decidido suspender as implementações com redes neurais e
+focar o desenvolvimento nos níveis de análise descritos na seção \ref{analise-geral}.
+A prática com redes neurais demonstrou um grande potencial como ferramenta para análise.
+Dentro do recorte dessa pesquisa, a análise tem um espaço importante, entretanto o objetivo
+final é o desenvolvimento de uma ferramenta para a composição de música interativa.
+O desenho geral do presente sistema como é concebido atualmente, pode ser visto na 
+figura XXX
 
-\textbf{Loop}: Repetição literal ou alterada de trechos de samples pré-gravados ou
-gravados no momento da performance.
+Outra possibilidade seria o uso de mapas auto-organizáveis (redes de Kohonen), que é
+um tipo de rede neural artificial não supervisionada, que não necessita
+da fase de terinamento, o algoritmo fica constantemente mudando os valores dos pesos internos.
+Esse experimento mostrou um caminho para o refinamento de um modelo de detecção de padrão.
+Um problema apontado foi o de que aplicações com redes neurais são voltadas
+para a resolução de problemas específicos. O foco em classificações mais gerais
+pode ser implementado com operações matemáticas como média e probabilidades.
+
+%% faltou um subpatch mostrando o objeto [ann_mlp]
+
+
+% \subsection{Composição algorítmica e interação}
+% 
+% 
+% 
+% Aqui falar do RTC + MEPSOM
+% 
+% Falar das razões da pesquisa de termos dado um passo atrás, desistido
+% das redes neurais e focado num sistema estável bem documentado sobre todos
+% os componentes de um sistema interativo
+ 
+
+% Pode-se, portanto, definir que uma boa abordagem de pesquisa em sistemas musicais interativos engloba um vasto campo 
+% multidisciplinar realizando uma fusão de pesos iguais entre as áeas de psicologia cognitiva, computação e teoria da 
+% composição musical.
+
+
+\subsection{Papel do músico na interação homem-máquina}
+
+
+Do ponto de vista do instrumentista, alguns aspectos podem ser apontados nessa pesquisa.
+Por um lado o gesto instrumental é ao mesmo tempo o impulso inicial e uma espécie
+de ``cola'' narrativa. Por mais que se forneçam elementos de análise para o sistema
+computacional, as narrativas geradas tendem a ser repetitivas e óbvias. Nesse contexto
+se abre um campo grande para experimentação instrumental. Se pensarmos na lei da ``boa continuidade''
+na \textit{Gestalt}, podemos investigar que o instrumentista treinado tende a completar
+os espaços de pausa e realizar movimentos cadenciais. Criando significado narrativo
+para gestos a princípio ligados pelo vínculo com a análise do instrumentista, mas muitas
+vezes sem conexão interna.
+
+Outro campo de possível investigação é a análise de em que
+nível a prática instrumental com um ambiente reativo como
+esse proposto aqui, influencia o gestual do instrumentista.
+Um estudo minucioso poderia incluir a avaliação do gestual
+instrumental antes e depois do contato do instrumentista com 
+o sistema.
+
+De certa maneira, o instrumentista treinado é o profissional
+mais preparado para conceber um sistema interativo dessa natureza.
+Primeiro porque conhece os detalhes de comportamento sonoro de seu
+instrumento a partir da prática instrumental ao invés da pura análise
+espectral. Em segundo lugar porque entende o idioma instrumental
+de maneira empírica. A complicada trama entre fisicalidade instrumental
+e narrativa sonora exige um conhecimento empírico sobre a prática
+instrumental.
+
+
+%% ligar esse último parágrafo com o tema dessa introdução
+
+%% parágrafo de conclusão
+
 
 
 \section{Ferramentas}
@@ -5847,6 +5742,115 @@ novos problemas de pesquisa que complementam esse objeto de pesquisa.
 
 \chapter{Apêndice}
 \label{chap:anexos}
+
+
+\section{Glossário}
+\label{glossario}
+
+
+\textbf{Pitch}: Termo relativo a altura das notas, em alguns módulos da pesquisa,
+o valor de pitch aparece como um símbolo da nota seguido da oitava respectiva (D4, se
+referindo a nota ré da oitava central do piano). Em outros momentos o valor de pitch
+se refere ao parâmetro MIDI de 0 a 127. Algumas funções convertem valores puros de frequência
+em pitch.
+
+%% acrescentar que frequência é medida numa distribuição exponencial e pitch está disposto
+% numa distribuição linear.
+
+\textbf{MIDI}: É a sigla para \textit{Musical Instrument Digital Interface} e descreve um protocolo padrão da indústria, 
+definido pela primeira vez em 1982, que permite que instrumentos musicais eletrônicos 
+(sintetizadores e máquinas geradoras de som), computadores e outros equipamentos eletrônicos (controladores MIDI , 
+placas de som, samplers) se comuniquem e se sincronizem um com o outro. 
+As principais funções MIDI incluem comunicação de mensagens de eventos sobre a notação musical,  variação de altura, 
+intensidade, sinais de controle para os parâmetros (tais como volume, vibrato, panning, pistas e sinais de 
+clock (para definir o tempo)) entre dois dispositivos, a fim de completar uma cadeia de sinal e produzir som 
+audível a partir de uma fonte de som. Como um protocolo eletrônico, é notável pela sua adoção generalizada em 
+toda a indústria da música.
+
+
+\textbf{Envelope}: É a definição de como a amplitude de cada nota se comporta.
+É um termo comum nas especificações de síntese sonora e é um aspecto decisivo na construção e 
+definição do timbre. Normalmente se dividem as fases do
+envelope sonoro em ataque, decaimento, sustentação e finalização (ADSR). Por
+exemplo, o timbre de um tambor tem um ataque curto, nenhuma sustentação
+e uma rápida finalização.
+
+\textbf{Pure data (Pd)}: É uma linguagem de programação visual desenvolvida por Miller Puckette na década de 1990 
+para criar música computacional interativa e obras multimídia. Enquanto que Puckette é o autor principal do programa, 
+o Pd é um projeto open source que conta com uma base de desenvolvedores trabalhando em novas extensões e funcionalidades.
+Ele é liberado sob uma licença similar à licença BSD. Ele roda em GNU/Linux, Mac OSX, iOS, Android e Windows. 
+Versões mais antigas ainda existem para FreeBSD e IRIX. Existem diversas distribuições ou "forks" de Pd, como 
+Pd Vanilla, Pd-extended, DesireData e libpd. A principal característica do Pd é a semelhança da aparência do código com
+a representação formal do algoritmo implementado.
+
+
+\textbf{Objetos}: São funções pré-compiladas que providem uma variedade de funções.
+Os objetos no Pd são escritos em C e possuem uma maneira própria de especificar as entradas e saídas
+de dados para que o objeto funcione em tempo-real conectado graficamente a outros objetos.
+Ao longo do texto iremos usar uma notação como por exemplo: [objeto-teste] para
+representar um objeto.
+
+\textbf{Mensagens}: São sequências de valores, listas ou símbolos. Uma mensagem pode ser usada para
+guardar dados e funciona também como um botão gráfico, podendo ser acionada com um clique de mouse.
+
+\textbf{Caixas de número}: Normalmente são usadas para teste, manipulação e/ou vizualisação
+dos dados em tempo real. Graficamente são usadas como botões de valor dinâmico.
+
+\textbf{Símbolos}: Símbolo do tipo string.
+
+\textbf{Comentários}: Ferramenta de documentação local dos patchs.
+
+\textbf{Objetos gráficos}: Alguns são úteis como sliders (objetos [vsl] ou [hsl])  e botões diversos como
+toogle (objeto [tgl]).
+
+\textbf{Arrays}: Tabelas de uma dimensão que podem ser utilizados por qualquer objeto
+que interprete formatos diversos, desde arquivos de áudio .wav até arquivos de 
+texto puro.
+
+
+\textbf{Patchs}: São programas escritos em Pd.
+
+\textbf{Sub-patchs}: É um objeto que guarda uma porção de código encapsulado, funciona
+de forma local, ou seja, restrito ao patch principal.
+
+\textbf{Abstrações}: É um patch que funciona como um objeto normal, porém escrito em Pd e pode agir de maneira global.
+Como é salvo separadamente pode ser carregado quantas vezes for preciso em diversos patchs. Formalmente na linguagem,
+ uma abstração também é considerada um objeto.
+
+\textbf{int, float}: São especificações do Pd para designar números inteiros e números decimais.
+
+\textbf{Biblioteca} é um conjunto de objetos para determinada função.O desenvolvimento
+central do Pd é nos objetos de matemática e processamento de sinal de áudio. Enquanto
+que a comunidade implementou diversas bibliotecas para processamento de vídeo e sensores
+de controle. 
+
+
+\begin{figure}
+\includegraphics[scale=.6]{help}
+\caption{exemplo de acesso ao manual do objeto metro}
+\label{help}
+\end{figure}
+
+
+\textbf{Manual do objeto}: Se trata de um patch que exemplifica o uso de determinado
+objeto. O próprio editor gráfico do Pd entende que um patch que tenha o nome do objeto 
+acrescido de "-help" é referenciado no menu disponível com o clique direito do mouse. 
+Na figura \ref{help} vemos que o objeto metro tem o manual
+referenciando o patch metro-help.pd acessando um 
+menu com o botão direito em cima do objeto em questão.
+
+
+
+\textbf{Sample}: É uma amostra de áudio, que tem suas propriedades dependentes da
+taxa de amostragem e resolução de bits do sistema.
+
+
+\textbf{Mixer}: É a designação de um controlador de volume ou intensidade de canais separados 
+e independentes.
+
+\textbf{Loop}: Repetição literal ou alterada de trechos de samples pré-gravados ou
+gravados no momento da performance.
+
 
 
 \section{MEPSOM}
