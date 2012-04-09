@@ -204,7 +204,7 @@ artistas e desenvolvedores ao redor do projeto.
 Nos últimos anos a comunidade tem desenvolvido inúmeras bibliotecas de objetos especializados em modelos matemáticos, modelamentos de interface gráfica, diversas 
 processamento e análise em tempo-real de sinal de áudio, vídeo, rede e hardware. 
 Os módulos de SInCoPA são construídos usando objetos ``nativos'' e ``externals'', 
-conceitos que serão aprofundados no capítulo \ref{metodologia}. 
+conceitos que serão aprofundados no capítulo \ref{sec:metodologia}. 
 
 Todas as partes do sistema são construídas em Pd, no formato de objetos
 modulares. Os objetos criados tem a função de agregar diversos outros objetos e organizar o fluxo de dados
@@ -283,7 +283,7 @@ de utilitários para criação de música interativa.
 
 
 Diversos problemas derivam da intersecção entre descrições simbólicas
-de composição e estruturação musical como nota, acorde, motivo e 
+como nota, acorde, motivo e 
 especificações de síntese sonora como modulação, envelope e formas de onda.
 Alguns problemas são conceituais e demandam um universo próprio de 
 pesquisa como por exemplo a detecção automática de começo e fim de
@@ -291,7 +291,8 @@ frases melódicas. Outros problemas são técnicos e prevêem uma depuração
 na programação como por exemplo a sincronia entre as mensagens de controle de parâmetros
 e o processamento de blocos de áudio. 
 
-
+Nesse trabalho procurei separar e visualizar cada problema de pesquisa. Sem perder de vista o foco
+num sistema geral de criação de música interativa.
 
 \subsection{Composição e Programação}
   
@@ -309,22 +310,30 @@ e o processamento de blocos de áudio.
 % aplicados em programas através de linguagens de programação, aproximamos
 % o pensamento musical de outra ferramenta.
 
-Pode-se dizer que o fazer composicional de música interativa está 
-totalmente conectado com a atividade de programação. No resultado de uma
-obra musical interativa existe uma relação intrínseca entre idéia, ferramenta e 
-implementação. Um 
-problema deriva dessa intersecção de linguagens. Quando um instrumentista
+Quando um instrumentista
 vai interpretar uma composição escrita em notação tradicional, ou um conjunto de 
 músicos começam a improvisar coletivamente, diversos elementos da narrativa e 
-das escolhas individuais entram em jogo como por exemplo agógica, flutuações do tempo ou
- substituições harmônicas. A atividade musical pressupõe ambígüidades de narrativa todo o tempo.
+das escolhas individuais entram em jogo. Como por exemplo agógica, flutuações do tempo ou
+ substituições harmônicas. A atividade musical pressupõe ambígüidades de narrativa como
+uma característica intrínseca.
 Essas ambígüidades constituem uma parte importante do ritual de fazer
 e escutar música. Quando se compõe música com computador, nos
 deparamos com linguagens de programação que não aceitam ambígüidades.
+
+Pode-se dizer que o fazer composicional de música interativa está 
+totalmente conectado com a atividade de programação. No resultado de uma
+obra musical interativa existe uma relação intrínseca entre idéia, ferramenta e 
+implementação. Pode-se concluir que alguns 
+problemas derivam desse encontro entre um fazer musical ``ambíguo'' e uma programação
+``não ambígua''. 
+
+
 Essa pesquisa oferece um caminho a ser trilhado no sentido da convivência
 entre a composição musical e a programação de computadores.
-
-%% aqui dizer porque vou falar de csound e clm - o pq dessa comparação
+Para isso é necessário refletir sobre as interfaces disponibilizadas
+aos compositores e como essas interfaces interferem nos processos criativos.
+Nesse sentido algumas breves comparações serão feitas entre notação musical
+tradicional e as linguagens Pd, Max/MSP e Csound.
 
 A composição musical com computadores tem uma história intensa de desenvolvimento
 contínuo ao longo das últimas 5 décadas. Nesse percurso, uma das ferramentas mais
@@ -372,41 +381,15 @@ i1 1 1 660
 
 
 \end{verbatim}
-
+Se formos tentar implementar esse código em Pd, podemos encontrar uma 
+solução semelhante a figura \ref{fig:exemplopd1}.
 Programadores também são acostumados com linguagens de programação que
 tem sua gramática baseada na sequencialidade das ações. A vantagem de
 usar uma ferramenta de síntese embutida em uma linguagem de
 programação é que se pode ter uma flexibilidade muito maior na criação
 relações entre os elementos devido a possiblidade de criar novas
-abstrações. Abaixo temos um exemplo de código em Comonn lisp music.
-
-\begin{verbatim}
-(definstrument simp (start dur frequency amp \&optional
-                    (amp-env '(0 0 .5 1.0 1.0 0)))
-  (multiple-value-bind (beg end) (times->samples start dur)
-    (let ((osc (make-oscil :frequency frequency))
-          (amp-env (make-env :envelope amp-env :scaler amp
-                             :dur dur)))
-      (run 
-       (loop for i from beg below end do
-            (outa i (* (env amp-env) (oscil osc))))))))
-\end{verbatim}
-
-\begin{verbatim}
-(with-sound ()
-  (simp 0 1 440 1)
-  (simp 1 1 660 1))
-\end{verbatim}
-
-\begin{verbatim}
-(with-sound ()
-  (loop for freq from 100 to 1000 by 100
-     for dur from 0 to 10 do
-       (simp dur 1 freq 1))
-\end{verbatim}
-
-Se formos tentar implementar esse código em Pd. Podemos encontrar algo assim: 
-
+abstrações\cite{geiger2005}. 
+ 
 \begin{figure}
   \centering
   \includegraphics[scale=.5]{exemplopd1}
@@ -425,24 +408,24 @@ possui uma sequencialidade implícita (da saída final até os parâmetros
 de cada gerador), mas não explicita como vão ser manipulados os
 parâmetros nem qual será a duração da música.
 
-Os ambientes Max/Msp e Pd são construídos sob o paradigma do ``envio
-da mensagem'' que não necessariamente possibilita que a linguagem seja
-adequada para o estoque e a recuperação de dados. O usuário é
-praticamente forçado a colocar os dados dentro de conteiners - bases
+Os ambientes Max/Msp e Pd são construídos sob o paradigma do envio
+da mensagem o que não necessariamente possibilita que a linguagem seja
+adequada para o armazenamento e recuperação de dados. O usuário é
+praticamente forçado a colocar os dados dentro de objetos armazenadores e 
+arquivos externos - bases
 de dados, essencialmente - e a usar um leque de objetos como
 acessórios para estocar e recuperar dados dentro do controle de
-passagem de mensagens em tempo-real.
+passagem de mensagens em tempo real.
 
-A abordagem do Max/ Msp quanto aos dados é ao mesmo tempo simples e
+A abordagem do Max/Msp quanto aos dados é ao mesmo tempo simples e
 evasiva: objetos especiais de armazenagem de dados como
 \textit{table}, \textit{qlist}, dentre outros são disponibilizados. Os
-dados são essencialmente colocados dentro de objetos conteiners, e
-para cada tipo de objeto-conteiner uma abordagem particular é colocada
+dados são essencialmente colocados dentro de diferentes objetos armazenadores, e
+para cada tipo de armazenador uma abordagem particular é colocada
 para sua estocagem, edição, interface e comunicação com o resto do
 patch.
 
-A recuperação de dados (a grande maioria das transações de bases de
-dados) é a pior qualidade do Max porque mensagens não tem valores de
+A recuperação de dados é a pior qualidade do Max porque mensagens não tem valores de
 retorno. Por exemplo, uma caixa de número manipulada com o mouse não
 retorna os dados da manipulação, que devem ser recuperados com outros
 objetos). Os dados recuperados devem ser mandados como uma mensagem
@@ -450,6 +433,8 @@ separada de retorno. Isso leva muitos programadores de Max a achar
 soluções diferentes que facilite a interação do patch com o nível
 composicional.
 
+O principal desenvolvedor inicial do Max, foi Miller Puckette
+que em 1996 escreveu o Pd e disponibilizou na internet. 
 A idéia original por trás da criação do Pd foi remover a barreira
 entre a computação dirigida por eventos em tempo-real (como no estilo
 do Max de passagem de mensagens) e dos dados (como em pontos num
@@ -473,28 +458,30 @@ Em relação a essa divisão do aspecto ``performático'' e
   interoperate. \cite{puckette04:divide}
 \end{quote}
 
-Dentro de uma proposta de trabalho de composição de música interativa,
-o objetivo musical deve ser o mais claro possível de maneira que o
-código emerja naturalmente dos problemas musicais. Abordando o assunto
-a partir de uma visão didático-metodológica um primeiro projeto
+Apesar das muitas diferenças entre
+as interfaces dos ambientes de programação, 
+o compositor deve manter claro o foco no resultado sonoro  da interação entre
+gesto instrumental e controle de máquina.
+Abordando o assunto
+a partir de uma visão didático-metodológica um projeto
 composicional em Pd, deve compreender a clara distinção entre os
-aspectos performáticos e composicionais do ambiente. Um primeiro
-projeto composicional deve dar conta de fornecer elementos para o
-estabelecimento de uma metodologia apropriada de controle dos eventos
-temporais. A proposta aqui é a de abordar o uso prático e algumas
-possíveis implementações em Pd que apontem para a criação de
-composições interativas mistas de maior porte. O objetivo é dispôr de
-elementos que possam apontar para uma possível poética composicional.
+aspectos performáticos e composicionais do ambiente. 
 
-Sobre o aspecto mais amplo do que é composição (rowe pg 202)
- 
+O que chamamos de aspectos performáticos em música interativa 
+é a própria relação que criamos entre a  análise do estímulo
+do instrumentista e os parâmetros de algoritmos generativos.
 
-* Quando falamos de interação entre humanos pensamos em modelos
+Sobre os aspectos composicionais me refiro a imagem global
+do fazer composicional e sua relação com as ferramentas em questão.
+Quando falamos de interação entre humanos pensamos em modelos
 de cooperação. Mas quando pensamos em interação homem-máquina, 
-pensamos em controle. 
+pensamos em controle. Podemos pensar no conceito de influência como 
+intermediário entre cooperação e controle, e mais adequado como
+modelo de desenvolvimento para música interativa.
 
 Nessa pesquisa, foram exploradas maneiras de
-realizar esse controle baseado na própria análise musical da
+implementar algoritmos generativos influenciados por dados
+extraídos da própria análise musical da
 performance do músico.
 
 
@@ -507,7 +494,7 @@ O processo de análise musical, consiste em separar elementos
 do discurso com o objetivo de revelar uma possível estrutura fundamental
 ou vetores de força que moldaram aspectos do resultado final.
 
-Sobre a análise feita por computadores, Rowe\ref{rowe09:levels}
+Sobre a análise feita por computadores, Rowe \cite{rowe09:levels}
 acrescenta:
 
 \begin{quotation}
@@ -610,9 +597,16 @@ sub-simbólico e a primeira classe do nível simbólico.
 %% desenvolver mais
 
 Uma outra análise pode ser feita sobre o resultado final da interação, quando se obtém
-o conjunto de dados gerados pelo músico e pelo sistema. Nesses dados não há como separar
-a influência do sistema no músico. O resultado disso poderia ser chamado de taxonomia 
-da interação. Tal qual a espectromorfologia.
+o conjunto de dados e estruturas geradas pelo músico e pelo sistema. Nesses dados não há como separar
+a influência do sistema no músico. O resultado da análise desses dados pode revelar
+estruturas arquetípicas passíveis de classificação, o que poderia ser chamado de taxonomia 
+da interação. Tal qual a espectromorfologia \cite{smalley:86} é uma taxonomia geral
+para análise de música eletroacústica. Nesse sentido podemos apontar os artigos
+``Por uma morfologia da interação'' \cite{menezes2006musica} e ``Morphological notation for interactive electroacoustic music'' 
+\cite{Patton:2007} como seminais na definição dessa taxonomia.
+
+
+
 
 
 \subsubsection{Análise de áudio}
@@ -797,11 +791,11 @@ e fim de gravação de um segmento para ter o áudio processado.
 
 Essa funcionalidade poderia ser expandida criando-se botões de controle
 e sensores, posicionados no próprio corpo do instrumento. Chegando próximo ao conceito
-de ``instrumento aumentado'' ou ``hyperinstrument'' como definido por Machover\cite{hyperinstrumento}. 
+de ``instrumento aumentado'' ou ``\textit{hyperinstrument}'' como definido por Machover\cite{hyperinstrumento}. 
 Apesar de fugir do recorte dessa pesquisa, essa possibilidade
 de expandir fisicamente o instrumento é um recurso muito útil em sistemas de
 música interativa. Isso pode facilmente ser feito com a plataforma Arduino\footnote{Arduino
-é uma plataforma de prototipação eletrônica para aplicações interativas.
+é uma plataforma de prototipação eletrônica para aplicações interativas. Disponível em: 
 www.arduino.cc}, integrada dentro do Pd. 
 
 
