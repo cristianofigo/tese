@@ -5971,7 +5971,7 @@ Explicar rapidamente:
 \section{Como escrever um external para Pure-data}
 \label{C-external}
 
-Tradução dos primeiros 3 capítulos do documento
+Tradução\footnote{Detalhes de tradução: prefei manter os termos técnicos originais.} dos primeiros 3 capítulos do documento
 "HOWTO write an external for pd"(Copyright (c) 2001-2006 by IOhannes m zmölnig).
 
 
@@ -6022,7 +6022,7 @@ Instâncias concretas de uma classe são chamados {\em objetos}.
 Para evitar confusão de idéias, as expressões {\em internal}, {\em external} e
 {\em library}\footnote{{\em library} aqui não é traduzida como ``biblioteca'' 
 para não confundir com o termo biblioteca que vem sendo usado como um grupo
-de abstrações (uma ``biblioteca de abstrações'' tal qual o presente projeto
+de abstrações (e.g. Uma ``biblioteca de abstrações'' tal qual o presente projeto
 SInCoPA.}, serão explicadas aqui.
 
 \paragraph{Internal}
@@ -6041,7 +6041,7 @@ de {\em internals} .
 Uma{\em library} é uma coleção de {\em externals} que são compilados em um único
 arquivo binário.
 
-{\em Library}- arquivos devem seguir um sistema dependente de convenções de nomes:
+{\em Library}- Os arquivos devem seguir um sistema dependente de convenções de nomes:
 
 \begin{tabular}{c||c|c|c}
 library & linux&irix&Win32 \\
@@ -6053,56 +6053,59 @@ library & linux&irix&Win32 \\
 A forma mais simples de uma {\em library} inclui exatamente um{\em external}
 com o mesmo nome da {\em library}.
 
-Unlike {\em externals}, {\em libraries} can be imported by Pd with special operations.
-After a {\em library} has been imported,
-all included {\em externals} have been loaded into memory and are available as objects.
+Diferente dos {\em externals}, {\em libraries} podem ser importadas pelo Pd com operações especiais.
+Depois que uma {\em library} tenha sido importada,
+todos {\em externals} incluídos são carregados na memória e ficam disponíveis como objetos.
 
-Pd supports to modes to import {\em libraries}:
+Pd possui dois modos para importar {\em libraries}:
 
 \begin{itemize}
-\item via the command line-option ``{\tt -lib my-lib}''
-\item by creating an object ``{\tt my-lib}''
+\item via opção de linha de comando ``{\tt -lib my-lib}''
+\item criando um objeto ``{\tt my-lib}''
 \end{itemize}
 
-The first method loads a {\em library} when Pd is started.
-This method is preferably used for {\em libraries} that contain several {\em externals}.
+O primeiro método carrega uma {\em library quando Pd é iniciado.
+Esse método é preferencialmente usado para {\em libraries} que contém muitos {\em externals}.
 
-The other method should be used for {\em libraries} that contain exactly
-one {\em external} bearing the same name.
-Pd checks first, whether a class named ``my-lib'' is already loaded.
-If this is not the case\footnote{
-If a class ``my-lib'' is already existent, an object ``my-lib'' will be instantiated
-and the procedure is done. 
-Thus, no {\em library} has been loaded.
-Therefore no {\em library} that is named like an already used class-name like, say, ``abs'',
-can be loaded.}, all paths are searched for a file called
-``{\tt my-lib.pd-linux}''\footnote{or another system-dependent filename-extensions (s.a.)}.
-If such file is found, all included {\em externals} are loaded into memory by calling a
-routine \verb+my-lib-setup()+.
-After loading, a class ``my-lib'' is (again) looked for as a (newly loaded) {\em external}.
-If so, an instance of this class is created, else the instantiation fails and an error is
-printed.
-Anyhow, all {\em external}-classes declared in the {\em library} are loaded by now.
+O outro método deve ser usado para {\em libraries} que contém exatamente um
+{\em external} com o mesmo nome.
 
+Pd checa primeiro, se uma classe chamada ``my-lib'' já foi carregada.
+Se esse não for o caso\footnote{
+Se uma classe ``my-lib'' já é existente, um objeto ``my-lib'' será inicializado e o procedimento
+ será concluído. 
+Assim, nenhuma {\em library} foi carregada.
+Portanto nenhuma {\em library} que tenha o mesmo nome que uma classe já usada como, por exemplo ``abs'',
+pode ser carregada.}, é feita uma busca em todos \textit{paths}\footnote{Os Paths ou caminhos de diretórios são pré-definidos pelo usuário.}
+por um arquivo chamado ``{\tt my-lib.pd-linux}''\footnote{ou outra extensão dependente do sistema que se está trabalhando.}.
+Se tal arquivo é encontrado, todos {\em externals} incluídos são carregados na memória
+através de uma chamada da rotina \verb+my-lib-setup()+.
 
-\subsection{my first external: {\tt helloworld}}
-Usually the first attempt learning a programming-language is a ``hello world''-application.
-
-In our case, an object class should be created, that prints the line ``hello world!!'' to
-the standard error every time it is triggered with a ``bang''-message.
+Após o carregamento, uma classe ``my-lib'' é (novamente) buscada como um (recentemente carregado) {\em external}.
+Em caso afirmativo, uma instância dessa classe é criada, ou senão a inicialização falha e um erro
+é impresso no console.
+De qualquer maneira, todas classes de {\em externals} declarados na  {\em library} são carregados.
 
 
+\subsection{meu primeiro external: {\tt alo_mundo}}
+Usualmente a primeira abordagem para se aprender uma linguagem de programação é algum tipo
+de aplicação ``alô mundo''.
 
-\subsubsection{the interface to Pd}
-To write a Pd-external a well-defined interface is needed.
-This is provided in the header-file ``m-pd.h''.
+Em nosso caso, uma classe de objeto deve ser criada, que imprima a linha ``alo mundo!!''
+como erro padrão toda vez que receba uma mensagem de `bang''.
+
+
+\subsubsection{a interface com o Pd}
+Para escrever um external de Pd é necessário uma interface bem definida.
+Isso é fornecido no arquivo-cabeçalho ``m-pd.h''
 
 \begin{verbatim}
 #include "m-pd.h"
 \end{verbatim}
 
-\subsubsection{a class and its data space}
-First a new class has to be prepared and the data space for this class has to be defined.
+\subsubsection{uma classe e seu espaço de dados}
+primeiro uma nova classe deve ser preparada e o espaço de dados para essa classe deve ser
+definido.
 
 \begin{verbatim}
 static t-class *helloworld-class;
@@ -6457,14 +6460,14 @@ void counter-setup(void) {
 
 
 
-% \ Section {Como escrever hum externo parágrafo Pure-dados}
+% \Section {Como escrever um external para Pure data}
 % 
 % Tradução Dos Primeiros 3 Capítulos do Documento
 % "HOWTO escrever um externo para pd" (Copyright (c) 2001-2006 por IOhannes m zmölnig).
 % 
 % 
 % 
-% \ Subsection {Resumo}
+% \Subsection {Resumo}
 % Pd e hum Sistema Gráfico de Composição musical POR Computador em Tempo real, Que Segue
 % OS Tradicionais IRCAMs {\ em ISPW-max}
 % 
@@ -6479,7 +6482,7 @@ void counter-setup(void) {
 % uma Linguagem popular, utilizada parágrafo CRIAR o Pd.
 % 
 % 
-% \ Subsection {definições e pré-requisitos}
+% \Subsection {definições e pré-requisitos}
 % Pd, comunique-SE AO Ambiente Gráfico de Computação musical em Tempo real CRIADO POR
 % Miller para instalação. S. ~ Puckette.
 % 
@@ -6936,7 +6939,7 @@ void counter-setup(void) {
 %   class \ -addbang (contador \ -class, contador \ -bang);
 % }
 % \ End {verbatim}
-% Desfazer edições
+% % Desfazer edições
 
 
 
