@@ -1248,79 +1248,7 @@ de construção de uma peça musical. Mostra um exemplo rápido de três
 níveis em que o nível zero abrange altura, intensidade e timbre. No
 nível um, frases e acordes e no nível dois a forma.
 
-Uma das características de um sistema interativo é a capacidade do sistema
-de emular técnicas composicionais e responder ``compondo'' em tempo-real a
-estímulos musicais provindos de músicos humanos. Para isso deve-se implementar
-no sistema técnicas de composição que sejam a maneira como o sistema ``percebe''
-e responde aos estímulos. Nesse sentido o conceito de “permeabilidade” de 
-alturas \cite{ligeti58:transformacoes} pode ser um conceito muito útil se aplicado aos parâmetros
-de análise das alturas pelo sistema. Segundo Ligeti:
-
-\begin{quote}
-  A tendência geral conduz, então, para a insensibilização da
-  fisionomia dos intervalos. Sucessões de tons e superposições
-  verticais tornam-se, em grande escala, indiferentes frente aos
-  intervalos dos quais provem; conceitos como consonância e
-  dissonância se tornam irrelevantes: tensões e distensões podem ser
-  obtidas com qualidades estatísticas da forma, como relação de
-  registros, densidade ou tipos de tecido das estruturas [...] A perda
-  da sensibilidade perante os intervalos conduz a um estado que
-  poderíamos chamar de permeabilidade. Isso significa que estruturas
-  de diferentes qualidades que transcorrem simultaneamente podem
-  interpenetrar-se e mesmo dissolver-se completamente mudando apenas
-  as relações de densidade horizontal e vertical, sendo indiferente,
-  em princípio, quais intervalos se cruzam em detalhe [...] Embora a
-  permeabilidade não tenha tido, até o momento, nenhuma influência
-  decisiva sobre a forma, não era desconhecida nos estilos musicais
-  antigos. Quem teve o grau mais baixo de permeabilidade até agora
-  talvez tenha sido Palestrina, em cuja música vozes simultâneas,
-  reguladas por leis expressas univocamente, enrolavam-se umas na
-  outras. As possibilidades de combinações intervalares, fortemente
-  fixadas, não permitiam a menor ambigüidade no transcurso das
-  estruturas; portanto, as relações entre dissonância e consonância
-  estavam tratadas, naquele estilo, com o maior cuidado.
-\end{quote}
- 
-Ligeti fala aqui sobre uma permeabilidade dos intervalos de altura,
-pode-se pensar em ampliar, e implementar no sistema, esse pensamento
-de permeabilidade para conceitos como permissividade evolutiva,como por
-exemplo, a permissividade de emergência de estruturas derivadas do material 
-da própria análise do timbre do áudio de entrada. Outro exemplo poderia ser a 
-emergência de certos comportamentos contrastantes em trechos isolados do material.
-A permeabilidade de alturas pode ser um parâmetro de análise das alturas 
-de uma performance em tempo-real. Outra possibilidade de aplicação pode ser o
-controle geral da permeabilidade de alturas, tendo o sistema a capacidade de
-classificar a porcentagem da permeabilidade envolvida em cada trecho. Segundo
-Ligeti: 
-
-\begin{quote}
-  A insensibilidade frente aos intervalos e a grande permeabilidade é
-  ainda mais importante na música de Cage e seu círculo, proveniente
-  de princípios totalmente diferentes. Existem obras de Cage que podem
-  ser executadas tanto isoladamente quanto de forma simultânea com
-  outras partituras onde, então, cada peça se transforma em capa de
-  uma possível superposição que, se bem será mais densa que suas
-  componentes, não está composta de forma diferente delas. A
-  indiferença de tais estruturas, resultado de manipulações com o
-  acaso, está estreitamente relacionada com a indiferença dos produtos
-  automáticos da música serial primitiva. Essa indiferença tende
-  também, por sobre as relações intervalares, para uma ampliação das
-  outras dimensões musicais. Uma vez eliminadas as relações
-  hierárquicas, afrouxadas as pulsações métricas simétricas,
-  transposto os graus de duração, de intervalos e de timbre das
-  distribuições seriais, torna-se cada vez mais difícil controlar os
-  contrastes.
-\end{quote}
-
-Podemos pensar no conceito de permeabilidade como uma técnica composicional
-que pode ser quantificável, portanto passível de ser implementada em um programa
-de computador e agregada ao sistema que aqui se propõe. Esse conceito pode ser
-aplicável aos outros parâmetros do som e radicalizando esse pensamento podemos
-pensar no ato composicional como um controle dinâmico entre diversos níveis de 
-permeabilidade em todos parâmetros do som.
-
-
-Outros conceitos composicionais são passíveis de implementação e portanto úteis 
+Alguns conceitos composicionais são passíveis de implementação e portanto úteis 
 ao universo de referências composicionais necessários ao sistema. Como por exemplo 
 alguns conceitos da Gestalt aplicados a música. A Teoria da Gestalt, em suas análises estruturais, 
 descobriu certas leis que regem a
@@ -2405,7 +2333,7 @@ Segundo Silva \begin{quotation}
                contornos podem ajudar a dar coerência a uma obra musical. Eles representam estruturas
 		musicais manipuláveis através de várias operações como inversão e retrogradação, e podem
 		ser abordados tanto do ponto de vista da análise quanto da composição.
-              \end{quotation} 
+              \end{quotation} \cite{sampaio08:torno}.
 
 
 Iremos mostrar algumas maneiras como observar, guardar e comparar contornos de modo
@@ -2454,7 +2382,7 @@ Onde primeiro é feito uma leitura do array original com [until] e [tabread]. Ap
 a leitura é calculado o valor mínimo e máximo com o objeto [list-minmax] e os dois
 valores são enviados com as variáveis globais [s min] e [s max].
 
-O mapeamento dos valores é feito de forma linear, usando o patch mostrado na seção (METODOLOGIA).
+O mapeamento dos valores é feito de forma linear, usando o patch mostrado na figura \ref{sinc-escala-linear}.
 Nesse caso, o menor valor irá equivaler a zero e o maior valor equivaler a oito, que é o
 número de elementos do array. Ao final ainda os valores são convertidos para valores inteiros,
 antes de serem escritos no array de resultado.
@@ -2463,7 +2391,7 @@ A análise da similaridade entre contornos é uma ferramenta importante dentro
  de um sistema de composição interativa, pois pode revelar emergência e dissolução de 
 padrões de execução e improvisação. 
 Existe uma crescente bibliografia sobre análise de similaridade de contornos,
-como no artigo XXXX, onde o autor expõe e compara diversos modelos de análise,
+como no artigo ``Testing models of Melodic Contour Similarity'' \cite{schmuckler}, onde o autor expõe e compara diversos modelos de análise,
 tanto baseados em teoria musical, quanto em modelos abstraídos de experiências
 em cognição musical.
 
@@ -2509,6 +2437,110 @@ mais completa, como uma implementação de redes neurais artificiais por exemplo
 de revisão e teste dos modelos analíticos citados na bibliografia da área.
 Nessa pesquisa, a próxima etapa será a integração da análise de contorno com os
 mecanismos de geração de material musical.
+
+\subsubsection{Permeabilidade melódica}
+
+\begin{figure}
+\includegraphics[scale=.5]{permeabilidade}
+\caption{Patch que calcula o índice de permeabilidade melódica em fluxo melódico}
+\label{permeabilidade}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.5]{colecao_pitch}
+\caption{Patch que ananlisa a ocorrência de uma classe de nota em uma lista de classes de notas}
+\label{colecao-pitch}
+\end{figure}
+
+
+
+Uma das características de um sistema interativo é a capacidade do sistema
+de emular técnicas composicionais e responder ``compondo'' em tempo-real a
+estímulos musicais provindos de músicos humanos. Para isso deve-se implementar
+no sistema técnicas de composição que sejam a maneira como o sistema ``percebe''
+e responde aos estímulos. Nesse sentido o conceito de “permeabilidade” de 
+alturas \cite{ligeti58:transformacoes} pode ser um conceito muito útil se aplicado aos parâmetros
+de análise das alturas pelo sistema. Segundo Ligeti:
+
+\begin{quote}
+  A tendência geral conduz, então, para a insensibilização da
+  fisionomia dos intervalos. Sucessões de tons e superposições
+  verticais tornam-se, em grande escala, indiferentes frente aos
+  intervalos dos quais provem; conceitos como consonância e
+  dissonância se tornam irrelevantes: tensões e distensões podem ser
+  obtidas com qualidades estatísticas da forma, como relação de
+  registros, densidade ou tipos de tecido das estruturas [...] A perda
+  da sensibilidade perante os intervalos conduz a um estado que
+  poderíamos chamar de permeabilidade. Isso significa que estruturas
+  de diferentes qualidades que transcorrem simultaneamente podem
+  interpenetrar-se e mesmo dissolver-se completamente mudando apenas
+  as relações de densidade horizontal e vertical, sendo indiferente,
+  em princípio, quais intervalos se cruzam em detalhe [...] Embora a
+  permeabilidade não tenha tido, até o momento, nenhuma influência
+  decisiva sobre a forma, não era desconhecida nos estilos musicais
+  antigos. Quem teve o grau mais baixo de permeabilidade até agora
+  talvez tenha sido Palestrina, em cuja música vozes simultâneas,
+  reguladas por leis expressas univocamente, enrolavam-se umas na
+  outras. As possibilidades de combinações intervalares, fortemente
+  fixadas, não permitiam a menor ambigüidade no transcurso das
+  estruturas; portanto, as relações entre dissonância e consonância
+  estavam tratadas, naquele estilo, com o maior cuidado.
+\end{quote}
+ 
+Ligeti fala aqui sobre uma permeabilidade dos intervalos de altura,
+pode-se pensar em ampliar, e implementar no sistema, esse pensamento
+de permeabilidade para conceitos como permissividade evolutiva,como por
+exemplo, a permissividade de emergência de estruturas derivadas do material 
+da própria análise do timbre do áudio de entrada. Outro exemplo poderia ser a 
+emergência de certos comportamentos contrastantes em trechos isolados do material.
+A permeabilidade de alturas pode ser um parâmetro de análise das alturas 
+de uma performance em tempo-real. Outra possibilidade de aplicação pode ser o
+controle geral da permeabilidade de alturas, tendo o sistema a capacidade de
+classificar a porcentagem da permeabilidade envolvida em cada trecho. Segundo
+Ligeti: 
+
+\begin{quote}
+  A insensibilidade frente aos intervalos e a grande permeabilidade é
+  ainda mais importante na música de Cage e seu círculo, proveniente
+  de princípios totalmente diferentes. Existem obras de Cage que podem
+  ser executadas tanto isoladamente quanto de forma simultânea com
+  outras partituras onde, então, cada peça se transforma em capa de
+  uma possível superposição que, se bem será mais densa que suas
+  componentes, não está composta de forma diferente delas. A
+  indiferença de tais estruturas, resultado de manipulações com o
+  acaso, está estreitamente relacionada com a indiferença dos produtos
+  automáticos da música serial primitiva. Essa indiferença tende
+  também, por sobre as relações intervalares, para uma ampliação das
+  outras dimensões musicais. Uma vez eliminadas as relações
+  hierárquicas, afrouxadas as pulsações métricas simétricas,
+  transposto os graus de duração, de intervalos e de timbre das
+  distribuições seriais, torna-se cada vez mais difícil controlar os
+  contrastes.
+\end{quote}
+
+
+O objeto [sinc-permeabilidade] apresenta um primeiro estudo sobre 
+o cálculo da permeabilidade melódica aplicada em composição interativa.
+A idéia é verificar a presença de um valor de classe de nota em uma lista
+de valores dinâmicos. Na figura \ref{permeabilidade} podemos ver um [inlet classe de nota]
+que envia o mesmo valor para o array [\$0-nota] e para a abstração [colecao\_vs\_pitch].
+O array [\$0-nota] coleciona as últimas seis classes de notas e envia uma lista com
+todos os valores através da variável [send lista\_pitch]. Na figura \ref{colecao-pitch}
+podemos ver a estrutura da abstração [colecao\_vs\_pitch] que verifica a ocorrência
+da atual classe de notas dentro das últimas seis classes passadas. O resultado é enviado
+para o contador [counter] e quanto mais notas ``novas'' surgem, maior é o índice de 
+permeabilidade melódica.
+
+
+Podemos pensar no conceito de permeabilidade como uma técnica composicional
+que pode ser quantificável, portanto passível de ser implementada em um programa
+de computador e agregada ao sistema que aqui se propõe. Esse conceito pode ser
+aplicável aos outros parâmetros do som e radicalizando esse pensamento podemos
+pensar no ato composicional como um controle dinâmico entre diversos níveis de 
+permeabilidade em todos parâmetros do som.
+
+
+
 
 \subsection{Análise rítmica}
 
@@ -6087,7 +6119,7 @@ Em caso afirmativo, uma instância dessa classe é criada, ou senão a inicializ
 De qualquer maneira, todas classes de {\em externals} declarados na  {\em library} são carregados.
 
 
-\subsection{meu primeiro external: {\tt alo_mundo}}
+\subsection{meu primeiro external: {\tt alo\_mundo}}
 Usualmente a primeira abordagem para se aprender uma linguagem de programação é algum tipo
 de aplicação ``alô mundo''.
 
@@ -6115,24 +6147,24 @@ typedef struct -helloworld {
 } t-helloworld;
 \end{verbatim}
 
-\verb+hello-worldclass+ is going to be a pointer to the new class.
+\verb+helloworld-class+ será um ponteiro para a nova classe.
 
-The structure \verb+t-helloworld+ (of the type \verb+-helloworld+) is
-the data space of the class.
+A estrutura \verb+t-helloworld+ (do tipo \verb+-helloworld+) é o espaço
+de dados da classe.
 
-An absolutely necessary element of the data space is a variable of the type
-\verb+t-object+, which is used to store internal object-properties like
-the graphical presentation of the object or data about inlets and outlets.
+Um elemento absolutamente necessário do espaço de dados é uma variável do
+tipo \verb+t-object+, que é usada para armazenar propriedades internas do objeto
+como a apresentação gráfica do objeto ou dados sobre entradas e saídas gráficas.
 
-\verb+t-object+ has to be the first entry in the structure !
+\verb+t-object+ deve ser a primeira especificação da estrutura.
 
-Because a simple ``hello world''-application needs no variables,
-the structure is empty apart from the \verb+t-object+.
+Um simples objeto ``alô mundo'' não necessita de variáveis,
+portanto a estrutura fica vazia além de \verb+t-object+.
 
 
 \subsubsection{method space}
-Apart from the data space, a class needs a set of manipulators (methods) to
-manipulate the data with.
+Além do espaço de dados, uma classe necessita de uma sequência de manipuladores
+(métodos) para manipular o fluxo de dados à passar pelo objeto.
 
 If a message is sent to an instance of our class, a method is called.
 These methods are the interfaces to the message system of Pd.
