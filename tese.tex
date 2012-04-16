@@ -122,6 +122,33 @@ apresentada aqui.
 \chapter*{Abstract}
 \label{cha:abstract}
 
+The creation of interactive music is a task that involves many
+knowledge and techniques of musical composition, sound synthesis,
+analysis and digital signal processing and interface design.
+In recent years, several projects have been developed and adopted
+community of composers interested in composing music based
+in human-machine interaction. Notably language Pure Data (PD),
+has been widely adopted by the flexibility of extended objects
+and ability to integrate with other languages ​​and existing solutions
+in the field of computer music. Pd is a graphical language ...
+
+Even allowing for different solutions to the composer, the Pd requires
+the formal study of its grammar so that any language
+programming. Many of the solutions presented by the community
+are specific and hardly adaptable to general problems of
+composition.
+
+In this study we investigated the problem of creating a library
+utilities that perform the interaction between the knowledge needed
+for creating interactive music. The creation of this library allows
+interconnecting hybrid solutions and various other general libraries
+specific developed by the community. The use of the library
+the composer provides a rapid prototyping in interactive music and
+integration with other streams of working at the same time allowing
+further study of language and customization of the library itself
+presented here.
+
+
 %% remove sumário do sumário
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-2}}
 \tableofcontents
@@ -134,37 +161,8 @@ apresentada aqui.
 %% texto
 \mainmatter
 
-% \begin{abstract}
-%  
-% A criação de música interativa é uma tarefa que envolve diversos 
-% conhecimentos como técnicas de composição musical, síntese sonora,
-% análise e processamento de sinal digital e design de interface.
-% Nos últimos anos, diversos projetos vem sendo desenvolvidos e adotados
-% pela comunidade de compositores interessados em compôr música baseada
-% na interação homem-máquina. Notadamente a linguagem Pure data (Pd),
-% vem sendo amplamente adotada pela flexibilidade de extensão de objetos 
-% e capacidade de se integrar a outras linguagens e soluções existentes
-% no campo da computação musical. Pd é uma linguagem gráfica...
-% 
-% Mesmo possibilitando diversas soluções ao compositor, o Pd exige
-% o estudo formal de sua gramática tal qual qualquer linguagem de 
-% programação. Muitas das soluções apresentadas pela comunidade
-% são específicas e dificilmente adaptáveis a problemas gerais de 
-% composição.
-% 
-% Nesta pesquisa investigamos o problema da criação de uma biblioteca
-% de utilitários que realizem a interação entre os conhecimentos necessários
-% para criação de música interativa. A criação dessa biblioteca permite
-% soluções híbridas interligando diversas outras bibliotecas gerais e
-% específicas desenvolvidas pela comunidade. O uso da biblioteca
-% propicia ao compositor uma rápida prototipagem em música interativa e 
-% integração com outros fluxos de trabalho, ao mesmo tempo em que permite
-% um estudo mais aprofundado da linguagem e customização da própria biblioteca
-% apresentada aqui.
-% 
-% 
-% 
-% \end{abstract} 
+
+
 
 \chapter{Introdução}
 \label{sec:intro}
@@ -1525,154 +1523,6 @@ os resultados são perceptivelmente conectados o resto do grupo visivelmente se 
 a vontade musicalmente.
 
 
-\subsection{Redes neurais artificiais}
-
-
-% Na prática o sistema funcionará em duas instâncias: num primeiro momento
-% as redes precisam ser treinadas. Nessa fase o músico executa uma performance, esse
-% áudio é captado, analisado e colocado numa base de dados que vai servir como
-% arquivos de treinamento das redes. O segundo momento será o momento da performance interativa,
-% onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real
-% com esse banco de dados previamente estocado.
-% Uma visão geral do sistema pode ser vista na figura \ref{geral} onde 
-% podemos ver o fluxo geral dos dados ao longo das partes do sistema. Podemos ver
-% que a resposta do sistema ao estímulo do músico depende da resposta das redes que 
-% procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
-
-
-\begin{figure}
-\includegraphics[scale=.7]{geral}
-\caption{Diagrama geral do sistema}
-\label{geral}
-\end{figure}
-
-
-
-%colocar parágrafo de como que está agora
-
-%Na figura\ref{mecanismo}
-
-\begin{figure}
-\includegraphics[scale=.7]{escuta}
-\caption{Mecanismo de escuta e análise}
-\label{escuta}
-\end{figure}
-
-%%%%%% artigo pdcon09
-
-
-Em determinado momento, a pesquisa convergiu para o desenvolvimento de um sistema baseado em redes neurais.
-Essa seção expõe esse momento da pesquisa, descrevendo como se pode trabalhar com redes neurais artificiais 
-integrando a um sistema de música interativa com Pd.
-
-A figura \ref{escuta} representou o planejamento inicial do projeto onde podemos observar como a 
-análise do áudio seria separada nos parâmetros de
-densidade, durações, classes de intervalos, variações de timbre e registro. Após uma primeira análise do
-áudio, todas as classificações seriam realizadas por redes neurais artificiais. Cada parâmetro passaria
- por uma cadeia de redes locais de tamanhos diferentes que seriam agrupadas em duas 
-redes globais também de tamanhos diferentes.
-
-\begin{figure}
-\includegraphics[scale=.7]{mecanismo}
-\caption{Mecanismo de funcionamento de um sistema interativo baseado em redes neurais}
-\label{mecanismo}
-\end{figure}
-
-
-
-Por um lado, essa idéia original não apresentava uma clara distinção entre os níveis simbólico e sub-simbólico.
-A idéia era se aproximar de modelos cognitivos, tentando simular situações de aprendizado musical.
-Nesse sentido, simular as habilidades de músicos humanos em fluidez de ação, capacidade de 
-resposta a situações novas e referências culturais, transformam a capacidade de interação dos sistemas computacionais 
-numa árdua tarefa. Na prática o sistema funcionaria em duas instâncias: num primeiro momento as redes precisam ser 
-treinadas. Nessa fase o músico executa uma performance, esse áudio é captado, analisado e colocado numa base de dados 
-que vai servir como arquivos de treinamento das redes. O segundo momento será o momento da performance interativa, 
-onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real com esse 
-banco de dados previamente estocado. Uma visão geral do sistema pode ser vista na figura \ref{mecanismo} onde podemos ver o fluxo 
-geral dos dados ao longo das partes do sistema. Podemos ver que a resposta do sistema ao estímulo do músico depende 
-da resposta das redes que procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por 
-sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
-   
-
-Os resultados das análises de áudio seriam passados por um sistema de redes neurais artificiais, 
-construídos com a biblioteca FANN\cite{fann}  portada para ser usada como uma external de Pd. As redes neurais serão organizadas 
-por ordem de tamanho de segmentos temporais. Por exemplo, a primeira rede vai procurar por padrões a cada 20 segundos e 
-mandar os resultados para a segunda rede que vai avaliar a presença de padrões a cada 60 segundos e assim por diante. 
-Esse processo feito em todos parâmetros descritos, seriam enviados para um banco de dados
- para comparação com o banco de dados usado no treinamento das redes. A comparação entre os bancos de dados do 
-treinamento e da performance em tempo-real possibilitaria regular as decisões de resposta do sistema.
-
-\begin{figure}
-\includegraphics[scale=.5]{fann1}
-\caption{Patch central do experimento com redes neurais}
-\label{fann1}
-\end{figure} 
- 
-Foi feito um pequeno experimento da pesquisa  foi usado o external [ann-mlp] com o objetivo de detectar  em tempo-real padrões 
-rítmicos pré-estabelecidos na fase de treinamento da rede.
-    O principal elemento explorado  nesse primeiro experimento foi a variação de andamento. Uma das principais 
-características de um diálogo musical é o fato dos músicos reconhecerem facilmente padrões rítmicos independente do 
-andamento em que são apresentados. Para isso é necessário que seja levado em consideração a distância temporal entre 
-ataques de eventos sonoros ao invés da duração desses eventos ou do posicionamento temporal dentro da duração total da 
-performance. Para o trabalho de segmentação rítmica foi usada a biblioteca Aubio para identificar os ataques (onsets) de eventos 
-sonoros. Na figura \ref{fann1} vemos o patch central do experimento com o objeto  [aubioonset\texttildelow] recebendo um fluxo de 
-dados de áudio e respondendo com bang em tempo-real para cada ataque reconhecido.
-
-  
-\begin{figure}
-\includegraphics[scale=.5]{fann2}
-\caption{Agrupador de listas de quatro durações para envio para a rede neural artificial}
-\label{fann2}
-\end{figure} 
-
-Foi escolhido uma metodologia de segmentação agrupando conjuntos de quatro ataques. 
-Na figura \ref{fann2} podemos ver no patch como foi implementado 
-o agrupamento de cada quatro  ataques dentro do sub-patch [pd contador de ritmos e estocando beta].
-
-As redes neurais artificiais funcionam em dois tempos, o treinamento e a performance. No treinamento as redes os pesos e 
-dos padrões de maneira a criar um arquivo de treinamento que funciona como um banco de dados . No arquivo de treinamento 
-podemos editar manualmente e identificar e rotular os padrões de maneira a refinar a base de dados. Nesse experimento foi 
-desenvolvido um subpatch que cria automaticamente o arquivo de treinamento, que determina a quantidade de neurônios da 
-rede, número de padrões a serem estocados e a quantidade de elementos de cada padrão.
-   No experimento em questão foi usado um arquivo de áudio com um timbre percussivo e ataques bem claros. Esse arquivo 
-contém 3 padrões rítmicos apresentados 3 vezes com  andamento diferentes. No resultado observamos que mesmo quando se 
-altera o andamento, as redes continuam a detectar os padrões, porque durante a fase de treinamento os padrões foram 
-apresentados diversas vezes em andamentos diferentes.
-
-
-Apesar da experiência valiosa, foi decidido suspender as implementações com redes neurais e
-focar o desenvolvimento nos níveis de análise descritos na seção \ref{analise-geral}.
-A prática com redes neurais demonstrou um grande potencial como ferramenta para análise.
-Dentro do recorte dessa pesquisa, a análise tem um espaço importante, entretanto o objetivo
-final é o desenvolvimento de uma ferramenta para a composição de música interativa.
-O desenho geral do presente sistema como é concebido atualmente, pode ser visto na 
-figura XXX
-
-Outra possibilidade seria o uso de mapas auto-organizáveis (redes de Kohonen), que é
-um tipo de rede neural artificial não supervisionada, que não necessita
-da fase de terinamento, o algoritmo fica constantemente mudando os valores dos pesos internos.
-Esse experimento mostrou um caminho para o refinamento de um modelo de detecção de padrão.
-Um problema apontado foi o de que aplicações com redes neurais são voltadas
-para a resolução de problemas específicos. O foco em classificações mais gerais
-pode ser implementado com operações matemáticas como média e probabilidades.
-
-%% faltou um subpatch mostrando o objeto [ann_mlp]
-
-
-% \subsection{Composição algorítmica e interação}
-% 
-% 
-% 
-% Aqui falar do RTC + MEPSOM
-% 
-% Falar das razões da pesquisa de termos dado um passo atrás, desistido
-% das redes neurais e focado num sistema estável bem documentado sobre todos
-% os componentes de um sistema interativo
- 
-
-% Pode-se, portanto, definir que uma boa abordagem de pesquisa em sistemas musicais interativos engloba um vasto campo 
-% multidisciplinar realizando uma fusão de pesos iguais entre as áeas de psicologia cognitiva, computação e teoria da 
-% composição musical.
 
 
 \subsection{Papel do músico na interação homem-máquina}
@@ -5201,6 +5051,157 @@ tracker. In the instrument described here, the latency of the whole affair is on
 milliseconds (it's probably not hard to reduce it to 5 or 6 using real-time kernel patches but I preferred to use 
 off-the-shelf linux). 
 \end{quote}
+
+\subsubsection{Redes neurais artificiais}
+
+
+% Na prática o sistema funcionará em duas instâncias: num primeiro momento
+% as redes precisam ser treinadas. Nessa fase o músico executa uma performance, esse
+% áudio é captado, analisado e colocado numa base de dados que vai servir como
+% arquivos de treinamento das redes. O segundo momento será o momento da performance interativa,
+% onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real
+% com esse banco de dados previamente estocado.
+% Uma visão geral do sistema pode ser vista na figura \ref{geral} onde 
+% podemos ver o fluxo geral dos dados ao longo das partes do sistema. Podemos ver
+% que a resposta do sistema ao estímulo do músico depende da resposta das redes que 
+% procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
+
+
+\begin{figure}
+\includegraphics[scale=.7]{geral}
+\caption{Diagrama geral do sistema}
+\label{geral}
+\end{figure}
+
+
+
+%colocar parágrafo de como que está agora
+
+%Na figura\ref{mecanismo}
+
+\begin{figure}
+\includegraphics[scale=.7]{escuta}
+\caption{Mecanismo de escuta e análise}
+\label{escuta}
+\end{figure}
+
+%%%%%% artigo pdcon09
+
+
+Em determinado momento, a pesquisa convergiu para o desenvolvimento de um sistema baseado em redes neurais.
+Essa seção expõe esse momento da pesquisa, descrevendo como se pode trabalhar com redes neurais artificiais 
+integrando a um sistema de música interativa com Pd.
+
+A figura \ref{escuta} representou o planejamento inicial do projeto onde podemos observar como a 
+análise do áudio seria separada nos parâmetros de
+densidade, durações, classes de intervalos, variações de timbre e registro. Após uma primeira análise do
+áudio, todas as classificações seriam realizadas por redes neurais artificiais. Cada parâmetro passaria
+ por uma cadeia de redes locais de tamanhos diferentes que seriam agrupadas em duas 
+redes globais também de tamanhos diferentes.
+
+\begin{figure}
+\includegraphics[scale=.7]{mecanismo}
+\caption{Mecanismo de funcionamento de um sistema interativo baseado em redes neurais}
+\label{mecanismo}
+\end{figure}
+
+
+
+Por um lado, essa idéia original não apresentava uma clara distinção entre os níveis simbólico e sub-simbólico.
+A idéia era se aproximar de modelos cognitivos, tentando simular situações de aprendizado musical.
+Nesse sentido, simular as habilidades de músicos humanos em fluidez de ação, capacidade de 
+resposta a situações novas e referências culturais, transformam a capacidade de interação dos sistemas computacionais 
+numa árdua tarefa. Na prática o sistema funcionaria em duas instâncias: num primeiro momento as redes precisam ser 
+treinadas. Nessa fase o músico executa uma performance, esse áudio é captado, analisado e colocado numa base de dados 
+que vai servir como arquivos de treinamento das redes. O segundo momento será o momento da performance interativa, 
+onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real com esse 
+banco de dados previamente estocado. Uma visão geral do sistema pode ser vista na figura \ref{mecanismo} onde podemos ver o fluxo 
+geral dos dados ao longo das partes do sistema. Podemos ver que a resposta do sistema ao estímulo do músico depende 
+da resposta das redes que procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por 
+sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
+   
+
+Os resultados das análises de áudio seriam passados por um sistema de redes neurais artificiais, 
+construídos com a biblioteca FANN\cite{fann}  portada para ser usada como uma external de Pd. As redes neurais serão organizadas 
+por ordem de tamanho de segmentos temporais. Por exemplo, a primeira rede vai procurar por padrões a cada 20 segundos e 
+mandar os resultados para a segunda rede que vai avaliar a presença de padrões a cada 60 segundos e assim por diante. 
+Esse processo feito em todos parâmetros descritos, seriam enviados para um banco de dados
+ para comparação com o banco de dados usado no treinamento das redes. A comparação entre os bancos de dados do 
+treinamento e da performance em tempo-real possibilitaria regular as decisões de resposta do sistema.
+
+\begin{figure}
+\includegraphics[scale=.5]{fann1}
+\caption{Patch central do experimento com redes neurais}
+\label{fann1}
+\end{figure} 
+ 
+Foi feito um pequeno experimento da pesquisa  foi usado o external [ann-mlp] com o objetivo de detectar  em tempo-real padrões 
+rítmicos pré-estabelecidos na fase de treinamento da rede.
+    O principal elemento explorado  nesse primeiro experimento foi a variação de andamento. Uma das principais 
+características de um diálogo musical é o fato dos músicos reconhecerem facilmente padrões rítmicos independente do 
+andamento em que são apresentados. Para isso é necessário que seja levado em consideração a distância temporal entre 
+ataques de eventos sonoros ao invés da duração desses eventos ou do posicionamento temporal dentro da duração total da 
+performance. Para o trabalho de segmentação rítmica foi usada a biblioteca Aubio para identificar os ataques (onsets) de eventos 
+sonoros. Na figura \ref{fann1} vemos o patch central do experimento com o objeto  [aubioonset\texttildelow] recebendo um fluxo de 
+dados de áudio e respondendo com bang em tempo-real para cada ataque reconhecido.
+
+  
+\begin{figure}
+\includegraphics[scale=.5]{fann2}
+\caption{Agrupador de listas de quatro durações para envio para a rede neural artificial}
+\label{fann2}
+\end{figure} 
+
+Foi escolhido uma metodologia de segmentação agrupando conjuntos de quatro ataques. 
+Na figura \ref{fann2} podemos ver no patch como foi implementado 
+o agrupamento de cada quatro  ataques dentro do sub-patch [pd contador de ritmos e estocando beta].
+
+As redes neurais artificiais funcionam em dois tempos, o treinamento e a performance. No treinamento as redes os pesos e 
+dos padrões de maneira a criar um arquivo de treinamento que funciona como um banco de dados . No arquivo de treinamento 
+podemos editar manualmente e identificar e rotular os padrões de maneira a refinar a base de dados. Nesse experimento foi 
+desenvolvido um subpatch que cria automaticamente o arquivo de treinamento, que determina a quantidade de neurônios da 
+rede, número de padrões a serem estocados e a quantidade de elementos de cada padrão.
+   No experimento em questão foi usado um arquivo de áudio com um timbre percussivo e ataques bem claros. Esse arquivo 
+contém 3 padrões rítmicos apresentados 3 vezes com  andamento diferentes. No resultado observamos que mesmo quando se 
+altera o andamento, as redes continuam a detectar os padrões, porque durante a fase de treinamento os padrões foram 
+apresentados diversas vezes em andamentos diferentes.
+
+
+Apesar da experiência valiosa, foi decidido suspender as implementações com redes neurais e
+focar o desenvolvimento nos níveis de análise descritos na seção \ref{analise-geral}.
+A prática com redes neurais demonstrou um grande potencial como ferramenta para análise.
+Dentro do recorte dessa pesquisa, a análise tem um espaço importante, entretanto o objetivo
+final é o desenvolvimento de uma ferramenta para a composição de música interativa.
+O desenho geral do presente sistema como é concebido atualmente, pode ser visto na 
+figura XXX
+
+Outra possibilidade seria o uso de mapas auto-organizáveis (redes de Kohonen), que é
+um tipo de rede neural artificial não supervisionada, que não necessita
+da fase de terinamento, o algoritmo fica constantemente mudando os valores dos pesos internos.
+Esse experimento mostrou um caminho para o refinamento de um modelo de detecção de padrão.
+Um problema apontado foi o de que aplicações com redes neurais são voltadas
+para a resolução de problemas específicos. O foco em classificações mais gerais
+pode ser implementado com operações matemáticas como média e probabilidades.
+
+%% faltou um subpatch mostrando o objeto [ann_mlp]
+
+
+% \subsection{Composição algorítmica e interação}
+% 
+% 
+% 
+% Aqui falar do RTC + MEPSOM
+% 
+% Falar das razões da pesquisa de termos dado um passo atrás, desistido
+% das redes neurais e focado num sistema estável bem documentado sobre todos
+% os componentes de um sistema interativo
+ 
+
+% Pode-se, portanto, definir que uma boa abordagem de pesquisa em sistemas musicais interativos engloba um vasto campo 
+% multidisciplinar realizando uma fusão de pesos iguais entre as áeas de psicologia cognitiva, computação e teoria da 
+% composição musical.
+
+
 
 \section{Resultados}
 
