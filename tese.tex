@@ -5158,7 +5158,7 @@ sua vez aplicam processos de transformações no material exposto pelo músico e
    
 
 Os resultados das análises de áudio seriam passados por um sistema de redes neurais artificiais, 
-construídos com a biblioteca FANN\cite{fann}  portada para ser usada como uma external de Pd. As redes neurais serão organizadas 
+construídos com a biblioteca FANN \cite{fann}  portada para ser usada como uma external de Pd. As redes neurais serão organizadas 
 por ordem de tamanho de segmentos temporais. Por exemplo, a primeira rede vai procurar por padrões a cada 20 segundos e 
 mandar os resultados para a segunda rede que vai avaliar a presença de padrões a cada 60 segundos e assim por diante. 
 Esse processo feito em todos parâmetros descritos, seriam enviados para um banco de dados
@@ -5601,18 +5601,16 @@ que processam áudio. Em um programa que processe áudio,
 muitas vezes ocorrem quebras de sincronia entre o processamento
 de áudio e a frequência de controles de parâmetros.
 
-"Message operations are executed at the beginning of each pass of audio
+\begin{quotation}
+Message operations are executed at the beginning of each pass of audio
 block processing, so a patch where audio depends on message operations
-which don't complete in time will also fail to produce correct output."
-
-aqui falar do uso de [switch\texttildelow] - (colocar nos patchs tb)
-
-(Farnell, pg. 185)
+which don't complete in time will also fail to produce correct output. \cite{farnell2010designing} 
+\end{quotation}
 
 
-%% criar uma frase que faça o link com csound
-
-A programação em Csound prevê que o usuário escolha a frequência
+Essa problemática é presente em todos ambientes de programação
+para síntese sonora.
+A programação em Csound, por exemplo,  prevê que o usuário escolha a frequência
 de diferentes tempos de compilação inicializados por ``a'', ``k'',
 , ``ga'' ou ``gk'' (valores que variam no tempo). E os parâmetros 
  estáticos de inicialização de valores são precedidos
@@ -5720,7 +5718,7 @@ em milisegundos de delay no objeto [vd\texttildelow].
 %% e do outro? como medir? botar figura do [limiter~] tb.
 
 \begin{figure}
-\includegraphics[scale=.5]{limiter}
+\includegraphics[scale=.4]{limiter}
 \caption{Patch que explora amplificação e limitação de amplitude de áudio}
 \label{limiter}
 \end{figure}
@@ -5794,7 +5792,16 @@ a prática musical com o sistema.
 \label{fft-subpatch}
 \end{figure} 
 
+Na figura \ref{audio2midi} vemos o ambiente de trabalho que conecta
+o resultado da composião algorítmica com o sequenciador Rosegarden.
+O resultado da análise de áudio de [sinc-audionalise] é convertido
+em fluxo MIDI com o objeto [makenote]. No canto direito superior da figura
+vemos a conexão gráfica do Pd com o Rosegarden feito com o programa Jack.
 
+Uma limitação desse modelo está no fato de não ser possível sincronizar
+automaticamente o controle do sequenciador no Rosegarden com o algoritmo
+feito no Pd. Isso acarreta que o resultado final da partitura exige
+mais edição manual usando quantização e correções rítmicas manuais.
 * explicar essas figuras
 
 * o que não dá pra ser feito (ritmos e andamento)
@@ -5900,9 +5907,8 @@ uma animação pré-definida na figura \ref{sinc-notacao1c}.
 \label{gemnotes-help}
 \end{figure} 
 
-O projeto Gemnotes \footnote{fonte: (http://sharktracks.co.uk/site/2010/12/gemnotes-progress/) escrito em 16/12/2010.}
-de Ed Kelly é referência no uso
-de Pd e Gem como motores de um sistema de notação
+O projeto Gemnotes\footnote{fonte: (http://sharktracks.co.uk/site/2010/12/gemnotes-progress/) escrito em 16/12/2010.} \cite{gemnotes}
+é pioneiro no uso de Pd e Gem como motores de um sistema de notação
 musical.
 
 \begin{quotation}
@@ -5948,117 +5954,6 @@ A ampliação do projeto de Visualização de notação musical vem para auxilia
 com o sistema em tempo-real.
 
 %% Incluir mini-conclusão
-
-
-\section{FFT no Pd}
-\label{sec:fftpd}
-
-Tradução livre do documento "Beginners Guide to FFT-objects in Pd" de Frank Barchnet 
-(http://footils.org/2007/02/20/beginners-guide-fft-objects-pd/)
-
-A transformada de Fourier (FFT) é uma operação poderosa em processamento de sinal digital.
-Pd inclui objetos que podem ser usados para aplicar FFT, modificar sinais no domínio da frequência , 
-e transformar os dados na re-construção. Esse guia tentará uma explicação prática de como usar os 
-objetos [rfft\texttildelow] e [rifft\texttildelow] e proporcionará afinal um básico entendimento do processo.
-Esse guia entretanto, não pretende ser uma explicação profunda da matemática implícita, porém lhe 
-dará conhecimento suficiente para iniciar. Para uma explicação mais profunda eu recomendo o ótimo  
-DSP-Guide.
-
-\begin{figure}
-\includegraphics[scale=.6]{specdelay}
-\caption{delay espectral com 98 objetos e com custo zero}
-\label{specdelay}
-\end{figure}  
-
-
-Então primeiro vamos ver o que [rfft\texttildelow] faz: Ele lhe devolve dois sinais. 
-Um é chamado real, o outro a parte imaginária, mas vamos esquecer disso agora e olhar um pouco mais a fundo:
-
-
-Geralmente uma FFT irá fazer uma análise espectral. Em termos simples ela irá calcular, quais 
-ondas senoidais você precisa acrescentar para obter o mesmo sinal como o executado 
-no corrente bloco de sinal. Basicamente ela irá dizer as frequências e fases 
-(primeira e segunda entradas) e amplitudes de uma porção de componentes senoidais que, 
-teoricamentese, se você somá-los todos, irá re-sintetizar seu sinal corrente.
-
-
-
-\begin{figure}
-\includegraphics[scale=.6]{fft-subpatch}
-\caption{[pd fft] - fluxo básico de visualização da FFT}
-\label{fft-subpatch}
-\end{figure}  
-
-O fluxo básico de objetos para visualização da análise FFT em tempo-real é vista na
-figura \ref{fft-subpatch}. Podemos observar aí a presença do objeto [block\texttildelow], que é
-responsável por definir a quantidade de parciais que irão ser revelados pela
-análise. A FFT irá gerar dados de controle para o tamanho de [block\texttildelow] dividido
-pela metade. Portanto com um "blocksize" de 1024, teremos 512 parciais descritos
-por frequências, fase e amplitude.
-
-Cada parcial tem sua frequência fixa. Essas frequências são múltiplos (harmônicos)
-da taxa de amostragem (TA) divididos pelo tamanho de [block\texttildelow] (TB). Sempre começando
-em f0 = 0 Hertz, o próximo parcial terá a frequência \$f1 = 1 * TA/TB\$, e o próximo em 
-f2 = 2 * TA/TB , até o último parcial f-final = (TB/2) * TA/TB , que é equivalente a
-TA/2 , representando a frequência de Nyquist\footnote{A teoria da amostragem digital
-mostra que o efeito de aliasing pode ser evitado se a frequência de Nyquist for maior que
-que a maior frequência do sinal a ser amostrado.}. Pode-se assim dizer que [block\texttildelow]
-é responsável pela resolução da análise a ser feita.
-
-\begin{figure}
-\includegraphics[scale=.6]{fft-geral}
-\caption{patch de visualização de análise FFT}
-\label{fft-geral}
-\end{figure}  
-
-\begin{figure}
-\includegraphics[scale=.6]{fft-aaray}
-\caption{janela de visualização da FFT}
-\label{fft-aaray}
-\end{figure}  
-
-Explicar rapidamente:
-
-1) números reais e imaginários
-
-%%tut do porres:
-% Um "Número Real" possui apenas uma parte "real" \, enquanto
-% um Número Complexo possui uma parte "real" e outra "imaginária".
-% É como uma extensão dos números reais \, onde acrescentarmos uma dimensão.
-% Podemos representar no plano cartesiano assim \;;
-% #X text 57 500 Trata-se do mesmo princípio do patch anterior. A parte
-% real é o eixo horizontal (coseno). O círculo que temos aí é de raio
-% igual a "1" \, A parte imaginária é o Seno \, e está representado pelo
-% número "i" \, em vez de "1". O número "i" é a unidade imaginária. A
-% unidade imaginária é igual à raiz quadrada de menos um. O número complexo
-% é um ponto de coordenada (a \, b) \, ou (real \, imaginária). Como
-% estamos representando o número em um plano complexo \, ele possui também
-% um ângulo e uma reta cujas fórmulas são as mesmas do patch anterior
-% (fórmula da Fase Inicial e Amplitude).;
-% #X text 59 723 Podemos representar um número complexo na forma Cartesiana
-% - com as amplitudes de Coseno (parte real) e Seno (parte imaginária)
-% - ou na forma Polar \, que é o valor do ângulo (Fase ou Argumento)
-% e a reta (Amplitude ou Magnitude). De um modo ou de outro \, sempre
-% temos duas "coisas" \, duas dimensões \, duas partes...;
-% #X text 509 48 Podemos converter um número da forma polar para cartesiana
-% e vice-versa. Com as fórmulas apresentadas no patch anterior (Amplitude
-% e Fase) \, convertemos um número complexo da Forma Cartesiana para
-% a Polar. Para converter de Polar para Cartesiana e encontrar a parte
-% Real e Imaginára \, precisamos extrair \, respectivamente \, o Coseno
-% e o Seno \, e depois multiplicar pela Amplitude.;
-% #X text 60 663 A parte imaginária é um número real multiplicado por
-% "i". Nestes patches de matemática complexa \, o "i" propriemente dito
-% não aparece \, mas está implícito.;
-
-2) a função do [sqrt\texttildelow] por ele mesmo
-3) [clip\texttildelow]
-4) [tabwrite\texttildelow]
-
-
-
-
-
-
 
 
 \end{document}
