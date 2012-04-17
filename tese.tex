@@ -358,11 +358,14 @@ dos eventos implícita. A migração dos músicos para ambientes de
 composição e design sonoro como Csound \cite{boulanger00:csound} tende
 a ser mais natural pela adaptação de um tipo de estrutura temporal
 (partitura) para outro (Score), e também pela oposição binária entre
-``orchestra'' e ``score''. No Csound, a base de dados é chamada
+``orchestra'' e ``score''\footnote{Os termos ``orchestra'' e ``score'' 
+no contexto do Csound podem ser traduzidos para o português como instrumentos e partitura}. 
+No Csound, a base de dados é chamada
 ``Score''. Scores em Csound consistem na maioria das vezes em
 ``notas'', que são comandos para um sintetizador (orchestra). O score
-é essencialmente uma sequência temporal. Uma possível sequência
-temporal em Csound pode ser vista:
+é essencialmente uma sequência temporal, enquanto que a orchestra
+define aspectos globais do timbre da síntese. Uma possível sequência
+temporal em Csound pode ser vista abaixo:
 
 \begin{verbatim}
 ;orchestra
@@ -380,7 +383,7 @@ i1 1 1 660
 
 \end{verbatim}
 Se formos tentar implementar esse código em Pd, podemos encontrar uma 
-solução semelhante a figura \ref{fig:exemplopd1}.
+solução semelhante na figura \ref{fig:exemplopd1}.
 Programadores também são acostumados com linguagens de programação que
 tem sua gramática baseada na sequencialidade das ações. A vantagem de
 usar uma ferramenta de síntese embutida em uma linguagem de
@@ -461,8 +464,8 @@ as interfaces dos ambientes de programação,
 o compositor deve manter claro o foco no resultado sonoro  da interação entre
 gesto instrumental e controle de máquina.
 Abordando o assunto
-a partir de uma visão didático-metodológica um projeto
-composicional em Pd, deve compreender a clara distinção entre os
+a partir de uma visão didático-metodológica, um projeto
+composicional em Pd deve compreender a clara distinção entre os
 aspectos performáticos e composicionais do ambiente. 
 
 O que chamamos de aspectos performáticos em música interativa 
@@ -488,12 +491,11 @@ performance do músico.
 
 %% pq analise
 
-O processo de análise musical, consiste em separar elementos
+O processo de análise musical consiste em separar elementos
 do discurso com o objetivo de revelar uma possível estrutura fundamental
 ou vetores de força que moldaram aspectos do resultado final.
 
-Sobre a análise feita por computadores, Rowe \cite{rowe09:levels}
-acrescenta:
+Sobre a análise feita por computadores, Rowe acrescenta:
 
 \begin{quotation}
 There is a certain paradox at the heart of the transfer of musical
@@ -502,12 +504,22 @@ program perform the analysis required of a freshman music student.
 Once the work is done, however, the program can make analyses more reliably
 and certainly much more quickly than the freshman. The computer can deliver 
 complete descriptions of each chord in a dictation within miliseconds
-of its performance, for example.
+of its performance, for example. \cite{rowe2004machine}
+
+
+\footnote{Há um certo paradoxo no coração da 
+transferência de musical
+conhecimento para uma máquina. Temos que trabalham fortemente para fazer um computador
+programar efectuar as análises necessárias de um estudante de música de calouro.
+Uma vez que o trabalho é feito, no entanto, o programa pode fazer uma análise mais confiável
+e certamente muito mais rapidamente do que o calouro. O computador pode entregar
+descrições completas de cada acorde em um ditado em milisegundos
+do seu desempenho, por exemplo.}
 \end{quotation}
 
 %% diferença entre análise e composição
 
-Nesse sentido, a análise assistida por computador, auxilia
+Nesse sentido, a análise assistida por computador auxilia
 o processo composicional durante tarefas de descrição que seriam
 extremamente trabalhosas durante o processo de composição.
 A diferença entre análise e composição é de que na análise, ao final do
@@ -531,7 +543,13 @@ de música interativa é fornecido por Rowe:
 Instrument Digital Interface (MIDI) standard, a symbolic representation of music modeled 
 closely on the behavior of a piano keyboard, as well as traditional concepts of music notation. 
 The second wave takes as its input raw audio signals, a sub-symbolic data representation that is far 
-more flexible while being far less structured. 
+more flexible while being far less structured. \cite{rowe09:levels}
+
+\footnote{A primeira onda de sistemas interativos de música baseado quase exclusivamente no Musical
+Instrument Digital Interface (MIDI) padrão, uma representação simbólica da música modelado
+estreitamente sobre o comportamento de um teclado de piano, bem como os conceitos tradicionais de notação de música.
+A segunda onda toma como entrada sinais de áudio-primas, uma sub-representação simbólica de dados que está longe
+mais flexível, sendo muito menos estruturado.}
 \end{quotation}
 
 
@@ -542,10 +560,10 @@ more flexible while being far less structured.
 \end{figure} 
 
 
-Podemos ver na figura\ref{rowe} um plano geral dos níveis de análise necessários para a desenvolvimento
+Podemos ver na figura \ref{rowe} um plano geral dos níveis de análise necessários para a desenvolvimento
 de uma possível ``escuta'' genérica de máquina. O sentido das flechas representa o fluxo de 
 informação entre os estágios
-A descrição dos níveis de análise musical em simbólico e sub-simbólico, é apresentado por Leman \cite{leman89}, 
+A descrição dos níveis de análise musical em simbólico e sub-simbólico, é apresentado por Leman, 
 na tentativa de estabelecer uma modelagem
 computacional de esquemas cognitivos:
 
@@ -563,7 +581,22 @@ representations (where content is contained in the form). Analogical representat
 have not been fully explored until now. We argue in favor of an analog musical representation 
 format based on Psychoacoustics and propose this system as an alternative to the speech-logics 
 approach to music representation. An example is given of a self-organizing system with an emerging 
-global structure based on this type of representation.
+global structure based on this type of representation.\cite{leman89}
+
+\footnote{Processamento de informação Resumo Subsymbolic pode fornecer novas formas de lidar com os aspectos
+comportamento comunicativo que até agora têm sido muito difíceis de tratar em modelos simbólicos.
+Parte de nossa análise é mostrar que as atividades musicais, como ouvir e compor empate em
+grande em princípios dinâmicos do que é comumente chamado de percepção e / ou imaginação auditiva.
+Argumenta-se que diferentes tipos de mecanismos de processamento subsymbolic informações podem ser exploradas
+e aplicados a este campo como alternativas e / ou abordagens complementares aos modelos simbólicos.
+Em particular, considerar a possibilidade de representar conceitos musicais como padrões de
+informações fornecidas pelo transdutor de mecanismos sensoriais, ao invés de símbolos abstratos onde o conteúdo
+é divorciada do formulário. Isto envolve uma mudança de representações proposicionais da música analógica
+representações (onde o conteúdo está contido no formulário). Representações analógicas de música
+não foram totalmente exploradas até agora. Argumentamos em favor de uma representação analógica musical
+com base no formato Psicoacústica e propor este sistema como uma alternativa para a lógica de discurso
+aproximar a representação musical. Um exemplo é dado de um sistema de auto-organização com um emergente
+estrutura global com base neste tipo de representação.}
 \end{quotation}
 
 
@@ -571,8 +604,16 @@ global structure based on this type of representation.
 Apesar da análise ser um dos principais elementos dessa pesquisa, é preciso
 definir que o objeto final é uma ferramenta de composição e não de análise.
 Nesse caso, a análise serve como uma etapa da composição. A composição em si
-se dá no próprio momento da performance. 
+se dá no próprio momento da performance. Cada execução musical realizada
+com SInCoPA terá elementos diferentes, mesmo que o instrumentista execute
+o mesmo trecho musical, as escolhas sonoras do programa terão variações.
+Isso se deve pelos fatos de que pequenas variações de tempo e dinâmica 
+vão interferir no resultado da análise e portanto irão afetar os parâmetros
+dos algoritmos geradores.
 
+Normalmente pensamos na análise
+como uma ação posterior ao processo de composição. Nessa pesquisa a etapa
+de análise é um dos pontos indispensáveis do processo de composição.
 Um possível diagrama ideal das etapas de análise, necessárias a
 constituição de um sistema de interação musical com um instrumento
 tradicional pode ser visto na figura \ref{analise-geral}. Onde temos um
@@ -595,13 +636,14 @@ sub-simbólico e a primeira classe do nível simbólico.
 %% desenvolver mais
 
 Uma outra análise pode ser feita sobre o resultado final da interação, quando se obtém
-o conjunto de dados e estruturas geradas pelo músico e pelo sistema. Nesses dados não há como separar
-a influência do sistema no músico. O resultado da análise desses dados pode revelar
+o conjunto de dados e estruturas geradas pelo músico e pelo sistema. Idealmente, na análise desses 
+dados não há como separar
+a influência do sistema na execução do músico. O resultado da análise desses dados pode revelar
 estruturas arquetípicas passíveis de classificação, o que poderia ser chamado de taxonomia 
 da interação. Tal qual a espectromorfologia \cite{smalley:86} é uma taxonomia geral
-para análise de música eletroacústica. Nesse sentido podemos apontar os artigos
+para análise de música eletroacústica\footnote{Nesse sentido podemos apontar os artigos
 ``Por uma morfologia da interação'' \cite{menezes2006musica} e ``Morphological notation for interactive electroacoustic music'' 
-\cite{Patton:2007} como seminais na definição dessa taxonomia.
+\cite{Patton:2007} como seminais na definição dessa taxonomia.}.
 
 
 
@@ -640,7 +682,7 @@ A experiência de música interativa usando violão ou guitarra elétrica passa 
 pela problemática do reconhecimento de frequências nos trechos de sinal polifônico.
 Uma solução seria o uso de um captador hexafônico para captar o áudio separado de
 cada corda. Uma das principais opções comerciais é o captador GK-2A da Roland.
-Que funciona em conjunto com um módulo de hardware vendido separado que faz o trabalho de conversão 
+Ele funciona em conjunto com um módulo de hardware vendido separado que faz o trabalho de conversão 
 de áudio para MIDI, incluindo ainda algumas funcionalidades, como arpegiador automático
 e mudança de canal controlados por pedal  e banco de timbres.
 Outras soluções incluem o desenvolvimento experimental de hardware tanto na implementação
@@ -649,7 +691,7 @@ canais separados.
 
  
 Miller Puckette, descreve sua própria experiência na construção de um sistema interativo
-para guitarra preparada com captador hexafônico \cite{Puckette_patchfor}:
+para guitarra preparada com captador hexafônico:
 
 \begin{quotation}
 I've been at work on a long-term project to design a rather personalized 
@@ -665,7 +707,22 @@ This is entirely different from standard ``guitar synthesizers" which pitch trac
 synthesizers. Such instruments make lots of audible mistakes, and they also suffer from the added latency 
 the comes from the pitch tracker. In the instrument described here, the latency of the whole affair is 
 only that of Pd itself, about 10 milliseconds (it's probably not hard to reduce it to 5 or 6 using 
-real-time kernel patches but I preferred to use off-the-shelf linux). 
+real-time kernel patches but I preferred to use off-the-shelf linux).  \cite{Puckette_patchfor}
+
+\footnote{Eu estive trabalhando em um projeto de longo prazo para projetar uma vez personalizado
+instrumento de música do computador para tentar trazer para fora e enfrentar algumas das dificuldades encontradas pelos
+músicos tentando usar computadores em performance ao vivo. O instrumento é baseado num eléctrico compacto
+violão (Steinberger / Gibson), com um captador adicional de seis cordas separadas (Roland). Não encontrando um
+barato e compacto amplificador de 6 canais no mercado, eu projetei e construí um muito bruto.
+Esta é conectado a um computador usando um multicanal interface PCI (Midiman). Um patch de Pd, correndo em
+linux, em seguida, executa uma série de transformações interessantes sobre os seis sinais de áudio, e mistura-los
+para estéreo para saída.
+
+Isto é completamente diferente do padrão `` sintetizadores de guitarra ", que passo rastrear as cordas para conduzir
+sintetizadores. Tais instrumentos cometa muitos erros audíveis, e eles também sofrem com a latência adicionada
+o vem do rastreador campo. No instrumento aqui descrito, a latência de todo o assunto é
+só que de Pd-se, cerca de 10 milissegundos (provavelmente não é difícil reduzi-la a 5 ou 6 usando
+correções em tempo real do kernel, mas eu preferi usar off-the-shelf linux).}
 \end{quotation}
 
 Da mesma maneira como é mostrado nessa pesquisa a análise de áudio operada em um sinal de áudio
@@ -681,16 +738,17 @@ guitarra, executando linhas melódicas.
  
 \subsubsection{Representação musical}
 
-A análise de áudio conduz para a representação simbólica de 
-primeira instância. A primeira segmentação da análise
+A análise do áudio de entrada em tempo-real é convertida em uma representação simbólica de 
+elementos musicais. A primeira segmentação da análise
 de áudio, diz respeito ao nível da nota, sua frequência (pitch),
 amplitude e ataque. O resultado da análise de áudio é convertido
 em um fluxo de eventos MIDI.
 
 Nessa pesquisa, optou-se pelo protocolo MIDI como um intermediário
 entre as descrições da análise de áudio e o conjunto de representações
-simbólicas envolvidas no sistema. Especialmente os algoritmos de geração
-de alturas e amplitudes, além dos harmonizadores.
+simbólicas envolvidas no sistema. Os algoritmos de geração
+de material musical usam formatos variados de representação musical 
+além do MIDI, de acordo com a necessidade de cada caso.
 
 Muitos autores já discorreram sobre os limites da representação musical
 com o protocolo MIDI. O objetivo é usar o MIDI como protocolo de comunicação
@@ -700,18 +758,18 @@ De certa maneira a forte relação do protocolo MIDI com a música instrumental
 instrumentos tradicionais. 
 %%original: http://www.lamut.musica.ufrj.br/lamutpgs/rcpesqs/02coper.htm
 A reação dos compositores de música eletroacústica em relação ao protocolo MIDI
-é bem exposto por Rodolfo Caesar \cite{caesarcopa}:
+é bem exposto por Rodolfo Caesar :
 
 \begin{quotation}
 A música eletroacústica e o protocolo MIDI não foram feitos um para o outro: a especificidade da 
 primeira não encontra ressonância imediata no segundo. Se quisermos fazer uso do protocolo MIDI 
-para a música eletroacústica, é preciso algum empenho contra suas limitações. 
+para a música eletroacústica, é preciso algum empenho contra suas limitações. \cite{caesarcopa} 
 \end{quotation}
 
 
 Podemos entender esse tipo de reação, se pensarmos que o MIDI foi um padrão
 que percorreu desde os estúdios de música comercial até as pesquisas experimentais
-de música interativa nos anos 80. Robert Rowe explica \cite{rowe05}:
+de música interativa nos anos 80. Robert Rowe explica:
 
 \begin{quotation}
  Interactive music systems in early implementations usually made use of the Musical
@@ -720,7 +778,15 @@ to be slow and limited in its scope of representation. Reliance on outboard MIDI
 doomed a generation of interactive works to obsolescence as the requisite hardware becomes unavailable.
 Faster and cheaper machines have in recent years made it possible to perform analysis, synthesis,
 sampling, and effects on the CPU of a general purpose personal computer, simultaneously with the
-execution of control level software.
+execution of control level software.  \cite{rowe05}
+
+\footnote{Sistemas de som interativos em primeiras implementações feitas geralmente uso do Musical
+Instrument Digital Interface (MIDI) padrão. O padrão MIDI tem sido reconhecida desde o seu início
+a ser lenta e limitada no seu âmbito de representação. A dependência de equipamento MIDI externo tem
+condenado uma geração de trabalhos interativos para a obsolescência como o hardware necessário se torna indisponível.
+Máquinas mais rápidas e mais baratas que nos últimos anos tornou possível a realização de análise, síntese,
+de amostragem, e os efeitos sobre a CPU de um computador de uso geral pessoal, em simultâneo com o
+execução de software nível de controle.}
 \end{quotation}
 
 
@@ -775,9 +841,9 @@ o segmento em questão entre alta e baixa densidade, podendo ainda estabelecer
 matizes entre os dois extremos. . 
 
 A classificação de alturas classifica contornos e probabilidade de recorrência
-de cada nota. A análise da direcionalidade e atratividade melódica é exposta em
-\cite{lerdahl2001}, e atualmente vem sendo modelada por \cite{rickgrahan} para
-implementação em sistemas interativos.
+de cada nota. A análise da direcionalidade e atratividade melódica pode ser abstraída
+em modelos de análise algorítmica \cite{lerdahl2001}, e atualmente vem sendo modelada para 
+implementação em sistemas interativos \cite{rickgrahan}.
 A análise e classificação do timbre é extensamente apresentada e implementada em dois
 trabalhos em \cite{brentcepstral} e \cite{monteiro}.
 
@@ -789,7 +855,7 @@ e fim de gravação de um segmento para ter o áudio processado.
 
 Essa funcionalidade poderia ser expandida criando-se botões de controle
 e sensores, posicionados no próprio corpo do instrumento. Chegando próximo ao conceito
-de ``instrumento aumentado'' ou ``\textit{hyperinstrument}'' como definido por Machover\cite{hyperinstrumento}. 
+de ``instrumento aumentado'' ou ``\textit{hyperinstrument}'' \cite{hyperinstrumento}. 
 Apesar de fugir do recorte dessa pesquisa, essa possibilidade
 de expandir fisicamente o instrumento é um recurso muito útil em sistemas de
 música interativa. Isso pode facilmente ser feito com a plataforma Arduino\footnote{Arduino
@@ -814,7 +880,7 @@ da análise dessa execução, alimentam um leque de algoritmos
 interativos que tem seus parâmetros alterados pela análise.
 
 Nesse sentido podemos classificar os algoritmos composicionais
-em sequenciados, generativos e transformativos\cite{rowe93:interactive}.
+em sequenciados, generativos e transformativos \cite{rowe93:interactive}.
 Ao longo da descrição de SInCoPA iremos descrever algumas implementações
 dessas três categorias.
 
@@ -828,73 +894,6 @@ Além de algoritmos transformativos tanto do material musical simbólico,
 abstraído da análise, quanto do próprio áudio, como processamento de áudio
 através de fragmentação, repetição e processamento de amostras de áudio.
 
-% em minha dissertação:
-% 
-% Composição algorítmica – interação entre compositor e  processo composicional
-% 
-% Um algoritmo é uma sequência não ambígua de instruções que é executada até que determinada condição se 
-% verifique. Mais especificamente, em matemática, constitui o conjunto de processos 
-% (e símbolos que os representam) para efetuar um cálculo. Na composição algorítmica, delegamos tarefas 
-% ao computador, transformando-o em nosso assistente composicional. Segundo Roads (1996):
-% 
-% “Modelos de processos são naturais ao pensamento musical. Enquanto escutamos, parte de nós bebe na 
-% sensual experiência do som , enquanto outra parte está constantemente colocando uma espera perceptual, 
-% e fazendo isso, construindo hipóteses de processos musicais. Compositores sabem há séculos que qualquer 
-% processo musical pode ser formalizado em uma representação simbólica. Uma composição algoritmica formal 
-% é uma máquina de criação musical; neste caso o computador pode servir como um veículo para idéias musicais.
-% ”*
-% Com a possibilidade da composição algorítmica, o compositor pode ampliar a sua “personalidade musical”, 
-% descobrindo sons e estruturas que ainda não conhecia. Segundo Burt (1996):” …eu, a qualquer preço, acho 
-% muito mais válido usar métodos algorítmicos como meios de descobrir o que eu não sei, antes de fazer o 
-% que eu já sei. Para mim, este tem sido um método de expansão dos meus gostos, uma ferramenta para o 
-% crescimento individual, antes de um método de expressar o que eu já senti.” 
-% Esssa colocação sintetiza a estratégia pessoal do compositor no sentido de se expressar criando um 
-% espaço de diálogo com a subjetividade de seu próprio gosto que é um sentimento não-passivo, que se 
-% diferencia da sensação que é modo como nos relacionamos com os objetos externos, sendo portanto, 
-% receptiva; ao contrário, o gosto não é uma simples faculdade de registro e análise. 
-% Ele possui uma verdadeira virtude criadora, portanto ponto fundamental de auto-análise no trabalho 
-% composicional. Neste sentido, a composição por algoritmos pode fornecer material em diversos níveis 
-% como timbres/processamento de sinais, sequências de notas, dinâmicas, articulações, gestos, estruturas 
-% ou até a forma.
-% Ao pensarmos em composição assistida por computador e ambientes composicionais interativos, podemos dizer 
-% que a pesquisa nesse contexto se torna o processo em si, antes do produto. O que coloca um novo paradigma 
-% para o fazer musical mais próximo da pesquisa científica. A relação criada através da analogia entre 
-% composição musical e pesquisa tecnológica provoca mal entendidos no senso-comum. Em relação a isso, 
-% Ferraz (1999), acrescenta:
-% “[...]a pesquisa corre exatamente no rumo em que corre o compositor, ela é ato de criação. 
-% Mas o que ela cria não é a composição musical, se bem que se cruzem. A música não tem por papel 
-% criar funções ou conceitos. Ela cria sensações, ela distorce funções e conceitos. 
-% Veja-se por exemplo todo o trabalho de composição com algoritmos, o que resulta não são números, 
-% nem sequer são relações numéricas, e não é isto que ouvimos. Até as composições por algoritmos 
-% desembocam num jogo de sensações, de perceptos e afectos.”
-% Pode-se ainda acrescentar que a aproximação do fazer musical com a pesquisa científica permeia toda 
-% a vanguarda musical do século XX, resultando esta característica da ênfase no processo, ter chegado 
-% ao nível de que, muitas vezes pré-conduz a percepção de uma obra.
-% Quando propõe-se a desenvolver um processo composicional em determinado software, deve-se perguntar: 
-% o que veio primeiro, a idéia ou a possibilidade? Minhas idéias são limitadas pelas possibilidades 
-% existentes? Em qual nível o algoritmo pré-definido desse programa está conduzindo meu fluxo 
-% criativo-musical? O compositor Sílvio Ferraz, que no seu artigo “Criação musical com suporte tecnológico” 
-% (1999), trabalha com a idéia de que o pensamento composicional induz a criação de ambientes de 
-% composição ao computador, expõe:
-% 
-% “É interessante notar que esta passagem da matéria sonora a material composicional, embora pareça rápida, 
-% ela já vem permeada por processos previstos no próprio software. Ou seja, a passagem não é tão rápida assim, 
-% tal qual quando nos defrontamos com composições realizadas com base em processos composicionais já 
-% tradicionais (a tonalidade, as improvisações modais ou os modelos seriais): a aparente intuição e 
-% rapidez com que a matéria sonora se torna material composicional não se dá senão por ingenuidade, 
-% pois os processos todos de transformação já vem previstos e largamente desenvolvidos no próprio campo 
-% de composição.”
-% Em relação à interação que a composição algorítmica propicia ao compositor, Roads (1996) nos fala:
-% 
-% “Para um compositor que não é um programador, programas de composição totalmente automatizados exigem 
-% pouco em termos de criatividade. A interação com o compositor é limitada em suprir uma pequena quantidade 
-% de dados, como sementes, necessários a execução do programa[...].Um caminho de passar através da estratégia 
-% fixa é modificar a lógica do programa. Neste caso, um compositor que também é programador retém toda a 
-% responsabilidade.”
-% Este parágrafo sintetiza o desafio do compositor contemporâneo, que é o fato de dispôr de um 
-% arsenal sonoro em um computador e ter que aprender a controlar isso de maneira que sua inventividade 
-% composicional não seja guiada por pré-configurações de software.
-
 
 \subsection{Poética da interação}
 
@@ -906,12 +905,12 @@ de interação homem-máquina simularmos precisamente a interação musical entr
 humanos. A intenção é aprofundar as relações de interação musical homem-máquina
 para a possível emergência de novas idéias expressivo-musicais. 
 
-A ferramenta enquanto objeto técnico, povoa a imaginação do compositor. A possibilidade
+A ferramenta enquanto objeto técnico povoa a imaginação do compositor. A possibilidade
 da gravação e repetição do próprio áudio emitido automaticamente cria uma paleta de
-possibilidades inventivas. De certa maneira, a repetição sempre fez parte da linguagem
+possibilidades inventivas. Enquanto procedimento, a repetição sempre fez parte da linguagem
 musical. O desejo pela repetição pode ser um arquétipo presente em nossa cultura
 muito antes do surgimento das tecnologias de gravação de áudio. Uma espécie
-de variação da busca de obra de ``arte total'' idealizado por Richard Wagner\cite{caesarloop}: 
+de variação da busca de obra de ``arte total'' idealizado por Richard Wagner: 
 
 
 \begin{quotation}
@@ -925,12 +924,12 @@ cientistas inventa um gravador que registra integralmente as emoções humanas. 
 satisfação onanista é perseguido por um dos cientistas - personagem representando o mau uso da ciência -
 que finalmente realiza seu super-loop:
 Clip: trecho de ‘Brainstorm’, em que se vê o ‘mau’ cientista aprisionado ao loop de seu orgasmo, gravado na
-companhia de uma prostituta, que não receberá royalties pelo uso de sua imagem.
+companhia de uma prostituta, que não receberá royalties pelo uso de sua imagem. \cite{caesarloop}
 \end{quotation} 
 
 Alguns aspectos filosóficos sobre a questão da repetição na composição contemporânea,
 são extensamente desenvolvidos por Sílvio Ferraz no seu livro 
-``Música e repetição: a diferença na composição contemporânea''\cite{ferraz1998musica}:
+``Música e repetição: a diferença na composição contemporânea'':
  
 \begin{quotation}
 O eterno retorno não pode significar o retorno do Idêntico, pois ele supõe, 
@@ -940,7 +939,7 @@ O eterno retorno não faz “o mesmo” retornar, mas o retornar constitui o ún
 Mesmo do que devém. Retornar é o devir-idêntico do próprio devir. Retornar é, 
 pois, a única identidade,mas a identidade como potência segunda, a identidade da 
 diferença, o idêntico que se diz do diferente, que gira em tornodo diferente. 
-Tal identidade, produzida pela diferença, é determinada como “repetição”
+Tal identidade, produzida pela diferença, é determinada como “repetição”. \cite{ferraz1998musica}
 \end{quotation}
 
 
@@ -949,9 +948,9 @@ vagas de descrição de emoções e fragmentos de memória. Essas descrições
 ajudam o compositor a definir caminhos para criação de narrativas e 
 objetos sonoros. O poder expressivo da música interativa é a capacidade
 de fusão e contraste em diversos níveis. Desde o nível cultural que prevê
-uma bagagem de idiomas e gestos próprios tanto do domínio intrumental quanto
-do campo da computação musical. Até o nível sub-simbólico, com as possilidades
-de fusão espectral do som\cite{menezes2006musica}:
+uma bagagem de idiomas e gestos próprios, tanto do domínio intrumental quanto
+do campo da computação musical, até o nível sub-simbólico, com as possilidades
+de fusão espectral do som:
 
 \begin{quotation}
 
@@ -968,11 +967,26 @@ díspares, sem qualquer relação de origem com a materialidade corpórea
 dos instrumentos utilizados. Ainda que as transformações em curso possam ser
 bem drásticas, o uso de material constitutivo similar faz com que
 haja preponderância em conservar algum aspecto energético que confira
-identidade às texturas sonoras resultantes.
-....
+identidade às texturas sonoras resultantes. \cite{menezes2006musica}
+\end{quotation}
+
+
+Na música interativa pode-se argumentar que a fusão se dá também no nível
+físico do gesto. Quando a interação é mais reativa e auditivamente reconhecível
+como diálogo interativo, a própria percepção do todo se aproxima de uma
+fusão sonora. Quando se define métodos de interação musical devemos levar
+em conta experimentos que explorem as fronteiras do que o músico entenda
+que seja uma escala de fusão sonora e gestual. Aí se coloca uma questão
+importante que é o papel do músico intérprete. A formação tradicional
+do intérprete musical nem sempre contempla as nuances e dúvidas presentes na construção
+de uma interpretação de música interativa. 
+
+\begin{quotation}
 Como quer que seja, na fusão instaura-se uma condição de \textit{dúvida}.
 Em certa medida, fusão implica propositadamente, da parte do compositor,
-\textit{confusão} para o ouvinte....o ouvinte recai em constantes dúvidas
+\textit{confusão} para o ouvinte,
+....
+o ouvinte recai em constantes dúvidas
 acerca da natureza daquilo que se ouve: se advém do instrumento ou da 
 emissão eletroacústica, se se opera ao vivo uma dinamização espacial, harmônica
 , tímbrica e temporal da escritura instrumental ou se será defronte de
@@ -981,21 +995,64 @@ instrumentos ou a estes timbricamente correlatas. Em relação a proveniência
 sonora, quanto mais ``confuso'' estiver o ouvinte em face daquilo que
 o ouve, tanto mais ele sentirá como efetivamente integradas as partes
 constitutivas da obra mista; os "dois planos" pressupostamente independentes
-e unidos apenas por contingência, aos quais os críticos da música mista
-faziam referência, passam a ser percebidos como um \textit{único plano},
-essencialmente \textit{diagonal} às linhas estanques da emissão instrumental
-ou da difusão puramente eletroacústica; a emissão instrumental passa,
-então, a ser efetivamente potencializada no espaço acústico pelos recursos 
-eletrônicos. Ainda que de forma alguma hegemônico, o \textit{estado de
-dúvida} traduz-se como momento supremo da interação.
+e unidos apenas por contingência,
+... 
+Ainda que de forma alguma hegemônico, o \textit{estado de
+dúvida} traduz-se como momento supremo da interação. \cite{menezes2006musica}
+\end{quotation}
 
+Certamente a dúvida é uma das características mais importantes na composição
+de música interativa. Nesse sentido, um aspecto fecundo é a dúvida do músico
+intérprete. O fato do instrumentista não conseguir entender/controlar a resposta
+da máquina pode levar a composição a um patamar de constante descoberta e inovação.
+Acredito que essa seja uma importante atitude composicional em um projeto de 
+música interativa, pois leva o instrumentista a atitudes mais radicais na 
+busca por variação e contraste musical.
+
+\begin{quotation}
 O contraste, por sua vez, ancora-se sobretudo na diferença e na 
 \textit{distinção absoluta}. Em seus momentos mais acentuados, faz com
 que a emissão instrumental ou a eletroacústica assumam o papel estrutural
 do silêncio ou, ao contrário, adquiram autonomia temporal e até mesmo
-excludente com relação à outra esfera sonora.
+excludente com relação à outra esfera sonora. \cite{menezes2006musica}
 \end{quotation}
 
+Fusão e contraste são aspectos que sempre estiveram ligados a prática
+composicional. Na composição de música interativa encontramos um ponto onde
+vários eixos se cruzam e diversos matizes de fusão e contraste podem
+conduzir uma poética musical interativa.
+O embate sonoro entre homem e máquina pode por fim revelar os aspectos
+essencialmente humanos que se possa expressar musicalmente. 
+
+
+\subsubsection{Papel do músico na interação homem-máquina}
+
+
+Do ponto de vista do instrumentista, alguns aspectos podem ser apontados nessa pesquisa.
+Por um lado o gesto instrumental é ao mesmo tempo o impulso inicial e uma espécie
+de ``cola'' narrativa. Por mais que se forneçam elementos de análise para o sistema
+computacional, as narrativas geradas tendem a ser repetitivas e óbvias. Nesse contexto
+se abre um campo grande para experimentação instrumental. Se pensarmos na lei da ``boa continuidade''
+na \textit{Gestalt}, podemos investigar que o instrumentista treinado tende a completar
+os espaços de pausa e realizar movimentos cadenciais. Criando significado narrativo
+para gestos a princípio ligados pelo vínculo com a análise do instrumentista, mas muitas
+vezes sem conexão interna.
+
+Outro campo de possível investigação é a análise de em que
+nível a prática instrumental com um ambiente reativo como
+esse proposto aqui, influencia o gestual do instrumentista.
+Um estudo minucioso poderia incluir a avaliação do gestual
+instrumental antes e depois do contato do instrumentista com 
+o sistema.
+
+De certa maneira, o instrumentista treinado é o profissional
+mais preparado para conceber um sistema interativo dessa natureza.
+Primeiro porque conhece os detalhes de comportamento sonoro de seu
+instrumento a partir da prática instrumental ao invés da pura análise
+espectral. Em segundo lugar porque entende o idioma instrumental
+de maneira empírica. A complicada trama entre fisicalidade instrumental
+e narrativa sonora exige um conhecimento empírico sobre a prática
+instrumental.
 
 
 
@@ -1003,11 +1060,7 @@ excludente com relação à outra esfera sonora.
 
 
 
-
-
-
-
-\chapter{Revisão Bibliográfica}
+\chapter{Referências}
 \label{sec:rev}
 
 O conceito de interação entre uma performance musical e computador vem
@@ -1144,7 +1197,7 @@ sistemas computacionais numa árdua tarefa. O fato do sistema ter como
 paradigma a criação de música em tempo-real ainda requere uma grande
 dimensionalidade de descrições, rápido aprendizado, respostas e
 efetiva capacidade de antecipação. O campo de pesquisa em sistemas
-musicais interativos\cite{rowe93:interactive} se consiste em sistemas de software e
+musicais interativos \cite{rowe93:interactive} se consiste em sistemas de software e
 hardware criados para o fazer musical, mais tipicamente na performance
 de concertos ao vivo combinando máquinas e músicos humanos. Os
 trabalhos atuais nesse campo incluem ao mesmo tempo a análise de áudio
@@ -1339,9 +1392,9 @@ de um diálogo interativo onde ocorrências e consequências podem trocar seus p
 Dentro de um trabalho eletroacústico interativo, \textit{Textura} e \textit{Gesto} 
 estão em fluxo constante, um como consequência do outro. 
 
-\section{Projetos relacionados}
+%% \section{Projetos relacionados}
 
-Alguns projetos relacionados podem servir como fonte de inspiração pra
+Outros projetos relacionados podem servir como fonte de inspiração pra
 a presente pesquisa como o Cypher \cite{rowe93:interactive}   de Rowe que usa a metáfora da
 sociedade da mente de Minsky na forma de músicos artificiais dentro de
 um sistema multi-agente - o Meta-Cypher inclui múltiplos ouvintes e
@@ -1363,7 +1416,7 @@ processamento de áudio em tempo-real.
 Da parte musical diversas peças motivaram o desenvolvimento desse trabalho como as peças
 ''Jupiter'' e ''En Echo'' de Philippe Manoury para flauta e computador e soprano e computador respectivamente.
 Essas músicas foram desenvolvidas em colaboração com Miller Puckette o criador do Max e do Pd. As duas 
-peças empregam o uso da técnica de ''Score-follower``, uma técnica que também foi explorada por mim em
+peças empregam o uso da técnica de ''Score-follower``, uma técnica que também foi explorada em
 meu trabalho de mestrado, na peça ''Enquanto eles riem``(2005) para Clarinete e computador com Max/MSP.
 
 % mais referências:
@@ -1372,7 +1425,7 @@ meu trabalho de mestrado, na peça ''Enquanto eles riem``(2005) para Clarinete e
 % *rtc+pcn+humdrum
 % tipologia de interação (flo menezes + outros artigos)
 
-\chapter{Materiais e metodologia}
+\chapter{Ferramentas e Processo}
 \label{sec:metodologia}
 
 A pesquisa passou 3 grandes fases.  A primeira fase
@@ -1407,26 +1460,33 @@ poética e técnica.
 
 
 \begin{quotation}
-
-O Software como trabalho artístico – Artesanato de código 
-
 Este projeto é um estudo para estimular uma atividade que torna-se cada vez mais evidente no universo 
 do software livre e código aberto – a customização de softwares para idéias artísticas e para produção 
 multimídia em geral permitindo aquele que via criar desenvolver suas idéias abstratas partindo de maneiras 
 rápidas de trabalhar com código, ao invés da lógica onde o artista e visto como um usuário de interfaces ja 
-prontas que ao tentar “prever aquilo que quer o usuário” também acaba impondo sua prática de uso.
+prontas que ao tentar “prever aquilo que quer o usuário” também acaba impondo sua prática de uso. \cite{navalha}
+\end{quotation}
 
+
+
+\begin{quotation}
 Com a escolha da linguagem puredata, que possui uma comunidade extremamente produtiva e colaborativa,  
 por mais que esta interface esteja apresentando uma prática fechada em uma idéia de recortes de samples e um 
 certo escopo, apresenta-se também como a abertura para ser recombinada com outros códigos e idéias, colocando-se 
 como uma peça a ser aberta e transformada, sendo desde o início deste projeto documentada da maneira mais detalhada 
-possível para permitir tal recombinação.
+possível para permitir tal recombinação. \cite{navalha}
+\end{quotation}
 
+
+
+
+\begin{quotation}
 Navalha é um software desenvolvido com o intuito de tornar-se um estudo de caso em desenvolvimento rápido prototipado 
 em Puredata de um sistema para performances musicais com interface gráfica e sistema de gerenciamento de “presets” 
 (configurações) salvos em disco rígido. Além de sua utilidade para musicos e artistas é também um detalhado estudo 
-de caso de desenvolvimento em puredata, podendo ser usado como estudo para implementação de outros algoritmos e idéias.
-\end{quotation} 
+de caso de desenvolvimento em puredata, podendo ser usado como estudo para implementação de outros algoritmos e idéias. \cite{navalha}
+\end{quotation}
+
 
 
 A segunda fase da pesquisa foi o desenvolvimento do
@@ -1435,124 +1495,18 @@ diversos experimentos de estúdio onde cada parte do sistema será
 testada individualmente e em grupo.
 
 
-\section{Processo}
 
-Nessa seção serão apresentadas algumas reflexões acerca
-do processo de pesquisa e alguns resultados alcançados.
-O objetivo dessa seção e mostrar como o processo avançou
-e apontar pontos fortes e fracos aolongo do desenvolvimento da pesquisa.
-
-\subsection{Experiências prévias}
-
-Alguns fatores anteriores propiciaram o pleno desenvolvimento
-dessa pesquisa. Durante minha graduação em Violão, participei
-de um grupo de pesquisa em síntese sonora onde aprendi a programar
-em Csound onde desenvolvi uma série de peças acusmáticas. 
-Essa experiência chamou minha atenção para a música
-eletroacústica e para a computação musical. 
-
-Durante o mestrado tive o primeiro contato com o ambiente
-Max/MSP e desenvolvi uma série de composições para instrumentos
-tradicionais como clarinete, marimba e violão. Ao mesmo tempo
-desenvolvi uma série de improvisações coletivas usando computador,
-no circuito artístico da música experimental brasileira.
-
-De certa maneira, a experiência intensa como instrumentista
-durante a graduação sempre ficou distante da rotina da
-computação musical. Durante essa pesquisa o objetivo musical central 
-foi a união dessa duas dimensões do fazer musical.
-
-
-\subsection{Aplicações composicionais}
-
-
-O desenvolvimento cronológico dessa pesquisa levou a um primeiro momento de intenso aprendizado
-dos detalhes e técnicas de programação com Pd, desenvolvendo materiais didáticos, traduções, e uma
-sequência de estudos interativos usados em peças musicais e performances sonoras. Um exemplo pode ser visto
-na figura \ref{flauta2007}, onde um Score-follower controla os parâmetros de 
-processamento do som da flauta e harmoniza certos trechos da peça de acordo com as notas da flauta.
-Essa peça se chama ``Pure flute'' (2007) e foi um bom exercício de escrita para instrumento acústico
-e Pd. Ainda que a programação seja rude e mereça uma re-fatoração do código, musicalmente 
-obteve-se uma fusão de sonoridades que garantiu uma certa ``unidade'' na peça.
-
-\begin{figure}
-\includegraphics[scale=.3]{flauta2007}
-\caption{estudo interativo pra flauta e computador (2007)}
-\label{flauta2007}
-\end{figure} 
-
-Em 2008 programei um patch grande com vários sintetizadores e controles de sequências estocadas
-em arrays gráficos que se chamou ``Ensinando instrumentos virtuais a dialogarem de maneira rude''.
-O que se transformou numa performance de laptop solo apresentada algumas vezes em várias
-cidades no Brasil. Nessa performance toda a interação é feita através do mouse e do 
-teclado alfanumérico. Foram usados somente geradores de sinal do Pd e nenhum objeto de sampleamento.
- Procurei explorar um contraste entre gestos de modulações com AM e FM e filtragem de ruído branco.
-
-A comunidade de desenvolvimento do Pd é muito ativa, e explicitamente projetos open-source
-se esforçam para mudar a condição do interessado no software de usuário passivo a participante ativo do desenvolvimento
-e das decisões coletivas sobre os caminhos que a linguagem deve tomar. Esse  fator acarretou na participação na
-organização de 2 eventos com desenvolvedores e forte interação com a comunidade\footnote{III International
-Convention of Puredata (PdCon) em São Paulo e o I Simpósio Internacional de Interatividade nos Sistemas
-Computacionais Livres (wwww.iscl2009.wordpress.com) em Salvador em 2009.}, oficinas de extensão, 
-participação em desenvolvimento de projetos coletivos usando pure data, como mimosalib\footnote
-{https://github.com/glerm/mimosalib} também usada como referência nos protótipos.
-
-Outra experiência de composição mista foi a peça ``Oferenda''(2009) para sax contralto e Pd, 
-apresentada na PdCon em São Paulo. Nessa peça, a parte do sax é totalmente improvisada e 
-o computador funciona como um instrumento com outro músico controlando apsectos de 
-processamento de áudio e sincronizando samples de percussão com a performance do sax. 
-Nesse mesmo ano, foi desenvolvido um patch para interação entre duas guitarras, onde a
-análise de pitch controla um jogo do tipo ``Pong'', implementado em Pd/GEM. 
-
-Uma experiência que envolveu essa pesquisa também foi a peça ``Impressões oníricas'' (2010) para flauta,
-violão e computador, escrita para o grupo GNU, onde em alguns trechos, a análise do áudio
-disparava amostras de áudio e controlava alguns parâmetros de processamento dos samples. 
-Nessa composição a análise de áudio de dois instrumentos acústicos distintos no mesmo palco foi 
-um desafio, nesse caso a falta de precisão do sistema foi susbtituída pelo controle manual
-do computador.
-
-A experiência mais recente foi a composição coletiva ``/usr/maquina4/compartida~''\footnote
-{http://www.youtube.com/user/figocris/videos?view=1}(2012), onde puderam
-ser postos a prova os aplicativos desenvolvidos nessa pesquisa. Essa peça contou com quatro
-músicos controlando instrumentos digitais feitos com Pd, e consistiu de um improviso que foi
-sendo construído durante alguns ensaios. O fato de usar guitarra elétrica
-contribuiu para maior precisão dos elementos de análise e segmentação em tempo-real.
-Outro elemento positivo foi de que as ferramentas apresentadas aqui foram úteis na 
-improvisção coletiva. Outros músicos de adaptam bem as respostas musicais de SInCoPA, nos momentos que 
-os resultados são perceptivelmente conectados o resto do grupo visivelmente se sentia mais
-a vontade musicalmente.
+%% falar mais sobre como trabalhar com software livre foi importante
 
 
 
 
-\subsection{Papel do músico na interação homem-máquina}
 
 
-Do ponto de vista do instrumentista, alguns aspectos podem ser apontados nessa pesquisa.
-Por um lado o gesto instrumental é ao mesmo tempo o impulso inicial e uma espécie
-de ``cola'' narrativa. Por mais que se forneçam elementos de análise para o sistema
-computacional, as narrativas geradas tendem a ser repetitivas e óbvias. Nesse contexto
-se abre um campo grande para experimentação instrumental. Se pensarmos na lei da ``boa continuidade''
-na \textit{Gestalt}, podemos investigar que o instrumentista treinado tende a completar
-os espaços de pausa e realizar movimentos cadenciais. Criando significado narrativo
-para gestos a princípio ligados pelo vínculo com a análise do instrumentista, mas muitas
-vezes sem conexão interna.
 
-Outro campo de possível investigação é a análise de em que
-nível a prática instrumental com um ambiente reativo como
-esse proposto aqui, influencia o gestual do instrumentista.
-Um estudo minucioso poderia incluir a avaliação do gestual
-instrumental antes e depois do contato do instrumentista com 
-o sistema.
 
-De certa maneira, o instrumentista treinado é o profissional
-mais preparado para conceber um sistema interativo dessa natureza.
-Primeiro porque conhece os detalhes de comportamento sonoro de seu
-instrumento a partir da prática instrumental ao invés da pura análise
-espectral. Em segundo lugar porque entende o idioma instrumental
-de maneira empírica. A complicada trama entre fisicalidade instrumental
-e narrativa sonora exige um conhecimento empírico sobre a prática
-instrumental.
+
+
 
 
 %% ligar esse último parágrafo com o tema dessa introdução
@@ -1614,7 +1568,7 @@ uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confi
 
 
 
-\subsection{rosegarden}
+\subsection{Rosegarden}
 
 Rosegarden é um programa de criação e edição musical que roda em GNU/linux.
 Possui diversas funcionalidades, mas nessa pesquisa é usado como sequenciador
@@ -4778,7 +4732,7 @@ do áudio do patch.
 
 
 
-\subsubsection{[sinc-granular]}
+\subsubsection{Objeto [sinc-granular]}
 
 
 
@@ -4993,7 +4947,67 @@ Além do volume global de cada canal, podemos também ter o controle
 independente de espacialização simples como pode ser visto
 na composição interna da abstração [sinc-pan] na figura \ref{pan}.
 
-\section{Experimento}
+\chapter{Aplicações composicionais}
+
+\section{Experimentos}
+
+
+O desenvolvimento cronológico dessa pesquisa levou a um primeiro momento de intenso aprendizado
+dos detalhes e técnicas de programação com Pd, desenvolvendo materiais didáticos, traduções, e uma
+sequência de estudos interativos usados em peças musicais e performances sonoras. Um exemplo pode ser visto
+na figura \ref{flauta2007}, onde um Score-follower controla os parâmetros de 
+processamento do som da flauta e harmoniza certos trechos da peça de acordo com as notas da flauta.
+Essa peça se chama ``Pure flute'' (2007) e foi um bom exercício de escrita para instrumento acústico
+e Pd. Ainda que a programação seja rude e mereça uma re-fatoração do código, musicalmente 
+obteve-se uma fusão de sonoridades que garantiu uma certa ``unidade'' na peça.
+
+\begin{figure}
+\includegraphics[scale=.3]{flauta2007}
+\caption{estudo interativo pra flauta e computador (2007)}
+\label{flauta2007}
+\end{figure} 
+
+Em 2008 programei um patch grande com vários sintetizadores e controles de sequências estocadas
+em arrays gráficos que se chamou ``Ensinando instrumentos virtuais a dialogarem de maneira rude''.
+O que se transformou numa performance de laptop solo apresentada algumas vezes em várias
+cidades no Brasil. Nessa performance toda a interação é feita através do mouse e do 
+teclado alfanumérico. Foram usados somente geradores de sinal do Pd e nenhum objeto de sampleamento.
+ Procurei explorar um contraste entre gestos de modulações com AM e FM e filtragem de ruído branco.
+
+A comunidade de desenvolvimento do Pd é muito ativa, e explicitamente projetos open-source
+se esforçam para mudar a condição do interessado no software de usuário passivo a participante ativo do desenvolvimento
+e das decisões coletivas sobre os caminhos que a linguagem deve tomar. Esse  fator acarretou na participação na
+organização de 2 eventos com desenvolvedores e forte interação com a comunidade\footnote{III International
+Convention of Puredata (PdCon) em São Paulo e o I Simpósio Internacional de Interatividade nos Sistemas
+Computacionais Livres (wwww.iscl2009.wordpress.com) em Salvador em 2009.}, oficinas de extensão, 
+participação em desenvolvimento de projetos coletivos usando pure data, como mimosalib\footnote
+{https://github.com/glerm/mimosalib} também usada como referência nos protótipos.
+
+Outra experiência de composição mista foi a peça ``Oferenda''(2009) para sax contralto e Pd, 
+apresentada na PdCon em São Paulo. Nessa peça, a parte do sax é totalmente improvisada e 
+o computador funciona como um instrumento com outro músico controlando apsectos de 
+processamento de áudio e sincronizando samples de percussão com a performance do sax. 
+Nesse mesmo ano, foi desenvolvido um patch para interação entre duas guitarras, onde a
+análise de pitch controla um jogo do tipo ``Pong'', implementado em Pd/GEM. 
+
+Uma experiência que envolveu essa pesquisa também foi a peça ``Impressões oníricas'' (2010) para flauta,
+violão e computador, escrita para o grupo GNU, onde em alguns trechos, a análise do áudio
+disparava amostras de áudio e controlava alguns parâmetros de processamento dos samples. 
+Nessa composição a análise de áudio de dois instrumentos acústicos distintos no mesmo palco foi 
+um desafio, nesse caso a falta de precisão do sistema foi susbtituída pelo controle manual
+do computador.
+
+A experiência mais recente foi a composição coletiva ``/usr/maquina4/compartida~''\footnote
+{http://www.youtube.com/user/figocris/videos?view=1}(2012), onde puderam
+ser postos a prova os aplicativos desenvolvidos nessa pesquisa. Essa peça contou com quatro
+músicos controlando instrumentos digitais feitos com Pd, e consistiu de um improviso que foi
+sendo construído durante alguns ensaios. O fato de usar guitarra elétrica
+contribuiu para maior precisão dos elementos de análise e segmentação em tempo-real.
+Outro elemento positivo foi de que as ferramentas apresentadas aqui foram úteis na 
+improvisção coletiva. Outros músicos de adaptam bem as respostas musicais de SInCoPA, nos momentos que 
+os resultados são perceptivelmente conectados o resto do grupo visivelmente se sentia mais
+a vontade musicalmente.
+
 
 \begin{figure}
 \includegraphics[scale=.4]{experimento1}
@@ -5011,7 +5025,25 @@ o gerador rítmico aciona o com maior densidade e assim por diante.
 Um vídeo\footnote{www.cristianofigo.wordpress.com} pode ser visto mostrando a imagem da performance instrumental
 na guitarra elétrica e a atividade do programa com o áudio gerado.
 
+\subsection{Experiências prévias}
 
+Alguns fatores anteriores propiciaram o pleno desenvolvimento
+dessa pesquisa. Durante minha graduação em Violão, participei
+de um grupo de pesquisa em síntese sonora onde aprendi a programar
+em Csound onde desenvolvi uma série de peças acusmáticas. 
+Essa experiência chamou minha atenção para a música
+eletroacústica e para a computação musical. 
+
+Durante o mestrado tive o primeiro contato com o ambiente
+Max/MSP e desenvolvi uma série de composições para instrumentos
+tradicionais como clarinete, marimba e violão. Ao mesmo tempo
+desenvolvi uma série de improvisações coletivas usando computador,
+no circuito artístico da música experimental brasileira.
+
+De certa maneira, a experiência intensa como instrumentista
+durante a graduação sempre ficou distante da rotina da
+computação musical. Durante essa pesquisa o objetivo musical central 
+foi a união dessa duas dimensões do fazer musical.
 
 
 
@@ -5021,6 +5053,10 @@ na guitarra elétrica e a atividade do programa com o áudio gerado.
 \chapter{Resultados e Conclusão}
 \label{sec:conclusao}
 
+Nessa seção serão apresentadas algumas reflexões acerca
+do processo de pesquisa e alguns resultados alcançados.
+O objetivo dessa seção e mostrar como o processo avançou
+e apontar pontos fortes e fracos aolongo do desenvolvimento da pesquisa.
 
 \section{Discussão}
 
@@ -5200,10 +5236,6 @@ pode ser implementado com operações matemáticas como média e probabilidades.
 % Pode-se, portanto, definir que uma boa abordagem de pesquisa em sistemas musicais interativos engloba um vasto campo 
 % multidisciplinar realizando uma fusão de pesos iguais entre as áeas de psicologia cognitiva, computação e teoria da 
 % composição musical.
-
-
-
-\section{Resultados}
 
 
 
@@ -5745,11 +5777,6 @@ Nesse sentido são levantadas algumas soluções experimentais que auxiliam a pe
 a prática musical com o sistema.
 
 
-\subsection{Pd e lilypond}
-
-Lilypond é uma linguagem de diagramação especializada
-em notação musical.
-
 
 
 \subsubsection{Pd e Lilypond via Rosegarden}
@@ -5766,6 +5793,16 @@ em notação musical.
 \caption{edição no rosegarden de sequência enviada do pd}
 \label{fft-subpatch}
 \end{figure} 
+
+
+* explicar essas figuras
+
+* o que não dá pra ser feito (ritmos e andamento)
+
+* o que falta pra scriptar do pd direto no lilypond - external(?)
+
+* 
+
 
 
 
@@ -5872,24 +5909,43 @@ musical.
  The Gemnotes project nears completion. Gemnotes is a live music notation system written in Pure Data (PD). 
 It generates symbolic notation on the screen for musicians to play, and can also be used as a sound-to-notation 
 device for improvisation and music education as well.
+\end{quotation} 
 
-In 2008 I began to experiment with truetype fonts in GEM – the Graphics Environment for Multimedia for Pure Data. At first I was able only to print a stave, a clef and a note, then with an accidental. The idea was to develop a system that musicians could use based on musical information (note value, duration of note values, pitch and clef) that was relatively easy to program a score. For the past year I have been intensely developing this system, and for the past 6 months I have been building an extremely complex rhythm register and notation object counter. This object is now complete, and the system is evolving to show beamed groups, ties, rests and chords. These are projected in realtime, and can be made to change at any time, on a computer screen.
 
+
+
+\begin{quotation}
+This object is now complete, and the system is evolving to show beamed groups, ties, rests and chords. 
+These are projected in realtime, and can be made to change at any time, on a computer screen.
+\end{quotation} 
+
+
+
+
+\begin{quotation}
 The system uses dynamic patching in PD – effectively a PD patch that builds another PD patch (the graphical score) 
 using pre-made abstractions (PD patches saved in the same folder as the root patch) that contain the commands to 
 create a graphical representation of music. For such a complex system (music notation) it has been necessary to 
 create an object in the C programming language that manages the number of objects, which objects are linked to which, 
 and how music-specific elements (such as ties and tuples) are displayed. This object (the gemnotes-counter object) 
 consists of over 800 lines of code and took 6 months to write, but there is much, much more to add to it 
-(dynamics, articulation). The emphasis so far has been to encapsulate all of the features of Western musical 
-notation…but, because it is written in PD with GEM, it is open to less literal expositions of notated music, 
-since anything (including video) can be projected in the same graphical space as the notation, and even anchored 
-to a stave in gemnotes.
+(dynamics, articulation). 
 \end{quotation} 
 
 Podemos ver o uso do objeto [gemnotes] na figura \ref{gemnotes1} e no arquivo "help" na figura \ref{gemnotes-help}.
 
+%parafrasear
+
+The emphasis so far has been to encapsulate all of the features of Western musical 
+notation…but, because it is written in PD with GEM, it is open to less literal expositions of notated music, 
+since anything (including video) can be projected in the same graphical space as the notation, and even anchored 
+to a stave in gemnotes.
+
+
 %%Apesar de ser um projeto promissor, o objetivo da notação musical em tempo-real no presente projeto é apenas
+
+A ampliação do projeto de Visualização de notação musical vem para auxiliar a sinestesia do instrumentista
+com o sistema em tempo-real.
 
 %% Incluir mini-conclusão
 
@@ -5903,7 +5959,7 @@ Tradução livre do documento "Beginners Guide to FFT-objects in Pd" de Frank Ba
 A transformada de Fourier (FFT) é uma operação poderosa em processamento de sinal digital.
 Pd inclui objetos que podem ser usados para aplicar FFT, modificar sinais no domínio da frequência , 
 e transformar os dados na re-construção. Esse guia tentará uma explicação prática de como usar os 
-objetos [rfft~] e [rifft~] e proporcionará afinal um básico entendimento do processo.
+objetos [rfft\texttildelow] e [rifft\texttildelow] e proporcionará afinal um básico entendimento do processo.
 Esse guia entretanto, não pretende ser uma explicação profunda da matemática implícita, porém lhe 
 dará conhecimento suficiente para iniciar. Para uma explicação mais profunda eu recomendo o ótimo  
 DSP-Guide.
@@ -5997,982 +6053,6 @@ Explicar rapidamente:
 2) a função do [sqrt\texttildelow] por ele mesmo
 3) [clip\texttildelow]
 4) [tabwrite\texttildelow]
-
-
-
-
-\section{Como escrever um external para Pure-data}
-\label{C-external}
-
-Tradução\footnote{Detalhes de tradução: prefei manter os termos técnicos originais.} dos primeiros 3 capítulos do documento
-"HOWTO write an external for pd"(Copyright (c) 2001-2006 by IOhannes m zmölnig).
-
-
-
-\subsection{Resumo}
-Pd é um sistema gráfico de composição musical por computador em tempo real que segue
-os tradicionais IRCAMs {\em ISPW-max}
-
-Embora muitas funcionalidades sejam construídas dentro do Pd,
-algumas vezes é difícil ou impossível criar um patch com uma certa funcionalidade
-fora das primitivas e suas combinações.
-
-Entretanto, Pd pode ser expandido com primitivas (``objetos'')
-escritos em linguagens de programação complexas, como {\tt C/C++}. 
-
-Este documento tenta explicar como construir tais primitivas em  {\tt C},
-a linguagem popular utilizada para criar o Pd.
-
-
-\subsection{definições e pré-requisitos}
-Pd refere-se ao ambiente gráfico de computação musical em tempo-real criado por
-Miller~.S.~Puckette.
-
-Para entender completamente esse documento, é necessário ser
-familiarizado com Pd e ter um entendimento geral de técnicas de  programação 
-especialmente em {\tt C}.
-
-Para escrever externals por conta própria,será necessaŕio um compilador {\tt C} que tenha 
-suporte ao padrão {\tt ANSI-C},  como no {\em Gnu C-compiler} (gcc) nos sistemas
-linux ou {\em Visual-C++} em plataformas windows.
-
-
-
-\subsubsection{classes, instâncias, objetos}
-Pd é escrito na linguagem de programação {\tt C}.
-Graças a sua natureza gráfica, Pd é um sistema {\em orientado ao objeto}.
-Entretanto {\tt C} não suporta muito bem o uso de classes.
-Consecutivamente o código fonte resultante não é tão elegante quanto seria um código de {\tt C++} por exemplo.
-
-
-Nesse documento, a expressão {\em classe} se refere a realização de um
-conceito combinando dados e manipuladores desses dados.
-
-Instâncias concretas de uma classe são chamados {\em objetos}.
-
-\subsubsection{internals, externals e libraries}
-
-Para evitar confusão de idéias, as expressões {\em internal}, {\em external} e
-{\em library}\footnote{{\em library} aqui não é traduzida como ``biblioteca'' 
-para não confundir com o termo biblioteca que vem sendo usado como um grupo
-de abstrações (e.g. Uma ``biblioteca de abstrações'' tal qual o presente projeto
-SInCoPA.}, serão explicadas aqui.
-
-\paragraph{Internal}
-Um {\em internal} é uma classe que é construída dentro do Pd.
-A maioria das primitivas, como ``+'', ``pack'' ou ``sig\~\/'' são {\em internals}. 
-
-
-\paragraph{External}
-Um {\em external} é uma classe que não é construída internamente com o Pd, mas 
-é carregada em tempo de execução.
-
-Uma vez carregados na memória do Pd, {\em externals} não podem mais ser distinguidos
-de {\em internals} .
-
-\paragraph{Library}
-Uma{\em library} é uma coleção de {\em externals} que são compilados em um único
-arquivo binário.
-
-{\em Library}- Os arquivos devem seguir um sistema dependente de convenções de nomes:
-
-\begin{tabular}{c||c|c|c}
-library & linux&irix&Win32 \\
-\hline
-{\tt my-lib}&{\tt  my-lib.pd-linux}&{\tt  my-lib.pd-irix}&
-{\tt  my-lib.dll}\\
-\end{tabular}
-
-A forma mais simples de uma {\em library} inclui exatamente um{\em external}
-com o mesmo nome da {\em library}.
-
-Diferente dos {\em externals}, {\em libraries} podem ser importadas pelo Pd com operações especiais.
-Depois que uma {\em library} tenha sido importada,
-todos {\em externals} incluídos são carregados na memória e ficam disponíveis como objetos.
-
-Pd possui dois modos para importar {\em libraries}:
-
-\begin{itemize}
-\item via opção de linha de comando ``{\tt -lib my-lib}''
-\item criando um objeto ``{\tt my-lib}''
-\end{itemize}
-
-O primeiro método carrega uma {\em library quando Pd é iniciado.
-Esse método é preferencialmente usado para {\em libraries} que contém muitos {\em externals}.
-
-O outro método deve ser usado para {\em libraries} que contém exatamente um
-{\em external} com o mesmo nome.
-
-Pd checa primeiro, se uma classe chamada ``my-lib'' já foi carregada.
-Se esse não for o caso\footnote{
-Se uma classe ``my-lib'' já é existente, um objeto ``my-lib'' será inicializado e o procedimento
- será concluído. 
-Assim, nenhuma {\em library} foi carregada.
-Portanto nenhuma {\em library} que tenha o mesmo nome que uma classe já usada como, por exemplo ``abs'',
-pode ser carregada.}, é feita uma busca em todos \textit{paths}\footnote{Os Paths ou caminhos de diretórios são pré-definidos pelo usuário.}
-por um arquivo chamado ``{\tt my-lib.pd-linux}''\footnote{ou outra extensão dependente do sistema que se está trabalhando.}.
-Se tal arquivo é encontrado, todos {\em externals} incluídos são carregados na memória
-através de uma chamada da rotina \verb+my-lib-setup()+.
-
-Após o carregamento, uma classe ``my-lib'' é (novamente) buscada como um (recentemente carregado) {\em external}.
-Em caso afirmativo, uma instância dessa classe é criada, ou senão a inicialização falha e um erro
-é impresso no console.
-De qualquer maneira, todas classes de {\em externals} declarados na  {\em library} são carregados.
-
-
-\subsection{meu primeiro external: {\tt alo\_mundo}}
-Usualmente a primeira abordagem para se aprender uma linguagem de programação é algum tipo
-de aplicação ``alô mundo''.
-
-Em nosso caso, uma classe de objeto deve ser criada, que imprima a linha ``alo mundo!!''
-como erro padrão toda vez que receba uma mensagem de `bang''.
-
-
-\subsubsection{a interface com o Pd}
-Para escrever um external de Pd é necessário uma interface bem definida.
-Isso é fornecido no arquivo-cabeçalho ``m-pd.h''
-
-\begin{verbatim}
-#include "m-pd.h"
-\end{verbatim}
-
-\subsubsection{uma classe e seu espaço de dados}
-primeiro uma nova classe deve ser preparada e o espaço de dados para essa classe deve ser
-definido.
-
-\begin{verbatim}
-static t-class *helloworld-class;
-
-typedef struct -helloworld {
-  t-object  x-obj;
-} t-helloworld;
-\end{verbatim}
-
-\verb+helloworld-class+ será um ponteiro para a nova classe.
-
-A estrutura \verb+t-helloworld+ (do tipo \verb+-helloworld+) é o espaço
-de dados da classe.
-
-Um elemento absolutamente necessário do espaço de dados é uma variável do
-tipo \verb+t-object+, que é usada para armazenar propriedades internas do objeto
-como a apresentação gráfica do objeto ou dados sobre entradas e saídas gráficas.
-
-\verb+t-object+ deve ser a primeira especificação da estrutura.
-
-Um simples objeto ``alô mundo'' não necessita de variáveis,
-portanto a estrutura fica vazia além de \verb+t-object+.
-
-
-\subsubsection{method space}
-Além do espaço de dados, uma classe necessita de uma sequência de manipuladores
-(métodos) para manipular o fluxo de dados à passar pelo objeto.
-
-If a message is sent to an instance of our class, a method is called.
-These methods are the interfaces to the message system of Pd.
-On principal they have no return argument and are therefore are of the
-type \verb+void+.
-
-\begin{verbatim}
-void helloworld-bang(t-helloworld *x)
-{
-  post("Hello world !!");
-}
-\end{verbatim}
-
-
-This method has an argument of the type \verb+t-helloworld+,
-which would enable us to manipulate the data space.
-
-Since we only want to output ``Hello world!''
-(and, by the way, our data space is quite sparse),
-we renounce a manipulation.
-
-The command \verb+post(char *c,...)+ sends a string to the standard error.
-A carriage return is added automatically.
-Apart from this, the \verb+post+-command works like the {\tt C}-command \verb+printf()+.
-
-\subsubsection{generation of a new class}
-To generate a new class, information of the data space and the method space of this class,
-have to be passed to Pd when a library is loaded.
-
-On loading a new library ``my-lib'',
-Pd tries to call a function ``my-lib-setup()''.
-This function (or functions called by it) 
-declares the new classes and their properties.
-It is only called once, when the library is loaded.
-If the function-call fails (e.g., because no function of the specified name is present)
-no external of the library will be loaded.
-
-\begin{verbatim}
-void helloworld-setup(void)
-{
-  helloworld-class = class-new(gensym("helloworld"),
-        (t-newmethod)helloworld-new,
-        0, sizeof(t-helloworld),
-        CLASS-DEFAULT, 0);
-
-  class-addbang(helloworld-class, helloworld-bang);
-}
-\end{verbatim}
-
-\paragraph{class-new}
-
-The function \verb+class-new+ creates a new class and returns a pointer to this prototype.
-
-The first argument is the symbolic name of the class.
-
-The next two arguments define the constructor and destructor of the class.
-
-Whenever a class object is created in a Pd-patch,
-the class-constructor \verb+(t-newmethod)helloworld-new+ instantiates the object
-and initialises the data space.
-
-Whenever an object is destroyed
-(either by closing the containing patch or by deleting the object from the patch)
-the destructor frees the dynamically reserved memory.
-The allocated memory for the static data space is automatically reserved and freed.
-
-Therefore we do not have to provide a destructor in this example, the argument
-is set to ``0''.
-
-To enable Pd to reserve and free enough memory for the static data space,
-the size of the data structure has to be passed as the fourth argument.
-
-The fifth argument has influence on the graphical representation of the class objects.
-The default-value is \verb+CLASS-DEFAULT+ or simply ``0''.
-
-The remaining arguments define the arguments of an object and its type.
-
-Up to six numeric and symbolic object-arguments can be defined via
-\verb+A-DEFFLOAT+ and \verb+A-DEFSYMBOL+.
-If more arguments are to be passed to the object
-or if the order of atom types should by more flexible, 
-\verb+A-GIMME+ can be used for passing an arbitrary list of atoms.
-
-The list of object-arguments is terminated by ``0''.
-In this example we have no object-arguments at all for the class.
-
-\paragraph{class-addbang}
-We still have to add a method space to the class.
-
-\verb+class-addbang+ adds a method for a ``bang''-message to the class that is
-defined in the first argument.
-The added method is defined in the second argument.
-
-
-\subsubsection{constructor: instantiation of an object}
-Each time, an object is created in a Pd-patch, the
-constructor that is defined with the \verb+class-new+-command,
-generates a new instance of the class.
-
-The constructor has to be of type \verb+void *+.
-
-\begin{verbatim}
-void *helloworld-new(void)
-{
-  t-helloworld *x = (t-helloworld *)pd-new(helloworld-class);
-
-  return (void *)x;
-}
-\end{verbatim}
-
-
-The arguments of the constructor-method depend on the object-arguments
-defined with \verb+class-new+.
-
-\begin{tabular}{l|l}
-\verb+class-new+-argument&constructor-argument\\
-\hline
-\verb+A-DEFFLOAT+&\verb+t-floatarg f+ \\
-\verb+A-DEFSYMBOL+&\verb+t-symbol *s+ \\
-\verb+A-GIMME+&\verb+t-symbol *s, int argc, t-atom *argv+
-\end{tabular}
-
-Because there are no object-arguments for our ``hello world''-class,
-the constructor has anon too.
-
-The function \verb+pd-new+ reserves memory for the data space,
-initialises the variables that are internal to the object and
-returns a pointer to the data space.
-
-The type-cast to the data space is necessary.
-
-Normally, the constructor would initialise the object-variables.
-However, since we have none, this is not necessary.
-
-
-The constructor has to return a pointer to the instantiated data space.
-
-\subsubsection{the code: \tt helloworld}
-
-\begin{verbatim}
-#include "m-pd.h"
-
-static t-class *helloworld-class;
-
-typedef struct -helloworld {
-  t-object  x-obj;
-} t-helloworld;
-
-void helloworld-bang(t-helloworld *x)
-{
-  post("Hello world !!");
-}
-
-void *helloworld-new(void)
-{
-  t-helloworld *x = (t-helloworld *)pd-new(helloworld-class);
-
-  return (void *)x;
-}
-
-void helloworld-setup(void) {
-  helloworld-class = class-new(gensym("helloworld"),
-        (t-newmethod)helloworld-new,
-        0, sizeof(t-helloworld),
-        CLASS-DEFAULT, 0);
-  class-addbang(helloworld-class, helloworld-bang);
-}
-\end{verbatim}
-
-
-\subsection{a simple external: {\tt counter}}
-
-Now we want to realize a simple counter as an external.
-A ``bang''-trigger outputs the counter-value on the outlet and
-afterwards increases the counter-value by 1.
-
-This class is similar to the previous one,
-but the data space is extended by a variable ``counter'' and the
-result is written as a message to an outlet instead of 
-a string to the standard error.
-
-\subsubsection{object-variables}
-Of course, a counter needs a state-variable to store the actual counter-value.
-
-State-variables that belong to class instances belong to the data space.
-
-\begin{verbatim}
-typedef struct -counter {
-  t-object  x-obj;
-  t-int i-count;
-} t-counter;
-\end{verbatim}
-
-The integer variable \verb+i-count+ stores the counter-value.
-
-\subsubsection{object-arguments}
-It is quite useful for a counter, if a initial value can be defined by the user.
-Therefore this initial value should be passed to the object at creation-time.
-
-\begin{verbatim}
-void counter-setup(void) {
-  counter-class = class-new(gensym("counter"),
-        (t-newmethod)counter-new,
-        0, sizeof(t-counter),
-        CLASS-DEFAULT,
-        A-DEFFLOAT, 0);
-
-  class-addbang(counter-class, counter-bang);
-}
-\end{verbatim}
-
-So we have an additional argument in the function \verb+class-new+:
-\verb+A-DEFFLOAT+ tells Pd, that the object needs one argument of the 
-type \verb+t-floatarg+.
-If no argument is passed, this will default to ``0''.
-
-\subsubsection{constructor}
-The constructor has some new tasks.
-On the one hand, a variable value has to be initialised,
-on the other hand, an outlet for the object has to be created.
-
-\begin{verbatim}
-void *counter-new(t-floatarg f)
-{
-  t-counter *x = (t-counter *)pd-new(counter-class);
-
-  x->i-count=f;
-  outlet-new(&x->x-obj, &s-float);
-
-  return (void *)x;
-}
-\end{verbatim}
-
-The constructor-method has one argument of type \verb+t-floatarg+ as declared
-in the setup-routine by \verb+class-new+.
-This argument is used to initialise the counter.
-
-A new outlet is created with the function \verb+outlet-new+.
-The first argument is a pointer to the interna of the object
-the new outlet is created for.
-
-The second argument is a symbolic description of the outlet-type.
-Since out counter should output numeric values it is of type ``float''.
-
-\verb+outlet-new+ returns a pointer to the new outlet and saves this very pointer
-in the \verb+t-object+-variable \verb+x-obj.ob-outlet+.
-If only one outlet is used, the pointer need not additionally be stored in the data space.
-If more than one outlets are used, the pointers have to be stored in the data space,
-because the \verb+t-object+-variable can only hold one outlet pointer.
-
-\subsubsection{the counter method}
-When triggered, the counter value should be sent to the outlet
-and afterwards be incremented by 1.
-
-\begin{verbatim}
-void counter-bang(t-counter *x)
-{
-  t-float f=x->i-count;
-  x->i-count++;
-  outlet-float(x->x-obj.ob-outlet, f);
-}
-\end{verbatim}
-
-The function \verb+outlet-float+ sends a floating-point-value (second argument) to the outlet
-that is specified by the first argument.
-
-We first store the counter in a floating point-buffer.
-Afterwards the counter is incremented and not before that the buffer variable is sent 
-to the outlet.
-
-What appears to be unnecessary on the first glance, makes sense after further
-inspection:
-The buffer variable has been realized as \verb+t-float+,
-since \verb+outlet-float+ expects a floating point-value and a typecast is
-inevitable.
-
-If the counter value was sent to the outlet before being incremented,
-this could result in an unwanted (though well defined) behaviour:
-If the counter-outlet directly triggered its own inlet,
-the counter-method would be called although the counter value was not yet incremented.
-Normally this is not what we want.
-
-The same (correct) result could of course be obtained with a single line,
-but this  would obscure the {\em reentrant}-problem.
-
-\subsubsection{the code: \tt counter}
-
-\begin{verbatim}
-#include "m-pd.h"
-
-static t-class *counter-class;
-
-typedef struct -counter {
-  t-object  x-obj;
-  t-int i-count;
-} t-counter;
-
-void counter-bang(t-counter *x)
-{
-  t-float f=x->i-count;
-  x->i-count++;
-  outlet-float(x->x-obj.ob-outlet, f);
-}
-
-void *counter-new(t-floatarg f)
-{
-  t-counter *x = (t-counter *)pd-new(counter-class);
-
-  x->i-count=f;
-  outlet-new(&x->x-obj, &s-float);
-
-  return (void *)x;
-}
-
-void counter-setup(void) {
-  counter-class = class-new(gensym("counter"),
-        (t-newmethod)counter-new,
-        0, sizeof(t-counter),
-        CLASS-DEFAULT,
-        A-DEFFLOAT, 0);
-
-  class-addbang(counter-class, counter-bang);
-}
-\end{verbatim}
-
-
-
-% \Section {Como escrever um external para Pure data}
-% 
-% Tradução Dos Primeiros 3 Capítulos do Documento
-% "HOWTO escrever um externo para pd" (Copyright (c) 2001-2006 por IOhannes m zmölnig).
-% 
-% 
-% 
-% \Subsection {Resumo}
-% Pd e hum Sistema Gráfico de Composição musical POR Computador em Tempo real, Que Segue
-% OS Tradicionais IRCAMs {\ em ISPW-max}
-% 
-% Embora muitas funcionalidades sejam construídas Dentro do do Pd,
-% ALGUMAS Vezes e dificil OU CRIAR UM Impossível remendo COM UMA Certa funcionalidade
-% Das primitivas fóruns eletrônicos combinações SUAS.
-% 
-% EntreTanto, Pd PoDE Ser Expandido com primitivas (`` Objetos'')
-% Escritos in Linguagens de Programação complexos com, Como {\ tt C / C + +}.
-% 
-% Este Documento Tenta explicar Como Construir Tais primitivas em {\ tt C},
-% uma Linguagem popular, utilizada parágrafo CRIAR o Pd.
-% 
-% 
-% \Subsection {definições e pré-requisitos}
-% Pd, comunique-SE AO Ambiente Gráfico de Computação musical em Tempo real CRIADO POR
-% Miller para instalação. S. ~ Puckette.
-% 
-% Entendre Pará Completamente ESSE Documento, e necessario Ser
-% familiarizado com Pd e ter hum entendimento Geral de Técnicas de Programação
-% especialmente em {\ tt C}.
-% 
-% Pará escrever externals POR Conta Própria, soros necessario hum compilador {\ tt C} Que tenha
-% Suporte AO Padrão {\ tt ANSI-C}, Como não {\ em Gnu C-compilador} (gcc) nsa Sistemas
-% linux UO {\ em Visual-C + +} in Plataformas janelas.
-% 
-% 
-% 
-% \ Subsubsection {classes, instâncias e Objetos}
-% Pd e Escrito nd Linguagem de Programação {\ tt C}.
-% Graças uma SUA Natureza Gráfica, Pd e hum Sistema {\ em orientado AO Objeto}.
-% EntreTanto {\ tt c} Nao suporta Muito bem O USO classes DE.
-% Consecutivamente o Código Fonte resultante nao e Elegante Tão séria QUANTO UM Código de {\ tt C + +} POR Exemplo.
-% 
-% 
-% Nesse Documento, uma Expressão {\ em classe} si référé uma Realização de hum
-% Conceito combinando Dados e manipuladores desses Dados.
-% 
-% Instâncias concretas de classe UMA São chamados Objetos \ {in}.
-% 
-% \ Subsubsection {internals e externals und bibliotecas}
-% 
-% Para evitar confusão de idéias, as expressões {\ em interna}, {\ em externo} e
-% {\ Em biblioteca} deve ser explicado aqui.
-% 
-% \ N {} Interna
-% Uma {\ em interna} é uma classe que está embutido no Pd.
-% Abundância de primitivas, como `` +'', `` pacote'' ou `` sig \ ~ \ /'' são {internals \ in}.
-% 
-% \ N {} externo
-% Uma {\ em externo} é uma classe que não é construído em Pd, mas é carregado em tempo de execução.
-% Uma vez carregado para a memória de Pd, {\ in externals} não podem ser distinguidos dos
-% {\} In internos mais.
-% 
-% \ N {Biblioteca}
-% A {\ em biblioteca} é uma coleção de {in} \ externos que são compilados em um
-% único arquivo binário.
-% 
-% {\ Em Biblioteca} de arquivos tem que seguir um sistema de convenção de nomenclatura dependente:
-% 
-% \ Begin {tabular} {c | | c | c | c}
-% biblioteca e linux e irix e Win32 \ \
-% \ Hline
-% {\ Tt meu \ -lib} & {\ tt meu \ -lib.pd \ -linux} & {\ tt meu \ -lib.pd \ -irix} &
-% {\ Tt meu \ -lib.dll} \ \
-% \ End {tabular}
-% 
-% A forma mais simples de um {\ em biblioteca} inclui exatamente uma {\ em externo}
-% com o mesmo nome como a biblioteca {in \}.
-% 
-% Ao contrário de {\ externals in}, {in} \ bibliotecas pode ser importado por Pd com operações especiais.
-% Depois de um {\ em biblioteca} foi importado,
-% todos incluídos {in} \ externos foram carregados na memória e estão disponíveis como objetos.
-% 
-% Pd suporta os modos de importar bibliotecas \ {in}:
-% 
-% \ Begin {itemize}
-% \ Item via linha de comando-opção `` {\ tt-lib meu \ -lib}''
-% \ Item criando um objeto `` {\ tt meu \ -lib}''
-% \ End {itemize}
-% 
-% As cargas primeiro método a {\ em biblioteca} Pd quando é iniciado.
-% Este método é de preferência utilizado para {bibliotecas \ in} que contêm vários {externals \ in}.
-% 
-% O outro método deve ser usado para bibliotecas \ {in} que contém exatamente
-% uma {\ em externo} com o mesmo nome.
-% Pd verifica em primeiro lugar, se uma classe chamada `` meu \ -lib'' já está carregado.
-% Se este não é o caso \ nota {
-% Se uma classe `` meu \ -lib'' já existente, um objeto `` meu \ -lib'' será instanciado
-% eo procedimento é feito.
-% Assim, não {\ em biblioteca} foi carregado.
-% Portanto, nenhum {\ em biblioteca} que é nomeado como um já usado nome de classe como, digamos, `` abs'',
-% pode ser carregado.}, todos os caminhos são pesquisados ​​por um arquivo chamado
-% `` {\ Tt meu \ -lib.pd \ -linux}'' \ footnote {ou mais dependentes do sistema de nome de arquivo de extensões (sa)}.
-% Se o arquivo for encontrado, todos incluídos {in} \ externos são carregados na memória, chamando um
-% rotina \ verb + meu \ -lib \ -setup () +.
-% Após o carregamento, uma classe `` meu \ -lib'' é (novamente) procurei como um (recém-carregado) {\ em externo}.
-% Se assim for, uma instância dessa classe é criada, senão a instanciação falhará e um erro é
-% impresso.
-% De qualquer forma, todos os {\ em externas}-classes declaradas no {\ em biblioteca} são carregados por agora.
-% 
-% 
-% \ Subsection {my externo primeiro: {\ tt helloworld}}
-% Normalmente, a primeira tentativa de aprender uma linguagem de programação é um `` Olá mundo'' aplicativo.
-% 
-% No nosso caso, uma classe de objeto deve ser criado, que imprime a linha `` Olá mundo!'' Para
-% o erro padrão cada vez que é acionado com um estrondo ``'' mensagem.
-% 
-% 
-% 
-% \ Subsubsection {interface} para Pd
-% Para escrever um Pd externo uma interface bem definida é necessário.
-% Esta é fornecido no cabeçalho do arquivo ``-m \ -pd.h''.
-% 
-% \ Begin {verbatim}
-% # Include "m \ -pd.h"
-% \ End {verbatim}
-% 
-% \ Subsubsection {a classe e seu espaço de dados}
-% Primeiro, uma nova classe tem de ser preparado e do espaço de dados para esta classe tem de ser definida.
-% 
-% \ Begin {verbatim}
-% estática t \ -class * helloworld \ -class;
-% 
-% typedef struct \ {-helloworld
-%   t \ -object x \ -obj;
-% T} \ -helloworld;
-% \ End {verbatim}
-% 
-% \ Verb + Olá \ -worldclass + vai ser um ponteiro para a nova classe.
-% 
-% A estrutura \ verb + t \ -helloworld + (do tipo \ verb + \ -helloworld +) é
-% o espaço de dados da classe.
-% 
-% Um elemento absolutamente necessário do espaço de dados é uma variável do tipo
-% \ Verbo + t \ -object +, que é usado para armazenar internas de objectos de propriedades como
-% a apresentação gráfica do objeto ou dados sobre entradas e saídas.
-% 
-% \ Verbo + t \ -object + tem de ser a primeira entrada na estrutura!
-% 
-% Porque um mundo `` simples'' Olá aplicação não precisa de variáveis,
-% a estrutura está vazio para além da \ verbo + t \ -object +.
-% 
-% 
-% \ Subsubsection {espaço} método
-% Para além do espaço de dados, uma classe precisa de um conjunto de manipuladores (métodos) para
-% manipular os dados com.
-% 
-% Se uma mensagem é enviada a uma instância de nossa classe, um método é chamado.
-% Estes métodos são as interfaces para o sistema de mensagem de Pd.
-% Em princípio eles não têm argumento de retorno e, portanto, são da
-% Tipo \ verb + + vazio.
-% 
-% \ Begin {verbatim}
-% vazio helloworld \ -bang (t \ -helloworld * x)
-% {
-%   post ("Olá, mundo!");
-% }
-% \ End {verbatim}
-% 
-% 
-% Este método tem um argumento do tipo \ verb + t \ -helloworld +,
-% que nos permitem manipular o espaço de dados.
-% 
-% Uma vez que só quer a saída `` Olá, mundo!''
-% (E, pelo caminho, o nosso espaço de dados é bastante escassa),
-% que renunciar a uma manipulação.
-% 
-% O comando \ verb + post (char * c, ...) + envia uma string para o erro padrão.
-% Um retorno de carro é adicionado automaticamente.
-% Além disso, o \ verb + pós + comando funciona como o {\ tt C}-comando \ verb + printf () +.
-% 
-% \ Subsubsection {geração de uma nova classe}
-% Para gerar uma nova classe de informações, do espaço de dados eo espaço método desta classe,
-% tem de ser passado para Pd quando uma biblioteca é carregado.
-% 
-% Em carregamento de uma nova biblioteca `` meu \ -lib'',
-% Pd tenta chamar uma função `` meu \ -lib \ -setup ()''.
-% Esta função (ou funções chamadas por ele)
-% declara as novas classes e suas propriedades.
-% Ele só é chamado uma vez, quando a biblioteca é carregada.
-% Se a função de chamada de falha (por exemplo, porque nenhuma função do nome especificado está presente)
-% nenhum externa da biblioteca será carregado.
-% 
-% \ Begin {verbatim}
-% vazio helloworld \ -setup (void)
-% {
-%   helloworld \ -class = class \ -new (gensym ("HelloWorld"),
-%         (T \ -newmethod) helloworld \ -new,
-%         0, sizeof (t \ -helloworld),
-%         CLASS \ -Default, 0);
-% 
-%   class \ -addbang (helloworld \ -class, helloworld \ -bang);
-% }
-% \ End {verbatim}
-% 
-% \ N {class \ -new}
-% 
-% A função \ verb + class \ -new + cria uma nova classe e retorna um ponteiro para este protótipo.
-% 
-% O primeiro argumento é o nome simbólico da classe.
-% 
-% Os próximos dois argumentos definir o construtor e destrutor da classe.
-% 
-% Sempre que um objeto da classe é criada em um Pd-patch,
-% a classe-construtor \ verb + (t \ -newmethod) helloworld \ -new + instancia o objeto
-% e inicializa o espaço de dados.
-% 
-% Sempre que um objeto é destruído
-% (Ou fechando o patch contendo ou apagando o objeto do patch)
-% O destruidor libera a memória dinamicamente reservados.
-% A memória alocada para o espaço de dados estáticos é automaticamente reservado e liberado.
-% 
-% Portanto, não é necessário fornecer um destruidor neste exemplo, o argumento
-% é definido como `` 0''.
-% 
-% Para habilitar Pd para reserva e memória suficiente para o espaço de dados estáticos,
-% o tamanho da estrutura de dados tem de ser passado como o argumento quarto.
-% 
-% O quinto argumento tem influência sobre a representação gráfica dos objetos da classe.
-% O valor padrão é \ verb + CLASS \ -Default + ou simplesmente `` 0''.
-% 
-% Os argumentos restantes definem os argumentos de um objeto e seu tipo.
-% 
-% Até seis simbólico e numérico objeto-argumentos podem ser definidas através de
-% \ Verb + A \ -DEFFLOAT + e \ verb + A \ -DEFSYMBOL +.
-% Se mais argumentos devem ser passados ​​para o objeto
-% ou se a ordem de tipos de átomos deve por mais flexível,
-% \ Verbo + A \ -GIMME + pode ser utilizado para passar uma lista arbitrária de átomos.
-% 
-% A lista de objetos de argumentos é denunciado por `` 0''.
-% Neste exemplo temos nenhum objeto-argumentos em tudo para a classe.
-% 
-% \ N {class \ -addbang}
-% Nós ainda temos que adicionar um espaço método para a classe.
-% 
-% \ Verb + class \ -addbang + adiciona um método para um estrondo ``'' mensagem para a classe que é
-% definida no primeiro argumento.
-% O método adicionado é definido no segundo argumento.
-% 
-% 
-% \ Subsubsection {construtor: instanciação de um objeto}
-% Cada vez, um objeto é criado em uma Pd-patch, o
-% construtor que é definido com o \ verb + class \ -new + comando,
-% gera uma nova instância da classe.
-% 
-% O construtor tem que ser do tipo \ verb + + void *.
-% 
-% \ Begin {verbatim}
-% void * helloworld \ -new (void)
-% {
-%   t \ -helloworld * x = (t \ -helloworld *) pd \ -new (helloworld \ -class);
-% 
-%   retorno (void *) x;
-% }
-% \ End {verbatim}
-% 
-% 
-% Os argumentos do construtor-método dependem do objeto-argumentos
-% definido com \ verb + class \ -new +.
-% 
-% \ Begin {tabular} {l | l}
-% \ Verb + class \ -new + argumento e construtor argumento \ \
-% \ Hline
-% \ Verb + A \ -DEFFLOAT + & \ verb + t \ -floatarg f + \ \
-% \ Verb + A \ -DEFSYMBOL + & \ verb + t \ -symbol * s + \ \
-% \ Verb + A \ -GIMME + & \ verb + t \ -symbol * s, int argc, t \ -atom * argv +
-% \ End {tabular}
-% 
-% Porque não há objeto de argumentos para a nossa classe'' Olá `` do mundo,
-% o construtor tem anon também.
-% 
-% A função \ verb + pd \ -new + reserva memória para o espaço de dados,
-% inicializa as variáveis ​​que são internos ao objeto e
-% retorna um ponteiro para o espaço de dados.
-% 
-% O tipo fundido para o espaço de dados é necessário.
-% 
-% Normalmente, o construtor que inicialize o objeto-variáveis.
-% No entanto, uma vez que não têm nenhum, isso não é necessário.
-% 
-% 
-% O construtor tem de retornar um ponteiro para o espaço de dados instanciado.
-% 
-% \ Subsubsection {o código: \ tt helloworld}
-% 
-% \ Begin {verbatim}
-% # Include "m \ -pd.h"
-% 
-% estática t \ -class * helloworld \ -class;
-% 
-% typedef struct \ {-helloworld
-%   t \ -object x \ -obj;
-% T} \ -helloworld;
-% 
-% vazio helloworld \ -bang (t \ -helloworld * x)
-% {
-%   post ("Olá, mundo!");
-% }
-% 
-% void * helloworld \ -new (void)
-% {
-%   t \ -helloworld * x = (t \ -helloworld *) pd \ -new (helloworld \ -class);
-% 
-%   retorno (void *) x;
-% }
-% 
-% vazio helloworld \ -setup (void) {
-%   helloworld \ -class = class \ -new (gensym ("HelloWorld"),
-%         (T \ -newmethod) helloworld \ -new,
-%         0, sizeof (t \ -helloworld),
-%         CLASS \ -Default, 0);
-%   class \ -addbang (helloworld \ -class, helloworld \ -bang);
-% }
-% \ End {verbatim}
-% 
-% 
-% \ Subsection {a externa simples: {\ tt contador}}
-% 
-% Agora, queremos realizar um contador simples como externo.
-% `` Um'' gatilho bang-saídas do contador de valor na saída e
-% depois aumenta o contador de valor por 1.
-% 
-% Esta classe é semelhante ao anterior,
-% mas o espaço de dados é estendido por uma'' variável `` contador eo
-% resultado é escrito como uma mensagem a uma tomada, em vez de
-% uma string para o erro padrão.
-% 
-% \ Subsubsection {objeto de variáveis}
-% Claro que, um contador necessita de um estado variável para armazenar o valor real do contador.
-% 
-% Estado-variáveis ​​que pertencem à classe instâncias pertencem ao espaço de dados.
-% 
-% \ Begin {verbatim}
-% typedef struct \ {-counter
-%   t \ -object x \ -obj;
-%   t \ -int i \ -count;
-% T} \ -counter;
-% \ End {verbatim}
-% 
-% A variável integer \ verb + i \ -count + armazena o valor do contador.
-% 
-% \ Subsubsection {Object-argumentos}
-% É bastante útil para um contador, se um valor inicial pode ser definida pelo utilizador.
-% Portanto, esse valor inicial deve ser passado para o objeto em tempo de criação.
-% 
-% \ Begin {verbatim}
-% vazio contador \ -setup (void) {
-%   contador \ -class = class \ -new (gensym ("contador"),
-%         (T \ -newmethod) counter \ -new,
-%         0, sizeof (t \ -counter),
-%         CLASS \ -Default,
-%         A -DEFFLOAT \, 0);
-% 
-%   class \ -addbang (contador \ -class, contador \ -bang);
-% }
-% \ End {verbatim}
-% 
-% Portanto, temos um argumento adicional na função \ verb + class \ -new +:
-% \ Verb + A \ -DEFFLOAT + tells Pd, que o objeto precisa de um argumento do
-% Tipo \ verb + t \ -floatarg +.
-% Se nenhum argumento é passado, este será o padrão para `` 0''.
-% 
-% \ Subsubsection {construtor}
-% O construtor tem algumas novas tarefas.
-% Por um lado, um valor variável tem de ser inicializado,
-% por outro lado, uma saída para o objecto tem de ser criado.
-% 
-% \ Begin {verbatim}
-% void * contador \ -new (t \ -floatarg f)
-% {
-%   t \ -counter * x = (t \ -counter *) pd \ -new (contador \ -class);
-% 
-%   x-> i \ -count = f;
-%   tomada \ -new (& x-> x -obj \ & s \ -float);
-% 
-%   retorno (void *) x;
-% }
-% \ End {verbatim}
-% 
-% O construtor método tem um argumento do tipo \ verb + t \ -floatarg +, conforme declarado
-% na configuração de rotina por \ verb + class \ -new +.
-% Este argumento é usado para inicializar o contador.
-% 
-% Um novo mercado é criado com a função de \ verb + tomada \ -new +.
-% O primeiro argumento é um ponteiro para a interna do objeto
-% da tomada de novo é criado.
-% 
-% O segundo argumento é uma descrição simbólica da tomada do tipo.
-% Desde que fora contador deve produzir valores numéricos é do tipo ``'' float.
-% 
-% \ Verb + tomada \ -new + retorna um ponteiro para a tomada de novo e salva este ponteiro muito
-% no \ verb + t \ -object + variável \ verb + x \ -obj.ob \ -outlet +.
-% Se apenas uma saída é usado, o ponteiro não precisa de ser adicionalmente armazenado no espaço de dados.
-% Se mais do que um escoamento são usados, os ponteiros têm de ser armazenado no espaço de dados,
-% porque o \ verb + t \ -object + variável só pode conter um ponteiro de saída.
-% 
-% \ Subsubsection {o método contador}
-% Quando accionado, o valor do contador deve ser enviada para a saída
-% e depois ser incrementado em 1.
-% 
-% \ Begin {verbatim}
-% vazio contador \ -bang (t \ -counter * x)
-% {
-%   t \ -float f = x-> i \ -count;
-%   x-> i \ -count + +;
-%   tomada \ -float (x-> x \ -obj.ob \ -outlet, f);
-% }
-% \ End {verbatim}
-% 
-% A função \ verb + tomada \ -float + envia um valor de ponto flutuante (segundo argumento) para a saída
-% que é especificado pelo primeiro argumento.
-% 
-% Nós primeiro armazenar o contador em um buffer de ponto flutuante.
-% Depois disso, o contador é incrementado, e não antes que a variável tampão é enviado
-% para a saída.
-% 
-% O que parece ser desnecessária a primeira vista, faz sentido depois de mais
-% inspeção:
-% A variável buffer foi realizado como \ verb + t \ -float +,
-% desde \ verb + tomada \ -float + espera um valor de ponto flutuante e um typecast é
-% inevitável.
-% 
-% Se o valor do contador foi enviado para a saída antes de ser incrementado,
-% isso poderia resultar em um comportamento (embora bem definida) indesejado:
-% Se a contra-saída diretamente provocado sua entrada própria,
-% o contador método-seria chamado embora o valor do contador não foi ainda incrementado.
-% Normalmente isto não é o que queremos.
-% 
-% O resultado (correcta) mesmo poderia evidentemente ser obtido com uma única linha,
-% mas isso iria obscurecer o {\ em reentrante} problema.
-% 
-% \ Subsubsection {o código: \ tt contador}
-% 
-% \ Begin {verbatim}
-% # Include "m \ -pd.h"
-% 
-% estática t \ -class * contador \ -class;
-% 
-% typedef struct \ {-counter
-%   t \ -object x \ -obj;
-%   t \ -int i \ -count;
-% T} \ -counter;
-% 
-% vazio contador \ -bang (t \ -counter * x)
-% {
-%   t \ -float f = x-> i \ -count;
-%   x-> i \ -count + +;
-%   tomada \ -float (x-> x \ -obj.ob \ -outlet, f);
-% }
-% 
-% void * contador \ -new (t \ -floatarg f)
-% {
-%   t \ -counter * x = (t \ -counter *) pd \ -new (contador \ -class);
-% 
-%   x-> i \ -count = f;
-%   tomada \ -new (& x-> x -obj \ & s \ -float);
-% 
-%   retorno (void *) x;
-% }
-% 
-% vazio contador \ -setup (void) {
-%   contador \ -class = class \ -new (gensym ("contador"),
-%         (T \ -newmethod) counter \ -new,
-%         0, sizeof (t \ -counter),
-%         CLASS \ -Default,
-%         A -DEFFLOAT \, 0);
-% 
-%   class \ -addbang (contador \ -class, contador \ -bang);
-% }
-% \ End {verbatim}
-% % Desfazer edições
 
 
 
