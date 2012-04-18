@@ -5756,7 +5756,7 @@ Por fim um protótipo de um auto-regulador de limite de amplitude é mostrado
 no sub-patch [pd autocompressor] na figura \ref{autolimiter}.
 
 
-\section{Visualizador de Notação musical}
+\section{Visualização de Notação musical}
 \label{sec-notacao}
 
 
@@ -5779,36 +5779,111 @@ a prática musical com o sistema.
 
 \subsubsection{Pd e Lilypond via Rosegarden}
 
-\begin{figure}
-\includegraphics[scale=.6]{audio2midi}
-\caption{Pd e lilypond via rosegarden}
-\label{pdlilypond1}
-\end{figure} 
-
 
 \begin{figure}
 \includegraphics[scale=.6]{teste-noquantize}
 \caption{edição no rosegarden de sequência enviada do pd}
-\label{fft-subpatch}
+\label{noquantize}
 \end{figure} 
 
-Na figura \ref{audio2midi} vemos o ambiente de trabalho que conecta
+Na figura \ref{audio2midi} vemos uma possibilidade que conecta
 o resultado da composião algorítmica com o sequenciador Rosegarden.
 O resultado da análise de áudio de [sinc-audionalise] é convertido
 em fluxo MIDI com o objeto [makenote]. No canto direito superior da figura
 vemos a conexão gráfica do Pd com o Rosegarden feito com o programa Jack.
 
-Uma limitação desse modelo está no fato de não ser possível sincronizar
-automaticamente o controle do sequenciador no Rosegarden com o algoritmo
+A conexão do Pd com o Rosegarden pode ser feita em tempo-real com Jack, ou
+salvando um arquivo MIDI com Pd e abrindo manualmente no Rosegarden.
+Uma limitação desse modelo está no fato de não ter sido implementada uma sincronização
+automática do controle do sequenciador no Rosegarden com o algoritmo
 feito no Pd. Isso acarreta que o resultado final da partitura exige
 mais edição manual usando quantização e correções rítmicas manuais.
-* explicar essas figuras
 
-* o que não dá pra ser feito (ritmos e andamento)
+Na figura \ref{noquantize} vemos um exemplo do trabalho manual durante a 
+edição de partitura no Rosegarden. Podemos notar que a interface de piano-roll
+permite uma edição precisa, além de fornecer algumas configurações de 
+quantização automática.
 
-* o que falta pra scriptar do pd direto no lilypond - external(?)
 
-* 
+\subsection{Pd e Lilypond via FOMUS}
+
+
+% breve intro
+
+FOMUS\footnote{Disponível em: http://fomus.sourceforge.net/} é um programa \textit{open source} que automatiza diversas tarefas de notação musical para compositores. 
+Facilita o processo de criação de partituras profissionais por permitir que o compositor trabalhe separadamente os atributos 
+lógicos, tais como os tempos, durações e alturas, da representação deles em notação musical convencional. 
+
+É especialmente útil para os compositores que trabalham com algoritmos e linguagens de programação para música ou 
+ambientes de programação, tais como CM / Grace, Pd e Lisp. Também pode ser usado para importar dados de arquivos MIDI em um editor 
+de notação gráfica ou a criação de partituras a partir do zero usando arquivos de texto.
+
+Em FOMUS, a entrada de eventos musicais está reduzida a um pequeno conjunto de atributos básicos: tempo, 
+duração, altura, uma lista de marcas e um nível de dinâmica opcional. As medidas são também concebidas como 
+recipientes com deslocamentos de tempo e durações. Com a mudança de algumas configurações, uma pontuação inteiro pode 
+ser reescrita com diferentes valores rítmicos (por exemplo, em vez de colcheias semínimas), ou com uma divisão de compasso 
+diferente (por exemplo, 5/8, em vez de 4/4). 
+
+\begin{figure}
+\includegraphics[scale=.6]{fomus}
+\caption{Resultado de FOMUS em Lilypond}
+\label{fomus}
+\end{figure} 
+
+FOMUS transcreve os comandos acima para a sintaxe do Lilypond.
+O resultado do código abaixo pode ser visto na figura \ref{fomus}.
+
+
+\begin{verbatim}
+time 0 dur 1 pitch 60 ;
+time 1 dur 0.5 pitch 62 ;
+time 2 dur 1 pitch 64 ;
+time 3 dur 1 pitch 65 ;
+time 4 dur 1 pitch 67 ;
+time 5 dur 1 pitch 65 ;
+time 6 dur 1 pitch 64 ;
+time 7 dur 1 pitch 62 ;
+time 8 dur 1 pitch 60 ;
+\end{verbatim}
+
+
+\begin{figure}
+\includegraphics[scale=.6]{sinc-fomus}
+\caption{Patch mostrando funcionalidade básica do objeto [fomus]}
+\label{sinc-fomus}
+\end{figure}
+
+
+\begin{figure}
+\includegraphics[scale=.6]{sinc-fomus-array}
+\caption{Sub-patch [pd arrays] do patch da figura \ref{sinc-fomus}}
+\label{sinc-fomus-array}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.6]{trab-fomus}
+\caption{ambiente de trabalho com Pd, FOMUS e editor de Lilypond (Frescobaldi)}
+\label{trab-fomus}
+\end{figure}
+
+
+
+
+Um external de Pd foi desenvolvido para facilitar a visualização
+de procedimentos algoritmicos em notação musical. Podemos ver um patch de
+exemplo na figura \ref{sinc-fomus}, onde o objeto [fomus] recebe os parâmetros através
+de várias entradas. A funcionalidade depende da ordem em que cada parâmetro
+é enviado para o objeto [fomus]. Na figura \ref{sinc-fomus-array} vemos o subpatch [pd arrays]
+onde temos dois arrays para escrever, ler e armazenar os dados relativos a
+duração e pitch. Uma visão geral do ambiente de trabalho com Pd, FOMUS e 
+um editor de Lilypond (no caso dessa figura está sendo usado o editor
+\textit{Frescobaldi}\footnote{Disponível em : http://frescobaldi.org/}) pode ser visto na figura \ref{trab-fomus}.
+Considero esse ambiente de trabalho ideal para composição de música algorítmica
+escrita para instrumentos tradicionais, onde o compositor pode interferir no algoritmo em 
+tempo-real.
+
+
+
 
 
 
@@ -5828,7 +5903,7 @@ mais edição manual usando quantização e correções rítmicas manuais.
 \end{figure} 
 
 Para a função de visualização de notação musical
-em tempo-real foi escolhida nesse primeiro protótipo, foi escolhida a plataforma GEM.
+em tempo-real foi desenvolvido um protótipo, com a plataforma GEM.
 A principal vantagem de usar GEM como motor de notação musical é a possibilidade
 de integrar elementos como vídeo e modelagem 3D em uma possível poética audiovisual integrada.
 
@@ -5940,18 +6015,33 @@ consists of over 800 lines of code and took 6 months to write, but there is much
 
 Podemos ver o uso do objeto [gemnotes] na figura \ref{gemnotes1} e no arquivo "help" na figura \ref{gemnotes-help}.
 
-%parafrasear
 
-The emphasis so far has been to encapsulate all of the features of Western musical 
-notation…but, because it is written in PD with GEM, it is open to less literal expositions of notated music, 
-since anything (including video) can be projected in the same graphical space as the notation, and even anchored 
-to a stave in gemnotes.
+\begin{figure}
+\includegraphics[scale=.6]{solitude}
+\caption{Notação gráfica da peça ``Solitude'' por Hans Christoph Steiner}
+\label{solitude}
+\end{figure} 
 
+\begin{figure}
+\includegraphics[scale=.6]{iannix}
+\caption{Interface gráfica de Iannix}
+\label{iannix}
+\end{figure} 
 
-%%Apesar de ser um projeto promissor, o objetivo da notação musical em tempo-real no presente projeto é apenas
+A ampliação do projeto de visualização de notação musical vem para auxiliar a sinestesia do instrumentista
+com o sistema em tempo-real, além de auxiliar o processo de composição. 
+Outras soluções que já podem ser operadas em integração com SInCoPA podem ser apontadas para o futuro da pesquisa, como por exemplo:
 
-A ampliação do projeto de Visualização de notação musical vem para auxiliar a sinestesia do instrumentista
-com o sistema em tempo-real.
+\begin{itemize}
+ \item Inscore\footnote{Disponível em: http://inscore.sourceforge.net/} - Projeto que pretende criar uma base para
+o desenvolvimento de Partituras interativas aumentadas.
+ \item Data structures - Objetos nativos de Pd que permitem uma representação gráfica de estruturas de dados
+customizados. Um uso dos objetos data structures pode ser visto na composição de música com notação gráfica, como
+é o caso da peça ``Solitude'' de Hans Christoph Steiner, visto na figura \ref{solitude}.
+ \item Iannix\footnote{Disponível em - http://www.iannix.org} - Programa sequenciador gráfico que envia a sequência
+para outros programas via protocolo OSC. Um exemplo pode ser visto na figura \ref{iannix}.
+\end{itemize}
+
 
 %% Incluir mini-conclusão
 
