@@ -3825,12 +3825,13 @@ resultado funciona bem como uma textura dissonante .
 
 O objetivo é a investigação de possibilidades e prototipação de estruturas computacionais com 
 objetivo de agregar interatividade ao trabalho composicional.  
-	Apesar desses harmonizadores terem sido usados nessa peça para interação com áudio em 
+	Apesar desses harmonizadores terem sido usados nessa pesquisa para interação com áudio em 
 tempo-real, podem ser muito úteis como geradores de material escrito em notação tradicional, 
 como mostra a figura \ref{harm5}. Esta imagem mostra o patch de Pd mandando as informações para o programa 
 de notação Rosegarden através do programa Jack que funciona como um servidor de comunicação entre 
-programas.Esse tipo de operação possibilita uma usabilidade do Pd semelhante ao programa Open-music 
-do Ircam.
+programas.Esse tipo de operação possibilita uma usabilidade do Pd semelhante ao programa \textit{Open-music}\footnote{Disponível em:
+http://repmus.ircam.fr/openmusic/home}
+desenvolvido no Ircam.
 
 
 \subsubsection{Acorde pertence a coleção de notas}
@@ -4949,8 +4950,29 @@ na composição interna da abstração [sinc-pan] na figura \ref{pan}.
 
 \chapter{Aplicações composicionais}
 
-\section{Experimentos}
+Alguns fatores anteriores propiciaram o pleno desenvolvimento
+dessa pesquisa. Durante minha graduação em Violão, participei
+de um grupo de pesquisa em síntese sonora onde aprendi a programar
+em Csound onde desenvolvi uma série de peças acusmáticas. 
+Essa experiência chamou minha atenção para a música
+eletroacústica e para a computação musical. 
 
+Durante o mestrado tive o primeiro contato com o ambiente
+Max/MSP e desenvolvi uma série de composições para instrumentos
+tradicionais como clarinete, marimba e violão. Ao mesmo tempo
+desenvolvi uma série de improvisações coletivas usando computador,
+no circuito artístico da música experimental brasileira.
+
+De certa maneira, a experiência intensa como instrumentista
+durante a graduação sempre ficou distante da rotina da
+computação musical. Durante essa pesquisa o objetivo musical central 
+foi a união dessa duas dimensões do fazer musical.
+
+Nesse capítulo irei descrever brevemente alguns experimentos realizados
+ao longo da pesquisa e um resultado composicional derivado
+da desenvolvimento dos módulos de SInCoPA.
+
+\section{Experimentos}
 
 O desenvolvimento cronológico dessa pesquisa levou a um primeiro momento de intenso aprendizado
 dos detalhes e técnicas de programação com Pd, desenvolvendo materiais didáticos, traduções, e uma
@@ -4975,7 +4997,7 @@ teclado alfanumérico. Foram usados somente geradores de sinal do Pd e nenhum ob
  Procurei explorar um contraste entre gestos de modulações com AM e FM e filtragem de ruído branco.
 
 A comunidade de desenvolvimento do Pd é muito ativa, e explicitamente projetos open-source
-se esforçam para mudar a condição do interessado no software de usuário passivo a participante ativo do desenvolvimento
+se esforçam para mudar a condição do interessado no software de usuário a participante ativo do desenvolvimento
 e das decisões coletivas sobre os caminhos que a linguagem deve tomar. Esse  fator acarretou na participação na
 organização de 2 eventos com desenvolvedores e forte interação com a comunidade\footnote{III International
 Convention of Puredata (PdCon) em São Paulo e o I Simpósio Internacional de Interatividade nos Sistemas
@@ -4985,7 +5007,7 @@ participação em desenvolvimento de projetos coletivos usando pure data, como m
 
 Outra experiência de composição mista foi a peça ``Oferenda''(2009) para sax contralto e Pd, 
 apresentada na PdCon em São Paulo. Nessa peça, a parte do sax é totalmente improvisada e 
-o computador funciona como um instrumento com outro músico controlando apsectos de 
+o computador funciona como um instrumento com outro músico controlando aspectos de 
 processamento de áudio e sincronizando samples de percussão com a performance do sax. 
 Nesse mesmo ano, foi desenvolvido um patch para interação entre duas guitarras, onde a
 análise de pitch controla um jogo do tipo ``Pong'', implementado em Pd/GEM. 
@@ -5020,31 +5042,131 @@ O experimento mostrado na figura \ref{experimento1} mostra um diálogo
 entre um instrumentista com os geradores MIDI descritos na pesquisa.
 Nesse experimento o cenário de interação é programado para imitar
 o músico. No sentido de que se a densidade rítmica do instrumentista fica maior,
-o gerador rítmico aciona o com maior densidade e assim por diante.
+é acionado o gerador rítmico com maior densidade e assim por diante.
 
 Um vídeo\footnote{www.cristianofigo.wordpress.com} pode ser visto mostrando a imagem da performance instrumental
 na guitarra elétrica e a atividade do programa com o áudio gerado.
 
-\subsection{Experiências prévias}
 
-Alguns fatores anteriores propiciaram o pleno desenvolvimento
-dessa pesquisa. Durante minha graduação em Violão, participei
-de um grupo de pesquisa em síntese sonora onde aprendi a programar
-em Csound onde desenvolvi uma série de peças acusmáticas. 
-Essa experiência chamou minha atenção para a música
-eletroacústica e para a computação musical. 
 
-Durante o mestrado tive o primeiro contato com o ambiente
-Max/MSP e desenvolvi uma série de composições para instrumentos
-tradicionais como clarinete, marimba e violão. Ao mesmo tempo
-desenvolvi uma série de improvisações coletivas usando computador,
-no circuito artístico da música experimental brasileira.
+\section{Diálogos em SInCoPA}
 
-De certa maneira, a experiência intensa como instrumentista
-durante a graduação sempre ficou distante da rotina da
-computação musical. Durante essa pesquisa o objetivo musical central 
-foi a união dessa duas dimensões do fazer musical.
+Essa peça é um resultado de todas experimentações desenvolvidas ao longo da pesquisa. É
+composta para um instrumento tradicional e computador rodando SInCoPA. A forma é aberta,
+e os materiais são definidos em tempo-real pelo instrumentista. A idéia é que durante a
+execução o instrumentista não precise usar o mouse e o teclado do 
+computador. Alguns botões de controle são definidos em um teclado alfanumérico que funciona como
+pedal como visto na figura \ref{teclado}.
 
+A notação da peça é o próprio patch que define o modo e os comportamentos
+da interação. O instrumentista é encorajado a criar o seu próprio esquema
+de notação da performance ou usar o patch de ``Diálogos em SINCoPA'' para
+improvisar com outros músicos.
+
+Cada performance resulta em sonoridades diferentes. Ainda que seja possível o
+reconhecimento auditivo de que se trata da mesma peça. O estudo e execução da peça
+não exige nenhum conhecimento especializado de computação, apenas a disponibilidade de um 
+computador para ensaiar. O estudo da peça passa por uma série de improvisações onde
+o instrumentista aprende empíricamente como que cada módulo reage de acordo com
+diferentes gestos instrumentais.
+
+\begin{figure}
+\includegraphics[scale=.4]{comp}
+\caption{Visão geral do patch principal da composição ``Diálogos em SINCoPA''}
+\label{comp}
+\end{figure}
+
+Na figura \ref{comp} vemos o patch principal de ``Diálogos em SINCoPA'', com quatro
+módulos interativos embaixo, e um módulo de anĺaise de áudio na parte direita superior.
+
+\begin{figure}
+\includegraphics[scale=.4]{audio-midi}
+\caption{Visão da abstração [audio\_midi]}
+\label{audio-midi}
+\end{figure}
+
+
+A abstração [audio\_midi] pode ser vista na figura \ref{audio-midi} e consiste
+de uma combinação dos módulos de análise de áudio [sinc-audioin] e [sinc-audioanalise].
+O resultado da análise de áudio é convertido em fluxo MIDI com os objetos nativos 
+[makenote] e [noteout]. 
+
+
+\begin{figure}
+\includegraphics[scale=.4]{sintese}
+\caption{Visão do sub-patch [pd sintese interativa]}
+\label{sintese}
+\end{figure}
+
+O sub-patch [pd sintese interativa] tem por finalidade criar um sintetizador que tenha
+seus parâmetros controlados pela análise do áudio de entrada. A visão geral desse sub-patch pode
+ser vista na figura \ref{sintese}.
+Cada nota executada pelo
+instrumentista aciona uma nota simultânea no sintetizador. É feito um cálculo da distância
+do pitch da última nota em relação a nota atual. O resultado desse cálculo é reduzido ao valor
+absoluto com o objeto [abs]. Esse valor por sua vez é mapeado com a abstração [sinc.linear] para
+duas escalas e enviado para o sintetizador com as variáveis [s mod\_amp] e [s mod\_freq].
+
+%% carregar figura de partitura referente a esse módulo
+
+%% criar tabela mostrando as alterações dos índices de modulação do sintetizador
+\begin{figure}
+\includegraphics[scale=.4]{part1}
+\caption{Exemplo de trecho executado explorando interação com [pd sintese interativa]}
+\label{part1}
+\end{figure}
+
+
+\begin{center}
+    \begin{tabular}{ | l | l | p{5cm} |}
+    \hline
+    Pitch original & mod\_freq & mod\_amp \\ \hline
+    60 & 315.789 & 1052.63  \\ \hline
+    77 & 505.263 & 1684.21  \\ \hline
+     74 & 63.1579 & 210.526  \\ \hline
+    73 & 0 & 0 \\ \hline
+    74 & 0 & 0 \\ \hline
+    73 & 0  & 0 \\ \hline
+    79 & 157.895 & 526.316 \\ \hline
+    78 &  0 & 0 \\ \hline
+    79 & 0 & 0 \\ \hline
+    76 & 63.1579 & 210.526 \\ \hline
+    81 & 126.316 & 421.053 \\ \hline
+    74 & 189.474 & 631.579 \\ \hline
+   81 & 189.474 & 631.579 \\ \hline
+   72 & 252.632 & 842.105 \\ \hline
+  83 & 315.789 & 1052.63 \\ \hline
+   71 & 347.368 & 1157.89 \\ \hline
+    \hline
+    \end{tabular}
+\end{center}
+
+
+
+
+              
+
+
+
+% módulos de 
+
+\begin{figure}
+\includegraphics[scale=.4]{algoritmo}
+\caption{Visão do sub-patch [pd algortimos\_generativos]}
+\label{algoritmo}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{sinc-midilive}
+\caption{Visão da abstração [sinc-midilive]}
+\label{sinc-midilive}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{sinc-harmonia}
+\caption{Visão da abstração [sinc-harmonia]}
+\label{sinc-harmonia}
+\end{figure}
 
 
 
@@ -5208,8 +5330,6 @@ focar o desenvolvimento nos níveis de análise descritos na seção \ref{analis
 A prática com redes neurais demonstrou um grande potencial como ferramenta para análise.
 Dentro do recorte dessa pesquisa, a análise tem um espaço importante, entretanto o objetivo
 final é o desenvolvimento de uma ferramenta para a composição de música interativa.
-O desenho geral do presente sistema como é concebido atualmente, pode ser visto na 
-figura XXX
 
 Outra possibilidade seria o uso de mapas auto-organizáveis (redes de Kohonen), que é
 um tipo de rede neural artificial não supervisionada, que não necessita
