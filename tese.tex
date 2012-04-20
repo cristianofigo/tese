@@ -99,7 +99,8 @@ pela comunidade de compositores interessados em compôr música baseada
 na interação homem-máquina. Notadamente a linguagem Pure data (Pd),
 vem sendo amplamente adotada pela flexibilidade de extensão de objetos 
 e capacidade de se integrar a outras linguagens e soluções existentes
-no campo da computação musical. Pd é uma linguagem gráfica...
+no campo da computação musical. Pd é uma linguagem gráfica orientada
+ao objeto e escrita com a linguagem C.
 
 Mesmo possibilitando diversas soluções ao compositor, o Pd exige
 o estudo formal de sua gramática tal qual qualquer linguagem de 
@@ -108,10 +109,12 @@ são específicas e dificilmente adaptáveis a problemas gerais de
 composição.
 
 Nesta pesquisa investigamos o problema da criação de uma biblioteca
-de utilitários que realizem a interação entre os conhecimentos necessários
-para criação de música interativa. A criação dessa biblioteca permite
+de utilitários que auxiliam a criação de música interativa. 
+A biblioteca foi batizada como SInCoPA, acrônimo de Sistema Interativo
+de Composição, Performance e Análise.
+A utilização de SInCoPA permite
 soluções híbridas interligando diversas outras bibliotecas gerais e
-específicas desenvolvidas pela comunidade. O uso da biblioteca
+específicas desenvolvidas pela comunidade. O uso de SInCoPA
 propicia ao compositor uma rápida prototipagem em música interativa e 
 integração com outros fluxos de trabalho, ao mesmo tempo em que permite
 um estudo mais aprofundado da linguagem e customização da própria biblioteca
@@ -125,25 +128,29 @@ apresentada aqui.
 The creation of interactive music is a task that involves many
 knowledge and techniques of musical composition, sound synthesis,
 analysis and digital signal processing and interface design.
-In recent years, several projects have been developed and adopted
+In recent years, several projects have been developed and adopted by a
 community of composers interested in composing music based
-in human-machine interaction. Notably language Pure Data (PD),
+in human-machine interaction. Notably language Pure Data (Pd),
 has been widely adopted by the flexibility of extended objects
 and ability to integrate with other languages ​​and existing solutions
-in the field of computer music. Pd is a graphical language ...
+in the field of computer music. Pd is a graphical language object-oriented
+and written in C language.
 
-Even allowing for different solutions to the composer, the Pd requires
-the formal study of its grammar so that any language
-programming. Many of the solutions presented by the community
-are specific and hardly adaptable to general problems of
+Even allowing for different solutions to the composer, the Pd language requires
+the formal study of its grammar, like any programming language. 
+Many of the solutions presented by the community
+are specific and sometimes hardly adaptable to general problems of
 composition.
 
 In this study we investigated the problem of creating a library
-utilities that perform the interaction between the knowledge needed
-for creating interactive music. The creation of this library allows
-interconnecting hybrid solutions and various other general libraries
-specific developed by the community. The use of the library
-the composer provides a rapid prototyping in interactive music and
+utilities that assist the creation of interactive music.
+The library was named as SInCoPA, which stands for \textit{Sistema Interativo
+de Composição, Performance e Análise}\footnote{Interactive System
+Composition, Performance and Analysis}.
+The use of SInCoPA allows
+interconnecting hybrid solutions and various other general and specific libraries
+ developed by the community. The use of SInCoPA
+ provides to the composer a rapid prototyping in interactive music and
 integration with other streams of working at the same time allowing
 further study of language and customization of the library itself
 presented here.
@@ -450,13 +457,20 @@ Em relação a essa divisão do aspecto ``performático'' e
 ``composicional'' do Pd, Miller Puckette explica que
 
 \begin{quote}
-  in its most succinct form, the problem is that, while we have good
+Em sua forma mais sucinta, o problema é que, enquanto temos bons
+paradigmas para descrever processos (tal como em Max ou Pd, da forma como
+eles existem hoje), e enquanto muito trabalho tem sido feito na parte 
+de representação de dados musicais (incluindo buscas em bases de dados
+de sons, passando pelos programas Patchwork e OpenMusic, e incluindo
+o não finalizado editor de estruturas de dados do Pd}, não possuímos
+um mecanismo fluído para navegar entre esses dois mundos. \cite{puckette04:divide}
+  \footnote{in its most succinct form, the problem is that, while we have good
   paradigms for describing processes (such as in the Max or Pd
   programs as they stand today), and while much work has been done on
   representations of musical data (ranging from searchable databases
   of sound to Patchwork and OpenMusic, and including Pd's unfinished
   data editor), we lack a fluid mechanism for the two worlds to
-  interoperate. \cite{puckette04:divide}
+  interoperate.} 
 \end{quote}
 
 Apesar das muitas diferenças entre
@@ -498,23 +512,21 @@ ou vetores de força que moldaram aspectos do resultado final.
 Sobre a análise feita por computadores, Rowe acrescenta:
 
 \begin{quotation}
-There is a certain paradox at the heart of the transfer of musical
+Há um certo paradoxo no coração da 
+transferência de musical
+conhecimento para uma máquina. Temos que trabalhar intensamente para fazer um programa de computador
+efetuar as análises necessárias de um calouro estudante de música.
+Uma vez que o trabalho é feito, no entanto, o programa pode fazer uma análise mais confiável
+e certamente muito mais rapidamente do que o calouro. O computador pode entregar
+descrições completas de cada acorde em um ditado em milisegundos
+do seu desempenho, por exemplo. \cite{rowe2004machine}
+\footnote{There is a certain paradox at the heart of the transfer of musical
 knowledge to a machine. We must labor mightily to make a computer
 program perform the analysis required of a freshman music student.
 Once the work is done, however, the program can make analyses more reliably
 and certainly much more quickly than the freshman. The computer can deliver 
 complete descriptions of each chord in a dictation within miliseconds
-of its performance, for example. \cite{rowe2004machine}
-
-
-\footnote{Há um certo paradoxo no coração da 
-transferência de musical
-conhecimento para uma máquina. Temos que trabalham fortemente para fazer um computador
-programar efectuar as análises necessárias de um estudante de música de calouro.
-Uma vez que o trabalho é feito, no entanto, o programa pode fazer uma análise mais confiável
-e certamente muito mais rapidamente do que o calouro. O computador pode entregar
-descrições completas de cada acorde em um ditado em milisegundos
-do seu desempenho, por exemplo.}
+of its performance, for example.}
 \end{quotation}
 
 %% diferença entre análise e composição
@@ -539,17 +551,16 @@ Uma boa descrição dos níveis de análise que estão envolvidos em um projeto
 de música interativa é fornecido por Rowe:
 
 \begin{quotation}
- The first wave of interactive music systems relied almost exclusively on the Musical 
+A primeira onda de sistemas interativos de música baseado quase exclusivamente no padrão \textit{Musical
+Instrument Digital Interface} (MIDI), uma representação simbólica da música modelado
+sobre o comportamento de um teclado de piano, bem como os conceitos tradicionais de notação de música.
+A segunda onda toma como entrada sinais de áudio, uma sub-representação simbólica de dados que está longe
+de ser mais flexível, enquanto for bem menos estruturada. \cite{rowe09:levels}
+\footnote{The first wave of interactive music systems relied almost exclusively on the Musical 
 Instrument Digital Interface (MIDI) standard, a symbolic representation of music modeled 
 closely on the behavior of a piano keyboard, as well as traditional concepts of music notation. 
 The second wave takes as its input raw audio signals, a sub-symbolic data representation that is far 
-more flexible while being far less structured. \cite{rowe09:levels}
-
-\footnote{A primeira onda de sistemas interativos de música baseado quase exclusivamente no Musical
-Instrument Digital Interface (MIDI) padrão, uma representação simbólica da música modelado
-estreitamente sobre o comportamento de um teclado de piano, bem como os conceitos tradicionais de notação de música.
-A segunda onda toma como entrada sinais de áudio-primas, uma sub-representação simbólica de dados que está longe
-mais flexível, sendo muito menos estruturado.}
+more flexible while being far less structured.}
 \end{quotation}
 
 
@@ -568,7 +579,22 @@ na tentativa de estabelecer uma modelagem
 computacional de esquemas cognitivos:
 
 \begin{quotation}
- Abstract Subsymbolic information processing may provide new ways of dealing with aspects of 
+Processamento de informação sub-simbólica abstrata pode fornecer novas formas de lidar com os aspectos
+do comportamento comunicativo que até agora têm sido muito difíceis de tratar em modelos simbólicos.
+Parte de nossa análise é mostrar que as atividades musicais, como ouvir e compor partem em
+grande escala de princípios dinâmicos do que é comumente chamado de percepção e/ou imaginação auditiva.
+Argumenta-se que diferentes tipos de mecanismos de processamento de informações sub-simbólicas podem ser exploradas
+e aplicadas a este campo como alternativas e/ou abordagens complementares aos modelos simbólicos.
+Em particular, considerar a possibilidade de representar conceitos musicais como padrões de
+informações fornecidas pelo transdutor de mecanismos sensoriais, ao invés de símbolos abstratos onde o conteúdo
+é separado da forma. Isto envolve uma mudança de representações musicais proposicionais para representações analógicas
+ (onde o conteúdo está contido na forma). Representações analógicas de música
+não foram totalmente exploradas até agora. Argumentamos em favor de uma representação analógica musical
+com base na Psicoacústica e propor este sistema como uma alternativa para a abordagem de discurso lógico da representação musical.
+Um exemplo é dado de um sistema de auto-organização com uma estrutura global emergente
+com base neste tipo de representação. \cite{leman89}
+
+\footnote{Abstract Subsymbolic information processing may provide new ways of dealing with aspects of 
 communicative behavior that have hitherto been very hard to deal with in symbolic models. 
 Part of our analysis is to show that musical activities such as listening and composing draw at 
 large on dynamic principles of what is commonly called perception and/or auditory imagination. 
@@ -581,22 +607,7 @@ representations (where content is contained in the form). Analogical representat
 have not been fully explored until now. We argue in favor of an analog musical representation 
 format based on Psychoacoustics and propose this system as an alternative to the speech-logics 
 approach to music representation. An example is given of a self-organizing system with an emerging 
-global structure based on this type of representation.\cite{leman89}
-
-\footnote{Processamento de informação Resumo Subsymbolic pode fornecer novas formas de lidar com os aspectos
-comportamento comunicativo que até agora têm sido muito difíceis de tratar em modelos simbólicos.
-Parte de nossa análise é mostrar que as atividades musicais, como ouvir e compor empate em
-grande em princípios dinâmicos do que é comumente chamado de percepção e / ou imaginação auditiva.
-Argumenta-se que diferentes tipos de mecanismos de processamento subsymbolic informações podem ser exploradas
-e aplicados a este campo como alternativas e / ou abordagens complementares aos modelos simbólicos.
-Em particular, considerar a possibilidade de representar conceitos musicais como padrões de
-informações fornecidas pelo transdutor de mecanismos sensoriais, ao invés de símbolos abstratos onde o conteúdo
-é divorciada do formulário. Isto envolve uma mudança de representações proposicionais da música analógica
-representações (onde o conteúdo está contido no formulário). Representações analógicas de música
-não foram totalmente exploradas até agora. Argumentamos em favor de uma representação analógica musical
-com base no formato Psicoacústica e propor este sistema como uma alternativa para a lógica de discurso
-aproximar a representação musical. Um exemplo é dado de um sistema de auto-organização com um emergente
-estrutura global com base neste tipo de representação.}
+global structure based on this type of representation.}
 \end{quotation}
 
 
@@ -709,20 +720,20 @@ the comes from the pitch tracker. In the instrument described here, the latency 
 only that of Pd itself, about 10 milliseconds (it's probably not hard to reduce it to 5 or 6 using 
 real-time kernel patches but I preferred to use off-the-shelf linux).  \cite{Puckette_patchfor}
 
-\footnote{Eu estive trabalhando em um projeto de longo prazo para projetar uma vez personalizado
-instrumento de música do computador para tentar trazer para fora e enfrentar algumas das dificuldades encontradas pelos
-músicos tentando usar computadores em performance ao vivo. O instrumento é baseado num eléctrico compacto
-violão (Steinberger / Gibson), com um captador adicional de seis cordas separadas (Roland). Não encontrando um
-barato e compacto amplificador de 6 canais no mercado, eu projetei e construí um muito bruto.
-Esta é conectado a um computador usando um multicanal interface PCI (Midiman). Um patch de Pd, correndo em
-linux, em seguida, executa uma série de transformações interessantes sobre os seis sinais de áudio, e mistura-los
-para estéreo para saída.
+\footnote{Eu estive trabalhando em um projeto de longo prazo para projetar um
+instrumento de música computacional para tentar trazer à tona e enfrentar algumas das dificuldades encontradas pelos
+músicos que tentam usar computadores em performance ao vivo. O instrumento é baseado numa guitarra elétrica compacta
+(Steinberger/Gibson), com um captador adicional de seis cordas separadas (Roland). Não encontrando um
+amplificador barato e compacto de 6 canais no mercado, eu projetei e construí um muito simples.
+Este é conectado a um computador usando uma interface multicanal PCI (Midiman). Um patch de Pd, rodando em
+linux, em seguida, executa uma série de transformações interessantes sobre os seis sinais de áudio, e mistura-os
+para saída em estéreo.
 
-Isto é completamente diferente do padrão `` sintetizadores de guitarra ", que passo rastrear as cordas para conduzir
-sintetizadores. Tais instrumentos cometa muitos erros audíveis, e eles também sofrem com a latência adicionada
-o vem do rastreador campo. No instrumento aqui descrito, a latência de todo o assunto é
-só que de Pd-se, cerca de 10 milissegundos (provavelmente não é difícil reduzi-la a 5 ou 6 usando
-correções em tempo real do kernel, mas eu preferi usar off-the-shelf linux).}
+Isto é completamente diferente do padrão `` sintetizador de guitarra ", que mapeia as cordas para conduzir
+sintetizadores. Tais instrumentos cometem muitos erros audíveis, e eles também sofrem com a latência adicionada
+o vem do mapeamento. No instrumento aqui descrito, a latência de todo o processo é
+somente a do Pd propriamente, cerca de 10 milissegundos (provavelmente não é difícil reduzi-la a 5 ou 6 usando
+correções em tempo real do kernel, mas eu preferi usar uma distribuição pronta de linux).}
 \end{quotation}
 
 Da mesma maneira como é mostrado nessa pesquisa a análise de áudio operada em um sinal de áudio
@@ -772,21 +783,21 @@ que percorreu desde os estúdios de música comercial até as pesquisas experime
 de música interativa nos anos 80. Robert Rowe explica:
 
 \begin{quotation}
+As primeiras implementações de sistemas de som interativos eram feitas geralmente com \textit{Musical
+Instrument Digital Interface} (MIDI) padrão. O padrão MIDI tem sido reconhecido desde o seu início
+por ser lento e limitado no seu âmbito de representação. A dependência de equipamento MIDI externo tem
+condenado uma geração de trabalhos interativos para a obsolescência, assim que o hardware necessário se torna indisponível.
+Máquinas mais rápidas e mais baratas tornaram possível nos últimos anos a realização de análise, síntese, amostragem, 
+e os efeitos sobre a CPU de um computador de uso geral pessoal, em simultâneo com a
+execução do software em nível de controle. \cite{rowe05}
+\footnote{
  Interactive music systems in early implementations usually made use of the Musical
 Instrument Digital Interface (MIDI) standard. The MIDI standard has been recognized since its inception
 to be slow and limited in its scope of representation. Reliance on outboard MIDI gear has
 doomed a generation of interactive works to obsolescence as the requisite hardware becomes unavailable.
 Faster and cheaper machines have in recent years made it possible to perform analysis, synthesis,
 sampling, and effects on the CPU of a general purpose personal computer, simultaneously with the
-execution of control level software.  \cite{rowe05}
-
-\footnote{Sistemas de som interativos em primeiras implementações feitas geralmente uso do Musical
-Instrument Digital Interface (MIDI) padrão. O padrão MIDI tem sido reconhecida desde o seu início
-a ser lenta e limitada no seu âmbito de representação. A dependência de equipamento MIDI externo tem
-condenado uma geração de trabalhos interativos para a obsolescência como o hardware necessário se torna indisponível.
-Máquinas mais rápidas e mais baratas que nos últimos anos tornou possível a realização de análise, síntese,
-de amostragem, e os efeitos sobre a CPU de um computador de uso geral pessoal, em simultâneo com o
-execução de software nível de controle.}
+execution of control level software.}
 \end{quotation}
 
 
@@ -1447,8 +1458,8 @@ comunidade independente e funcional de desenvolvedores que se dispõe a
 testar, apontar soluções e validar informalmente perante a comunidade
 uma pesquisa como essa que aqui se apresenta.
 
-Um projeto próximo que influenciou essa pesquisa foi o "Navalha"
-de Guilherme Soares, desenvolvido no Pontão de Cultura Juntadados\footnote{www.juntadados.org}.
+Um projeto próximo que influenciou essa pesquisa foi o ``Navalha'' \cite{navalha}, 
+desenvolvido no Pontão de Cultura Juntadados\footnote{www.juntadados.org}.
 Um aspecto importante nesse projeto é a postura política alinhada com a dimensão
 poética e técnica.
 % 
@@ -2866,9 +2877,9 @@ Na implementação de Sincopa, projetamos 3 objetos que trabalham juntos para
 gerar dados midi: 
 
 \begin{itemize}
- \item   [sinc-gera-ritmico]
- \item   [sinc-gera-melodico]
- \item   [sinc-gera-dinamica]
+ \item   sinc-gera-ritmico
+ \item   sinc-gera-melodico
+ \item   sinc-gera-dinamica
 \end{itemize}
 
 Cada um desses objetos gerencia algumas técnicas de geração
@@ -3280,6 +3291,12 @@ o mesmo resultado, e se a semente for atualizada com o mesmo valor, a mesma sequ
 de resultados volta ao início.
 
 %% comentar as figuras
+
+Na figura \ref{sinc-randplay} vemos um patch com dois objetos [random] acionados simultaneamente
+pelo mesmo [metro]. Podemos notar que algumas mensagens com \textit{seed} aparecem acima. Algumas se conectam 
+apenas com um [random] e outra se conecta com os dois. O resultado da manipulação desse patch pode ser 
+visto na figura \ref{rand-editar} com a indicação acima da pauta do momento em que cada mensagem foi acionada.
+Podemos dessa maneira sincronizar geradores randômicos e acessar repetições de trechos.
 
 
 \begin{figure}
@@ -3750,7 +3767,7 @@ composição.
 
 
 \subsubsection{Nota pertence ao acorde}
-
+\label{harm-notapertence}
 %% antigo::
 
 Nessa técnica foi definido que a maior exigência será que o acorde contenha a nota que está sendo
@@ -4519,12 +4536,11 @@ salvar presets. Ao mesmo tempo é possível usar o Navalha sem a interface gráf
 projeto como é o caso aqui nessa pesquisa.
 
 A funcionalidade da interface é bem completa e permite acesso a muitos aspectos da segmentação e do
-sequenciamento. Segundo Soares:
+sequenciamento.
 
 \begin{quotation}
  O objeto nvl cria instâncias de um sequenciador de fatias (slices) de .wav que podem ser editadas e salvas na 
 própria interface gráfica deste objeto.
-
 Estabelece também um arquivo padrão de metadados que permite que estas fatias sejam recarregadas na 
 exata posição de onde foram salvas anteriormente – o arquivo .nvl.
 
@@ -4535,14 +4551,13 @@ mesma batida) a atual fatia numa sequencia determinada por este “pattern”.
 Os objetos [nvl] podem ser conectados em cascata, pelos seus primeiros inlets e outlets – determindo 
 assim um master da conexão mais acima que pode sincronizar os sequenciadores de patterns – determinando um 
 “master sequencer” que irá controlar os demais “slaves” nvl.
-
 Estes pattern também podem ser salvos dentro do arquivo .nvl criando assim uma possível navegação de clichês 
 (ou “riffs”) que podem ser recuperados e repetidos durante uma performance.
 
 Os controles de edição da performance já estão todos mapeados para controlesvia teclado do seu computador. 
 Se você necessita desligar esta função num objeto nvl, basta desligar a função “key” que fica no canto inferior 
 esquerdo. Obviamente se duas instâncias nvl estiverem com “key” ligado, ambas serão controladas simultaneamente 
-pelo seu teclado.
+pelo seu teclado. \cite{navalha}
 \end{quotation} 
 
 \begin{figure}
@@ -4560,10 +4575,9 @@ pelo seu teclado.
 
 Podemos ver na figura \ref{nvl1} uma visão geral das entradas e saídas do objeto [nvl] e na figura
 \ref{nvl2} um detalhamento dos controles do sequenciador embutido que são explicados na lista abaixo.
-Segundo Soares:
 
 \begin{quotation}
-\begin{itemize}
+\begin{description}
   
 \item a) Outlet de saída do sincronismo master-slave. Conduz o cursor do sequencer e o bpm atual.
 \item b) Outlet que mostra a posição atual do cursor.
@@ -4577,8 +4591,8 @@ Segundo Soares:
 \item j) Liga/Desliga os atalhos do controle de teclado.
 \item k) Liga/desliga sequencia master. É possível tocar mais de um master, mas obviamente não estarão imediatamente sincronizados.
 \item j) Cursor do sequenciador, dispara fatia atual.
-
-\end{itemize}
+\cite{navalha}
+\end{description}
 \end{quotation}
 
 \begin{figure}
@@ -4597,22 +4611,23 @@ Na figura \ref{control-nvl} vemos as mensagens que permitem controles externos d
 
 Ainda no tutorial:
 
-\begin{itemize}
-\item 1 ) slice (numero da fatia) 
-\item 2 ) tempo (com duas variaveis – bpm e divisao do compasso)
-\item 3 ) preset (nome do arquivo nvl – que deve estar na pasta presets)
-\item 4 ) pattern (numero do pattern do buffer de 1 a 10)
-\item 5 ) key (liga e desliga acesso a teclado)
-\item 6 ) seq (liga e desliga sequenciador)
-\item 7 ) vol (volume de 0 a 1)
-\item 8 ) random (numero limite da celula do pattern seguido de gerador randomico de pattern)
-\item 9 ) pitch (intervalo em semitons em relação a nota atual)
-\item 10 ) div (numero de celulas no compasso atual do sequenciador)
-\item 11 ) normalize (bang – normalizar a faixa na ampliude máxima)
-\item 12 ) mono2x (bang – duplicar uma faixa mono para dar um falso efeito estereo)
-\item 13 ) simetria (numero de slices – cria slices simetricos em divisao exata do tempo total)
-\item 14 ) wav (nomedoarquivo.wav abre um arquivo .wav que esteja na pasta samples)
-\end{itemize}
+\begin{enumerate}
+\item slice (numero da fatia) 
+\item tempo (com duas variaveis – bpm e divisao do compasso)
+\item preset (nome do arquivo nvl – que deve estar na pasta presets)
+\item pattern (numero do pattern do buffer de 1 a 10)
+\item key (liga e desliga acesso a teclado)
+\item seq (liga e desliga sequenciador)
+\item vol (volume de 0 a 1)
+\item random (numero limite da celula do pattern seguido de gerador randomico de pattern)
+\item pitch (intervalo em semitons em relação a nota atual)
+\item div (numero de celulas no compasso atual do sequenciador)
+\item normalize (bang – normalizar a faixa na ampliude máxima)
+\item mono2x (bang – duplicar uma faixa mono para dar um falso efeito estereo)
+\item simetria (numero de slices – cria slices simetricos em divisao exata do tempo total)
+\item wav (nomedoarquivo.wav abre um arquivo .wav que esteja na pasta samples)
+\cite{navalha}
+\end{enumerate}
 
 
 Nesse projeto, o mapeamento do áudio do músico controla aspectos do sequenciador como o tempo,
@@ -4838,31 +4853,31 @@ de sequências automatizadas com parâmetros definidos pela análise da performa
 
 \begin{figure}
 \includegraphics[scale=.4]{mapping1}
-\caption{mapping1}
+\caption{Mapeamento feito por relação desenhada/customizada.}
 \label{mapping1}
 \end{figure}
 
 \begin{figure}
 \includegraphics[scale=.4]{mapping2}
-\caption{mapping2}
+\caption{Mapeamento por curva exponencial.}
 \label{mapping2}
 \end{figure}
 
 \begin{figure}
 \includegraphics[scale=.4]{mapping3}
-\caption{mapping3}
+\caption{Mapeamento por curva gradual.}
 \label{mapping3}
 \end{figure}
 
 \begin{figure}
 \includegraphics[scale=.4]{mapping4}
-\caption{mapping4}
+\caption{Mapeamento por curva logarítmica.}
 \label{mapping4}
 \end{figure}
 
 \begin{figure}
 \includegraphics[scale=.4]{mapping5}
-\caption{mapping5}
+\caption{Mapeamento por curva exponencial customizada.}
 \label{mapping5}
 \end{figure}
 
@@ -4883,9 +4898,11 @@ amplificação ou do timbre do instrumentista.
 Qualquer técnica de mapeamento escolhida deve manter uma flexibilidade
 de ajuste adequado a essas variáveis. A biblioteca ``mapping'' presente no
 Pd-extended apresenta algumas alternativas para diferentes tipos de mapeamento.
-Aqui serão discutidos mapeamento linear, exponencial, logarítmico e customizado.
+Podem ser usados mapeamento linear, exponencial, logarítmico e customizado.
 Os patchs de ajuda de alguns objetos são mostrados nas figuras \ref{mapping1}, \ref{mapping2},
 \ref{mapping3}, \ref{mapping4} e \ref{mapping5}.
+A manipulação e experimentação desses objetos permite uma rápida avaliação de qual o melhor
+método de mapeamento para cada caso.
 
 
 \subsection{[sinc-cenario]}
@@ -5077,7 +5094,10 @@ diferentes gestos instrumentais.
 \end{figure}
 
 Na figura \ref{comp} vemos o patch principal de ``Diálogos em SINCoPA'', com quatro
-módulos interativos embaixo, e um módulo de anĺaise de áudio na parte direita superior.
+módulos interativos embaixo, e um módulo de análise de áudio na parte direita superior.
+Cada módulo implementa um algoritmo interativo diferente e o músico pode alternar 
+entre cada um ou sobrepor mais de um módulo simultaneamente. O instrumentista
+liga cada módulo através do pedal (teclado alfanumérico descrito na figura \ref{teclado}).
 
 \begin{figure}
 \includegraphics[scale=.4]{audio-midi}
@@ -5085,7 +5105,7 @@ módulos interativos embaixo, e um módulo de anĺaise de áudio na parte direit
 \label{audio-midi}
 \end{figure}
 
-
+A análise do áudio de entrada é realizado em [audio\_midi].
 A abstração [audio\_midi] pode ser vista na figura \ref{audio-midi} e consiste
 de uma combinação dos módulos de análise de áudio [sinc-audioin] e [sinc-audioanalise].
 O resultado da análise de áudio é convertido em fluxo MIDI com os objetos nativos 
@@ -5102,10 +5122,12 @@ O sub-patch [pd sintese interativa] tem por finalidade criar um sintetizador que
 seus parâmetros controlados pela análise do áudio de entrada. A visão geral desse sub-patch pode
 ser vista na figura \ref{sintese}.
 Cada nota executada pelo
-instrumentista aciona uma nota simultânea no sintetizador. É feito um cálculo da distância
+instrumentista aciona uma nota simultânea no sintetizador. É realizado um cálculo da distância
 do pitch da última nota em relação a nota atual. O resultado desse cálculo é reduzido ao valor
 absoluto com o objeto [abs]. Esse valor por sua vez é mapeado com a abstração [sinc.linear] para
 duas escalas e enviado para o sintetizador com as variáveis [s mod\_amp] e [s mod\_freq].
+A distância de altura entre cada nota define a característica do timbre do sintetizador.
+
 
 %% carregar figura de partitura referente a esse módulo
 
@@ -5115,6 +5137,11 @@ duas escalas e enviado para o sintetizador com as variáveis [s mod\_amp] e [s m
 \caption{Exemplo de trecho executado explorando interação com [pd sintese interativa]}
 \label{part1}
 \end{figure}
+
+
+Na figura \ref{part1} podemos observar um trecho musical executado e enviado para
+o sintetizador. Na tabela abaixo vemos o resultado da análise de cada altura e o 
+valor correspondente a cada parâmetro mapeado no sintetizador.
 
 
 \begin{center}
@@ -5142,13 +5169,20 @@ duas escalas e enviado para o sintetizador com as variáveis [s mod\_amp] e [s m
 \end{center}
 
 
+O sintetizador em questão, mostrado na figura \ref{sintese}, usa a técnica
+de frequência modulada (FM) para definir o comportamento do timbre.
+A onda portadora usa um objeto [osc\texttildelow] e recebe a mesma frequência executada pelo instrumentista.
+A moduladora também usa um objeto [osc\texttildelow] e recebe valor de frequência através
+da variável [r mod\_freq]. A amplitude da moduladora é definida pela variável [r mod\_amp].
+Na tabela acima podemos visualizar o resultado de cada variável na sucessão de cada altura executada
+na figura \ref{part1}. Nesse algoritmo o desenho do timbre depende do gesto melódico do instrumentista.
+Esse tipo de relação entre timbre e perfil melódico não é possível em instrumentos tradicionais.
+Quanto mais curta a distância entre duas alturas executadas em sequência, maior será o índice de 
+modulação do sintetizador.
 
+% conclusão da análise da tabela
 
-              
-
-
-
-% módulos de 
+              % módulos de 
 
 \begin{figure}
 \includegraphics[scale=.4]{algoritmo}
@@ -5156,11 +5190,76 @@ duas escalas e enviado para o sintetizador com as variáveis [s mod\_amp] e [s m
 \label{algoritmo}
 \end{figure}
 
+
+Na figura \ref{algoritmo} vemos o sub-patch [pd algoritmos\_generativos] da figura \ref{comp}.
+Na parte esquerda vemos um contador [counter] que é reinicializado a cada nota que chega. O resultado
+é enviado para três objetos [moses] que classificam a atividade geral do instrumentista como
+ ativo, pausa ou fim da execução. Essa classificação determina o volume geral dos geradores algorítmicos.
+O resultado é um diálogo mais orgânico onde o volume dos geradores depende dessa classificação de 
+atividade do instrumentista. 
+
+Na parte direita do patch vemos os objetos [sinc-calc\_ritmo] e [sinc-permeabilidade].
+O resultado dessas análises influenciam os comportamentos dos geradores algorítmicos especificados em
+[sinc-gera\_ritmico], [sinc-gera\_melodico] e [sinc-gera\_dinamica]. O resultado de [sinc-calc\_ritmo] 
+alterna entre instável e estável (0 e 1 respectivamente). Quando as durações de entrada são classificadas
+como estáveis, o resultado é enviado para [sinc-gera\_ritmico] que seleciona o gerador rítmico imitativo 
+(definido com a cor branca). Quando o resultado é classificado como instável é feito um sorteio com o
+objeto [random] para escolher um entre os 3 geradores rítmicos restantes (variação (fig.\ref{gera-ritmico1}, ritmo
+browniano (fig. \ref{gera-ritmico2} e gerador polifônico (fig.\ref{gera-ritmico3}).
+
+O resultado de [sinc-permeabilidade] é uma escala que varia de 0 a 6 (variações de impermeável até permeável).
+Esse resultado passa por um objeto [moses] que controla 4 geradores melódicos em [sinc-gera\_melodico]
+(imitação (fig.\ref{gera-melodico0}), probabilidade (fig.\ref{gera-melodico1}), browniano (fig.\ref{gera-melodico2}) 
+e randômico (fig.\ref{gera-melodico3})). O resultado dos geradores são enviados como mensagem MIDI pelo canal MIDI 2.
+
+\begin{figure}
+\includegraphics[scale=.4]{base-duo}
+\caption{Trecho executado e enviado ao algoritmo da figura \ref{algoritmo} }
+\label{base-duo}
+\end{figure}
+
+
+
+\begin{figure}
+\includegraphics[scale=.4]{alg-interativos}
+\caption{Resultado de interação com algoritmo descrito na figura \ref{algoritmo} (pg.1)}
+\label{alg-interativos}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.4]{alg-interativos2}
+\caption{Resultado de interação com algoritmo descrito na figura \ref{algoritmo}(pg.2)}
+\label{alg-interativos2}
+\end{figure}
+
+Apesar dos algortimos serem alimentados pelos dados da análise do áudio de entrada, a cada repetição
+do mesmo trecho musical temos um resultado diferente, mantendo um certo grau de reconhecimento
+rítmico e melódico. Para efeito de ilustração usamos o trecho musical da figura \ref{base-duo} e repetimos
+ para visualizar o resultado gerado pelo algoritmo. Nas figuras \ref{alg-interativos} e \ref{alg-interativos2} podemos
+ver o mesmo trecho da figura \ref{base-duo} servindo como base para o algoritmo.
+
+
 \begin{figure}
 \includegraphics[scale=.4]{sinc-midilive}
 \caption{Visão da abstração [sinc-midilive]}
 \label{sinc-midilive}
 \end{figure}
+
+
+A abstração [sinc-midilive] pode ser vista internamente na figura \ref{sinc-midilive}. É uma 
+variação da abstração [sinc-midiin] (figura \ref{sinc-midiin}) feita para funcionar em tempo-real.
+Os dados de entrada da abstração são convertidos para MIDI e salvos no arquivo \textit{tmp.mid}.
+Esse arquivo é aberto e executado repetidamente, isso possibilita a construção de trechos de 
+\textit{ostinato} de tamanhos variáveis. O sub-patch [pd sel midilive] mapeia a mesma tecla do
+pedal para funções diferentes dependendo da ordem que seja pressionada. Isso cria uma sequência
+lógica de ações:
+
+\begin{enumerate}
+ \item Habilita [sinc-midilive] e começa a  gravar;
+ \item Pára de gravar, salva o arquivo tmp.mid, abre o arquivo tmp.mid e começa a execução em loop;
+ \item Pára o loop e desabilita a abstração [sinc-midilive]
+\end{enumerate}
+
 
 \begin{figure}
 \includegraphics[scale=.4]{sinc-harmonia}
@@ -5168,6 +5267,15 @@ duas escalas e enviado para o sintetizador com as variáveis [s mod\_amp] e [s m
 \label{sinc-harmonia}
 \end{figure}
 
+A abstração [sinc-harmonia] que aparece na figura \ref{comp} pode ser vista na
+figura \ref{sinc-harmonia}. É uma abstração que controla dois algoritmos harmonizadores
+vistos na seção \ref{harm-notapertence}. A cada nota que chega da análise de áudio, é sorteado
+um dos dois algoritmos para realizar a harmonização.
+
+Esses quatro módulos interativos permitem uma infinidade de narrativas e caráteres musicais.
+A prática e experimentação instrumental junto com ``Diálogo em SInCoPA'' permite que o instrumentista 
+adquira consciência e controle expressivo. O fato de ser uma peça de forma aberta permite que
+cada execução seja única e capaz de dialogar com diferentes ambientes e propósitos.
 
 
 
@@ -5405,20 +5513,30 @@ de novas idéias e conceitos estéticos.
 
 Ao compositor de música interativa, muitos caminhos e possibilidades
 expressivas se abrem em meio a um oceano de desafios. Sobre esse aspecto
-Rowe\cite{rowe09:levels} conclui:
+Rowe conclui:
 
 \begin{quotation}
- Given the embarrassment of choices,
+Dada a confusão de possibilidades, compositores
+são perdoados em hesitar ao decidir qual caminho
+tomar. A solução do autor tem sido o desenvolvimento
+de uma biblioteca pessoal de amostragem de áudio, síntese e
+efeitos em C++. Enquanto que começar uma nova função
+nesse projeto passa inevitavelmente pela re-invenção
+de várias rodas, isso facilita a coordenação com uma
+camada de controle existente e parece ser o método 
+mais expressivo de desenvolver novas idéias: um
+conjunto de efeitos personalizados. \cite{rowe09:levels}
+\footnote{Given the embarrassment of choices,
 composers may be forgiven for hesitating over
 which way to turn. The author's solution has
 been to develop a personal library of audio
 sampling, synthesis, and effects routines in C++.
-While starting anew with such a project
+While starting a new with such a project
 inevitably entails reinventing several wheels, it
 facilitates coordination with an existing control
 layer and seems the most expressive
 way to develop new ideas: a set of personal
-effects.
+effects.} 
 \end{quotation}
 
 
@@ -6102,38 +6220,29 @@ uma animação pré-definida na figura \ref{sinc-notacao1c}.
 \label{gemnotes-help}
 \end{figure} 
 
-O projeto Gemnotes\footnote{fonte: (http://sharktracks.co.uk/site/2010/12/gemnotes-progress/) escrito em 16/12/2010.} \cite{gemnotes}
-é pioneiro no uso de Pd e Gem como motores de um sistema de notação
-musical.
+O projeto Gemnotes\footnote{fonte: (http://sharktracks.co.uk/site/2010/12/gemnotes-progress/) escrito em 16/12/2010.} 
+\cite{gemnotes} é pioneiro no uso de Pd e Gem como motores de um sistema de notação musical.
+Gemnotes é projetado para ser um sistema de notação musical em tempo-real para músicos executarem partes instrumentais
+ou como registro de algoritmos ou ainda como auxiliar em educação musical.
 
 \begin{quotation}
- The Gemnotes project nears completion. Gemnotes is a live music notation system written in Pure Data (PD). 
-It generates symbolic notation on the screen for musicians to play, and can also be used as a sound-to-notation 
-device for improvisation and music education as well.
-\end{quotation} 
-
-
-
-
-\begin{quotation}
-This object is now complete, and the system is evolving to show beamed groups, ties, rests and chords. 
-These are projected in realtime, and can be made to change at any time, on a computer screen.
-\end{quotation} 
-
-
-
-
-\begin{quotation}
-The system uses dynamic patching in PD – effectively a PD patch that builds another PD patch (the graphical score) 
+O sistema utiliza programação dinâmica em Pd - efetivamente um patch de Pd que constrói outro patch (a notação gráfica)
+usando abstrações pré-fabricadas (patches de Pd salvos na mesma pasta que o patch raiz) que contêm os comandos para
+criar uma representação gráfica de notação musical. Para um sistema tão complexo (notação musical) foi necessário
+criar um objeto na linguagem de programação C que manipule o número de objetos, os objetos que estão ligados a que,
+e como os elementos específicos da música (como ligaduras e quiálteras) são exibidas. Este objeto (o objeto [gemnotes-counter])
+consiste em mais de 800 linhas de código e levou 6 meses para escrever, mas não há muito mais a acrescentar
+(dinâmica, articulação). \cite{gemnotes} \footnote{The system uses dynamic patching in PD – effectively a PD patch that builds another PD patch (the graphical score) 
 using pre-made abstractions (PD patches saved in the same folder as the root patch) that contain the commands to 
 create a graphical representation of music. For such a complex system (music notation) it has been necessary to 
 create an object in the C programming language that manages the number of objects, which objects are linked to which, 
 and how music-specific elements (such as ties and tuples) are displayed. This object (the gemnotes-counter object) 
 consists of over 800 lines of code and took 6 months to write, but there is much, much more to add to it 
-(dynamics, articulation). 
-\end{quotation} 
+(dynamics, articulation).}
+\end{quotation}
 
-Podemos ver o uso do objeto [gemnotes] na figura \ref{gemnotes1} e no arquivo "help" na figura \ref{gemnotes-help}.
+
+Podemos ver o uso do objeto [gemnotes-counter] na figura \ref{gemnotes1} e no arquivo "help" na figura \ref{gemnotes-help}.
 
 
 \begin{figure}
