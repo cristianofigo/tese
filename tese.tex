@@ -1,8 +1,8 @@
 %% aspas é assim ``bababba''
 %% marcos 88970158
 
-\documentclass[draft]{ppgmus}
-%\documentclass{ppgmus}
+%\documentclass[draft]{ppgmus}
+\documentclass{ppgmus}
 \usepackage{textcomp}
 \usepackage{kchicago}
 \interfootnotelinepenalty=10000
@@ -65,19 +65,19 @@
 \bancaiiEstudo{Pontifícia Universidade Católica de São Paulo}
 \bancaiiAtuacao{Universidade Federal da Bahia}
   
-\bancaiiiNome{Lucas Robatto}
-\bancaiiiTitulo{Doutor em Flauta}
-\bancaiiiEstudo{Universidade de Washington, EUA}
+\bancaiiiNome{Paulo Costa Lima}
+\bancaiiiTitulo{Doutor em Artes}
+\bancaiiiEstudo{Universidade de São Paulo}
 \bancaiiiAtuacao{Universidade Federal da Bahia}
   
-\bancaivNome{Jamary Olveira}
+\bancaivNome{Wellington Gomes da Silva}
 \bancaivTitulo{Doutor em Composição}
-\bancaivEstudo{\textit{University of Texas at Austin}, EUA}
+\bancaivEstudo{Universidade Federal da Bahia}
 \bancaivAtuacao{Universidade Federal da Bahia}
   
-\bancavNome{Jamary Olveira}
+\bancavNome{Ângelo Castro}
 \bancavTitulo{Doutor em Composição}
-\bancavEstudo{\textit{University of Texas at Austin}, EUA}
+\bancavEstudo{Universidade Federal da Bahia}
 \bancavAtuacao{Universidade Federal da Bahia}
 
 \begin{document}
@@ -462,7 +462,7 @@ paradigmas para descrever processos (tal como em Max ou Pd, da forma como
 eles existem hoje), e enquanto muito trabalho tem sido feito na parte 
 de representação de dados musicais (incluindo buscas em bases de dados
 de sons, passando pelos programas Patchwork e OpenMusic, e incluindo
-o não finalizado editor de estruturas de dados do Pd}, não possuímos
+o não finalizado editor de estruturas de dados do Pd), não possuímos
 um mecanismo fluído para navegar entre esses dois mundos. \cite{puckette04:divide}
   \footnote{in its most succinct form, the problem is that, while we have good
   paradigms for describing processes (such as in the Max or Pd
@@ -501,7 +501,7 @@ performance do músico.
 
 
 \subsection{Análise}
-\label{analise-geral}
+\label{sec-analise-geral}
 
 %% pq analise
 
@@ -542,7 +542,7 @@ entre os materiais e os procedimentos. Tornando praticamente impossível
 de se modelar a atividade cognitiva durante o ato de compôr.
 
 \begin{figure}
-\includegraphics[scale=.7]{analise}
+\includegraphics[scale=.9]{analise}
 \caption{Diagrama ideal das etapas de análise para música interativa com instrumento tradicional}
 \label{analise-geral}
 \end{figure} 
@@ -565,7 +565,7 @@ more flexible while being far less structured.}
 
 
 \begin{figure}
-\includegraphics[scale=.3]{rowe}
+\includegraphics[scale=.25]{rowe}
 \caption{Esquema de etapas de implementação de um sistema de música interativa por Robert Rowe}
 \label{rowe}
 \end{figure} 
@@ -661,6 +661,7 @@ para análise de música eletroacústica\footnote{Nesse sentido podemos apontar 
 
 
 \subsubsection{Análise de áudio}
+\label{sec-audioanalise}
 
 
 O objetivo da análise de áudio é extrair informações em tempo-real
@@ -705,22 +706,7 @@ Miller Puckette, descreve sua própria experiência na construção de um sistem
 para guitarra preparada com captador hexafônico:
 
 \begin{quotation}
-I've been at work on a long-term project to design a rather personalized 
-computer music instrument to try to bring out and confront some of the difficulties encountered by 
-musicians trying to use computers in live performance. The instrument is based on a compact electric 
-guitar (Steinberger/Gibson) with an added six-string separated pickup (Roland). Not finding an 
-inexpensive and compact 6-channel preamp on the market, I designed and built a very crude one. 
-This is interfaced to a computer using a multichannel PCI interface (Midiman). A Pd patch, running in 
-linux, then performs a variety of interesting transformations on the six audio signals, and mixes them 
-to stereo for output.
-
-This is entirely different from standard ``guitar synthesizers" which pitch track the strings to drive 
-synthesizers. Such instruments make lots of audible mistakes, and they also suffer from the added latency 
-the comes from the pitch tracker. In the instrument described here, the latency of the whole affair is 
-only that of Pd itself, about 10 milliseconds (it's probably not hard to reduce it to 5 or 6 using 
-real-time kernel patches but I preferred to use off-the-shelf linux).  \cite{Puckette_patchfor}
-
-\footnote{Eu estive trabalhando em um projeto de longo prazo para projetar um
+Eu estive trabalhando em um projeto de longo prazo para projetar um
 instrumento de música computacional para tentar trazer à tona e enfrentar algumas das dificuldades encontradas pelos
 músicos que tentam usar computadores em performance ao vivo. O instrumento é baseado numa guitarra elétrica compacta
 (Steinberger/Gibson), com um captador adicional de seis cordas separadas (Roland). Não encontrando um
@@ -733,7 +719,21 @@ Isto é completamente diferente do padrão `` sintetizador de guitarra ", que ma
 sintetizadores. Tais instrumentos cometem muitos erros audíveis, e eles também sofrem com a latência adicionada
 o vem do mapeamento. No instrumento aqui descrito, a latência de todo o processo é
 somente a do Pd propriamente, cerca de 10 milissegundos (provavelmente não é difícil reduzi-la a 5 ou 6 usando
-correções em tempo real do kernel, mas eu preferi usar uma distribuição pronta de linux).}
+correções em tempo real do kernel, mas eu preferi usar uma distribuição pronta de linux).\cite{Puckette_patchfor}
+\footnote{I've been at work on a long-term project to design a rather personalized 
+computer music instrument to try to bring out and confront some of the difficulties encountered by 
+musicians trying to use computers in live performance. The instrument is based on a compact electric 
+guitar (Steinberger/Gibson) with an added six-string separated pickup (Roland). Not finding an 
+inexpensive and compact 6-channel preamp on the market, I designed and built a very crude one. 
+This is interfaced to a computer using a multichannel PCI interface (Midiman). A Pd patch, running in 
+linux, then performs a variety of interesting transformations on the six audio signals, and mixes them 
+to stereo for output.
+
+This is entirely different from standard ``guitar synthesizers" which pitch track the strings to drive 
+synthesizers. Such instruments make lots of audible mistakes, and they also suffer from the added latency 
+the comes from the pitch tracker. In the instrument described here, the latency of the whole affair is 
+only that of Pd itself, about 10 milliseconds (it's probably not hard to reduce it to 5 or 6 using 
+real-time kernel patches but I preferred to use off-the-shelf linux).}
 \end{quotation}
 
 Da mesma maneira como é mostrado nessa pesquisa a análise de áudio operada em um sinal de áudio
@@ -1473,12 +1473,16 @@ poética e técnica.
 \begin{quotation}
 Este projeto é um estudo para estimular uma atividade que torna-se cada vez mais evidente no universo 
 do software livre e código aberto – a customização de softwares para idéias artísticas e para produção 
-multimídia em geral permitindo aquele que via criar desenvolver suas idéias abstratas partindo de maneiras 
+multimídia em geral permitindo aquele que visa criar desenvolver suas idéias abstratas partindo de maneiras 
 rápidas de trabalhar com código, ao invés da lógica onde o artista e visto como um usuário de interfaces ja 
 prontas que ao tentar “prever aquilo que quer o usuário” também acaba impondo sua prática de uso. \cite{navalha}
 \end{quotation}
 
-
+O desenvolvimento do ``Navalha'' seguiu um caminho paralelo a outros projetos coletivos, experimentos em 
+execução musical e instalações. Talvez essa seja uma característica de projetos \textit{Open Source}, de que
+o projeto não precisa estar ``finalizado'' para ser recombinado por outros artistas. Ambientes como o 
+\textit{github}\footnote{Disponível em: www.github.com} permitem esse fluxo de código de diversos projetos
+em andamento.
 
 \begin{quotation}
 Com a escolha da linguagem puredata, que possui uma comunidade extremamente produtiva e colaborativa,  
@@ -1489,20 +1493,9 @@ possível para permitir tal recombinação. \cite{navalha}
 \end{quotation}
 
 
-
-
-\begin{quotation}
-Navalha é um software desenvolvido com o intuito de tornar-se um estudo de caso em desenvolvimento rápido prototipado 
-em Puredata de um sistema para performances musicais com interface gráfica e sistema de gerenciamento de “presets” 
-(configurações) salvos em disco rígido. Além de sua utilidade para musicos e artistas é também um detalhado estudo 
-de caso de desenvolvimento em puredata, podendo ser usado como estudo para implementação de outros algoritmos e idéias. \cite{navalha}
-\end{quotation}
-
-
-
 A segunda fase da pesquisa foi o desenvolvimento do
 sistema propriamente dito, com prototipação de interface para usuário,
-diversos experimentos de estúdio onde cada parte do sistema será
+diversos experimentos de estúdio onde cada parte do sistema foi
 testada individualmente e em grupo.
 
 
@@ -1627,7 +1620,7 @@ futuros um pouco mais arriscada.
 
 \subsection{Bibliotecas de Pd}
 
-Além do Pd-extended, essa pesquisa, necessita de duas outras bibliotecas, sendo elas a PDMTL e DIY2 (ver anexo).
+Além do Pd-extended, essa pesquisa, necessita de duas outras bibliotecas, sendo elas a PDMTL e DIY2.
 
 Também são usados os objetos compilados em C, desenvolvidos por William Brent:
 
@@ -1718,7 +1711,7 @@ parâmetro de análise.
 \section{Análise de áudio}
 
 \begin{figure}
-\includegraphics[scale=.5]{sinc-analise}
+\includegraphics[scale=.6]{sinc-analise}
 \caption{Objeto de análise de áudio [sinc-analise]}
 \label{sinc-analise}
 \end{figure}
@@ -1746,7 +1739,7 @@ de qual sample (localização) a lista se refere e são salvos em um arquivo de 
 
 Um elemento importante na interface é a visualização instantânea
 do fluxo de áudio. Aqui na figura \ref{audioin} apresentamos uma solução prática e podemos
-ver uma outra abordagem nas figuras \ref{fft-geral} e \ref{fft-aaray} baseada em análise FFT.
+ver uma outra abordagem na figura \ref{sinc-fft} baseada em análise FFT.
 
 \subsubsection{Objeto [sinc-audioin]}
 
@@ -2174,7 +2167,7 @@ segundo elemento de menor valor, para 1, P3 , terceiro de menor valor, para 2, e
 %% figura midi -> array -> salvando 
 
 \begin{figure}
-\includegraphics[scale=.3]{contorno-normal}
+\includegraphics[scale=.2]{contorno-normal}
 \caption{Patch mostrando um contorno e sua forma normal}
 \label{contorno-normal}
 \end{figure}
@@ -2275,7 +2268,7 @@ estímulos musicais provindos de músicos humanos. Para isso deve-se implementar
 no sistema técnicas de composição que sejam a maneira como o sistema ``percebe''
 e responde aos estímulos. Nesse sentido o conceito de “permeabilidade” de 
 alturas \cite{ligeti58:transformacoes} pode ser um conceito muito útil se aplicado aos parâmetros
-de análise das alturas pelo sistema. Segundo Ligeti:
+de análise das alturas pelo sistema. 
 
 \begin{quote}
   A tendência geral conduz, então, para a insensibilização da
@@ -2299,7 +2292,7 @@ de análise das alturas pelo sistema. Segundo Ligeti:
   outras. As possibilidades de combinações intervalares, fortemente
   fixadas, não permitiam a menor ambigüidade no transcurso das
   estruturas; portanto, as relações entre dissonância e consonância
-  estavam tratadas, naquele estilo, com o maior cuidado.
+  estavam tratadas, naquele estilo, com o maior cuidado. \cite{ligeti58:transformacoes}
 \end{quote}
  
 Ligeti fala aqui sobre uma permeabilidade dos intervalos de altura,
@@ -2311,8 +2304,7 @@ emergência de certos comportamentos contrastantes em trechos isolados do materi
 A permeabilidade de alturas pode ser um parâmetro de análise das alturas 
 de uma performance em tempo-real. Outra possibilidade de aplicação pode ser o
 controle geral da permeabilidade de alturas, tendo o sistema a capacidade de
-classificar a porcentagem da permeabilidade envolvida em cada trecho. Segundo
-Ligeti: 
+classificar a porcentagem da permeabilidade envolvida em cada trecho. 
 
 \begin{quote}
   A insensibilidade frente aos intervalos e a grande permeabilidade é
@@ -2330,7 +2322,7 @@ Ligeti:
   hierárquicas, afrouxadas as pulsações métricas simétricas,
   transposto os graus de duração, de intervalos e de timbre das
   distribuições seriais, torna-se cada vez mais difícil controlar os
-  contrastes.
+  contrastes. \cite{ligeti58:transformacoes}
 \end{quote}
 
 
@@ -2596,7 +2588,7 @@ O resultado da comparação interna é retornado pela saída da direita.
 
 \begin{figure}
 \includegraphics[scale=.5]{audio-features}
-\caption{audio-features}
+\caption{timbreID - audio-features}
 \label{audio-features}
 \end{figure}
 
@@ -2608,12 +2600,12 @@ O resultado da comparação interna é retornado pela saída da direita.
 
 \begin{figure}
 \includegraphics[scale=.6]{bfcc}
-\caption{bfcc}
+\caption{timbreID - bfcc}
 \label{bfcc}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.3]{pdescriptor}
+\includegraphics[scale=.28]{pdescriptor}
 \caption{PDescriptors - [Inharmonicity\texttildelow]}
 \label{pdescriptor}
 \end{figure} 
@@ -2635,7 +2627,7 @@ sonoros em projetos de música interativa.
 Nese sentido, além dos dados puros da FFT feita com o objeto [rfft\texttildelow],
 destacamos duas bibliotecas externas de Pd que compreendem diversos algoritmos
 diferentes de análise. A primeira biblioteca é a 
-timbreID desenvolvida por William Brent e compreende uma série de objetos
+timbreID \cite{brentcepstral} desenvolvida por William Brent e compreende uma série de objetos
 implementados em C e possui uma boa eficácia em processamento. A timbreID possui 
 quatorze objetos de análise espectral cada um em versão estática e tempo-real, com a diferença
 de que a versão em tempo-real processa áudio em vez de valor de amostra. Além
@@ -2644,13 +2636,12 @@ uma visão geral de um dos algoritmos de análise do objeto  [bfcc\texttildelow]
 análise Cepstral enviando dados para o classificador [timbreID]. Na figura \ref{bfcc} podemos
 ver em detalhe o funcionamento de [bfcc\texttildelow].
 
-Segundo Brent:
 
 \begin{quotation}
  Bfcc~ is the most developed cepstral external, using the more thoroughly researched Bark scale rather than mels for 
 the spectrum weighting. Performance is only slightly better than mfcc~. The most noteworthy thing about these cepstral 
 externs is the flexibility they provide with respect to filterbank construction. The choice of a specific Bark- or 
-mel-spacing can have a real impact on how relevant the features are in classifying one sound set vs. another.
+mel-spacing can have a real impact on how relevant the features are in classifying one sound set vs. another. \cite{brentcepstral}
 \end{quotation}
 
 
@@ -2675,8 +2666,7 @@ Na figura \ref{audio-features} vemos um painel geral com os resultados simultân
 algoritmos de análise espectral diferentes. Notamos que os quatro objetos superiores retornam resultados em 
 listas que são plotadas em arrays, enquanto os demais objetos retornam índices puros.
 
-Outra  biblioteca relevante é a PDescriptors desenvolvida 
-por Adriano Monteiro e se tratam
+Outra  biblioteca relevante é a PDescriptors \cite{monteiro} que se tratam
 de abstrações de Pd que usam apenas objetos "vanilla" e por isso possui um
 grande poder de compatibilidade com diversos projetos. As abstrações
 são divididas em características perceptuais, espectrais, harmônicas e temporais, além
@@ -2972,7 +2962,7 @@ do tipo midi, porém, os parâmetros das mensagens midi podem ser facilmente esc
 em arrays e listas para então serem manipulados.
 
 \begin{figure}
-\includegraphics[scale=.4]{audio2midi}
+\includegraphics[scale=.37]{audio2midi}
 \caption{Conversão de áudio para notas midi}
 \label{audio2midi}
 \end{figure}
@@ -3270,14 +3260,14 @@ de criação. O resultado pode ser escalado utilizando objetos matemáticos como
  
 
 \begin{figure}
-\includegraphics[scale=.6]{sinc-randplay}
+\includegraphics[scale=.7]{sinc-randplay}
 \caption{Patch com dois geradores [random] alternando entre valores de seed}
 \label{sinc-randplay}
 \end{figure} 
 
 
 \begin{figure}
-\includegraphics[scale=.6]{rand-editar}
+\includegraphics[scale=.7]{rand-editar}
 \caption{Sequência de notas geradas pelo patch da figura \ref{sinc-randplay}}
 \label{rand-editar}
 \end{figure} 
@@ -3638,7 +3628,7 @@ apenas o parâmetro \textit{attractpt} é atualizado em tempo-real, enquanto tod
 fixos nos valores vistos em \ref{boids-param}.
 
 \begin{figure}
-\includegraphics[scale=.6]{boids-pianoroll}
+\includegraphics[scale=.5]{boids-pianoroll}
 \caption{Visão de resultado de 3 boids seguindo perfil melódico no piano-roll}
 \label{boids-pianoroll}
 \end{figure} 
@@ -3659,27 +3649,27 @@ heterofonia radical, a depender dos parâmetros de comportamento.
 Outra classe de algoritmos podem ser encontrados na biblioteca ``flatspace'', especializada
 em geradores fractais que aceitam parâmetros de ``atratores'' baseados em modelos da teoria
 do caos. São objetos passíveis da atualização dos parâmetros em tempo-real. 
-Segue abaixo uma lista dos objeto geradores fractais:
-
-\begin{itemize}
- \item attract1 
-  \item base 
-   \item base3 
-   \item gingerbreadman 
-\item henon 
-\item hopalong
-\item  ikeda 
-\item latoocarfian 
-\item latoomutalpha 
-\item latoomutbeta 
-\item latoomutgamma 
-\item lorenz 
-\item martin 
-\item popcorn 
-\item quadruptwo 
-\item rossler 
-\item standardmap
-\end{itemize}
+% Segue abaixo uma lista dos objeto geradores fractais:
+% 
+% \begin{itemize}
+%  \item attract1 
+%   \item base 
+%    \item base3 
+%    \item gingerbreadman 
+% \item henon 
+% \item hopalong
+% \item  ikeda 
+% \item latoocarfian 
+% \item latoomutalpha 
+% \item latoomutbeta 
+% \item latoomutgamma 
+% \item lorenz 
+% \item martin 
+% \item popcorn 
+% \item quadruptwo 
+% \item rossler 
+% \item standardmap
+% \end{itemize}
 
 
 
@@ -3736,6 +3726,7 @@ mostrando a maneira como a sequência harmônica influencia na condução vocal 
 e o nível de detalhamento do projeto:
 
 \begin{verbatim}
+
 VI to V progression
 if the preceding and current chords are at their root positions then
   if the preceding chord is of dominant root then
@@ -3853,21 +3844,23 @@ desenvolvido no Ircam.
 
 \subsubsection{Acorde pertence a coleção de notas}
 
-\begin{figure}
-\includegraphics[scale=.5]{harm-colecao}
-\caption{Resultado de harmonizador automático com acordes pertecentes a coleção de notas tocadas}
-\label{harm-colecao}
-\end{figure}
+
 
 \begin{figure}
-\includegraphics[scale=.5]{harm6}
+\includegraphics[scale=.6]{harm6}
 \caption{Patch que harmoniza de acordo com as notas executadas pelo músico estocadas em um array}
 \label{harm6}
 \end{figure}
 
-Nesse patch é implementado um harmonizador simples,onde a sequência dos acordes e
+\begin{figure}
+\includegraphics[scale=.6]{harm-colecao}
+\caption{Resultado de harmonizador automático com acordes pertecentes a coleção de notas tocadas}
+\label{harm-colecao}
+\end{figure}
+
+No patch da figura \ref{harm6} é implementado um harmonizador simples,onde a sequência dos acordes e
 a condução vocal é totalmente randômica. A única regra é que as notas usadas na composição
-dos acordes tenham sido tocadas pelo músico.
+dos acordes tenham sido tocadas pelo músico. Podemos ver o resultado desse algoritmo na figura \ref{harm-colecao}.
 
 \subsubsection{Sequência baseada em regras}
 
@@ -3901,7 +3894,7 @@ de pitch do acorde, enviado por outlet para uso interno no Pd.
 
 
 \begin{figure}
-\includegraphics[scale=.6]{sinc-chord-list}
+\includegraphics[scale=.7]{sinc-chord-list}
 \caption{Abstração [sinc-chord-list] para listagem de diversos acordes}
 \label{sinc-chord-list}
 \end{figure}
@@ -3914,7 +3907,7 @@ de cada tipo de acorde especificados pelo objeto [sinc-chord] correspondente.
 
 
 \begin{figure}
-\includegraphics[scale=.6]{harm-markov}
+\includegraphics[scale=.5]{harm-markov}
 \caption{Exemplo de harmonizador baseado em cadeia de markov}
 \label{harm-markov}
 \end{figure}
@@ -4339,7 +4332,7 @@ figura \ref{sinc-ring} , onde é implementado um ring-modulator simples.
 
 
 \begin{figure}
-\includegraphics[scale=.5]{digitalia3}
+\includegraphics[scale=.55]{digitalia3}
 \caption{Patch mostrando uso de objetos de SInCoPA misturados com objetos nativos e abstrações DIY2}
 \label{digitalia3}
 \end{figure}
@@ -4348,7 +4341,8 @@ figura \ref{sinc-ring} , onde é implementado um ring-modulator simples.
 Outros objetos e abstrações também são usados e comparados, durante as experimentações
 como a biblioteca DIY2 e rj. Na figura \ref{digitalia3} podemos ver uma situação de prototipação
 rápida, usando objetos de SInCoPA juntamente com objetos nativos de Pd e uma abstração DIY2 [mono-vibrato],
-que implementa um ring modulator mais complexo. 
+que implementa um ring modulator mais complexo. O patch mostrado na figura \ref{digitalia3} foi usado na
+performance \textit{/usr/maquina4/compartida\texttildelow} com outros 3 músicos.
 
 Uma parcela importante de técnicas de processamento de áudio digital corresponde as técnicas
 de fusão espectral como phase vocoder, convolução e síntese cruzada. Vários autores vem trabalhando
@@ -4359,7 +4353,7 @@ para otimização desses efeitos em tempo-real\cite{porres},\cite{pd-tutorial}.
 
 
 \begin{figure}
-\includegraphics[scale=.5]{sinc-delay}
+\includegraphics[scale=.6]{sinc-delay}
 \caption{Abstração de controle de delay variável}
 \label{sinc-delay}
 \end{figure}
@@ -4386,9 +4380,10 @@ contínua de áudio. Para se determinar a quantidade de feedback podemos control
 amplificação do sinal resultante antes de retornar a [delwrite\texttildelow].
 
 
-Uma possibilidade de implementação mais refinada de delay é ``delay espectral'', descrito
-no apêndice \ref{sec:fftpd}, onde além da linha de atraso e feedback, pode-se controlar elementos
-do timbre.
+Uma possibilidade de implementação mais refinada de delay é a técnica de ``delay espectral'' \cite{guidefft}, 
+onde além da linha de atraso e feedback, pode-se controlar elementos
+do timbre, uma vez que o sinal é decomposto por análise FFT e recriado a partir de
+seus componentes de frequência, amplitude e fases separados.
 
 \subsection{Repetição}
 
@@ -4446,7 +4441,7 @@ Para a continuação dessa pesquisa o ideal seria um sistema de loop baseado no 
 ajuste o loop a qualquer tempo pré-definido por algum sequenciador.
 
 \begin{figure}
-\includegraphics[scale=.4]{sinc-looper}
+\includegraphics[scale=.5]{sinc-looper}
 \caption{loop simples}
 \label{sinc-looper}
 \end{figure}
@@ -4679,7 +4674,7 @@ ser pensadas e definidas em diferentes cenários de interação.
 
 Síntese granular é uma técnica que combina síntese aditiva e amostragem (sampleamento).
 Cada "grão" é um trecho de uma amostra de áudio somado a outros grãos, podendo
-resultar em texturas únicas, que seria praticamente impossíveis de serem editadas
+resultar em texturas únicas, que seriam praticamente impossíveis de serem editadas
 grão por grão em um editor de áudio. Os resultados variam desde um leve deslocamento na leitura
 de uma amostra até efeitos mais complexos como "nuvens de grãos".
 
@@ -4689,7 +4684,7 @@ Um som pode ser dividido em pequenos segmentos que se sobrepõe e então cada se
 é executado em sequência de maneira que o som original seja obtido. Para extender um
 som se adiciona cópias extras dos grãos mudando a extensão e a duração de sobreposição
 de maneira que a extensão total seja maior ou menor que a original. Nesse caso todos os 
-grãos são obtidos da mesma fonte sonora (como visto na figura 21.4 pg 309).
+grãos são obtidos da mesma fonte sonora.
 
 Foi desenvolvida uma abstração com objetivo de possibilitar síntese granular em tempo-real usando como
 fonte sonora o próprio som do instrumento que está sendo executado. E além
@@ -4698,7 +4693,7 @@ da performance do músico. Diversos efeitos e texturas complexas podem ser obtid
 através do gesto de controlar parâmetros dos grãos com um instrumento.
 
 O motor de funcionamento da síntese granular é baseado em modificações de um exemplo
-do livro "Designing Sound" de Andy Farnell. Podemos ver na figura \ref{granular2}, a estrutura
+do livro "Designing Sound" \cite{farnell2010designing}. Podemos ver na figura \ref{granular2}, a estrutura
 da abstração [grainvoice], que define o comportamento de uma "voz". Nesse contexto,
 "voz" significa uma camada de grãos justapostos. O funcionamento básico se dá através
 de um leitor de tabela ([tabread4\texttildelow source-array])que é modulado por um gerador de envelope ([tabread4~ grain-env]).
@@ -4755,7 +4750,7 @@ do áudio do patch.
 %% figura da visão geral da alteração de overlap
 
 \begin{figure}
-\includegraphics[scale=.6]{sinc-gran1}
+\includegraphics[scale=.7]{sinc-gran1}
 \caption{visão geral da alteração de overlap}
 \label{sinc-gran1}
 \end{figure}
@@ -4820,13 +4815,13 @@ Atualemnte fazem parte do cenário de interação os objetos [sinc-cenario], [si
 por organizar o mapeamento dos parâmetros.
 
 \begin{figure}
-\includegraphics[scale=.4]{teclado}
+\includegraphics[scale=.6]{teclado}
 \caption{teclado USB adaptado como pedal}
 \label{teclado}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.6]{sinc-controle-teclado}
+\includegraphics[scale=.7]{sinc-controle-teclado}
 \caption{[sinc-controle-teclado]}
 \label{sinc-controle-teclado}
 \end{figure}
@@ -4852,33 +4847,15 @@ de sequências automatizadas com parâmetros definidos pela análise da performa
 
 
 \begin{figure}
-\includegraphics[scale=.4]{mapping1}
+\includegraphics[scale=.6]{mapping1}
 \caption{Mapeamento feito por relação desenhada/customizada.}
 \label{mapping1}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.4]{mapping2}
+\includegraphics[scale=.6]{mapping2}
 \caption{Mapeamento por curva exponencial.}
 \label{mapping2}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{mapping3}
-\caption{Mapeamento por curva gradual.}
-\label{mapping3}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{mapping4}
-\caption{Mapeamento por curva logarítmica.}
-\label{mapping4}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=.4]{mapping5}
-\caption{Mapeamento por curva exponencial customizada.}
-\label{mapping5}
 \end{figure}
 
 Por mapeamento aqui entende-se a tradução de uma escala
@@ -4889,11 +4866,32 @@ mapeado para uma escala de -1 a 1 de maneira linear de modo
 que o valor original 64 (centro da escala) seja mapeado para o valor 0 (centro
 da nova escala).
 
+
+\begin{figure}
+\includegraphics[scale=.6]{mapping3}
+\caption{Mapeamento por curva gradual.}
+\label{mapping3}
+\end{figure}
+
 Os parâmetros da análise do áudio em tempo-real possuem diferentes
 escalas e ainda, no caso da amplitude e timbre, apresentam variações de uma
 performance para outra. A precisão e previsibilidade na análise do áudio 
 depende de diversos fatores externos como por exemplo a constituição do instrumento, da
 amplificação ou do timbre do instrumentista.
+
+
+\begin{figure}
+\includegraphics[scale=.6]{mapping4}
+\caption{Mapeamento por curva logarítmica.}
+\label{mapping4}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=.6]{mapping5}
+\caption{Mapeamento por curva exponencial customizada.}
+\label{mapping5}
+\end{figure}
+
 
 Qualquer técnica de mapeamento escolhida deve manter uma flexibilidade
 de ajuste adequado a essas variáveis. A biblioteca ``mapping'' presente no
@@ -4908,19 +4906,19 @@ método de mapeamento para cada caso.
 \subsection{[sinc-cenario]}
 
 \begin{figure}
-\includegraphics[scale=.4]{sinc-cenario}
+\includegraphics[scale=.55]{sinc-cenario}
 \caption{visão geral de [sinc-cenario]}
 \label{sinc-cenario}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.4]{tabela-cenario}
+\includegraphics[scale=.6]{tabela-cenario}
 \caption{fluxograma do mapeamento do patch na figura \ref{pd-cena1}}
 \label{tabela-cenario}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.4]{pd-cena1}
+\includegraphics[scale=.6]{pd-cena1}
 \caption{subpatch [pd cena 1]}
 \label{pd-cena1}
 \end{figure}
@@ -4946,7 +4944,7 @@ baseado em movimento browniano e outro totalmente randômico.
 \subsection{Objetos [sinc-mixer] e [sinc-pan]}
 
 \begin{figure}
-\includegraphics[scale=.4]{mixer}
+\includegraphics[scale=.6]{mixer}
 \caption{[sinc-mixer]}
 \label{mixer}
 \end{figure}
@@ -4956,7 +4954,7 @@ Na figura \ref{mixer} vemos a composição interna do objeto
 de áudio de quatro canais independentes.
 
 \begin{figure}
-\includegraphics[scale=.4]{pan}
+\includegraphics[scale=.6]{pan}
 \caption{[sinc-pan]}
 \label{pan}
 \end{figure}
@@ -4990,6 +4988,7 @@ ao longo da pesquisa e um resultado composicional derivado
 da desenvolvimento dos módulos de SInCoPA.
 
 \section{Experimentos}
+\label{experimentos}
 
 O desenvolvimento cronológico dessa pesquisa levou a um primeiro momento de intenso aprendizado
 dos detalhes e técnicas de programação com Pd, desenvolvendo materiais didáticos, traduções, e uma
@@ -5049,7 +5048,7 @@ a vontade musicalmente.
 
 
 \begin{figure}
-\includegraphics[scale=.4]{experimento1}
+\includegraphics[scale=.6]{experimento1}
 \caption{Experimento 1 - Geradores melódicos e rítmicos}
 \label{experimento1}
 \end{figure}
@@ -5100,7 +5099,7 @@ entre cada um ou sobrepor mais de um módulo simultaneamente. O instrumentista
 liga cada módulo através do pedal (teclado alfanumérico descrito na figura \ref{teclado}).
 
 \begin{figure}
-\includegraphics[scale=.4]{audio-midi}
+\includegraphics[scale=.6]{audio-midi}
 \caption{Visão da abstração [audio\_midi]}
 \label{audio-midi}
 \end{figure}
@@ -5113,7 +5112,7 @@ O resultado da análise de áudio é convertido em fluxo MIDI com os objetos nat
 
 
 \begin{figure}
-\includegraphics[scale=.4]{sintese}
+\includegraphics[scale=.5]{sintese}
 \caption{Visão do sub-patch [pd sintese interativa]}
 \label{sintese}
 \end{figure}
@@ -5133,7 +5132,7 @@ A distância de altura entre cada nota define a característica do timbre do sin
 
 %% criar tabela mostrando as alterações dos índices de modulação do sintetizador
 \begin{figure}
-\includegraphics[scale=.4]{part1}
+\includegraphics[scale=.6]{part1}
 \caption{Exemplo de trecho executado explorando interação com [pd sintese interativa]}
 \label{part1}
 \end{figure}
@@ -5143,6 +5142,7 @@ Na figura \ref{part1} podemos observar um trecho musical executado e enviado par
 o sintetizador. Na tabela abaixo vemos o resultado da análise de cada altura e o 
 valor correspondente a cada parâmetro mapeado no sintetizador.
 
+\newpage
 
 \begin{center}
     \begin{tabular}{ | l | l | p{5cm} |}
@@ -5213,7 +5213,7 @@ Esse resultado passa por um objeto [moses] que controla 4 geradores melódicos e
 e randômico (fig.\ref{gera-melodico3})). O resultado dos geradores são enviados como mensagem MIDI pelo canal MIDI 2.
 
 \begin{figure}
-\includegraphics[scale=.4]{base-duo}
+\includegraphics[scale=.5]{base-duo}
 \caption{Trecho executado e enviado ao algoritmo da figura \ref{algoritmo} }
 \label{base-duo}
 \end{figure}
@@ -5221,13 +5221,13 @@ e randômico (fig.\ref{gera-melodico3})). O resultado dos geradores são enviado
 
 
 \begin{figure}
-\includegraphics[scale=.4]{alg-interativos}
+\includegraphics[scale=.5]{alg-interativos}
 \caption{Resultado de interação com algoritmo descrito na figura \ref{algoritmo} (pg.1)}
 \label{alg-interativos}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.4]{alg-interativos2}
+\includegraphics[scale=.5]{alg-interativos2}
 \caption{Resultado de interação com algoritmo descrito na figura \ref{algoritmo}(pg.2)}
 \label{alg-interativos2}
 \end{figure}
@@ -5240,7 +5240,7 @@ ver o mesmo trecho da figura \ref{base-duo} servindo como base para o algoritmo.
 
 
 \begin{figure}
-\includegraphics[scale=.4]{sinc-midilive}
+\includegraphics[scale=.5]{sinc-midilive}
 \caption{Visão da abstração [sinc-midilive]}
 \label{sinc-midilive}
 \end{figure}
@@ -5262,7 +5262,7 @@ lógica de ações:
 
 
 \begin{figure}
-\includegraphics[scale=.4]{sinc-harmonia}
+\includegraphics[scale=.5]{sinc-harmonia}
 \caption{Visão da abstração [sinc-harmonia]}
 \label{sinc-harmonia}
 \end{figure}
@@ -5286,77 +5286,68 @@ cada execução seja única e capaz de dialogar com diferentes ambientes e prop�
 Nessa seção serão apresentadas algumas reflexões acerca
 do processo de pesquisa e alguns resultados alcançados.
 O objetivo dessa seção e mostrar como o processo avançou
-e apontar pontos fortes e fracos aolongo do desenvolvimento da pesquisa.
+e apontar pontos fortes e fracos ao longo do desenvolvimento da pesquisa.
+
+A pesquisa possibilitou a criação de uma biblioteca de módulos que auxiliam
+a criação de música interativa.	Esses módulos podem ser combinados com objetos
+nativos de Pd e conectados com outros programas da maneira como tem sido
+mostrado ao longo do texto.
+
+Ao longo do desenvolvimento de SInCoPA diversos experimentos foram desenvolvidos,
+permitindo a exploração isolada de aspectos com visto na seção \ref{experimentos}.
+Essa experimentação pública e abertura dos resultados parciais da pesquisa, permitiram
+um bom \textit{feedback} técnico e artístico em a relação a comunidade de 
+artistas e desenvolvedores de música interativa.
+
+
+Dentro da grande área de computação musical, essa pesquisa engloba elementos de projeto
+de instrumento aumentado, composição algorítmica e busca e análise de dados musicais.
+Apesar de ser um recorte amplo de conhecimento, acredito ter levantado os principais
+problemas de pesquisa e apontado soluções que permitem uma compatibilidade para futuros desenvolvimentos.
+Enquanto ferramenta pessoal de composição, SInCoPA se mostrou um ambiente ideal
+para a criação de música interativa, instalações e colaboração com outros
+músicos.
+
+Todo o código apresentado ao longo do texto pode ser acessado pela internet\footnote{Disponível
+para download em : www.github.com/cristianofigo/sinc\_abs}. O código é distribuído
+pela licença GNU/GPL, permitindo que seja acessado, alterado e re-distribuído.
+Além da disponibilidade do código, é possível acompanhar o desenvolvimento dos
+algoritmos através do histórico de versões de desenvolvimento dos objetos projetados
+na pesquisa. Acredito que essa metodologia ajude na construção de conhecimento sobre
+composição de música interativa e permita o aperfeiçoamento das pesquisas na área.
 
 \section{Discussão}
 
 
 A motivação inicial da pesquisa, foi criar um sistema interativo
 para uso com instrumentos de corda pinçada como violão e guitarra.
+Rapidamente se evidenciou o problema da limitação da análise de áudio 
+cem tempo-real em relação ao aspecto polifônico desses instrumentos, 
+como visto na seção \ref{sec-audioanalise}.
 
-Rapidamente se evidenciou o problema da limitação da análise de áudio
-em tempo-real em relação ao aspecto polifônico desses instrumentos.
 A versão atual dessa pesquisa, compreende interação com instrumentos
-monofônicos.
-
-Uma possível solução da problemática da análise polifônica é apresentada
-por Puckette:
-
-\begin{quote}
- I've been at work on a long-term project to design a rather personalized computer music instrument to try 
-to bring out and confront some of the difficulties encountered by musicians trying to use computers in live 
-performance. The instrument is based on a compact electric guitar (Steinberger/Gibson) with an added six-string 
-separated pickup (Roland). Not finding an inexpensive and compact 6-channel preamp on the market, I designed and 
-built a very crude one. This is interfaced to a computer using a multichannel PCI interface (Midiman). 
-A Pd patch, running in linux, then performs a variety of interesting transformations on the six audio signals, 
-and mixes them to stereo for output.
-
-This is entirely different from standard ``guitar synthesizers" which pitch track the strings to drive synthesizers. 
-Such instruments make lots of audible mistakes, and they also suffer from the added latency the comes from the pitch 
-tracker. In the instrument described here, the latency of the whole affair is only that of Pd itself, about 10 
-milliseconds (it's probably not hard to reduce it to 5 or 6 using real-time kernel patches but I preferred to use 
-off-the-shelf linux). 
-\end{quote}
-
-\subsubsection{Redes neurais artificiais}
+monofônicos. Apesar de permitir uma rápida adaptação dos módulos já desenvolvidos, 
+quando for implementado o \textit{hardware} que permita o mapeamento de 
+cordas separadas.
 
 
-% Na prática o sistema funcionará em duas instâncias: num primeiro momento
-% as redes precisam ser treinadas. Nessa fase o músico executa uma performance, esse
-% áudio é captado, analisado e colocado numa base de dados que vai servir como
-% arquivos de treinamento das redes. O segundo momento será o momento da performance interativa,
-% onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real
-% com esse banco de dados previamente estocado.
-% Uma visão geral do sistema pode ser vista na figura \ref{geral} onde 
-% podemos ver o fluxo geral dos dados ao longo das partes do sistema. Podemos ver
-% que a resposta do sistema ao estímulo do músico depende da resposta das redes que 
-% procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
+%% discutir mais
 
 
 \begin{figure}
-\includegraphics[scale=.7]{geral}
-\caption{Diagrama geral do sistema}
-\label{geral}
-\end{figure}
-
-
-
-%colocar parágrafo de como que está agora
-
-%Na figura\ref{mecanismo}
-
-\begin{figure}
-\includegraphics[scale=.7]{escuta}
+\includegraphics[scale=.5]{escuta}
 \caption{Mecanismo de escuta e análise}
 \label{escuta}
 \end{figure}
 
 %%%%%% artigo pdcon09
 
-
-Em determinado momento, a pesquisa convergiu para o desenvolvimento de um sistema baseado em redes neurais.
-Essa seção expõe esse momento da pesquisa, descrevendo como se pode trabalhar com redes neurais artificiais 
-integrando a um sistema de música interativa com Pd.
+Dentro de um sistema de criação de música interativa  a análise ocupa uma importãncia centra. 
+A importância de uma metodologia de análise deve ser equilibrada com o objetivo na construção geral do sistema.
+No começo da pesquisa, surgiu o foco no desenvolvimento de módulos de análise sub-simbólica baseados em redes neurais.
+Essa seção experiência apontou alguns caminhos de como trabalhar com redes neurais artificiais 
+integrando a um sistema de música interativa com Pd. Usando enquanto método para classificação de
+padrões.
 
 A figura \ref{escuta} representou o planejamento inicial do projeto onde podemos observar como a 
 análise do áudio seria separada nos parâmetros de
@@ -5366,7 +5357,7 @@ densidade, durações, classes de intervalos, variações de timbre e registro. 
 redes globais também de tamanhos diferentes.
 
 \begin{figure}
-\includegraphics[scale=.7]{mecanismo}
+\includegraphics[scale=.5]{mecanismo}
 \caption{Mecanismo de funcionamento de um sistema interativo baseado em redes neurais}
 \label{mecanismo}
 \end{figure}
@@ -5413,7 +5404,7 @@ dados de áudio e respondendo com bang em tempo-real para cada ataque reconhecid
 
   
 \begin{figure}
-\includegraphics[scale=.5]{fann2}
+\includegraphics[scale=.4]{fann2}
 \caption{Agrupador de listas de quatro durações para envio para a rede neural artificial}
 \label{fann2}
 \end{figure} 
@@ -5433,37 +5424,23 @@ altera o andamento, as redes continuam a detectar os padrões, porque durante a 
 apresentados diversas vezes em andamentos diferentes.
 
 
-Apesar da experiência valiosa, foi decidido suspender as implementações com redes neurais e
-focar o desenvolvimento nos níveis de análise descritos na seção \ref{analise-geral}.
-A prática com redes neurais demonstrou um grande potencial como ferramenta para análise.
+Outra possibilidade seria o uso de mapas auto-organizáveis (redes de Kohonen), que é
+um tipo de rede neural artificial não supervisionada, que não necessita
+da fase de terinamento, podendo ser um modelo para classificação em tempo-real..
+Esse experimento mostrou um caminho para o refinamento de um modelo de classificação de padrão.
+Um problema apontado foi o de que aplicações com redes neurais são voltadas
+para a resolução de problemas específicos.
+A prática com redes neurais demonstrou um grande potencial como ferramenta para análise. Apontando
+para o futuro do desenvolvimento dos níveis de análise descritos na seção \ref{sec-analise-geral}
 Dentro do recorte dessa pesquisa, a análise tem um espaço importante, entretanto o objetivo
 final é o desenvolvimento de uma ferramenta para a composição de música interativa.
 
-Outra possibilidade seria o uso de mapas auto-organizáveis (redes de Kohonen), que é
-um tipo de rede neural artificial não supervisionada, que não necessita
-da fase de terinamento, o algoritmo fica constantemente mudando os valores dos pesos internos.
-Esse experimento mostrou um caminho para o refinamento de um modelo de detecção de padrão.
-Um problema apontado foi o de que aplicações com redes neurais são voltadas
-para a resolução de problemas específicos. O foco em classificações mais gerais
-pode ser implementado com operações matemáticas como média e probabilidades.
+
+
+
 
 %% faltou um subpatch mostrando o objeto [ann_mlp]
 
-
-% \subsection{Composição algorítmica e interação}
-% 
-% 
-% 
-% Aqui falar do RTC + MEPSOM
-% 
-% Falar das razões da pesquisa de termos dado um passo atrás, desistido
-% das redes neurais e focado num sistema estável bem documentado sobre todos
-% os componentes de um sistema interativo
- 
-
-% Pode-se, portanto, definir que uma boa abordagem de pesquisa em sistemas musicais interativos engloba um vasto campo 
-% multidisciplinar realizando uma fusão de pesos iguais entre as áeas de psicologia cognitiva, computação e teoria da 
-% composição musical.
 
 
 
@@ -5825,7 +5802,7 @@ com a licença GNU/GPL, compatível com a licença do Pd-extended, enquanto que 
 disponibilizado com a licença BSD ``Standard'', o
 que causa uma certa falta de sincronia na licença global de projetos com Pd-extended. 
 Uma expressão matemática ainda poderia ser implementada
-como um external independente escrito em C, como se pode ver no apêndice \ref{C-external}.
+como um external independente escrito em C \cite{howtoexternal}.
 
 
 %% fazer mais um exemplo de situação condicional com expr e outros
@@ -5918,7 +5895,7 @@ ver na figura \ref{cabos} uma caixa de número (dados) se conectando ao objeto [
 
 \begin{figure}
 \includegraphics[scale=.6]{line}
-\caption{Sintetizador usando objeto [line] controlando envelope de áudio}
+\caption{Sintetizador usando slider vertical ([vsl]) controlando amplitude de áudio}
 \label{line}
 \end{figure}
 
@@ -6063,7 +6040,7 @@ ser reescrita com diferentes valores rítmicos (por exemplo, em vez de colcheias
 diferente (por exemplo, 5/8, em vez de 4/4). 
 
 \begin{figure}
-\includegraphics[scale=.6]{fomus}
+\includegraphics[scale= 1]{fomus}
 \caption{Resultado de FOMUS em Lilypond}
 \label{fomus}
 \end{figure} 
@@ -6099,7 +6076,7 @@ time 8 dur 1 pitch 60 ;
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.6]{trab-fomus}
+\includegraphics[scale=.28]{trab-fomus}
 \caption{ambiente de trabalho com Pd, FOMUS e editor de Lilypond (Frescobaldi)}
 \label{trab-fomus}
 \end{figure}
@@ -6166,19 +6143,19 @@ para processar a parte gráfica da notação musical, se deve substituir essa va
 
 
 \begin{figure}
-\includegraphics[scale=.6]{sinc-notacao1}
+\includegraphics[scale=.4]{sinc-notacao1}
 \caption{[sinc-notacao]}
 \label{sinc-notacao1}
 \end{figure} 
 
 \begin{figure}
-\includegraphics[scale=.6]{sinc-notacao1a}
+\includegraphics[scale=.5]{sinc-notacao1a}
 \caption{subpatch correspondente a uma nota}
 \label{sinc-notacao1a}
 \end{figure} 
 
 \begin{figure}
-\includegraphics[scale=.6]{sinc-notacao1b}
+\includegraphics[scale=.5]{sinc-notacao1b}
 \caption{subpatch [pd escolhe nota] da figura \ref{sinc-notacao1a}}
 \label{sinc-notacao1b}
 \end{figure} 
@@ -6243,33 +6220,47 @@ consists of over 800 lines of code and took 6 months to write, but there is much
 
 
 Podemos ver o uso do objeto [gemnotes-counter] na figura \ref{gemnotes1} e no arquivo "help" na figura \ref{gemnotes-help}.
+Considero que o objetivo ideal em termos de ambiente de notação musical para música interativa é uma combinação de GEM para
+visualização em tempo-real, conectado com escrita e leitura de arquivos Lilypond. Nessa seção foram apresentadas algumas
+soluções que apontam para esse objetivo.
+
+% \begin{figure}
+% \includegraphics[scale=.6]{solitude}
+% \caption{Notação gráfica da peça ``Solitude'' por Hans Christoph Steiner}
+% \label{solitude}
+% \end{figure} 
+% 
+% \begin{figure}
+% \includegraphics[scale=.6]{iannix}
+% \caption{Interface gráfica de Iannix}
+% \label{iannix}
+% \end{figure} 
+% 
+% A ampliação do projeto de visualização de notação musical vem para auxiliar a sinestesia do instrumentista
+% com o sistema em tempo-real, além de auxiliar o processo de composição. 
+% Outras soluções que já podem ser operadas em integração com SInCoPA podem ser apontadas para o futuro da pesquisa, 
+% como por exemplo:
+% 
+% \begin{itemize}
+%  \item Inscore\footnote{Disponível em: http://inscore.sourceforge.net/} - Projeto que pretende criar uma base para
+% o desenvolvimento de Partituras interativas aumentadas.
+%  \item Data structures - Objetos nativos de Pd que permitem uma representação gráfica de estruturas de dados
+% customizados. Um uso dos objetos data structures pode ser visto na composição de música com notação gráfica, como
+% é o caso da peça ``Solitude'' de Hans Christoph Steiner, visto na figura \ref{solitude}.
+%  \item Iannix\footnote{Disponível em - http://www.iannix.org} - Programa sequenciador gráfico que envia a sequência
+% para outros programas via protocolo OSC. Um exemplo pode ser visto na figura \ref{iannix}.
+% \end{itemize}
 
 
-\begin{figure}
-\includegraphics[scale=.6]{solitude}
-\caption{Notação gráfica da peça ``Solitude'' por Hans Christoph Steiner}
-\label{solitude}
-\end{figure} 
 
-\begin{figure}
-\includegraphics[scale=.6]{iannix}
-\caption{Interface gráfica de Iannix}
-\label{iannix}
-\end{figure} 
+%\subsection{Configuração de ambiente para SINCoPA}
 
-A ampliação do projeto de visualização de notação musical vem para auxiliar a sinestesia do instrumentista
-com o sistema em tempo-real, além de auxiliar o processo de composição. 
-Outras soluções que já podem ser operadas em integração com SInCoPA podem ser apontadas para o futuro da pesquisa, como por exemplo:
+% instruções para configurar o ambiente
 
-\begin{itemize}
- \item Inscore\footnote{Disponível em: http://inscore.sourceforge.net/} - Projeto que pretende criar uma base para
-o desenvolvimento de Partituras interativas aumentadas.
- \item Data structures - Objetos nativos de Pd que permitem uma representação gráfica de estruturas de dados
-customizados. Um uso dos objetos data structures pode ser visto na composição de música com notação gráfica, como
-é o caso da peça ``Solitude'' de Hans Christoph Steiner, visto na figura \ref{solitude}.
- \item Iannix\footnote{Disponível em - http://www.iannix.org} - Programa sequenciador gráfico que envia a sequência
-para outros programas via protocolo OSC. Um exemplo pode ser visto na figura \ref{iannix}.
-\end{itemize}
+
+%\subsection{Manual de referência de SINCoPA}
+
+% tabela com as colunas: objeto & objetivo & entradas e saídas & obs
 
 
 %% Incluir mini-conclusão
