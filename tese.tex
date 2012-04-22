@@ -9,6 +9,12 @@
 \clubpenalty=10000
 \widowpenalty=10000
 
+%\usepackage[brazilian]{babel}
+%\usepackage[T1]{fontenc} 
+%\usepackage{ae} 
+%\usepackage[ansinew]{inputenc} 
+
+
 
 \newcommand{\pd}{Pd}
 \newcommand{\objeto}[1]{[#1\texttildelow]}
@@ -1757,10 +1763,10 @@ a sensibilidade dos objetos que realizarão a análise de áudio. A abstração
 [sinc-audioin] na figura \ref{audioin} permite o roteamento e visualização rápida 
 de entrada de áudio de dois canais. No caso dos experimentos musicais envolvidos 
 nessa pesquisa, foi estabelecido o canal 1 para o recebimento de áudio do programa 
-rosegarden, que hospeda samplers do tipo ``soundfont''. O canal 2 é usado para 
+rosegarden, que hospeda samplers do tipo \textit{soundfont}. O canal 2 é usado para 
 a entrada de áudio do instrumento. É necessário um objeto que funcione como uma chave de
 liga/desliga para o áudio. Para isso foi usado o objeto [spigot\texttildelow] da biblioteca
-``Unauthorized'' incluída no pd-extended.
+\textit{Unauthorized} incluída no pd-extended.
  Quando o toggle([tgl]) é acionado com clique de mouse,
 ele envia o valor 1 pela saída que por sua vez está conectado na entrada fria do
 [spigot\texttildelow], essa ação faz com que o áudio seja liberado pela saída do [spigot\texttildelow].
@@ -1769,7 +1775,7 @@ a saída ligada a uma variável de parâmetro para o objeto [line\texttildelow].
 [line\texttildelow] atua no sentido de se evitar cliques no áudio quando se muda o valor de 
 amplitude que entra na entrada fria do objeto [*\texttildelow]. Outro componente
 opcional, que é útil em situações práticas, é um visualizador gráfico de presença de sinal
-de áudio. Em [sinc-audioin] é usado o objeto [Scope\texttildelow] da biblioteca ``cyclone'', 
+de áudio. Em [sinc-audioin] é usado o objeto [Scope\texttildelow] da biblioteca \textit{cyclone}, 
 incluída no pd-extended.
 
 %% dar uma olhada no livro do Miller sobre [*~] e [line~] 
@@ -1936,8 +1942,34 @@ de mensagens como é o caso aqui.
 
 
 Segundo a documentação no próprio manual do objeto:
-
 \begin{quote}
+ Sigmund\texttildelow analisa um áudio de entrada através de componentes senoidais,
+que podem ser retornados individualmente ou combinados para
+retornar uma estimativa de altura. Saídas possíveis são especificadas
+como argumentos de criação:
+
+\begin{itemize}
+ \item pitch - saída constante
+ \item notes - retorna a altura no começo das notas 
+ \item env - retorna amplitude continuamente
+ \item peaks - retorna todos picos senoidais em ordem de amplitude
+ \item tracks - retorna picos senoidais organizados em faixas separadas
+\end{itemize}
+
+Parâmetros que você pode definir (no argumentos de criação do objeto ou em mensagens):
+
+\begin{itemize}
+ \item npts - número de pontos em cada janela de análise (1024)
+ \item hop - número de pontos entre cada análise (512)
+ \item npeak - número de picos senoidais (20)
+ \item maxfreak - máxima frequência senoidal em Hz. (1000000)
+ \item vibrato - profundidade de vibrato a ser esperado em semitons (1)
+ \item stabletime - tempo (mseg) para esperar para reportar notas (50)
+ \item minpower - mínima amplitude (dB) para retornar uma altura (50)
+ \item growth - crescimento de amplitude (dB) para retornar uma nova nota (7) 
+\end{itemize}
+Os parâmetros npts e hop são em número de amostras, e são definidos como potências de dois.\footnote{
+
  Sigmund\texttildelow analyzes an incoming sound into sinusoidal
 components, which may be reported individually or combined to
 form a pitch estimate. Possible outputs are specified as creation
@@ -1962,7 +1994,7 @@ Parameters you may set (in cretaion arguments or messages):
  \item minpower - minimum power (dB) to report a pitch (50)
  \item growth - growth (dB) to repor a new note (7) 
 \end{itemize}
-The npts and hop parameters are in samples. and are powers of two.
+The npts and hop parameters are in samples. and are powers of two.}
 \end{quote} 
 
 
@@ -2034,9 +2066,18 @@ Na área 4 vemos o objeto [bonk\texttildelow], desenvolvido para
 detectar ataques de notas. Segundo Puckette:
 
 %% biblio: Miller (Real-time audio analysis tools for Pd and MSP) - 98
-
 \begin{quotation}
- The bonk object does a bounded-Q fillterbank of an incoming sound and
+O objecto bonk faz filtragem com limite \textit{Q} de um som de entrada e
+pode produzir a análise crua ou detectar inícios
+que pode então ser comparado com um conjunto de modelos espectrais conhecidos
+a fim de adivinhar qual dos vários
+tipos possíveis de ataque que ocorreu.
+
+Os objetos fiddle e bonk são de baixa tecnologia, seria fácil para re-escrever os
+algoritmos  em outra linguagem
+ ou ambiente. Nossa principal preocupação é atingir comportamento aceitável e previsível e
+ o usando técnicas fáceis de entender que não vão exigir uma carga computacional inaceitável
+ em um computador moderno\footnote{The bonk object does a bounded-Q fillterbank of an incoming sound and
 can either output the raw analysis or detect onsets
 which can then be compared to a collection of known
 spectral templates in order to guess which of several
@@ -2048,7 +2089,8 @@ guage or for other environments from the ones consid-
 ered here. Our main concern is to get predictable and
 acceptable behavior using easy-to-understand tech-
 niques which won't place an unacceptable computa-
-tional load on a late-model computer.
+tional load on a late-model computer.}. \cite{bonk}
+ 
 \end{quotation}
 
 \begin{figure}
@@ -2069,8 +2111,18 @@ Ainda Puckette, aponta as vantagens de usar [bonk\texttildelow]
 em vez de outros métodos.
 
 \begin{quotation}
- 
-The most satisfying application of this analysis is in
+A aplicação mais satisfatória desta análise está na
+detecção de ataques de percussão. A forma mais popular
+de fazer isso é usar um analisador de envelope e olhar
+para o rápido aumento na amplitude, mas qualquer tipo de
+toque pode definir sequências de ataques indesejados, ou ao contrário, 
+pode mascarar ataques verdadeiros. A análise utilizada por
+bonk muitas vezes pode detectar ataques novos que aparecem como
+afiadas mudanças relativas no espectro sem qualquer
+acompanhamento na mudança na amplitude global; reciprocamente, 
+os instrumentos musicais não costumam mudar o espectro rapidamente
+e, portanto, não atraem a atenção de bonk\footnote
+{The most satisfying application of this analysis is in
 detecting percussive attacks. The most popular way
 of doing this is to use an envelope follower and look
 for rapid rises in follower output; but any kind of
@@ -2081,7 +2133,7 @@ sharp relative changes in the spectrum without any
 accompanying large change in the overall power; con-
 versely, ringing instruments don't often give rapidly
 changing spectra and hence don't attract bonk's at-
-tention.
+tention.}. \cite{bonk}
 \end{quotation}
 
 A biblioteca Aubio de Paul Brossier também contém um objeto
@@ -2553,22 +2605,32 @@ e comparação de amostras de áudio. Essa propriedade possibilita, por exemplo,
 uma situação de acompanhamento interativo para uma instrumentação de 
 percussão múltipla.
 
-Segundo Puckette:
 
 \begin{quotation}
-It is also possible to ask bonk to test any new at-
+Também é possível pedir para bonk testar qualquer novo ataque 
+contra um menu de ataques pré-gravados a fim
+de adivinhar qual dos vários instrumentos possíveis foi
+responsável pelo novo ataque. Para fazer isso, primeiro temos
+que armazenar modelos espectrais para cada um dos instrumentos.
+Depois disso, qualquer novo ataque é comparado com o
+daqueles armazenados e a correspondência mais próxima é relatada. 
+A subjacente suposição de que há realmente alguma
+repetibilidade dos envelopes espectrais de ataques de
+instrumentos de percussão, certamente não é verdade no mundo real, mas é interessante saber quais
+tipos de instrumentos bonk pode identificar desta forma
+e quais não. \footnote{It is also possible to ask bonk to test any new at-
 tack against a menu of pre-recorded attacks in order
 to guess which of several possible instruments was
 responsible for the new attack. To do this, first we
 store spectral templates for each of the instruments.
 Thereafter, any new attack is compared with the
-stored ones and the closest match is reported. The
-underlying assumption, that there is actually some
+stored ones and the closest match is reported. 
+Theunderlying assumption, that there is actually some
 repeatability in the spectral envelopes of attacks of
 percussive instruments certainly doesn't hold true in
 the real world, but it is interesting to learn which
 sorts of instruments bonk can identify in this way
-and which it can't.
+and which it can't.} \cite{bonk}
 \end{quotation}
 
 O objeto [bonk\texttildelow] pode funcionar detectando
@@ -2636,12 +2698,18 @@ uma visão geral de um dos algoritmos de análise do objeto  [bfcc\texttildelow]
 análise Cepstral enviando dados para o classificador [timbreID]. Na figura \ref{bfcc} podemos
 ver em detalhe o funcionamento de [bfcc\texttildelow].
 
-
 \begin{quotation}
- Bfcc~ is the most developed cepstral external, using the more thoroughly researched Bark scale rather than mels for 
-the spectrum weighting. Performance is only slightly better than mfcc~. The most noteworthy thing about these cepstral 
+Bfcc\texttildelow é o objeto de análise \textit{cepstral} mais desenvolvidp, utilizando a escala \textit{Bark} 
+mais bem pesquisada, em vez de \textit{Mels} para a ponderação do espectro. O desempenho é apenas ligeiramente melhor do 
+que MFCC\texttildelow. A coisa mais notável sobre estes cepstral externs é a flexibilidade que proporcionam no 
+que diz respeito à construção do de banco de filtros. A escolha de um valor ideal de \textit{Bark} ou \textit{Mel} 
+ pode ter um impacto real sobre o quão relevante são esses parâmetros na classificação de um som em relação a outro
+\footnote{Bfcc\texttildelow is the most developed cepstral external, using the more thoroughly researched Bark scale rather than mels for 
+the spectrum weighting. Performance is only slightly better than mfcc\texttildelow. The most noteworthy thing about these cepstral 
 externs is the flexibility they provide with respect to filterbank construction. The choice of a specific Bark- or 
-mel-spacing can have a real impact on how relevant the features are in classifying one sound set vs. another. \cite{brentcepstral}
+mel-spacing can have a real impact on how relevant the features are in classifying one sound set vs. another.}. 
+\cite{brentcepstral}
+ 
 \end{quotation}
 
 
@@ -3424,7 +3492,7 @@ esses respectivos valores como variáveis [s min-ritmo] e
 \end{figure}  
 
 O objeto [brown-rhythm] está presente na biblioteca RTC e se trata de
-um gerador de durações baseado em movimento browniano("Brown motion"
+um gerador de durações baseado em movimento browniano(\textit{Brown motion}
 \footnote{movimento browniano é um modelo que descreve o movimento aleatório 
 de partículas macroscópicas num fluido como consequência dos choques das 
 moléculas das partículas. Esse nome é devido ao botânico Robert
@@ -3444,7 +3512,7 @@ Movimento browniano é um dos modelos mais usados de processos estocásticos
 \end{figure} 
 
 
-O funcionamento básico aparece na figura \ref{brown-rhythm-func}.
+O funcionamento básico aparece na figura \ref{brown-rythm-func}.
 No manual de [brown-rhythm] aparece uma explicação mais detalhada.
 
 
@@ -5142,7 +5210,7 @@ Na figura \ref{part1} podemos observar um trecho musical executado e enviado par
 o sintetizador. Na tabela abaixo vemos o resultado da análise de cada altura e o 
 valor correspondente a cada parâmetro mapeado no sintetizador.
 
-\newpage
+\pagebreak
 
 \begin{center}
     \begin{tabular}{ | l | l | p{5cm} |}
@@ -6076,7 +6144,7 @@ time 8 dur 1 pitch 60 ;
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=.28]{trab-fomus}
+\includegraphics[scale=.3]{trab-fomus}
 \caption{ambiente de trabalho com Pd, FOMUS e editor de Lilypond (Frescobaldi)}
 \label{trab-fomus}
 \end{figure}
