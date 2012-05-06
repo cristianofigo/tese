@@ -15,6 +15,7 @@
 \usepackage{color}
 \usepackage{colortbl}
 \usepackage{lastpage}
+\usepackage{etoolbox}
 
 %\setlength\parskip{\smallskipamount}
 %\setlength\parindent{0cm}
@@ -360,6 +361,9 @@ texto texto texto texto
   \gdef\thechapter{\@Alph\c@chapter}
   \addcontentsline{toc}{chapter}{\appendixname}
 }
+
+\BeforeBeginEnvironment{quote}{\begin{singlespace*}}
+\AfterEndEnvironment{quote}{\end{singlespace*}}
 
 \makeatother
 
