@@ -32,7 +32,7 @@
 
 %\autorbib{Figueiró, Cristiano Severo}
 
-\titulo{SinCoPA- Sistema Interativo de Composição, Performance e Análise - Técnicas, Reflexões e Poéticas}
+\titulo{SinCoPA - Sistema Interativo de Composição, Performance e Análise - Técnicas, Reflexões e Poéticas}
 \autor{Cristiano Severo Figueiró}
 \ano{2012}
 \tipo{doutorado}
@@ -114,7 +114,7 @@ Ao IHAC e Grupo de Pesquisa Poéticas Tecnológicas por possibilitar
 que essa pesquisa continue e se renove em nível de graduação e atividades de
 extensão e pesquisa.
 
-Finalmemte a Renata, Luisa e Lina pelo amor e dedicação diária
+Finalmemte a Renata, Luisa e Lina pelo amor e dedicação diária.
 
 \chapter*{Resumo}
 \label{cha:resumo}
@@ -189,7 +189,7 @@ presented here.
 \tableofcontents
 \addtocontents{toc}{\protect\setcounter{tocdepth}{5}}
 
-\listoftables
+%%\listoftables
 \listoffigures
 
 %% é importante ter esse mainmatter para indicar que começa o corpo do
@@ -204,7 +204,7 @@ presented here.
 
 %% aqui na introdução usar os termos sugeridos por sérgio: objeto e recorte
 
-Essa pesquisa apresenta o desenvolvimento de aplicativos e métodos
+Essa tese apresenta o desenvolvimento de aplicativos e métodos
 de organização de materiais musicais e sonoros aplicados a composição
 de música interativa. Por música interativa entende-se aqui um tipo
 de composição que é feita sob o paradigma da interação homem-máquina.
@@ -213,6 +213,9 @@ performance de um músico sobre uma base de programas, materiais
 armazenados e análise das informações da performance em tempo-real.
 
 
+ Como resultado foi desenvolido um sistema de funções computacionais capaz
+de auxiliar a composição de música interativa chamado SInCoPA (Sistema Interativo
+de Composição Performance e Análise).
  SInCoPA é um conjunto de aplicativos e idéias que exploram soluções
 na busca por um ambiente de composição e
 performance de música interativa. SInCoPA
@@ -221,7 +224,10 @@ categorizar aspectos da performance musical e interagir com essa performance.
 
 
 Meu objetivo musical é a criação de uma polifonia densa, onde o músico controla
-aspectos da textura resultante com o próprio gesto sonoro. Nesse panorama, a
+aspectos da textura resultante com o próprio gesto sonoro. 
+SInCoPA oferece funções que possibilitam a criação musical de texturas polifônicas
+diversas baseadas na análise do áudio da performance musical de um instrumentista.
+Nesse panorama, a
 polifonia resultante pode variar da completa fusão sonora e comportamental até o extremo
 contraste de materiais sonoros e musicais. Diversos problemas advém da prática
 musical na interação homem-máquina. Nesse sentido, o 
@@ -266,35 +272,8 @@ a versão atual do pd-extended com algumas adições de bibliotecas de objetos f
 em C e compilados como objetos de Pd.}, 
 e outras contribuições da comunidade de desenvolvedores.
 
-% 
-% pd2live is a digital music performance system, built in Pure Data (extended 0.42.5), designed 
-% specifically to function with a polyphonic audio output (audio per string) of an augmented 
-% electric guitar provided by bespoke audio break-out hardware. The system was designed in support 
-% of my doctoral thesis (available shortly), providing a digital performance environment from which a
-% n instrumentalist may interrogate instrumental percepts in relation to the creation of sophisticated 
-% timbral and spatial digital audio signal processes.
-% 
-% On a fundamental level, the user may design and implement unique real-time signal processes per 
-% string of the guitar, permitting the creation of dense polyphonic instrumental musical structures. 
-% The (spectromorphological) design of each string may correspond to real-time instrumental figuration 
-% executed by the performer.
-% 
-% The system currently operates on a note-event basis, storing pitch and amplitude data per string for 
-% use with a series of (predominantly monophonic) instrumental cognition-based abstractions, concerning 
-% melodic contour and  improvisatory syntax (such as linear completion, melodic attraction, tension, 
-% asymmetry and extrapolation of sequential note-events; cf. Lerdahl, 2001). Instrumental control-rate 
-% abstractions function specifically to attend to melodic content only, concerning the quantification (
-% and extrapolation) of tonal attraction relationships between tones and the extraction of hierarchical 
-% melodic contour structures (per string - solo; and for all instrumental registers - global) on a 4 to 
-% 7 note basis, relative to short-term memory contraints (cf. Snyder, 2000). Cognition-based data may 
-% then be applied to timbral and spatial parametric control processes in an attempt to reflect instrumental 
-% cognition-based constructs (in memory) within the resultant sound structure, potentially establishing 
-% unique performance gesture relationships within a physical (multi-channel) performance space.
 
-
-
-
-\section{Problemas de pesquisa}
+%%\section{Problemas de pesquisa}
 
 %% aqui mudar de "problemas" para "elementos" ou.. em:
 %% 1) sons acústicos e eletrônicos
@@ -327,7 +306,7 @@ e o processamento de blocos de áudio.
 Nesse trabalho procurei separar e visualizar cada problema de pesquisa. Sem perder de vista o foco
 num sistema geral de criação de música interativa.
 
-\subsection{Composição e Programação}
+\section{Composição e Programação}
   
 
 % Se estabeleceu que o objetivo é encontrar
@@ -528,7 +507,7 @@ extraídos da própria análise musical da
 performance do músico.
 
 
-\subsection{Análise}
+\section{Análise}
 \label{sec-analise-geral}
 
 %% pq analise
@@ -688,7 +667,7 @@ para análise de música eletroacústica\footnote{Nesse sentido podemos apontar 
 
 
 
-\subsubsection{Análise de áudio}
+\subsection{Análise de áudio}
 \label{sec-audioanalise}
 
 
@@ -775,7 +754,7 @@ guitarra, executando linhas melódicas.
 
 
  
-\subsubsection{Representação musical}
+\subsection{Representação musical}
 
 A análise do áudio de entrada em tempo-real é convertida em uma representação simbólica de 
 elementos musicais. A primeira segmentação da análise
@@ -845,7 +824,7 @@ música interativa. Isso permite uma definição híbrida na representação dos
 nessa pesquisa.
 
 
-\subsubsection{Segmentação e Classificação}
+\subsection{Segmentação e Classificação}
 
 
 Segmentação é o processo pelo qual, eventos musicais são organizados
@@ -934,7 +913,7 @@ abstraído da análise, quanto do próprio áudio, como processamento de áudio
 através de fragmentação, repetição e processamento de amostras de áudio.
 
 
-\subsection{Poética da interação}
+\section{Poética da interação}
 
 
 A própria imersão nas técnicas de composição assistida por computador de certa
@@ -1064,7 +1043,7 @@ O embate sonoro entre homem e máquina pode por fim revelar os aspectos
 essencialmente humanos que se possa expressar musicalmente. 
 
 
-\subsubsection{Papel do músico na interação homem-máquina}
+\subsection{Papel do músico na interação homem-máquina}
 
 
 Do ponto de vista do instrumentista, alguns aspectos podem ser apontados nessa pesquisa.
@@ -1121,7 +1100,7 @@ da exposição técnica de SInCoPA.
 
 
 
-\chapter{Referências}
+\chapter{Trabalhos relacionados}
 \label{sec:rev}
 
 O conceito de interação entre uma performance musical e computador vem
@@ -1569,13 +1548,13 @@ testada individualmente e em grupo.
 
 
 
-\section{Ferramentas}
+%\section{Ferramentas}
 
 Nessa seção serão brevemente expostos os motivos pela escolha de determinadas ferramentas para
 o desenvolvimento dessa pesquisa.
 
 
-\subsection{GNU/linux}
+\section{GNU/linux}
 
 Durante toda a pesquisa, foi usado o sistema operacional GNU/Linux.
 As distribuições usadas foram Debian testing, Debian stable e Ubuntu LTS.
@@ -1588,7 +1567,7 @@ da licença GNU/GPL.
 
 
 
-\subsection{Git}
+\section{Git}
 
 Git é um sistema de controle de versão distribuído, com código fonte livre e aberta, desenhado para lidar com qualquer
 projeto, com rapidez e eficiência.
@@ -1604,7 +1583,7 @@ em outros projetos de pesquisa.
 
 
 
-\subsection{Jack}
+\section{Jack}
 
 JACK é um sistema para o tratamento em tempo real, áudio de baixa latência (e MIDI). 
 Ele roda em GNU / Linux, Solaris, FreeBSD, OS X e Windows (e pode ser portado para outras plataformas 
@@ -1622,7 +1601,7 @@ uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confi
 
 
 
-\subsection{Rosegarden}
+\section{Rosegarden}
 
 Rosegarden é um programa de criação e edição musical que roda em GNU/linux.
 Possui diversas funcionalidades, mas nessa pesquisa é usado como sequenciador
@@ -1653,7 +1632,7 @@ tomadas por um determinado intervalo de notas.
 
 
 
-\subsection{Pd-extended}
+\section{Pd-extended}
 
 O Pure data(Pd), foi a linguagem escolhida para o desenvolvimento dessa pesquisa.
 Existem diversas distribuições do Pd, sendo as mais utilizadas o Pd "vanilla" e o Pd-extended.
@@ -1668,7 +1647,7 @@ depende de muitos outros componentes de software, tornando uma possível compati
 futuros um pouco mais arriscada. 
 
 
-\subsection{Bibliotecas de Pd}
+\section{Bibliotecas de Pd}
 
 Além do Pd-extended, essa pesquisa, necessita de duas outras bibliotecas, sendo elas a PDMTL e DIY2.
 
@@ -5278,6 +5257,7 @@ valor correspondente a cada parâmetro mapeado no sintetizador.
    71 & 347.368 & 1157.89 \\ \hline
     \hline
     \end{tabular}
+\label{tabela-variaveis}
 \end{center}
 
 
@@ -5653,6 +5633,7 @@ novos problemas de pesquisa que complementam esse objeto de pesquisa.
 \bibliographystyle{kchicago} 
 \bibliography{biblio}
 
+\appendix
 \chapter{Apêndice}
 \label{chap:anexos}
 
