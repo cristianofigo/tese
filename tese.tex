@@ -4,6 +4,7 @@
 \documentclass[draft]{ppgmus}
 %\documentclass{ppgmus}
 \usepackage{textcomp}
+\usepackage{setspace}
 \usepackage{kchicago}
 \interfootnotelinepenalty=10000
 \clubpenalty=10000
@@ -106,7 +107,7 @@ pelas inquietudes e estímulos. A comunidade internacional de desenvolvedores/us
 de software livre, por possibilitar a construção de um caminho mais humano
 na relação entre música e tecnologia.
 
-A Orquestra Organismo, Yupana Kernel e Movimento dos Sem Satélites,
+A Orquestra Organismo, Casa da Alegria, Yupana Kernel e Movimento dos Sem Satélites,
 pelo incentivo poético, técnico e humano na metareciclagem de vivências
 com a arte e com a tecnologia.
 
@@ -213,9 +214,9 @@ performance de um músico sobre uma base de programas, materiais
 armazenados e análise das informações da performance em tempo-real.
 
 
- Como resultado foi desenvolido um sistema de funções computacionais capaz
+ Um dos resultados dessa pesquisa foi o desenvolvimento de um sistema de funções computacionais capaz
 de auxiliar a composição de música interativa chamado SInCoPA (Sistema Interativo
-de Composição Performance e Análise).
+de Composição Performance e Análise), descrito no capítulo \ref{chap:SInCoPA}.
  SInCoPA é um conjunto de aplicativos e idéias que exploram soluções
 na busca por um ambiente de composição e
 performance de música interativa. SInCoPA
@@ -229,13 +230,19 @@ SInCoPA oferece funções que possibilitam a criação musical de texturas polif
 diversas baseadas na análise do áudio da performance musical de um instrumentista.
 Nesse panorama, a
 polifonia resultante pode variar da completa fusão sonora e comportamental até o extremo
-contraste de materiais sonoros e musicais. Diversos problemas advém da prática
+contraste de materiais sonoros e musicais. Os resultados musicais são demonstrados no
+capítulo \ref{composicao} na descrição da peça ``Diálogos em SINCoPA'' e nos vídeos no
+DVD em anexo a tese que apresentam experimentações sonoras com as funções de SInCoPA.
+
+
+
+
+Diversos problemas advém da prática
 musical na interação homem-máquina. Nesse sentido, o 
 objeto de pesquisa é o percurso que vai da idéia composicional, calcada
 no paradigma da interação homem-máquina,  passa pela implementação
 e posteriormente pela experimentação, performance e análise dos resultados.
-
-O sistema é construído com a linguagem \textit{Pure data} (\pd). 
+SInCoPA é construído com a linguagem \textit{Pure data} (\pd). 
 Pd \cite{pd:96} é uma linguagem gráfica orientada a objetos desenvolvida por Miller Puckette
 para a criação de música eletrônica. Desde o seu lançamento em 1996, o projeto do Pd se manteve
 com código aberto e distribuído livremente pela internet, o que agregou uma comunidade de 
@@ -350,10 +357,11 @@ tradicional e as linguagens Pd, Max/MSP e Csound.
 A composição musical com computadores tem uma história intensa de desenvolvimento
 contínuo ao longo das últimas 5 décadas. Nesse percurso, uma das ferramentas mais
 importantes criadas é o ambiente de programação Csound\footnote{Csound é um ambiente de programação
-sonora open-source e baseado na linguagem C. Disponível em: www.csounds.com}.
+sonora de código aberto e baseado na linguagem C. Disponível em: www.csounds.com}.
 O paradigma composicional no Csound pode ser visto como semelhante ao
 trabalho tradicional do compositor que descreve eventos através de
-dois arquivos: uma orchestra e um score, onde no primeiro são
+dois arquivos: uma \textit{orquestra} e uma \textit{partitura}\footnote{Livremente traduzidos
+dos termos originais \textit{orchestra} e \textit{score}}, onde no primeiro são
 descritas as qualidades fixas do timbre e no segundo os eventos e os
 parâmetros dinâmicos do timbre. A arquitetura de programas como Max e
 Pd, a primeira vista pode ser vista como simples e convidativa pelo
@@ -370,18 +378,19 @@ articulação ou métrica versus expressão. O sistema da notação
 tradicional tem uma estrutura que possui uma sequencialidade temporal
 dos eventos implícita. A migração dos músicos para ambientes de
 composição e design sonoro como Csound \cite{boulanger00:csound} tende
-a ser mais natural pela adaptação de um tipo de estrutura temporal
-(partitura) para outro (Score), e também pela oposição binária entre
-``orchestra'' e ``score''\footnote{Os termos ``orchestra'' e ``score'' 
-no contexto do Csound podem ser traduzidos para o português como instrumentos e partitura}. 
+a ser mais natural pela adaptação de um tipo de estrutura temporal comum aos músicos
+(notação musical) para outro (\textit{partitura} do Csound), e também pela oposição binária entre
+\textit{orquestra} e \textit{partitura}. 
 No Csound, a base de dados é chamada
-``Score''. Scores em Csound consistem na maioria das vezes em
-``notas'', que são comandos para um sintetizador (orchestra). O score
-é essencialmente uma sequência temporal, enquanto que a orchestra
+\textit{partitura}. Em Csound \textit{partituras} consistem na maioria das vezes em
+``notas'', que são comandos para um sintetizador (\textit{orquestra}). A \textit{partitura}
+é essencialmente uma sequência temporal, enquanto que a \textit{orquestra}
 define aspectos globais do timbre da síntese. Uma possível sequência
 temporal em Csound pode ser vista abaixo:
 
+\singlespacing
 \begin{verbatim}
+
 ;orchestra
 instr 1
   k1  linen 10000, .2, p3, .5
@@ -393,9 +402,10 @@ endin
 f1 0 2096 10 1 .2 .3
 i1 0 1 440
 i1 1 1 660
-
-
 \end{verbatim}
+
+\doublespacing 
+
 Se formos tentar implementar esse código em Pd, podemos encontrar uma 
 solução semelhante na figura \ref{fig:exemplopd1}.
 Programadores também são acostumados com linguagens de programação que
@@ -5055,6 +5065,7 @@ independente de espacialização simples como pode ser visto
 na composição interna da abstração [sinc-pan] na figura \ref{pan}.
 
 \chapter{Aplicações composicionais}
+\label{composicao}
 
 Alguns fatores anteriores propiciaram o pleno desenvolvimento
 dessa pesquisa. Durante minha graduação em Violão, participei
