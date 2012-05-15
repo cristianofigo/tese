@@ -413,7 +413,7 @@ tem sua gramática baseada na sequencialidade das ações. A vantagem de
 usar uma ferramenta de síntese embutida em uma linguagem de
 programação é que se pode ter uma flexibilidade muito maior na criação
 relações entre os elementos devido a possiblidade de criar novas
-abstrações\cite{geiger2005}. 
+abstrações \cite{geiger2005}. 
  
 \begin{figure}
   \centering
@@ -458,8 +458,6 @@ separada de retorno. Isso leva muitos programadores de Max a achar
 soluções diferentes que facilite a interação do patch com o nível
 composicional.
 
-O principal desenvolvedor inicial do Max, foi Miller Puckette
-que em 1996 escreveu o Pd e disponibilizou na internet. 
 A idéia original por trás da criação do Pd foi remover a barreira
 entre a computação dirigida por eventos em tempo-real (como no estilo
 do Max de passagem de mensagens) e dos dados (como em pontos num
@@ -481,13 +479,13 @@ de representação de dados musicais (incluindo buscas em bases de dados
 de sons, passando pelos programas Patchwork e OpenMusic, e incluindo
 o não finalizado editor de estruturas de dados do Pd), não possuímos
 um mecanismo fluído para navegar entre esses dois mundos. \cite{puckette04:divide}
-  \footnote{in its most succinct form, the problem is that, while we have good
+  \footnote{``in its most succinct form, the problem is that, while we have good
   paradigms for describing processes (such as in the Max or Pd
   programs as they stand today), and while much work has been done on
   representations of musical data (ranging from searchable databases
   of sound to Patchwork and OpenMusic, and including Pd's unfinished
   data editor), we lack a fluid mechanism for the two worlds to
-  interoperate.} 
+  interoperate.'' (Minha tradução livre)} 
 \end{quote}
 
 Apesar das muitas diferenças entre
@@ -590,42 +588,58 @@ more flexible while being far less structured.}
 
 Podemos ver na figura \ref{rowe} um plano geral dos níveis de análise necessários para a desenvolvimento
 de uma possível ``escuta'' genérica de máquina. O sentido das flechas representa o fluxo de 
-informação entre os estágios
-A descrição dos níveis de análise musical em simbólico e sub-simbólico, é apresentado por Leman, 
+informação entre os estágios.
+
+%% o que são os níveis simbólicos e sub-simbólicos de análise 
+
+Podemos dividir a análise musical em níveis simbólico e sub-simbólico.
+A análise musical simbólica engloba a dimensão dos símbolos musicais
+estabelecidos pela notação musical como por exemplo nota, acorde, tonalidade ou compasso.
+A análise musical no nível sub-simbólico diz respeito a dados que contenham informações sobre a 
+descrição física do som. Leman apresenta uma descrição dos níveis simbólico e sub-simbólico 
 na tentativa de estabelecer uma modelagem
-computacional de esquemas cognitivos:
+computacional de esquemas cognitivos \cite{leman89}.
 
-\begin{quote}
-Processamento de informação sub-simbólica abstrata pode fornecer novas formas de lidar com os aspectos
+Enfatiza que o processamento de informação sub-simbólica abstrata pode fornecer novas formas de lidar com os aspectos
 do comportamento comunicativo que até agora têm sido muito difíceis de tratar em modelos simbólicos.
-Parte de nossa análise é mostrar que as atividades musicais, como ouvir e compor partem em
-grande escala de princípios dinâmicos do que é comumente chamado de percepção e/ou imaginação auditiva.
-Argumenta-se que diferentes tipos de mecanismos de processamento de informações sub-simbólicas podem ser exploradas
+Também argumenta que diferentes tipos de mecanismos de processamento de informações sub-simbólicas podem ser exploradas
 e aplicadas a este campo como alternativas e/ou abordagens complementares aos modelos simbólicos.
-Em particular, considerar a possibilidade de representar conceitos musicais como padrões de
+Em particular, considera a possibilidade de representar conceitos musicais como padrões de
 informações fornecidas pelo transdutor de mecanismos sensoriais, ao invés de símbolos abstratos onde o conteúdo
-é separado da forma. Isto envolve uma mudança de representações musicais proposicionais para representações analógicas
- (onde o conteúdo está contido na forma). Representações analógicas de música
-não foram totalmente exploradas até agora. Argumentamos em favor de uma representação analógica musical
-com base na Psicoacústica e propor este sistema como uma alternativa para a abordagem de discurso lógico da representação musical.
-Um exemplo é dado de um sistema de auto-organização com uma estrutura global emergente
-com base neste tipo de representação. \cite{leman89}
+é separado da forma. Por fim argumenta em favor de uma representação analógica musical
+com base na Psicoacústica e propõe este sistema como uma alternativa para a abordagem de discurso lógico da representação musical \cite{leman89}.
 
-\footnote{Abstract Subsymbolic information processing may provide new ways of dealing with aspects of 
-communicative behavior that have hitherto been very hard to deal with in symbolic models. 
-Part of our analysis is to show that musical activities such as listening and composing draw at 
-large on dynamic principles of what is commonly called perception and/or auditory imagination. 
-We argue that different types of subsymbolic information processing mechanisms might be explored 
-and applied to this field as alternatives and/or complementary approaches to symbolic models. 
-In particular, we consider the possibility of representing musical concepts as patterns of 
-information provided by sensory transducer-mechanisms, rather than abstract symbols where content 
-is divorced from form. This involves a shift from propositional representations of music to analogical 
-representations (where content is contained in the form). Analogical representations of music 
-have not been fully explored until now. We argue in favor of an analog musical representation 
-format based on Psychoacoustics and propose this system as an alternative to the speech-logics 
-approach to music representation. An example is given of a self-organizing system with an emerging 
-global structure based on this type of representation.}
-\end{quote}
+% \begin{quote}
+% O processamento de informação sub-simbólica abstrata pode fornecer novas formas de lidar com os aspectos
+% do comportamento comunicativo que até agora têm sido muito difíceis de tratar em modelos simbólicos.
+% Parte de nossa análise é mostrar que as atividades musicais, como ouvir e compor partem em
+% grande escala de princípios dinâmicos do que é comumente chamado de percepção e/ou imaginação auditiva.
+% Argumenta-se que diferentes tipos de mecanismos de processamento de informações sub-simbólicas podem ser exploradas
+% e aplicadas a este campo como alternativas e/ou abordagens complementares aos modelos simbólicos.
+% Em particular, considerar a possibilidade de representar conceitos musicais como padrões de
+% informações fornecidas pelo transdutor de mecanismos sensoriais, ao invés de símbolos abstratos onde o conteúdo
+% é separado da forma. Isto envolve uma mudança de representações musicais proposicionais para representações analógicas
+%  (onde o conteúdo está contido na forma). Representações analógicas de música
+% não foram totalmente exploradas até agora. Argumentamos em favor de uma representação analógica musical
+% com base na Psicoacústica e propor este sistema como uma alternativa para a abordagem de discurso lógico da representação musical.
+% Um exemplo é dado de um sistema de auto-organização com uma estrutura global emergente
+% com base neste tipo de representação. \cite{leman89}
+% 
+% \footnote{Abstract Subsymbolic information processing may provide new ways of dealing with aspects of 
+% communicative behavior that have hitherto been very hard to deal with in symbolic models. 
+% Part of our analysis is to show that musical activities such as listening and composing draw at 
+% large on dynamic principles of what is commonly called perception and/or auditory imagination. 
+% We argue that different types of subsymbolic information processing mechanisms might be explored 
+% and applied to this field as alternatives and/or complementary approaches to symbolic models. 
+% In particular, we consider the possibility of representing musical concepts as patterns of 
+% information provided by sensory transducer-mechanisms, rather than abstract symbols where content 
+% is divorced from form. This involves a shift from propositional representations of music to analogical 
+% representations (where content is contained in the form). Analogical representations of music 
+% have not been fully explored until now. We argue in favor of an analog musical representation 
+% format based on Psychoacoustics and propose this system as an alternative to the speech-logics 
+% approach to music representation. An example is given of a self-organizing system with an emerging 
+% global structure based on this type of representation.}
+% \end{quote}
 
 
 
@@ -733,10 +747,10 @@ linux, em seguida, executa uma série de transformações interessantes sobre os
 para saída em estéreo.
 
 Isto é completamente diferente do padrão `` sintetizador de guitarra ", que mapeia as cordas para conduzir
-sintetizadores. Tais instrumentos cometem muitos erros audíveis, e eles também sofrem com a latência adicionada
-o vem do mapeamento. No instrumento aqui descrito, a latência de todo o processo é
+sintetizadores. Tais instrumentos cometem muitos erros audíveis, e eles também sofrem com a latência adicionada do mapeamento. 
+No instrumento aqui descrito, a latência de todo o processo é
 somente a do Pd propriamente, cerca de 10 milissegundos (provavelmente não é difícil reduzi-la a 5 ou 6 usando
-correções em tempo real do kernel, mas eu preferi usar uma distribuição pronta de linux).\cite{Puckette_patchfor}
+correções em tempo real do kernel, mas eu preferi usar uma distribuição pronta de linux) \cite{Puckette_patchfor}.
 \footnote{I've been at work on a long-term project to design a rather personalized 
 computer music instrument to try to bring out and confront some of the difficulties encountered by 
 musicians trying to use computers in live performance. The instrument is based on a compact electric 
