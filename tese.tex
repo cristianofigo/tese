@@ -1127,6 +1127,18 @@ da exposição técnica de SInCoPA.
 \chapter{Trabalhos relacionados}
 \label{sec:rev}
 
+
+Nesse capítulo serão abordados alguns trabalhos relacionados no sentido
+de situar o estado da arte do desenvolvimento e classificação
+de sistemas de música interativa. Ao longo do texto serão descritos e comparados alguns trabalhos
+que representam avanços notórios em composição algorítmica simbólica, 
+técnicas de análise, notação e organização de música interativa.
+Nesse sentido procuramos localizar o desenvolvimento de SInCoPA (capítulo \ref{chap:SInCoPA})
+dentro do mapa das referências atuais dos sistemas de música interativa.
+
+
+%% classificação de sistemas interativos
+
 O conceito de interação entre uma performance musical e computador vem
 sendo definido nas últimas 3 décadas, e possui diferentes nuances de definição
 a depender do contexto de idioma e prática musical a que se refere e a tecnologia
@@ -1152,17 +1164,12 @@ A pesquisa em sistemas musicais interativos vem nos últimos anos
 deixando de ser uma abstração teórica e se transformando em realidade
 concreta. O corpo de áreas de pesquisa compreende temas como cognição
 musical, computação e teoria e análise musical.
-
-% essa pesquisa
-
-
 Podemos apontar a multi-disciplinaridade dessa tese como pertencente 
 ao escopo de uma disciplina genérica emergente denominada Design de Interação (ID).
-%%o que é ID
 A maioria dos tratados e especificações da ID se referem a interação para a web
 e interação homem-máquina focada em paradigmas comerciais. Ainda que esse trabalho busque
 uma maior interação homem-máquina num nível de funcionalidade auxiliar à poética musical, algumas idéias e 
-pensamentos da ID podem ser úteis na organização do desenvolvimento do SInCoPA. 
+pensamentos da ID foram úteis na organização do desenvolvimento do SInCoPA. 
 
 Como por exemplo os sete estágios da ação \cite{norman06:design} onde descreve que para 
 descobrir o que torna a
@@ -1209,7 +1216,6 @@ de um projeto interativo. Apesar da presente pesquisa não usar de
 maneira sistemática esse método, esses estágios pode servir como
 método de avaliação ao final do desenvolvimento.
 
-%% essa pesquisa
 
 Outra área emergente que possui muitas características em comum com esse 
 trabalho é a disciplina que se chama ''Realidade Aumentada`` (RA), que é uma linha de pesquisa dentro da ciência da computação que lida com 
@@ -1232,7 +1238,8 @@ Azuma define a Realidade Aumentada como um sistema que:
     
 Se pensarmos em uma realidade aumentada sonora, chegaremos a uma definição que se afina 
 com alguns objetivos dessa proposta.
-Um projeto similar nesta busca de interatividade sonora é o RjDj - uma companhia que desenvolve 
+Um projeto similar nesta busca de interatividade sonora é o RjDj\footnote{Disponível em: http://rjdj.me/}
+ - uma companhia que desenvolve 
 programas de áudio para o telefone celular \textit{IPhone}, baseado em Pure data. Cada programa 
 é chamado "cena" e é feito em Pd. Cada "cena" se ocupa em explorar alguns 
 aspectos sonoros do ambiente e interagir responsivamente com esses sons, criando uma 
@@ -1245,28 +1252,9 @@ RjDj um real experimento em realidade aumentada no campo sonoro, uma vez que uma
 pode ''harmonizar`` eventos sonoros acontecidos ao redor, ou modificar o andamento de
 uma música pelo sensor de movimento do telefone. Os inventores do RjDj, costumam chamar 
 o sistema deles de ''droga digital``, pois é capaz de alterar o estado de percepção sonora,
-de acordo com a cena carregada e com os estímulos do ambiente e do usuário. 
+de acordo com a cena carregada e com os estímulos do ambiente e do usuário \cite{rj}. 
 
 
-
-A pesquisa em computação musical tradicionalmente se utiliza de
-desenvolvimentos em redes neurais artificiais (ann – artificial neural
-networks), agentes inteligentes artificiais e outros ramos da pesquisa
-em inteligência artificial (IA); a produção musical oferece ótimos
-casos - teste para a pesquisa em IA \cite{rowe2004machine}. 
-Esse trabalho apresenta o desafio
-de construir um caminho para o desenvolvimento de um sistema que use elementos da pesquisa em IA
-possibilitando uma interação próxima com músicos humanos e que seja
-uma base de trabalho funcional para a prática artístico-musical. Isso
-é mais fácil de falar do que de fazer; as habilidades de músicos
-humanos em fluidez de ação, capacidade de resposta a situações novas e
-referências culturais, transformam a capacidade de interação dos
-sistemas computacionais numa árdua tarefa. 
-Os trabalhos atuais nesse campo incluem ao mesmo tempo a análise de áudio
-em tempo-real, cognição musical e experiências em IA e robótica; um
-projeto inspirador nesse campo é o MahaDeviBot \cite{kapur07:integrating}, que
-é um robô percussionista armado de treze tambores, capaz de se
-sincronizar com um sitarista humano através de sensores.
 
 O fato dos sistemas de música interativa terem como
 paradigma a criação de música em tempo-real,  requer uma grande
@@ -1294,21 +1282,6 @@ sistemas:
   diferentes de intervenção e influência do músico humano \cite{rowe93:interactive}.
 \end{enumerate}
 
-% Uma outra classificação derivada da de Rowe, é a apresentada na forma
-% de ``Técnicas de Interação'' \cite{pestova:tese}, onde  explica:
-% \begin{quote}
-%  Um breve exame de técnicas de interação comum e sincronização entre o
-% performer e o computador em obras com eletrônica ao vivo, e também dos problemas
-% envolvidos e possíveis soluções da literatura
-% \end{quote} 
-% 
-% Nesse sentido são apresentadas duas grandes categorias para classificar peças
-% de música interativa:
-% 
-% \begin{itemize}
-%  \item Score Following
-%   \item Score Orientation
-% \end{itemize}
 
 O sistema SInCoPA, apresentado aqui no capítulo \ref{chap:SInCoPA,} pode se enquadrar como dirigido pela
 performance com respostas transformativas e generativas e tendo o
@@ -1326,10 +1299,69 @@ seja, um ambiente que aprenda dinamicamente padrões de execução e
 resposta do músico humano e possa interagir com esses padrões,
 reiterando, competindo, negando ou propondo novas situações.
 
+%% IA e comp. algoritmica simbolica
 
-%* modelos de interação - música de câmara /duo-henrique/nunzio 
+A pesquisa em computação musical tradicionalmente se utiliza de
+desenvolvimentos em redes neurais artificiais (ann – artificial neural
+networks), agentes inteligentes artificiais e outros ramos da pesquisa
+em inteligência artificial (IA); a produção musical oferece ótimos
+casos - teste para a pesquisa em IA \cite{rowe2004machine}. 
+
+%%% exemplo rede neural
+
+Every neural spike in SANTIAGO produces a rhythmic event, in contrast with regular artificial neural networks. 
+These rhythmic streams can vary from periodic or quasi-periodic to chaotic or stochastic and also generate polirhythmicity. 
+This behavior results neither too random nor too uniform and can be modiﬁed in an interactive way as the network evolves. 
+The activity of the network, for instance, could be tuned to be minimal or dense generating different sound landscapes. 
+
+Cada pico neural em SANTIAGO produz um evento rítmico, em contraste com regulares redes neurais artificiais.
+Estes fluxos rítmicos pode variar de periódico ou quase-periódica polirhythmicity a caótica ou estocástica e também gerar.
+Este comportamento resulta nem muito aleatória, nem muito uniforme e pode ser modificado de forma interativa como a rede evolui.
+A atividade da rede, por exemplo, poderia ser ajustado para ser mínima ou densa gerando paisagens sonoras diferentes \cite{santiago}.
+
+%%%
 
 
+ 
+Os trabalhos atuais nesse campo incluem ao mesmo tempo a análise de áudio
+em tempo-real, cognição musical e experiências em IA e robótica; um
+projeto inspirador nesse campo é o MahaDeviBot \cite{kapur07:integrating}, que
+é um robô percussionista armado de treze tambores, capaz de se
+sincronizar com um sitarista humano através de sensores.
+
+Outros projetos relacionados podem servir como referência para
+esse trabalho como o \textit{Cypher} \cite{rowe93:interactive} de Rowe que usa a metáfora da
+sociedade da mente \cite{minsky1988society} na forma de músicos artificiais dentro de
+um sistema multi-agente - o Meta-Cypher inclui múltiplos ouvintes e
+performers além de um meta-ouvinte.  O Drum Circle \cite{eigenfeld07:drum} é um sistema escrito em Max/MSP e explora o uso de
+multi-agentes sobre uma rede local onde cada agente emula um
+percussionista improvisando em um grupo de tambores, tendo como
+resultante um ritmo evolutivo.
+
+Um dos projetos mais amplos nessa área é o projeto Omax Brothers \cite{assayag06:omax}
+desenvolvido no Ircam. Um sistema multi-agente criado para
+improvisação musical entre homem-máquina que aprende em tempo-real com
+o performer humano. O núcleo da improvisação é baseado em modelamento
+de sequência e aprendizado estatístico. O sistema envolve uma
+arquitetura híbrida usando dois ambientes populares para composição e
+performance, OpenMusic (baseado em Lisp) para modelamento e
+programação de alto nível e Max/MSP para a performance do sistema e
+processamento de áudio em tempo-real.
+
+%% nesse parágrafo concluir e enfatizar o que sincopa contribui para IA e composição simbólica
+
+Esse trabalho apresenta o desafio
+de construir um caminho para o desenvolvimento de um sistema que use elementos da pesquisa em IA
+possibilitando uma interação próxima com músicos humanos e que seja
+uma base de trabalho funcional para a prática artístico-musical. Isso
+é mais fácil de falar do que de fazer; as habilidades de músicos
+humanos em fluidez de ação, capacidade de resposta a situações novas e
+referências culturais, transformam a capacidade de interação dos
+sistemas computacionais numa árdua tarefa.
+
+
+
+% Análise musical e percepção 
 
 
 Na classificação de sistemas \cite{rowe93:interactive} o trabalho de construção de um sistema interativo se
@@ -1378,6 +1410,101 @@ considerado a evidência fundamental de que a Lei da Pregnância é verdadeira. 
 resumidamente, as Leis da Gestalt: semelhança, proximidade, pregnância, boa continuidade, clausura e 
 experiência passada.
 
+
+A reflexão sobre as estruturas sonoras numa performance musical a partir do estudo
+da percepção com o olhar da gestalt, pode ajudar o compositor a estruturar um 
+discurso interativo. Segundo Schachter:
+\begin{quote}
+ Com o campo da interação, a percepção deve se tornar mais importante que a tecnologia.
+Com isso em mente, estratégias composicionais que incluírem qualquer tipo de software
+ para interação deve evitar uma dependência excessiva de plataformas específicas de 
+computadores. Ao invés disso, a percepção da unidade da construção e a manipulação de
+diferentes níveis de controle em tempo-real e randomicidade ou níveis de organização
+aleatória, deve permanecer nas mãos do compositor/performer...Eu gostaria de apontar
+três abordagens principais ou referências para essas idéias sobre o discurso baseado
+na percepção:
+\begin{enumerate}
+ \item A Tipo-morfologia de Pierre Schaeffer no seu ``Tratado dos objetos musicais'',
+e a Espectromorfologia de Denis Smalley no ``A linguagem da Música eletroacústica'', editado
+por Simon Emmerson.
+ \item A idéia do critério perceptual, baseado na teoria da Gestalt, começando com
+Max Wertheimer e seguido por Marc Leman.
+  \item A nova abordagem em relação a percepção na análise de cena auditiva por Albert
+Bregman.
+  
+\cite{schachter07:discourse}
+\end{enumerate}
+\end{quote} 
+
+
+Uma referência importante para a organização e análise de material sonoro baseada
+na análise do áudio e dos eventos sonoros é a Espectromorfologia exposta por Denis
+Smalley. Particularmente os conceitos de \textit{Nível e Foco} e \textit{Textura e Gesto},
+investigando sua relação com o processamento ao vivo e com o diálogo interativo entre
+instrumentos e sons eletroacústicos.
+
+A idéia de \textit{Nível e Foco} tem a ver com interação e o grau de organização aleatória
+ou randômica envolvido. Nesse ponto Smalley diz que ``..à nós precisa ser oferecido
+a possibilidade de variar nosso foco perceptual através de um registro de níveis 
+durante o processo de escuta..''. Para sobreviver a repetidas audições, uma obra deve 
+possuir esse potencial focal. Uma música mista para instrumentos tradicionais e eletroacústica, 
+baseada numa estrutura aberta, não deve confiar na habilidade do ouvinte para descobrir
+os detalhes pequenos e escondidos da composição. A exploração focal dos níveis estruturais
+deve permitir diferentes modos de conectar perceptualmente os materiais sonoros com 
+o mesmo discurso sonoro. 
+
+De acordo com as palavras de Smalley \cite{emmersonsimon:86}, ``gesto'' tem a ver 
+com trajetória, com a aplicação de energia e suas consequências; e é complementar
+a causalidade. Essa idéia de Gesto é central à análise aqui, e o conceito de causalidade
+é essencial para qualquer tipo de projeto interativo e irá proporcionar os argumentos
+de um diálogo interativo onde ocorrências e consequências podem trocar seus papéis.
+Dentro de um trabalho eletroacústico interativo, \textit{Textura} e \textit{Gesto} 
+estão em fluxo constante, um como consequência do outro. 
+
+% espectromorfologia é um importante recurso enquanto ferramenta de organização e análise do discurso
+% musical
+% aqui citar \cite{Patton:2007} como estado da arte enquanto uso da
+%espectromorfologia como forma de organização estrutural em narrativa de
+%música eletroacústica interativa
+
+
+
+
+Marc leman introduz um modelo que conecta processamento de 
+sinal sonoro musical a análise musical e psicoacústica computacional onde interação
+se torna um problema central \cite{leman96:gestalt}. Ele afirma que a percepção não deve ser entendida estáticamente,
+sem evolução temporal, mas como uma interação evolutiva entre um organismo e um estímulo.
+
+Uma expansão desse pensamento pode ser visto nos autores da ``neo-Gestalt'' ao considerar
+a análise da percepção baseado nos princípios da Gestalt:
+\begin{itemize}
+ \item Proximidade
+  \item Similaridade
+  \item Boa continuidade
+  \item Encerramento
+  \item Destino Comum
+\end{itemize}
+Essas idéias são extendidas na nova análise considerando-se que existem dois níveis de
+resposta ou estágios do processo perceptual.
+\begin{itemize}
+ \item Automático, instintivo e sem esforço;
+  \item Voluntário, aprendido e esforçado;
+\end{itemize}
+
+
+
+A teoria da Gestalt pode facilmente ser criticada pelo fato de ser baseada na descrição
+do processo de percepção e não prover um modelo que explique como se forma ou como é constituída 
+a percepção humana. Alguns outros 
+conceitos composicionais podem ser implementados ao sistema como questões de direção, densidade, tensão
+ e repouso, acumulação, proporção e relações diversas entre durações e ataques.
+
+
+% Uma possibilidade de pesquisa seria usar as leis da Gestalt para refinar os arquivos de treinamento das redes 
+% do sistema. Nesse caso o programador calibra os pesos dos dados de análise, que vão ser os arquivos de 
+% treinamento das redes, de acordo com a descrição gestáltica de sua própria percepção. 
+
+
 %% pd2live
 
 O sistema ``pd2live'' \cite{rickgrahan} considerado como um exemplo do estado da arte no desenvolvimento de sistemas interativos
@@ -1409,122 +1536,18 @@ de notas \cite{lerdahl2001}
 % unique performance gesture relationships within a physical (multi-channel) performance space.
 
 
+%% aqui concluir dizendo o que é bom no pd2live e o que pode ser ponto fraco e ressaltar o que SInCoPA
+% contribui
 
 
 
 
-A reflexão sobre as estruturas sonoras numa performance musical a partir do estudo
-da percepção com o olhar da gestalt, pode ajudar o compositor a estruturar um 
-discurso interativo. Segundo Schachter:
-\begin{quote}
- Com o campo da interação, a percepção deve se tornar mais importante que a tecnologia.
-Com isso em mente, estratégias composicionais que incluírem qualquer tipo de software
- para interação deve evitar uma dependência excessiva de plataformas específicas de 
-computadores. Ao invés disso, a percepção da unidade da construção e a manipulação de
-diferentes níveis de controle em tempo-real e randomicidade ou níveis de organização
-aleatória, deve permanecer nas mãos do compositor/performer...Eu gostaria de apontar
-três abordagens principais ou referências para essas idéias sobre o discurso baseado
-na percepção:
-\begin{enumerate}
- \item A idéia do critério perceptual, baseado na teoria da Gestalt, começando com
-Max Wertheimer e seguido por Marc Leman.
-  \item A nova abordagem em relação a percepção na análise de cena auditiva por Albert
-Bregman.
-  \item A Tipo-morfologia de Pierre Schaeffer no seu ``Tratado dos objetos musicais'',
-e a Espectromorfologia de Denis Smalley no ``A linguagem da Música eletroacústica'', editado
-por Simon Emmerson.
-\cite{schachter07:discourse}
-\end{enumerate}
-\end{quote} 
 
 
-Marc leman introduz um modelo que conecta processamento de 
-sinal sonoro musical a análise musical e psicoacústica computacional onde interação
-se torna um problema central \cite{leman96:gestalt}. Ele afirma que a percepção não deve ser entendida estáticamente,
-sem evolução temporal, mas como uma interação evolutiva entre um organismo e um estímulo.
-
-Uma expansão desse pensamento pode ser visto nos autores da ``neo-Gestalt'' ao considerar
-a análise da percepção baseado nos princípios da Gestalt:
-\begin{itemize}
- \item Proximidade
-  \item Similaridade
-  \item Boa continuidade
-  \item Encerramento
-  \item Destino Comum
-\end{itemize}
-Essas idéias são extendidas na nova análise considerando-se que existem dois níveis de
-resposta ou estágios do processo perceptual.
-\begin{itemize}
- \item Automático, instintivo e sem esforço;
-  \item Voluntário, aprendido e esforçado;
-\end{itemize}
 
 
-A teoria da Gestalt pode facilmente ser criticada pelo fato de ser baseada na descrição
-do processo de percepção e não prover um modelo que explique como se forma ou como é constituída 
-a percepção humana. 
-Uma possibilidade de pesquisa seria usar as leis da Gestalt para refinar os arquivos de treinamento das redes 
-do sistema. Nesse caso o programador calibra os pesos dos dados de análise, que vão ser os arquivos de 
-treinamento das redes, de acordo com a descrição gestáltica de sua própria percepção. Alguns outros 
-conceitos composicionais podem ser implementados ao sistema como questões de direção, densidade, tensão
- e repouso, acumulação, proporção e relações diversas entre durações e ataques.
 
-Uma referência importante para a organização e análise de material sonoro baseada
-na análise do áudio e dos eventos sonoros é a Espectromorfologia exposta por Denis
-Smalley. Particularmente os conceitos de \textit{Nível e Foco} e \textit{Textura e Gesto},
-investigando sua relação com o processamento ao vivo e com o diálogo interativo entre
-instrumentos e sons eletroacústicos.
 
-A idéia de \textit{Nível e Foco} tem a ver com interação e o grau de organização aleatória
-ou randômica envolvido. Nesse ponto Smalley diz que ``..à nós precisa ser oferecido
-a possibilidade de variar nosso foco perceptual através de um registro de níveis 
-durante o processo de escuta..''. Para sobreviver a repetidas audições, uma obra deve 
-possuir esse potencial focal. Uma música mista para instrumentos tradicionais e eletroacústica, 
-baseada numa estrutura aberta, não deve confiar na habilidade do ouvinte para descobrir
-os detalhes pequenos e escondidos da composição. A exploração focal dos níveis estruturais
-deve permitir diferentes modos de conectar perceptualmente os materiais sonoros com 
-o mesmo discurso sonoro. 
-
-De acordo com as palavras de Smalley \cite{emmersonsimon:86}, ``gesto'' tem a ver 
-com trajetória, com a aplicação de energia e suas consequências; e é complementar
-a causalidade. Essa idéia de Gesto é central à análise aqui, e o conceito de causalidade
-é essencial para qualquer tipo de projeto interativo e irá proporcionar os argumentos
-de um diálogo interativo onde ocorrências e consequências podem trocar seus papéis.
-Dentro de um trabalho eletroacústico interativo, \textit{Textura} e \textit{Gesto} 
-estão em fluxo constante, um como consequência do outro. 
-
-%% \section{Projetos relacionados}
-
-Outros projetos relacionados podem servir como fonte de inspiração pra
-a presente pesquisa como o Cypher \cite{rowe93:interactive}   de Rowe que usa a metáfora da
-sociedade da mente de Minsky na forma de músicos artificiais dentro de
-um sistema multi-agente - o Meta-Cypher inclui múltiplos ouvintes e
-performers além de um meta-ouvinte.  O Drum Circle \cite{eigenfeld07:drum} é um sistema escrito em Max/MSP e explora o uso de
-multi-agentes sobre uma rede local onde cada agente emula um
-percussionista improvisando em um grupo de tambores, tendo como
-resultante um ritmo evolutivo.
-
-Um dos projetos mais amplos nessa área é o projeto Omax Brothers \cite{assayag06:omax}
-desenvolvido no Ircam. Um sistema multi-agente criado para
-improvisação musical entre homem-máquina que aprende em tempo-real com
-o performer humano. O núcleo da improvisação é baseado em modelamento
-de sequência e aprendizado estatístico. O sistema envolve uma
-arquitetura híbrida usando dois ambientes populares para composição e
-performance, OpenMusic (baseado em Lisp) para modelamento e
-programação de alto nível e Max/MSP para a performance do sistema e
-processamento de áudio em tempo-real.
-
-Da parte musical diversas peças motivaram o desenvolvimento desse trabalho como as peças
-''Jupiter'' e ''En Echo'' de Philippe Manoury para flauta e computador e soprano e computador respectivamente.
-Essas músicas foram desenvolvidas em colaboração com Miller Puckette o criador do Max e do Pd. As duas 
-peças empregam o uso da técnica de ''Score-follower``, uma técnica que também foi explorada em
-meu trabalho de mestrado, na peça ''Enquanto eles riem``(2005) para Clarinete e computador com Max/MSP.
-
-% mais referências:
-% *navalha - glerm
-% *beat- supercollider
-% *rtc+pcn+humdrum
-% tipologia de interação (flo menezes + outros artigos)
 
 \chapter{Ferramentas e Processo}
 \label{sec:metodologia}
