@@ -1309,23 +1309,28 @@ casos - teste para a pesquisa em IA \cite{rowe2004machine}.
 
 %%% exemplo rede neural
 
-Every neural spike in SANTIAGO produces a rhythmic event, in contrast with regular artificial neural networks. 
+Um bom exemplo de uso de redes neurais artificiais para composição musical é o sistema
+\textit{SANTIAGO}, que é capaz de criar sequências rítmicas automáticas
+a partir de modelos rítmicos pré-estabelecidos ainda podendo ser controlado 
+interativamente em tempo-real. O resultado é um gerador rítmico capaz de realizar
+contrastes e variações rítmicas bem ``orgânicas''.
+ 
+\begin{quote}
+Cada pico neural em SANTIAGO produz um evento rítmico, em contraste com redes neurais artificiais regulares.
+Estes fluxos rítmicos podem variar de periódico ou quase-periódica  a caótica ou estocástica e também gerar poliritmia.
+Este comportamento resulta em nem muito aleatório, nem muito uniforme e pode ser modificado de forma interativa enquanto a rede evolui.
+A atividade da rede, por exemplo, poderia ser ajustada para ser mínima ou densa gerando paisagens sonoras diferentes\footnote{
+``Every neural spike in SANTIAGO produces a rhythmic event, in contrast with regular artificial neural networks. 
 These rhythmic streams can vary from periodic or quasi-periodic to chaotic or stochastic and also generate polirhythmicity. 
 This behavior results neither too random nor too uniform and can be modiﬁed in an interactive way as the network evolves. 
-The activity of the network, for instance, could be tuned to be minimal or dense generating different sound landscapes. 
-
-Cada pico neural em SANTIAGO produz um evento rítmico, em contraste com regulares redes neurais artificiais.
-Estes fluxos rítmicos pode variar de periódico ou quase-periódica polirhythmicity a caótica ou estocástica e também gerar.
-Este comportamento resulta nem muito aleatória, nem muito uniforme e pode ser modificado de forma interativa como a rede evolui.
-A atividade da rede, por exemplo, poderia ser ajustado para ser mínima ou densa gerando paisagens sonoras diferentes \cite{santiago}.
-
+The activity of the network, for instance, could be tuned to be minimal or dense generating different sound landscapes''.} \cite{santiago}.
+\end{quote}
 %%%
 
-
  
-Os trabalhos atuais nesse campo incluem ao mesmo tempo a análise de áudio
+Os trabalhos atuais no campo da música interativa incluem ao mesmo tempo a análise de áudio
 em tempo-real, cognição musical e experiências em IA e robótica; um
-projeto inspirador nesse campo é o MahaDeviBot \cite{kapur07:integrating}, que
+projeto inspirador nesse campo é o \textit{MahaDeviBot} \cite{kapur07:integrating}, que
 é um robô percussionista armado de treze tambores, capaz de se
 sincronizar com um sitarista humano através de sensores.
 
@@ -1338,7 +1343,7 @@ multi-agentes sobre uma rede local onde cada agente emula um
 percussionista improvisando em um grupo de tambores, tendo como
 resultante um ritmo evolutivo.
 
-Um dos projetos mais amplos nessa área é o projeto Omax Brothers \cite{assayag06:omax}
+Um dos projetos mais amplos nessa área é o projeto \textit{Omax Brothers} \cite{assayag06:omax}
 desenvolvido no Ircam. Um sistema multi-agente criado para
 improvisação musical entre homem-máquina que aprende em tempo-real com
 o performer humano. O núcleo da improvisação é baseado em modelamento
@@ -1350,54 +1355,42 @@ processamento de áudio em tempo-real.
 
 %% nesse parágrafo concluir e enfatizar o que sincopa contribui para IA e composição simbólica
 
-Esse trabalho apresenta o desafio
-de construir um caminho para o desenvolvimento de um sistema que use elementos da pesquisa em IA
-possibilitando uma interação próxima com músicos humanos e que seja
-uma base de trabalho funcional para a prática artístico-musical. Isso
-é mais fácil de falar do que de fazer; as habilidades de músicos
-humanos em fluidez de ação, capacidade de resposta a situações novas e
-referências culturais, transformam a capacidade de interação dos
-sistemas computacionais numa árdua tarefa.
+A maioria dos trabalhos de música interativa que usam alguma técnica de IA em sua composição,
+tratam dos aspectos simbólicos da composição e/ou análise musical. A utilização de um algoritmo
+de IA num caso específico depende do nível de detalhamento e descrição do problema a ser resolvido.
+Pode-se concluir que, como
+o aspecto simbólico da música é melhor descrito pela notação musical, a maior parte das pesquisas
+sobre IA e música se aplicam sobre estes mesmos aspectos simbólicos.
+Existe uma lacuna na literatura sobre 
+análise e composição de aspectos sub-simbólicos em música. É necessário uma forte definição
+dos aspectos de representação do som e como esses aspectos ajudam a construir e expandir os elementos 
+simbólicos para análise e composição.
 
+% Nesse sentido o sistema apresentado nesse trabalho (SInCoPA) apresenta o desafio
+% de construir um caminho para o desenvolvimento de um sistema que use elementos da pesquisa em IA
+% possibilitando uma interação próxima com músicos humanos e que seja
+% uma base de trabalho funcional para a prática artístico-musical. Isso
+% é mais fácil de falar do que de fazer; as habilidades de músicos
+% humanos em fluidez de ação, capacidade de resposta a situações novas e
+% referências culturais, transformam a capacidade de interação dos
+% sistemas computacionais numa árdua tarefa.
 
+Nesse sentido o sistema apresentado nesse trabalho (SInCoPA) apresenta definições
+consistentes de descrição dos eventos sonoros a partir da análise do áudio, até a 
+definição de elementos simbólicos como notas e acordes. A estrutura do sistema é modular
+e de código aberto, o que permite a reutilização, ampliação e constante aprimoramento. 
+Na prática o uso de SInCoPA permite o entrelaçamento dos níveis sub-simbólico e simbólico
+em projetos composicionais. Como por exemplo na composição ``Diálogos em SInCoPA'' (capítulo
+\ref{chap:dialogos}, onde a análise das distâncias entre alturas consecutivas (nível simbólico)
+executadas pelo instrumentista controla parâmetros de construção do timbre de um sintetizador
+(nível sub-simbólico).
 
 % Análise musical e percepção 
 
 
-Na classificação de sistemas \cite{rowe93:interactive} o trabalho de construção de um sistema interativo se
-baseia na transversalidade de  três campos de pesquisa: teoria
-musical, AI e ciência cognitiva. A presente pesquisa se inspira e usa
-livremente elementos e idéias de pesquisas em teoria musical,
-composição e cognição musical. Em relação a representação dos sons
-dentro de um contexto de trabalho composicional \cite{xenakis96:determinacy}, aponta o
-uso de um espaço multidimensional como auxiliar na representação das
-características de um som como um gráfico que auxilie a composição,
-ordenando cada característica de um som  como altura, amplitude,
-tempo, densidade, desordem, parâmetros de timbre, etc..; onde cada
-característica é uma linha uni-dimensional, e os sons, pontos
-paralelos em várias dimensões. Assim o trabalho composicional pode ser
-visto como distribuir pontos em uma linha, onde podemos trabalhar com
-simetria, assimetria, repetição, variação ou surpresa.
 
-Em relação a esta proposta, Xenakis acrescenta: 
 
-\begin{quote}
-Tradicionalmente a música tem duas dimensões estabelecidas - tempo e
-altura. Historicamente outras foram adicionadas como, por exemplo, as
-dinâmicas, ainda que estas tenham sido um tanto vagamente
-representadas na música instrumental. Com o desenvolvimento da música
-eletrônica e da música computacional, a multidimensionalidade da
-representação do som se tornou ao mesmo tempo natural e prática. Mas a
-música vai além da multidimensionalidade - ela é ainda mais complexa \cite{xenakis96:determinacy}.
-  
-\end{quote} 
-
-Com o termo complexidade, ele se refere às correlações entre os níveis
-de construção de uma peça musical. Mostra um exemplo rápido de três
-níveis em que o nível zero abrange altura, intensidade e timbre. No
-nível um, frases e acordes e no nível dois as estruturas formais maiores.
-
-Alguns conceitos composicionais são passíveis de implementação e portanto úteis 
+Alguns conceitos abstraídos do estudo da percepção são passíveis de implementação e portanto úteis 
 ao universo de referências composicionais necessários ao sistema. Como por exemplo 
 alguns conceitos da Gestalt aplicados a música. A Teoria da Gestalt, em suas análises estruturais, 
 descobriu certas leis que regem a
@@ -1424,50 +1417,16 @@ aleatória, deve permanecer nas mãos do compositor/performer...Eu gostaria de a
 três abordagens principais ou referências para essas idéias sobre o discurso baseado
 na percepção:
 \begin{enumerate}
- \item A Tipo-morfologia de Pierre Schaeffer no seu ``Tratado dos objetos musicais'',
-e a Espectromorfologia de Denis Smalley no ``A linguagem da Música eletroacústica'', editado
-por Simon Emmerson.
- \item A idéia do critério perceptual, baseado na teoria da Gestalt, começando com
+  \item A idéia do critério perceptual, baseado na teoria da Gestalt, começando com
 Max Wertheimer e seguido por Marc Leman.
   \item A nova abordagem em relação a percepção na análise de cena auditiva por Albert
 Bregman.
-  
+  \item A Tipo-morfologia de Pierre Schaeffer no seu ``Tratado dos objetos musicais'',
+e a Espectromorfologia de Denis Smalley no livro ``A linguagem da Música eletroacústica'', editado
+por Simon Emmerson.
 \cite{schachter07:discourse}
 \end{enumerate}
 \end{quote} 
-
-
-Uma referência importante para a organização e análise de material sonoro baseada
-na análise do áudio e dos eventos sonoros é a Espectromorfologia exposta por Denis
-Smalley. Particularmente os conceitos de \textit{Nível e Foco} e \textit{Textura e Gesto},
-investigando sua relação com o processamento ao vivo e com o diálogo interativo entre
-instrumentos e sons eletroacústicos.
-
-A idéia de \textit{Nível e Foco} tem a ver com interação e o grau de organização aleatória
-ou randômica envolvido. Nesse ponto Smalley diz que ``..à nós precisa ser oferecido
-a possibilidade de variar nosso foco perceptual através de um registro de níveis 
-durante o processo de escuta..''. Para sobreviver a repetidas audições, uma obra deve 
-possuir esse potencial focal. Uma música mista para instrumentos tradicionais e eletroacústica, 
-baseada numa estrutura aberta, não deve confiar na habilidade do ouvinte para descobrir
-os detalhes pequenos e escondidos da composição. A exploração focal dos níveis estruturais
-deve permitir diferentes modos de conectar perceptualmente os materiais sonoros com 
-o mesmo discurso sonoro. 
-
-De acordo com as palavras de Smalley \cite{emmersonsimon:86}, ``gesto'' tem a ver 
-com trajetória, com a aplicação de energia e suas consequências; e é complementar
-a causalidade. Essa idéia de Gesto é central à análise aqui, e o conceito de causalidade
-é essencial para qualquer tipo de projeto interativo e irá proporcionar os argumentos
-de um diálogo interativo onde ocorrências e consequências podem trocar seus papéis.
-Dentro de um trabalho eletroacústico interativo, \textit{Textura} e \textit{Gesto} 
-estão em fluxo constante, um como consequência do outro. 
-
-% espectromorfologia é um importante recurso enquanto ferramenta de organização e análise do discurso
-% musical
-% aqui citar \cite{Patton:2007} como estado da arte enquanto uso da
-%espectromorfologia como forma de organização estrutural em narrativa de
-%música eletroacústica interativa
-
-
 
 
 Marc leman introduz um modelo que conecta processamento de 
@@ -1507,8 +1466,8 @@ conceitos composicionais podem ser implementados ao sistema como questões de di
 
 %% pd2live
 
-O sistema ``pd2live'' \cite{rickgrahan} considerado como um exemplo do estado da arte no desenvolvimento de sistemas interativos
-aprofunda alguns conceitos abstraídos da Gestalt e relacionados a estruturas de alturas
+O sistema \textit{pd2live} \cite{rickgrahan} considerado como um exemplo do estado da arte no desenvolvimento de sistemas interativos
+que usam aprofunda alguns conceitos abstraídos da Gestalt e relacionados a estruturas de alturas
 de notas \cite{lerdahl2001} 
 
 %pd2live is a digital music performance system, built in Pure Data (extended 0.42.5), designed
@@ -1538,6 +1497,80 @@ de notas \cite{lerdahl2001}
 
 %% aqui concluir dizendo o que é bom no pd2live e o que pode ser ponto fraco e ressaltar o que SInCoPA
 % contribui
+
+
+
+
+
+%% Notação e espectromorfologia
+
+
+Em relação a representação dos sons
+dentro de um contexto de trabalho composicional \cite{xenakis96:determinacy}, aponta o
+uso de um espaço multidimensional como auxiliar na representação das
+características de um som como um gráfico que auxilie a composição,
+ordenando cada característica de um som  como altura, amplitude,
+tempo, densidade, desordem, parâmetros de timbre, etc..; onde cada
+característica é uma linha uni-dimensional, e os sons, pontos
+paralelos em várias dimensões. Assim o trabalho composicional pode ser
+visto como distribuir pontos em uma linha, onde podemos trabalhar com
+simetria, assimetria, repetição, variação ou surpresa.
+
+Em relação a esta proposta, Xenakis acrescenta: 
+
+\begin{quote}
+Tradicionalmente a música tem duas dimensões estabelecidas - tempo e
+altura. Historicamente outras foram adicionadas como, por exemplo, as
+dinâmicas, ainda que estas tenham sido um tanto vagamente
+representadas na música instrumental. Com o desenvolvimento da música
+eletrônica e da música computacional, a multidimensionalidade da
+representação do som se tornou ao mesmo tempo natural e prática. Mas a
+música vai além da multidimensionalidade - ela é ainda mais complexa \cite{xenakis96:determinacy}.
+  
+\end{quote} 
+
+Com o termo complexidade, ele se refere às correlações entre os níveis
+de construção de uma peça musical. Mostra um exemplo rápido de três
+níveis em que o nível zero abrange altura, intensidade e timbre. No
+nível um, frases e acordes e no nível dois as estruturas formais maiores.
+
+
+Uma referência importante para a organização e análise de material sonoro baseada
+na análise do áudio e dos eventos sonoros é a Espectromorfologia exposta por Denis
+Smalley. Particularmente os conceitos de \textit{Nível e Foco} e \textit{Textura e Gesto},
+investigando sua relação com o processamento ao vivo e com o diálogo interativo entre
+instrumentos e sons eletroacústicos.
+
+A idéia de \textit{Nível e Foco} tem a ver com interação e o grau de organização aleatória
+ou randômica envolvido. Nesse ponto Smalley diz que ``..à nós precisa ser oferecido
+a possibilidade de variar nosso foco perceptual através de um registro de níveis 
+durante o processo de escuta..''. Para sobreviver a repetidas audições, uma obra deve 
+possuir esse potencial focal. Uma música mista para instrumentos tradicionais e eletroacústica, 
+baseada numa estrutura aberta, não deve confiar na habilidade do ouvinte para descobrir
+os detalhes pequenos e escondidos da composição. A exploração focal dos níveis estruturais
+deve permitir diferentes modos de conectar perceptualmente os materiais sonoros com 
+o mesmo discurso sonoro. 
+
+De acordo com as palavras de Smalley \cite{emmersonsimon:86}, ``gesto'' tem a ver 
+com trajetória, com a aplicação de energia e suas consequências; e é complementar
+a causalidade. Essa idéia de Gesto é central à análise aqui, e o conceito de causalidade
+é essencial para qualquer tipo de projeto interativo e irá proporcionar os argumentos
+de um diálogo interativo onde ocorrências e consequências podem trocar seus papéis.
+Dentro de um trabalho eletroacústico interativo, \textit{Textura} e \textit{Gesto} 
+estão em fluxo constante, um como consequência do outro. 
+
+% espectromorfologia é um importante recurso enquanto ferramenta de organização e análise do discurso
+% musical
+% aqui citar \cite{Patton:2007} como estado da arte enquanto uso da
+%espectromorfologia como forma de organização estrutural em narrativa de
+%música eletroacústica interativa
+%% como SInCoPA se ssitua em relação a notação (ver apendice) e estabelece mantém o código aberto
+% para futuro desenvolvimento de uma notação tradicional+espectromorfológica interativa e automática
+
+
+
+
+
 
 
 
@@ -5242,6 +5275,7 @@ na guitarra elétrica e a atividade do programa com o áudio gerado.
 
 
 \section{Diálogos em SInCoPA}
+\label{chap:dialogos}
 
 Essa peça é um resultado de todas experimentações desenvolvidas ao longo da pesquisa. É
 composta para um instrumento tradicional e computador rodando SInCoPA. A forma é aberta,
