@@ -1456,48 +1456,53 @@ A teoria da Gestalt pode facilmente ser criticada pelo fato de ser baseada na de
 do processo de percepção e não prover um modelo que explique como se forma ou como é constituída 
 a percepção humana. Alguns outros 
 conceitos composicionais podem ser implementados ao sistema como questões de direção, densidade, tensão
- e repouso, acumulação, proporção e relações diversas entre durações e ataques.
+e repouso, acumulação, proporção e relações diversas entre durações e ataques.
+Apesar de ser um campo de investigação ainda recente, a pesquisa em percepção pode oferecer muitos elementos ao 
+desenvolvimento de sistemas de música interativa.
 
 
-% Uma possibilidade de pesquisa seria usar as leis da Gestalt para refinar os arquivos de treinamento das redes 
-% do sistema. Nesse caso o programador calibra os pesos dos dados de análise, que vão ser os arquivos de 
-% treinamento das redes, de acordo com a descrição gestáltica de sua própria percepção. 
+O projeto \textit{pd2live} \cite{rickgrahan} é um sistema que combina a construção de \textit{hardware}
+e \textit{software} pra criação de uma guitarra elétrica aumentada. O \textit{hardware} consiste
+em um circuito com um transdutor piezoelétrico para cada corda da guitarra. O que possibilita que 
+se possa realizar análise de áudio em cada corda separada, gerando mais controle e precisão
+no mapeamento do gesto instrumental.
+
+\begin{quotation}
+O sistema opera atualmente sob a base do evento-nota, armazenando  dados de altura e amplitude por corda para
+utilização com uma série de abstrações instrumentais (predominantemente monofônicas) baseadas em teorias sobre cognição, 
+abordando contorno melódico e sintaxe de improvisação (como conclusão linear, atração melódica, tensão,
+assimetria e extrapolação de notas sequenciais de eventos \cite{lerdahl2001}). 
+Abstrações de taxa de controle instrumental funcionam especificamente para atender ao conteúdo melódico apenas, 
+sobre a quantificação (e extrapolação) de relações  de atração tonal  entre os tons e a extração de 
+estruturas hierárquicas de contorno melódico (por corda - solo, e para todo o registro instrumental - global) em uma
+base de 4 a 7 notas, relativo a retrição da memória de curto prazo (\cite{snyder}). Dados baseados em cognição podem
+então, ser aplicados à processos de controle de parâmetros do timbre e espacialização  numa tentativa de refletir 
+construções instrumentais baseadas na cognição (considerando a memória) dentro da estrutura sonora resultante, 
+que potencialmente estabelece relações únicas de gesto instrumental dentro de um espaço instrumental físico (multi-canal)
+\footnote{
+``The system currently operates on a note-event basis, storing pitch and amplitude data per string for
+use with a series of (predominantly monophonic) instrumental cognition-based abstractions, concerning
+melodic contour and improvisatory syntax (such as linear completion, melodic attraction, tension,
+asymmetry and extrapolation of sequential note-events; cf. Lerdahl, 2001). Instrumental control-rate
+abstractions function specifically to attend to melodic content only, concerning the quantification (
+and extrapolation) of tonal attraction relationships between tones and the extraction of hierarchical
+melodic contour structures (per string - solo; and for all instrumental registers - global) on a 4 to
+7 note basis, relative to short-term memory contraints (cf. Snyder, 2000). Cognition-based data may
+then be applied to timbral and spatial parametric control processes in an attempt to reflect instrumental
+cognition-based constructs (in memory) within the resultant sound structure, potentially establishing
+unique performance gesture relationships within a physical (multi-channel) performance space.''} \cite{rickgrahan}. 
+\end{quotation}
 
 
-%% pd2live
-
-O sistema \textit{pd2live} \cite{rickgrahan} considerado como um exemplo do estado da arte no desenvolvimento de sistemas interativos
-que usam aprofunda alguns conceitos abstraídos da Gestalt e relacionados a estruturas de alturas
-de notas \cite{lerdahl2001} 
-
-%pd2live is a digital music performance system, built in Pure Data (extended 0.42.5), designed
-% specifically to function with a polyphonic audio output (audio per string) of an augmented
-% electric guitar provided by bespoke audio break-out hardware. The system was designed in support
-% of my doctoral thesis (available shortly), providing a digital performance environment from which a
-% n instrumentalist may interrogate instrumental percepts in relation to the creation of sophisticated
-% timbral and spatial digital audio signal processes.
-%
-% On a fundamental level, the user may design and implement unique real-time signal processes per
-% string of the guitar, permitting the creation of dense polyphonic instrumental musical structures.
-% The (spectromorphological) design of each string may correspond to real-time instrumental figuration
-% executed by the performer.
-%
-% The system currently operates on a note-event basis, storing pitch and amplitude data per string for
-% use with a series of (predominantly monophonic) instrumental cognition-based abstractions, concerning
-% melodic contour and improvisatory syntax (such as linear completion, melodic attraction, tension,
-% asymmetry and extrapolation of sequential note-events; cf. Lerdahl, 2001). Instrumental control-rate
-% abstractions function specifically to attend to melodic content only, concerning the quantification (
-% and extrapolation) of tonal attraction relationships between tones and the extraction of hierarchical
-% melodic contour structures (per string - solo; and for all instrumental registers - global) on a 4 to
-% 7 note basis, relative to short-term memory contraints (cf. Snyder, 2000). Cognition-based data may
-% then be applied to timbral and spatial parametric control processes in an attempt to reflect instrumental
-% cognition-based constructs (in memory) within the resultant sound structure, potentially establishing
-% unique performance gesture relationships within a physical (multi-channel) performance space.
-
-
-%% aqui concluir dizendo o que é bom no pd2live e o que pode ser ponto fraco e ressaltar o que SInCoPA
-% contribui
-
+Considero o sistema \textit{pd2live} como um exemplo do estado da arte no desenvolvimento de sistemas interativos
+que usam conceitos abstraídos da pesquisa em cognição como base para algoritmos de criação sonora por computador.
+A implementação dos algoritmos de \textit{pd2live} é feita em Pd e além de ter uma forte semelhança com SInCoPA, abre um campo
+de possibilidades de fusão com outros projetos e diferentes aplicações.
+Entretanto, penso que existe uma lacuna nessa abordagem ao levar em conta apenas o aspecto das alturas executadas
+pelo instrumentista como base de dados para interação homem-máquina. Nesse sentido SInCoPA apresenta uma  
+metodologia de classificação em tempo-real de aspectos como estabilidade rítmica, permeabilidade melódica e densidade
+rítmica. O que permite que o sistema tenha uma base de dados mais completa sobre o comportamento musical global do instrumentista e
+portanto, maior capacidade de gerar uma estrutura sonora ``orgânica'' como resposta ao estímulo musical.
 
 
 
@@ -1505,39 +1510,38 @@ de notas \cite{lerdahl2001}
 %% Notação e espectromorfologia
 
 
-Em relação a representação dos sons
-dentro de um contexto de trabalho composicional \cite{xenakis96:determinacy}, aponta o
-uso de um espaço multidimensional como auxiliar na representação das
-características de um som como um gráfico que auxilie a composição,
-ordenando cada característica de um som  como altura, amplitude,
-tempo, densidade, desordem, parâmetros de timbre, etc..; onde cada
-característica é uma linha uni-dimensional, e os sons, pontos
-paralelos em várias dimensões. Assim o trabalho composicional pode ser
-visto como distribuir pontos em uma linha, onde podemos trabalhar com
-simetria, assimetria, repetição, variação ou surpresa.
-
-Em relação a esta proposta, Xenakis acrescenta: 
-
-\begin{quote}
-Tradicionalmente a música tem duas dimensões estabelecidas - tempo e
-altura. Historicamente outras foram adicionadas como, por exemplo, as
-dinâmicas, ainda que estas tenham sido um tanto vagamente
-representadas na música instrumental. Com o desenvolvimento da música
-eletrônica e da música computacional, a multidimensionalidade da
-representação do som se tornou ao mesmo tempo natural e prática. Mas a
-música vai além da multidimensionalidade - ela é ainda mais complexa \cite{xenakis96:determinacy}.
-  
-\end{quote} 
-
-Com o termo complexidade, ele se refere às correlações entre os níveis
-de construção de uma peça musical. Mostra um exemplo rápido de três
-níveis em que o nível zero abrange altura, intensidade e timbre. No
-nível um, frases e acordes e no nível dois as estruturas formais maiores.
+% Em relação a representação dos sons
+% dentro de um contexto de trabalho composicional \cite{xenakis96:determinacy}, aponta o
+% uso de um espaço multidimensional como auxiliar na representação das
+% características de um som como um gráfico que auxilie a composição,
+% ordenando cada característica de um som  como altura, amplitude,
+% tempo, densidade, desordem, parâmetros de timbre, etc..; onde cada
+% característica é uma linha uni-dimensional, e os sons, pontos
+% paralelos em várias dimensões. Assim o trabalho composicional pode ser
+% visto como distribuir pontos em uma linha, onde podemos trabalhar com
+% simetria, assimetria, repetição, variação ou surpresa.
+% 
+% Em relação a esta proposta, Xenakis acrescenta: 
+% 
+% \begin{quote}
+% Tradicionalmente a música tem duas dimensões estabelecidas - tempo e
+% altura. Historicamente outras foram adicionadas como, por exemplo, as
+% dinâmicas, ainda que estas tenham sido um tanto vagamente
+% representadas na música instrumental. Com o desenvolvimento da música
+% eletrônica e da música computacional, a multidimensionalidade da
+% representação do som se tornou ao mesmo tempo natural e prática. Mas a
+% música vai além da multidimensionalidade - ela é ainda mais complexa \cite{xenakis96:determinacy}.
+% \end{quote} 
+% 
+% Com o termo complexidade, ele se refere às correlações entre os níveis
+% de construção de uma peça musical. Mostra um exemplo rápido de três
+% níveis em que o nível zero abrange altura, intensidade e timbre. No
+% nível um, frases e acordes e no nível dois as estruturas formais maiores.
 
 
 Uma referência importante para a organização e análise de material sonoro baseada
-na análise do áudio e dos eventos sonoros é a Espectromorfologia exposta por Denis
-Smalley. Particularmente os conceitos de \textit{Nível e Foco} e \textit{Textura e Gesto},
+na análise do áudio e dos eventos sonoros é a \textit{Espectromorfologia} exposta por Denis
+Smalley. Particularmente os conceitos binários de \textit{Nível e Foco} e \textit{Textura e Gesto},
 investigando sua relação com o processamento ao vivo e com o diálogo interativo entre
 instrumentos e sons eletroacústicos.
 
@@ -1558,6 +1562,24 @@ a causalidade. Essa idéia de Gesto é central à análise aqui, e o conceito de
 de um diálogo interativo onde ocorrências e consequências podem trocar seus papéis.
 Dentro de um trabalho eletroacústico interativo, \textit{Textura} e \textit{Gesto} 
 estão em fluxo constante, um como consequência do outro. 
+
+\begin{figure}
+\includegraphics[scale=.5]{espectromorfologia}
+\caption{Trecho da notação da peça \textit{The Foldability of Frames} de Kevin Patton }
+\label{espectromorfologia}
+\end{figure}
+
+
+Uma abordagem relevante da Espectromorfologia aplicada a composição interativa é vista na peça
+\textit{The Foldability of Frames} \cite{Patton:2007} para violoncelo, percussão e 
+computador que combina notação musical tradicional e notação espectromorfológica
+(figura \ref{espectromorfologia}.
+O diferencial é que a notação espectromorfológica nesse caso é usada não como uma descrição pictórica
+da análise, mas sim como ferramenta de organização dos sons eletrônicos que dialogam
+com os sons instrumentais. O estado atual de SInCoPA permite que seja implementada uma
+abordagem semelhante ao combinar notação musical tradicional (ainda experimental,
+descrita no apêndice \ref{sec-notacao}) com recursos gráficos interativos desenvolvidos 
+na plataforma GEM.
 
 % espectromorfologia é um importante recurso enquanto ferramenta de organização e análise do discurso
 % musical
