@@ -1590,6 +1590,26 @@ na plataforma GEM.
 % para futuro desenvolvimento de uma notação tradicional+espectromorfológica interativa e automática
 
 
+Um projeto próximo que influenciou essa pesquisa foi o ``Navalha'' \cite{navalha}, 
+desenvolvido no Pontão de Cultura Juntadados\footnote{www.juntadados.org}.
+Um aspecto importante nesse projeto é a postura política alinhada com a dimensão
+poética e técnica.
+
+\begin{quote}
+Este projeto é um estudo para estimular uma atividade que torna-se cada vez mais evidente no universo 
+do software livre e código aberto – a customização de software para idéias artísticas e para produção 
+multimídia em geral permitindo aquele que visa criar desenvolver suas idéias abstratas partindo de maneiras 
+rápidas de trabalhar com código, ao invés da lógica onde o artista e visto como um usuário de interfaces já 
+prontas que ao tentar “prever aquilo que quer o usuário” também acaba impondo sua prática de uso. \cite{navalha}
+\end{quote}
+
+O desenvolvimento do ``Navalha'' seguiu um caminho paralelo a outros projetos coletivos, experimentos em 
+execução musical e instalações. Talvez essa seja uma característica de projetos de código aberto, onde
+o projeto não precisa estar ``finalizado'' para ser recombinado por outros artistas. Ambientes como o 
+\textit{github}\footnote{Disponível em: www.github.com} permitem esse fluxo de código de diversos projetos
+em andamento.
+
+Nesse sentido SInCoPA bla bla bla
 
 
 
@@ -1607,13 +1627,10 @@ na plataforma GEM.
 \chapter{Ferramentas e Processo}
 \label{sec:metodologia}
 
-A pesquisa passou 3 grandes fases.  A primeira fase
-compreendeu o aprendizado das linguagens computacionais e a
-escolha de estratégias de concatenação entre todos elementos
-computacionais envolvidos. 
 
-O sistema foi construído e deve rodar em um computador com capacidade de processamento
-de áudio em tempo-real . O software será composto com
+
+O sistema apresentado nessa tese foi construído e deve rodar em um computador com capacidade de processamento
+de áudio em tempo-real. O software é composto com
 a linguagem de programação Pure data acrescida de algumas bibliotecas contidas
 na distribuição Pd-extended. Outras bibliotecas de código são
 acrescentadas a medida em que estas garantam compatibilidade de
@@ -1626,39 +1643,7 @@ comunidade independente e funcional de desenvolvedores que se dispõe a
 testar, apontar soluções e validar informalmente perante a comunidade
 uma pesquisa como essa que aqui se apresenta.
 
-Um projeto próximo que influenciou essa pesquisa foi o ``Navalha'' \cite{navalha}, 
-desenvolvido no Pontão de Cultura Juntadados\footnote{www.juntadados.org}.
-Um aspecto importante nesse projeto é a postura política alinhada com a dimensão
-poética e técnica.
-% 
-% \begin{figure}
-% \includegraphics[scale=.6]{navalha}
-% \caption{navalha}
-% \label{navalha}
-% \end{figure}
 
-
-\begin{quote}
-Este projeto é um estudo para estimular uma atividade que torna-se cada vez mais evidente no universo 
-do software livre e código aberto – a customização de softwares para idéias artísticas e para produção 
-multimídia em geral permitindo aquele que visa criar desenvolver suas idéias abstratas partindo de maneiras 
-rápidas de trabalhar com código, ao invés da lógica onde o artista e visto como um usuário de interfaces ja 
-prontas que ao tentar “prever aquilo que quer o usuário” também acaba impondo sua prática de uso. \cite{navalha}
-\end{quote}
-
-O desenvolvimento do ``Navalha'' seguiu um caminho paralelo a outros projetos coletivos, experimentos em 
-execução musical e instalações. Talvez essa seja uma característica de projetos \textit{Open Source}, de que
-o projeto não precisa estar ``finalizado'' para ser recombinado por outros artistas. Ambientes como o 
-\textit{github}\footnote{Disponível em: www.github.com} permitem esse fluxo de código de diversos projetos
-em andamento.
-
-\begin{quote}
-Com a escolha da linguagem puredata, que possui uma comunidade extremamente produtiva e colaborativa,  
-por mais que esta interface esteja apresentando uma prática fechada em uma idéia de recortes de samples e um 
-certo escopo, apresenta-se também como a abertura para ser recombinada com outros códigos e idéias, colocando-se 
-como uma peça a ser aberta e transformada, sendo desde o início deste projeto documentada da maneira mais detalhada 
-possível para permitir tal recombinação. \cite{navalha}
-\end{quote}
 
 
 A segunda fase da pesquisa foi o desenvolvimento do
@@ -1693,6 +1678,79 @@ Nessa seção serão brevemente expostos os motivos pela escolha de determinadas
 o desenvolvimento dessa pesquisa.
 
 
+
+\section{Pd-extended}
+
+O Pure data(Pd), foi a linguagem escolhida para o desenvolvimento dessa pesquisa.
+Existem diversas distribuições do Pd, sendo as mais utilizadas o Pd "vanilla" e o Pd-extended.
+A versão "vanilla" se refere ao núcleo da linguagem mantida pelo criador Miller Puckette, e no
+momento de escrita dessa tese se encontra na versão 0.43. Já o Pd-extended conta com as contribuições
+da comunidade de desenvolvedores e usuários, que incluíram diversas extensões para vídeo, gráficos, rede e
+novas funcionalidades para criação musical.
+
+No atual momento, essa pesquisa depende do Pd-extended, porém, para o desenvolvimento futuro pretende-se
+que as abstrações dependam, apenas da versão vanilla. A desvantagem de usar a distribuição Pd-extended é quebraa mesma 
+depende de muitos outros componentes de software, tornando uma possível compatibilidade da pesquisa com sistemas
+futuros um pouco mais arriscada. 
+
+
+\section{Bibliotecas de Pd}
+
+Além do Pd-extended, essa pesquisa, necessita de duas outras bibliotecas, sendo elas a PDMTL e DIY2.
+
+Também são usados os objetos compilados em C, desenvolvidos por William Brent:
+
+\begin{itemize}
+ \item tabletools
+ \item timbreID
+\end{itemize}
+
+\section{Rosegarden e Lilypond}
+
+Rosegarden é um programa de criação e edição musical que roda em GNU/linux.
+Possui diversas funcionalidades, mas nessa pesquisa é usado como sequenciador
+MIDI gráfico, que recebe mensagens MIDI em tempo-real através do Jack.
+
+A vantagem é a possibilidade de editar graficamente o resultado do diálogo entre
+o áudio do instrumento convertido em MIDI e o resultado dos algoritmos dos geradores
+MIDI e harmonizadores. O Rosegarden usa dois editor gráfico em formato de piano-roll
+e outro em formato de notação musical. Uma sequência MIDI editada com o Rosegarden
+pode ser exportada para o formato .ly, que é o formato do Lilypond.
+
+Lilypond é uma linguagem de marcação especializada em notação musical. Segundo
+a definição do próprio projeto:
+
+\begin{quote}
+ LilyPond é um programa de gravação de música, dedicada à produção a partitura da mais alta qualidade possível. 
+Ele traz a estética da música tradicional escrita para impressões de computador. LilyPond é software livre e 
+parte do Projeto GNU.
+\end{quote} 
+
+O Rosegarden executa as sequências MIDI usando um servidor de arquivos soundfont.
+Um arquivo SoundFont, ou "banco" SoundFont, contém uma ou mais amostras de áudio de onda (ou "amostras"),
+que pode ser re-sintetizados em alturas diferentes e níveis dinâmicos. Cada forma de onda amostrada pode ser
+associado a um ou mais intervalos de notas e dinâmica. De modo geral, a qualidade de um
+SoundFont banco é uma função da qualidade das amostras de digitais e da associação inteligente
+de amostras com as séries do campo apropriado. A qualidade da soundfont também depende do número de amostras
+tomadas por um determinado intervalo de notas. 
+
+\section{Jack}
+
+JACK é um sistema para o tratamento em tempo real, áudio de baixa latência (e MIDI). 
+Ele roda em GNU / Linux, Solaris, FreeBSD, OS X e Windows (e pode ser portado para outras plataformas 
+POSIX-conformant). É possível conectar um número de diferentes aplicações para um dispositivo de áudio, 
+bem como permitindo que eles compartilhem áudio entre si. Seus clientes podem ser executados em seus próprios 
+processos (ou seja, como aplicações normais), ou podem eles podem ser executados dentro do servidor JACK 
+(ou seja, como um "plugin"). JACK também tem suporte para a distribuição de processamento de áudio através de 
+uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confiável.
+
+\begin{figure}
+\includegraphics[scale=.7]{qjackctl}
+\caption{Interface de conexão de processos do Jack}
+\label{jack}
+\end{figure}
+
+
 \section{GNU/linux}
 
 Durante toda a pesquisa, foi usado o sistema operacional GNU/Linux.
@@ -1722,80 +1780,14 @@ em outros projetos de pesquisa.
 
 
 
-\section{Jack}
-
-JACK é um sistema para o tratamento em tempo real, áudio de baixa latência (e MIDI). 
-Ele roda em GNU / Linux, Solaris, FreeBSD, OS X e Windows (e pode ser portado para outras plataformas 
-POSIX-conformant). É possível conectar um número de diferentes aplicações para um dispositivo de áudio, 
-bem como permitindo que eles compartilhem áudio entre si. Seus clientes podem ser executados em seus próprios 
-processos (ou seja, como aplicações normais), ou podem eles podem ser executados dentro do servidor JACK 
-(ou seja, como um "plugin"). JACK também tem suporte para a distribuição de processamento de áudio através de 
-uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confiável.
-
-\begin{figure}
-\includegraphics[scale=.7]{qjackctl}
-\caption{Interface de conexão de processos do Jack}
-\label{jack}
-\end{figure}
 
 
 
-\section{Rosegarden}
-
-Rosegarden é um programa de criação e edição musical que roda em GNU/linux.
-Possui diversas funcionalidades, mas nessa pesquisa é usado como sequenciador
-MIDI gráfico, que recebe mensagens MIDI em tempo-real através do Jack.
-
-A vantagem é a possibilidade de editar graficamente o resultado do diálogo entre
-o áudio do instrumento convertido em MIDI e o resultado dos algoritmos dos geradores
-MIDI e harmonizadores. O Rosegarden usa dois editor gráfico em formato de piano-roll
-e outro em formato de notação musical. Uma sequência MIDI editada com o Rosegarden
-pode ser exportada para o formato .ly, que é o formato do Lilypond.
-
-Lilypond é uma linguagem de marcação especializada em notação musical. Segundo
-a definição do próprio projeto:
-
-\begin{quote}
- LilyPond é um programa de gravação de música, dedicada à produção a partitura da mais alta qualidade possível. 
-Ele traz a estética da música tradicional escrita para impressões de computador. LilyPond é software livre e 
-parte do Projeto GNU.
-\end{quote} 
-
-O Rosegarden executa as sequências MIDI usando um servidor de arquivos soundfont.
-Um arquivo SoundFont, ou "banco" SoundFont, contém uma ou mais amostras de áudio de onda (ou "amostras"),
-que pode ser re-sintetizados em alturas diferentes e níveis dinâmicos. Cada forma de onda amostrada pode ser
-associado a um ou mais intervalos de notas e dinâmica. De modo geral, a qualidade de um
-SoundFont banco é uma função da qualidade das amostras de digitais e da associação inteligente
-de amostras com as séries do campo apropriado. A qualidade da soundfont também depende do número de amostras
-tomadas por um determinado intervalo de notas. 
 
 
 
-\section{Pd-extended}
-
-O Pure data(Pd), foi a linguagem escolhida para o desenvolvimento dessa pesquisa.
-Existem diversas distribuições do Pd, sendo as mais utilizadas o Pd "vanilla" e o Pd-extended.
-A versão "vanilla" se refere ao núcleo da linguagem mantida pelo criador Miller Puckette, e no
-momento de escrita dessa tese se encontra na versão 0.43. Já o Pd-extended conta com as contribuições
-da comunidade de desenvolvedores e usuários, que incluíram diversas extensões para vídeo, gráficos, rede e
-novas funcionalidades para criação musical.
-
-No atual momento, essa pesquisa depende do Pd-extended, porém, para o desenvolvimento futuro pretende-se
-que as abstrações dependam, apenas da versão vanilla. A desvantagem de usar a distribuição Pd-extended é quebraa mesma 
-depende de muitos outros componentes de software, tornando uma possível compatibilidade da pesquisa com sistemas
-futuros um pouco mais arriscada. 
 
 
-\section{Bibliotecas de Pd}
-
-Além do Pd-extended, essa pesquisa, necessita de duas outras bibliotecas, sendo elas a PDMTL e DIY2.
-
-Também são usados os objetos compilados em C, desenvolvidos por William Brent:
-
-\begin{itemize}
- \item tabletools
- \item timbreID
-\end{itemize}
 
 
 %\begin{figure}
