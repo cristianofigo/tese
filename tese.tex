@@ -389,6 +389,7 @@ define aspectos globais do timbre da síntese. Uma possível sequência
 temporal em Csound pode ser vista abaixo:
 
 \singlespacing
+\footnotesize
 \begin{verbatim}
 
 ;orchestra
@@ -403,7 +404,7 @@ f1 0 2096 10 1 .2 .3
 i1 0 1 440
 i1 1 1 660
 \end{verbatim}
-
+\normalsize
 \doublespacing 
 
 Se formos tentar implementar esse código em Pd, podemos encontrar uma 
@@ -1254,6 +1255,29 @@ uma música pelo sensor de movimento do telefone. Os inventores do RjDj, costuma
 o sistema deles de ''droga digital``, pois é capaz de alterar o estado de percepção sonora,
 de acordo com a cena carregada e com os estímulos do ambiente e do usuário \cite{rj}. 
 
+Um aspecto importante em um projeto que envolva arte e tecnologia é a interação
+entre o desenvolvimento da ferramenta e o possível resultado musical que a ferramenta
+possibilita ou conduz.
+Um projeto próximo que influenciou essa pesquisa foi o ``Navalha'' \cite{navalha}, 
+desenvolvido no Pontão de Cultura Juntadados\footnote{www.juntadados.org}.
+Um elemento relevante nesse projeto é a postura política alinhada com a dimensão
+poética e técnica.
+
+\begin{quote}
+Este projeto é um estudo para estimular uma atividade que torna-se cada vez mais evidente no universo 
+do software livre e código aberto – a customização de software para idéias artísticas e para produção 
+multimídia em geral permitindo aquele que visa criar desenvolver suas idéias abstratas partindo de maneiras 
+rápidas de trabalhar com código, ao invés da lógica onde o artista e visto como um usuário de interfaces já 
+prontas que ao tentar “prever aquilo que quer o usuário” também acaba impondo sua prática de uso. \cite{navalha}
+\end{quote}
+
+O desenvolvimento do ``Navalha'' seguiu um caminho paralelo a outros projetos coletivos, experimentos em 
+execução musical e instalações. Talvez essa seja uma característica de projetos de código aberto, onde
+o projeto não precisa estar ``finalizado'' para ser recombinado por outros artistas. Ambientes como o 
+\textit{github}\footnote{Disponível em: www.github.com} permitem esse fluxo de código de diversos projetos
+em andamento. Nesse sentido SInCoPA se situa com uma postura semelhante, uma vez que a pesquisa do desenvolvimento
+tem incentivado outros projetos em instalações audiovisuais e criação musical.
+
 
 
 O fato dos sistemas de música interativa terem como
@@ -1319,11 +1343,12 @@ contrastes e variações rítmicas bem ``orgânicas''.
 Cada pico neural em SANTIAGO produz um evento rítmico, em contraste com redes neurais artificiais regulares.
 Estes fluxos rítmicos podem variar de periódico ou quase-periódica  a caótica ou estocástica e também gerar poliritmia.
 Este comportamento resulta em nem muito aleatório, nem muito uniforme e pode ser modificado de forma interativa enquanto a rede evolui.
-A atividade da rede, por exemplo, poderia ser ajustada para ser mínima ou densa gerando paisagens sonoras diferentes\footnote{
-``Every neural spike in SANTIAGO produces a rhythmic event, in contrast with regular artificial neural networks. 
-These rhythmic streams can vary from periodic or quasi-periodic to chaotic or stochastic and also generate polirhythmicity. 
-This behavior results neither too random nor too uniform and can be modiﬁed in an interactive way as the network evolves. 
-The activity of the network, for instance, could be tuned to be minimal or dense generating different sound landscapes''.} \cite{santiago}.
+A atividade da rede, por exemplo, poderia ser ajustada para ser mínima ou densa gerando paisagens sonoras diferentes
+% \footnote{Every neural spike in SANTIAGO produces a rhythmic event, in contrast with regular artificial neural networks. 
+% These rhythmic streams can vary from periodic or quasi-periodic to chaotic or stochastic and also generate polirhythmicity. 
+% This behavior results neither too random nor too uniform and can be modiﬁed in an interactive way as the network evolves. 
+% The activity of the network, for instance, could be tuned to be minimal or dense generating different sound landscapes.} 
+\cite{santiago}.
 \end{quote}
 %%%
 
@@ -1590,40 +1615,6 @@ na plataforma GEM.
 % para futuro desenvolvimento de uma notação tradicional+espectromorfológica interativa e automática
 
 
-Um projeto próximo que influenciou essa pesquisa foi o ``Navalha'' \cite{navalha}, 
-desenvolvido no Pontão de Cultura Juntadados\footnote{www.juntadados.org}.
-Um aspecto importante nesse projeto é a postura política alinhada com a dimensão
-poética e técnica.
-
-\begin{quote}
-Este projeto é um estudo para estimular uma atividade que torna-se cada vez mais evidente no universo 
-do software livre e código aberto – a customização de software para idéias artísticas e para produção 
-multimídia em geral permitindo aquele que visa criar desenvolver suas idéias abstratas partindo de maneiras 
-rápidas de trabalhar com código, ao invés da lógica onde o artista e visto como um usuário de interfaces já 
-prontas que ao tentar “prever aquilo que quer o usuário” também acaba impondo sua prática de uso. \cite{navalha}
-\end{quote}
-
-O desenvolvimento do ``Navalha'' seguiu um caminho paralelo a outros projetos coletivos, experimentos em 
-execução musical e instalações. Talvez essa seja uma característica de projetos de código aberto, onde
-o projeto não precisa estar ``finalizado'' para ser recombinado por outros artistas. Ambientes como o 
-\textit{github}\footnote{Disponível em: www.github.com} permitem esse fluxo de código de diversos projetos
-em andamento.
-
-Nesse sentido SInCoPA bla bla bla
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \chapter{Ferramentas e Processo}
 \label{sec:metodologia}
 
@@ -1633,46 +1624,18 @@ O sistema apresentado nessa tese foi construído e deve rodar em um computador c
 de áudio em tempo-real. O software é composto com
 a linguagem de programação Pure data acrescida de algumas bibliotecas contidas
 na distribuição Pd-extended. Outras bibliotecas de código são
-acrescentadas a medida em que estas garantam compatibilidade de
+acrescentadas na medida em que estas permitam compatibilidade de
 versões e portabilidade entre diferentes sistemas operacionais.
-
-
 
 Uma das vantagens de trabalhar com software livre é que existe uma
 comunidade independente e funcional de desenvolvedores que se dispõe a
 testar, apontar soluções e validar informalmente perante a comunidade
-uma pesquisa como essa que aqui se apresenta.
+uma pesquisa como essa que é apresentada nesse trabalho.
 
-
-
-
-A segunda fase da pesquisa foi o desenvolvimento do
-sistema propriamente dito, com prototipação de interface para usuário,
-diversos experimentos de estúdio onde cada parte do sistema foi
+Durante o desenvolvimento de SInCoPA, foram realizadas experimentações com prototipação de interface para usuário,
+e diversos experimentos sonoros em estúdio onde cada parte do sistema foi
 testada individualmente e em grupo.
 
-
-
-%% falar mais sobre como trabalhar com software livre foi importante
-
-
-
-
-
-
-
-
-
-
-
-
-%% ligar esse último parágrafo com o tema dessa introdução
-
-%% parágrafo de conclusão
-
-
-
-%\section{Ferramentas}
 
 Nessa seção serão brevemente expostos os motivos pela escolha de determinadas ferramentas para
 o desenvolvimento dessa pesquisa.
@@ -1682,16 +1645,16 @@ o desenvolvimento dessa pesquisa.
 \section{Pd-extended}
 
 O Pure data(Pd), foi a linguagem escolhida para o desenvolvimento dessa pesquisa.
-Existem diversas distribuições do Pd, sendo as mais utilizadas o Pd "vanilla" e o Pd-extended.
-A versão "vanilla" se refere ao núcleo da linguagem mantida pelo criador Miller Puckette, e no
+Existem diversas distribuições do Pd, sendo as mais utilizadas o Pd \textit{vanilla} e o Pd-extended.
+A versão \textit{vanilla} se refere ao núcleo da linguagem mantida pelo criador Miller Puckette, e no
 momento de escrita dessa tese se encontra na versão 0.43. Já o Pd-extended conta com as contribuições
 da comunidade de desenvolvedores e usuários, que incluíram diversas extensões para vídeo, gráficos, rede e
 novas funcionalidades para criação musical.
 
 No atual momento, essa pesquisa depende do Pd-extended, porém, para o desenvolvimento futuro pretende-se
-que as abstrações dependam, apenas da versão vanilla. A desvantagem de usar a distribuição Pd-extended é quebraa mesma 
-depende de muitos outros componentes de software, tornando uma possível compatibilidade da pesquisa com sistemas
-futuros um pouco mais arriscada. 
+que as abstrações dependam, apenas da versão vanilla. A desvantagem de usar a distribuição Pd-extended é 
+que a mesma depende de muitos outros componentes de software, tornando mais arriscada uma possível 
+compatibilidade da pesquisa com sistemas futuros.
 
 
 \section{Bibliotecas de Pd}
@@ -1701,8 +1664,8 @@ Além do Pd-extended, essa pesquisa, necessita de duas outras bibliotecas, sendo
 Também são usados os objetos compilados em C, desenvolvidos por William Brent:
 
 \begin{itemize}
- \item tabletools
- \item timbreID
+ \item [tabletool] - Objeto para manipulação e operações matemáticas em arrays.
+ \item [timbreID] - Série de objetos para análise e estimativa de parâmetros do timbre.
 \end{itemize}
 
 \section{Rosegarden e Lilypond}
@@ -1756,7 +1719,17 @@ uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confi
 Durante toda a pesquisa, foi usado o sistema operacional GNU/Linux.
 As distribuições usadas foram Debian testing, Debian stable e Ubuntu LTS.
 Muitos motivos poderiam ser listados para justificar a escolha desse sistema
-operacional. Porém, gostaria de destacar a preocupação pela coerência de licenças
+operacional. 
+
+motivo 1 : customização do sistema para focar o processamento nas partes importantes
+
+motivo 2 : compatibilidade futura - backup do sistema completo
+
+motivo 3 : fácil distribuição do sistema desenvolvido nesse trabalho
+para outros artistas/desenvolvedores
+
+
+Porém, gostaria de destacar a preocupação pela coerência de licenças
 de uso e distribuição, entre as diversas partes que compõe a pesquisa.
 O objetivo é construir programas usando componentes de software que usem as licenças GNU/GPL, ou 
 BSD. O código resultante dessa pesquisa também é licenciado sob as especificações
@@ -1777,31 +1750,6 @@ Além da possibilidade de fácil manutenção de repositórios de código local,
 hospedagem gratuita de repositórios Git na internet. A escolha desse controle de versão se dá pelo estímulo a cooperação e 
 continuidade dessa pesquisa para além do encerramento da tese, com a possibilidade de alguns resultados se proliferarem
 em outros projetos de pesquisa.
-
-
-
-
-
-
-
-
-
-
-
-
-
-%\begin{figure}
-%\includegraphics[scale=.6]{mecanismo}
-%\caption{Mecanismo de decisões e geração de resposta}
-%\label{mecanismo}
-%\end{figure}
-
-
-
-
-
-
-
 
 
 
@@ -2938,20 +2886,34 @@ O parser funciona em 3 instâncias:
 de uma janela de diálogo, o path do arquivo substitui a variável 
 dólar 1 como argumento para o programa mid2hum que converte
 arquivos midi para o formato kern (.krn), usado pelo humdrum.
+
+\singlespacing
+\footnotesize
 \begin{verbatim}
- midi2hum \$1 > m2h.krn
-\end{verbatim} 
+midi2hum \$1 > m2h.krn
+\end{verbatim}
+\normalsize
+\doublespacing
+
+ 
+
   O código acima é formatado numa mensagem e enviado ao objeto
 [shell] onde converte o arquivo midi e envia o resultado para
 um novo arquivo chamado m2h.krn.
  
 2) Nessa etapa é onde se aplica os comandos do humdrum ao 
 arquivo gerado. No caso o comando
+\singlespacing
+\footnotesize
 \begin{verbatim}
 census -k m2h.krn > m2h.txt
-\end{verbatim} 
+\end{verbatim}
+\normalsize
+\doublespacing 
 traz diversas informações sobre o arquivo enviadas para um 
 arquivo de texto como por exemplo:
+\singlespacing
+\footnotesize
 \begin{verbatim}
  HUMDRUM DATA
 
@@ -2976,7 +2938,8 @@ Maximum number of voices:  4
 Number of single barlines: 237
 Number of double barlines: 0
 \end{verbatim} 
-
+\normalsize
+\doublespacing 
 3) Nessa parte expomos um método de navegar e procurar por
 informações no arquivo de texto. O código usado como modelo,
 está assinalado na figura \ref{parser}. O arquivo m2h.txt
@@ -3947,8 +3910,9 @@ progressão harmônica. Na descrição da patente, o autor exibe trechos do sist
 mostrando a maneira como a sequência harmônica influencia na condução vocal e vice-versa,
 e o nível de detalhamento do projeto:
 
+\singlespacing
+\footnotesize
 \begin{verbatim}
-
 VI to V progression
 if the preceding and current chords are at their root positions then
   if the preceding chord is of dominant root then
@@ -3967,6 +3931,8 @@ if the preceding and current chords are at their root positions then
   end if
 end if
 \end{verbatim}
+\normalsize
+\doublespacing
 
 Dentro do escopo de SInCoPA, foram desenvolvidos alguns métodos de harmonização
 melódica para uso composicional.
@@ -6068,6 +6034,8 @@ um tanto ruidoso (instrumento 1 abaixo). Se for usada uma variável ``a'', o res
 muito mais limpo (instrumento 2). No exemplo abaixo é explorada a diferença
 entre envelope com variável ``a'' e ``k'' aplicados ao mesmo instrumento.
 
+\singlespacing
+\footnotesize
 \begin{verbatim}
 <CsoundSynthesizer>
 <CsOptions>
@@ -6104,6 +6072,8 @@ e
 </CsScore>
 </CsoundSynthesizer>
 \end{verbatim} 
+\normalsize
+\doublespacing
 
 \begin{figure}
 \includegraphics[scale=.6]{cabos}
@@ -6274,7 +6244,8 @@ diferente (por exemplo, 5/8, em vez de 4/4).
 FOMUS transcreve os comandos acima para a sintaxe do Lilypond.
 O resultado do código abaixo pode ser visto na figura \ref{fomus}.
 
-
+\singlespacing
+\footnotesize
 \begin{verbatim}
 time 0 dur 1 pitch 60 ;
 time 1 dur 0.5 pitch 62 ;
@@ -6286,7 +6257,8 @@ time 6 dur 1 pitch 64 ;
 time 7 dur 1 pitch 62 ;
 time 8 dur 1 pitch 60 ;
 \end{verbatim}
-
+\normalsize
+\doublespacing
 
 \begin{figure}
 \includegraphics[scale=.6]{sinc-fomus}
@@ -6358,9 +6330,13 @@ A outra instância do Pd vai rodar a abstração [sinc-recebenotacao], e deve se
 que não processe áudio. Para isso, deve ser usada a opção "-noaudio".
 Como por exemplo:
 
+\singlespacing
+\footnotesize
 \begin{verbatim}
 livre@livre:~/sincopa/sinc-abs\$ pdextended -noaudio sinc-recebenotacao.pd 
 \end{verbatim} 
+\normalsize
+\doublespacing
 
 A conexão entre as duas instâncias é feita com os objetos [netsend] e [netreceive], utilizando o protocolo
 UDP. Na figura \ref{sinc-mandanotacao} vemos a mensagem "connect localhost 3001", que manda o objeto
