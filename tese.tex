@@ -1620,23 +1620,23 @@ na plataforma GEM.
 
 
 
-O sistema apresentado nessa tese foi construído e deve rodar em um computador com capacidade de processamento
-de áudio em tempo-real. O software é composto com
+O sistema apresentado nesse trabalho (SInCoPA) foi projetado para rodar em um computador com capacidade de processamento
+de áudio em tempo-real. O programa foi desenvolvido com
 a linguagem de programação Pure data acrescida de algumas bibliotecas contidas
 na distribuição Pd-extended. Outras bibliotecas de código são
 acrescentadas na medida em que estas permitam compatibilidade de
 versões e portabilidade entre diferentes sistemas operacionais.
 
-Uma das vantagens de trabalhar com software livre é que existe uma
-comunidade independente e funcional de desenvolvedores que se dispõe a
-testar, apontar soluções e validar informalmente perante a comunidade
+Durante o processo de escolha das ferramentas computacionais, optei
+por usar apenas programas e linguagens de código aberto.
+Uma das vantagens de trabalhar com programas de código aberto é que existe uma
+comunidade descentralizada de pesquisadores e desenvolvedores compartilhando
+pesquisas e resultados. O que cria um ambiente propício para testar, apontar soluções e validar 
 uma pesquisa como essa que é apresentada nesse trabalho.
 
 Durante o desenvolvimento de SInCoPA, foram realizadas experimentações com prototipação de interface para usuário,
 e diversos experimentos sonoros em estúdio onde cada parte do sistema foi
 testada individualmente e em grupo.
-
-
 Nessa seção serão brevemente expostos os motivos pela escolha de determinadas ferramentas para
 o desenvolvimento dessa pesquisa.
 
@@ -1648,25 +1648,66 @@ O Pure data(Pd), foi a linguagem escolhida para o desenvolvimento dessa pesquisa
 Existem diversas distribuições do Pd, sendo as mais utilizadas o Pd \textit{vanilla} e o Pd-extended.
 A versão \textit{vanilla} se refere ao núcleo da linguagem mantida pelo criador Miller Puckette, e no
 momento de escrita dessa tese se encontra na versão 0.43. Já o Pd-extended conta com as contribuições
-da comunidade de desenvolvedores e usuários, que incluíram diversas extensões para vídeo, gráficos, rede e
+da comunidade de desenvolvedores e usuários, onde foram incluídas diversas extensões para vídeo, gráficos, rede e
 novas funcionalidades para criação musical.
 
-No atual momento, essa pesquisa depende do Pd-extended, porém, para o desenvolvimento futuro pretende-se
-que as abstrações dependam, apenas da versão vanilla. A desvantagem de usar a distribuição Pd-extended é 
+No atual momento, SInCoPA é construída dependendo do Pd-extended, porém, para o desenvolvimento futuro penso
+que o ideal seja que as abstrações de SInCoPA dependam, apenas da versão vanilla. A desvantagem de usar a distribuição Pd-extended é 
 que a mesma depende de muitos outros componentes de software, tornando mais arriscada uma possível 
 compatibilidade da pesquisa com sistemas futuros.
 
+A vantagem de manter um projeto compatível com a versão \textit{vanilla} é que
+o código não depende de bibliotecas externas ao próprio núcleo de desenvolvimento
+do Pd, o que garante maior compatibilidade futura. Outra vantagem é a portabilidade do código 
+feito em \textit{vanilla} para funcionamento
+com a \textit{libpd} \cite{libpd}. A \textit{libpd} permite que
+programas feitos em Pd sejam usados em projetos desenvolvidos com outras linguagens como
+C, Java, Python, por exemplo, e que seja portado para outros sistemas operacionais como
+\textit{Android} e \textit{IOS} projetados para rodar em telefones celulares e dispositivos móveis.
+ 
+As principais  bibliotecas do Pd-extended que são usadas em SInCoPA são \textit{Unauthorized} e 
+\textit{GEM}. A primeira apresenta o objeto [probalizer] que tem uma boa interface para manipulação
+e cálculo de probabilidades dinâmicas. Enquanto que GEM é uma biblioteca para criação gráfica
+que pode ser usada como base para desenvolvimento de uma notação integrada ou um motor de
+visualização dos dados da performance e composição em tempo-real, como é mostrado no apêndice \ref{GEM-sec} 
 
-\section{Bibliotecas de Pd}
+\section{Bibliotecas externas de Pd}
 
 Além do Pd-extended, essa pesquisa, necessita de duas outras bibliotecas, sendo elas a PDMTL e DIY2.
 
-Também são usados os objetos compilados em C, desenvolvidos por William Brent:
 
-\begin{itemize}
- \item [tabletool] - Objeto para manipulação e operações matemáticas em arrays.
- \item [timbreID] - Série de objetos para análise e estimativa de parâmetros do timbre.
-\end{itemize}
+%% PDMTL é bla bla bla
+
+
+%% DIY2 é bla bla
+
+
+Também são usados os objetos compilados em C [tabletool] e [timbreID] \cite{brent}. 
+O objeto [tabletool] é usado para manipulação e operações matemáticas em arrays.
+ A biblioteca [timbreID] é uma série de objetos para análise e estimativa de parâmetros do timbre.
+
+
+\section{GNU/linux}
+
+Durante toda a pesquisa, foi usado o sistema operacional GNU/Linux.
+As distribuições usadas foram Debian testing, Debian stable e Ubuntu LTS.
+Muitos motivos poderiam ser listados para justificar a escolha desse sistema
+operacional. 
+
+motivo 1 : customização do sistema para focar o processamento nas partes importantes
+
+motivo 2 : compatibilidade futura - backup do sistema completo
+
+motivo 3 : fácil distribuição do sistema desenvolvido nesse trabalho
+para outros artistas/desenvolvedores
+
+
+Porém, gostaria de destacar a preocupação pela coerência de licenças
+de uso e distribuição, entre as diversas partes que compõe a pesquisa.
+O objetivo é construir programas usando componentes de software que usem as licenças GNU/GPL, ou 
+BSD. O código resultante dessa pesquisa também é licenciado sob as especificações
+da licença GNU/GPL.
+
 
 \section{Rosegarden e Lilypond}
 
@@ -1699,6 +1740,8 @@ tomadas por um determinado intervalo de notas.
 
 \section{Jack}
 
+%% reescrever esse parágrafo
+
 JACK é um sistema para o tratamento em tempo real, áudio de baixa latência (e MIDI). 
 Ele roda em GNU / Linux, Solaris, FreeBSD, OS X e Windows (e pode ser portado para outras plataformas 
 POSIX-conformant). É possível conectar um número de diferentes aplicações para um dispositivo de áudio, 
@@ -1714,26 +1757,7 @@ uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confi
 \end{figure}
 
 
-\section{GNU/linux}
 
-Durante toda a pesquisa, foi usado o sistema operacional GNU/Linux.
-As distribuições usadas foram Debian testing, Debian stable e Ubuntu LTS.
-Muitos motivos poderiam ser listados para justificar a escolha desse sistema
-operacional. 
-
-motivo 1 : customização do sistema para focar o processamento nas partes importantes
-
-motivo 2 : compatibilidade futura - backup do sistema completo
-
-motivo 3 : fácil distribuição do sistema desenvolvido nesse trabalho
-para outros artistas/desenvolvedores
-
-
-Porém, gostaria de destacar a preocupação pela coerência de licenças
-de uso e distribuição, entre as diversas partes que compõe a pesquisa.
-O objetivo é construir programas usando componentes de software que usem as licenças GNU/GPL, ou 
-BSD. O código resultante dessa pesquisa também é licenciado sob as especificações
-da licença GNU/GPL.
 
 
 
@@ -6302,6 +6326,7 @@ tempo-real.
 
 
 \subsection{Notação musical com GEM}
+\label{GEM-sec}
 
 \begin{figure}
 \includegraphics[scale=.6]{sinc-mandanotacao}
