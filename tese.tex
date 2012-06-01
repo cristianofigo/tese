@@ -1644,7 +1644,7 @@ o desenvolvimento dessa pesquisa.
 
 \section{Pd-extended}
 
-O Pure data(Pd), foi a linguagem escolhida para o desenvolvimento dessa pesquisa.
+O Pure data (Pd), foi a linguagem escolhida para o desenvolvimento dessa pesquisa.
 Existem diversas distribuições do Pd, sendo as mais utilizadas o Pd \textit{vanilla} e o Pd-extended.
 A versão \textit{vanilla} se refere ao núcleo da linguagem mantida pelo criador Miller Puckette, e no
 momento de escrita dessa tese se encontra na versão 0.43. Já o Pd-extended conta com as contribuições
@@ -1669,44 +1669,46 @@ As principais  bibliotecas do Pd-extended que são usadas em SInCoPA são \texti
 \textit{GEM}. A primeira apresenta o objeto [probalizer] que tem uma boa interface para manipulação
 e cálculo de probabilidades dinâmicas. Enquanto que GEM é uma biblioteca para criação gráfica
 que pode ser usada como base para desenvolvimento de uma notação integrada ou um motor de
-visualização dos dados da performance e composição em tempo-real, como é mostrado no apêndice \ref{GEM-sec} 
+visualização dos dados da performance e composição em tempo-real, como é mostrado no apêndice \ref{GEM-sec}.
 
 \section{Bibliotecas externas de Pd}
 
 Além do Pd-extended, essa pesquisa, necessita de duas outras bibliotecas, sendo elas a PDMTL e DIY2.
-
-
-%% PDMTL é bla bla bla
-
-
-%% DIY2 é bla bla
-
+PDMTL é uma biblioteca de abstrações de auxílio para criação audiovisual e apresenta
+bons métodos de manipulação de amostras e operações com listas. DIY2 é uma biblioteca de 
+abstrações de módulos de processamento de sinal como \textit{delays}, distorções, e \textit{phase vocoder}.
 
 Também são usados os objetos compilados em C [tabletool] e [timbreID] \cite{brent}. 
 O objeto [tabletool] é usado para manipulação e operações matemáticas em arrays.
  A biblioteca [timbreID] é uma série de objetos para análise e estimativa de parâmetros do timbre.
+O desenvolvimento de SInCoPA levou em conta a compatibilidade de uso das abstrações combinadas
+com outras bibliotecas em futuros projetos.
 
 
 \section{GNU/linux}
 
 Durante toda a pesquisa, foi usado o sistema operacional GNU/Linux.
 As distribuições usadas foram Debian testing, Debian stable e Ubuntu LTS.
-Muitos motivos poderiam ser listados para justificar a escolha desse sistema
+Alguns motivos poderiam ser listados para justificar a escolha desse sistema
 operacional. 
 
-motivo 1 : customização do sistema para focar o processamento nas partes importantes
+A customização do sistema operacional para concentrar o processamento nas partes necessárias
+ao funcionamento de SInCoPA. Nesse sentido o usuário de Linux pode escolher qual ambiente gráfico
+é mais adequado e refinar a performance do processamento de áudio e vídeo através de customização
+do \textit{kernel}.
 
-motivo 2 : compatibilidade futura - backup do sistema completo
-
-motivo 3 : fácil distribuição do sistema desenvolvido nesse trabalho
-para outros artistas/desenvolvedores
+Outro motivo importante é a visão de compatibilidade futura do trabalho. 
+O usuário de Linux pode criar uma cópia exata do sistema operacional completo, permitindo
+recriar a configuração da pesquisa em outros computadores. O que também
+permite uma fácil distribuição do sistema desenvolvido nesse trabalho
+para outros artistas e desenvolvedores interessados.
 
 
 Porém, gostaria de destacar a preocupação pela coerência de licenças
 de uso e distribuição, entre as diversas partes que compõe a pesquisa.
-O objetivo é construir programas usando componentes de software que usem as licenças GNU/GPL, ou 
-BSD. O código resultante dessa pesquisa também é licenciado sob as especificações
-da licença GNU/GPL.
+O objetivo desse trabalho é construir programas usando componentes de software que usem as licenças GPL, ou 
+BSD. O código resultante de SInCoPA também é disponibilizado sob as especificações
+da licença GPL, permitindo execução, estudo, redistribuição e aperfeiçoamento do código fonte.
 
 
 \section{Rosegarden e Lilypond}
@@ -1727,7 +1729,7 @@ a definição do próprio projeto:
 \begin{quote}
  LilyPond é um programa de gravação de música, dedicada à produção a partitura da mais alta qualidade possível. 
 Ele traz a estética da música tradicional escrita para impressões de computador. LilyPond é software livre e 
-parte do Projeto GNU.
+parte do Projeto GNU. \footnote{Disponível em: http://lilypond.org/}
 \end{quote} 
 
 O Rosegarden executa as sequências MIDI usando um servidor de arquivos soundfont.
@@ -1748,7 +1750,7 @@ POSIX-conformant). É possível conectar um número de diferentes aplicações p
 bem como permitindo que eles compartilhem áudio entre si. Seus clientes podem ser executados em seus próprios 
 processos (ou seja, como aplicações normais), ou podem eles podem ser executados dentro do servidor JACK 
 (ou seja, como um "plugin"). JACK também tem suporte para a distribuição de processamento de áudio através de 
-uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confiável.
+uma rede, tanto LANs com conexão rápida e confiável, bem como em WANs menos confiáveis e mais lentas.
 
 \begin{figure}
 \includegraphics[scale=.7]{qjackctl}
@@ -1766,7 +1768,7 @@ uma rede, tanto LANs rápido e confiável, bem como mais lento, WANs menos confi
 Git é um sistema de controle de versão distribuído, com código fonte livre e aberta, desenhado para lidar com qualquer
 projeto, com rapidez e eficiência.
 Uma grande vantagem é a facilidade de colaboração em desenvolvimento de código, onde outros desenvolvedores
-podem clonar o repositório da pesquisa e realizarem "forks", ou desenvolvimentos paralelos. Isso cria uma situação 
+podem clonar o repositório da pesquisa e realizarem ``\textit{forks}'', ou desenvolvimentos paralelos. Isso cria uma situação 
 onde o resultado da pesquisa, em termos de programação, se torna um elemento vivo dentro da comunidade de músicos e 
 programadores interessados em computação musical e música interativa.
 
@@ -5357,7 +5359,7 @@ o sintetizador. Na tabela abaixo vemos o resultado da análise de cada altura e 
 valor correspondente a cada parâmetro mapeado no sintetizador.
 
 \pagebreak
-
+\singlespacing
 \begin{center}
     \begin{tabular}{ | l | l | p{5cm} |}
     \hline
@@ -5382,7 +5384,7 @@ valor correspondente a cada parâmetro mapeado no sintetizador.
     \end{tabular}
 \label{tabela-variaveis}
 \end{center}
-
+\doublespacing
 
 O sintetizador em questão, mostrado na figura \ref{sintese}, usa a técnica
 de frequência modulada (FM) para definir o comportamento do timbre.
@@ -5537,13 +5539,13 @@ composição de música interativa e permita o aperfeiçoamento das pesquisas na
 A motivação inicial da pesquisa, foi criar um sistema interativo
 para uso com instrumentos de corda pinçada como violão e guitarra.
 Rapidamente se evidenciou o problema da limitação da análise de áudio 
-cem tempo-real em relação ao aspecto polifônico desses instrumentos, 
+em tempo-real em relação ao aspecto polifônico desses instrumentos, 
 como visto na seção \ref{sec-audioanalise}.
 
-A versão atual dessa pesquisa, compreende interação com instrumentos
+A versão atual de SInCoPA, compreende interação com instrumentos
 monofônicos. Apesar de permitir uma rápida adaptação dos módulos já desenvolvidos, 
 quando for implementado o \textit{hardware} que permita o mapeamento de 
-cordas separadas.
+cordas separadas como discutido na seção \ref{sec-audioanalise}.
 
 
 %% discutir mais
@@ -5557,7 +5559,7 @@ cordas separadas.
 
 %%%%%% artigo pdcon09
 
-Dentro de um sistema de criação de música interativa  a análise ocupa uma importãncia centra. 
+Dentro de um sistema de criação de música interativa  a análise ocupa uma importância central. 
 A importância de uma metodologia de análise deve ser equilibrada com o objetivo na construção geral do sistema.
 No começo da pesquisa, surgiu o foco no desenvolvimento de módulos de análise sub-simbólica baseados em redes neurais.
 Essa seção experiência apontou alguns caminhos de como trabalhar com redes neurais artificiais 
@@ -5594,40 +5596,10 @@ sua vez aplicam processos de transformações no material exposto pelo músico e
    
 
 Os resultados das análises de áudio seriam passados por um sistema de redes neurais artificiais, 
-construídos com a biblioteca FANN \cite{fann}  portada para ser usada como uma external de Pd. As redes neurais serão organizadas 
-por ordem de tamanho de segmentos temporais. Por exemplo, a primeira rede vai procurar por padrões a cada 20 segundos e 
-mandar os resultados para a segunda rede que vai avaliar a presença de padrões a cada 60 segundos e assim por diante. 
-Esse processo feito em todos parâmetros descritos, seriam enviados para um banco de dados
- para comparação com o banco de dados usado no treinamento das redes. A comparação entre os bancos de dados do 
-treinamento e da performance em tempo-real possibilitaria regular as decisões de resposta do sistema.
-
-\begin{figure}
-\includegraphics[scale=.5]{fann1}
-\caption{Patch central do experimento com redes neurais}
-\label{fann1}
-\end{figure} 
- 
-Foi feito um pequeno experimento da pesquisa  foi usado o external [ann-mlp] com o objetivo de detectar  em tempo-real padrões 
+construídos com a biblioteca FANN \cite{fann}  portada para ser usada como uma external de Pd.  
+Foi feito um pequeno experimento da pesquisa onde foi usado o external [ann-mlp] com o objetivo de detectar  em tempo-real padrões 
 rítmicos pré-estabelecidos na fase de treinamento da rede.
-    O principal elemento explorado  nesse primeiro experimento foi a variação de andamento. Uma das principais 
-características de um diálogo musical é o fato dos músicos reconhecerem facilmente padrões rítmicos independente do 
-andamento em que são apresentados. Para isso é necessário que seja levado em consideração a distância temporal entre 
-ataques de eventos sonoros ao invés da duração desses eventos ou do posicionamento temporal dentro da duração total da 
-performance. Para o trabalho de segmentação rítmica foi usada a biblioteca Aubio para identificar os ataques (onsets) de eventos 
-sonoros. Na figura \ref{fann1} vemos o patch central do experimento com o objeto  [aubioonset\texttildelow] recebendo um fluxo de 
-dados de áudio e respondendo com bang em tempo-real para cada ataque reconhecido.
-
-  
-\begin{figure}
-\includegraphics[scale=.4]{fann2}
-\caption{Agrupador de listas de quatro durações para envio para a rede neural artificial}
-\label{fann2}
-\end{figure} 
-
-Foi escolhido uma metodologia de segmentação agrupando conjuntos de quatro ataques. 
-Na figura \ref{fann2} podemos ver no patch como foi implementado 
-o agrupamento de cada quatro  ataques dentro do sub-patch [pd contador de ritmos e estocando beta].
-
+    
 As redes neurais artificiais funcionam em dois tempos, o treinamento e a performance. No treinamento as redes os pesos e 
 dos padrões de maneira a criar um arquivo de treinamento que funciona como um banco de dados . No arquivo de treinamento 
 podemos editar manualmente e identificar e rotular os padrões de maneira a refinar a base de dados. Nesse experimento foi 
@@ -5641,7 +5613,7 @@ apresentados diversas vezes em andamentos diferentes.
 
 Outra possibilidade seria o uso de mapas auto-organizáveis (redes de Kohonen), que é
 um tipo de rede neural artificial não supervisionada, que não necessita
-da fase de terinamento, podendo ser um modelo para classificação em tempo-real..
+da fase de terinamento, podendo ser um modelo para classificação em tempo-real.
 Esse experimento mostrou um caminho para o refinamento de um modelo de classificação de padrão.
 Um problema apontado foi o de que aplicações com redes neurais são voltadas
 para a resolução de problemas específicos.
@@ -5649,7 +5621,6 @@ A prática com redes neurais demonstrou um grande potencial como ferramenta para
 para o futuro do desenvolvimento dos níveis de análise descritos na seção \ref{sec-analise-geral}
 Dentro do recorte dessa pesquisa, a análise tem um espaço importante, entretanto o objetivo
 final é o desenvolvimento de uma ferramenta para a composição de música interativa.
-
 
 
 
@@ -5733,19 +5704,19 @@ effects.}
 
 
 Para o futuro da pesquisa, acredito que foram apontadas direções para aprofundamento
-de cada um dos protótipos. Na tese os  protótipos serão aprofundados e 
-outros apresentados na forma de peças musicais, misturando as técnicas e explorando 
+de cada um dos módulos de SInCoPA. Nessa tese, a explicação técnica das abstrações é aprofundada e 
+sua utilização apresentada na forma de experimento musical, misturando as técnicas e explorando 
 maneiras musicalmente expressivas de
-sobrepor ou justapor as técnicas. Também será aprofundado teóricamente o 
+sobrepor ou justapor as técnicas. Também foi apontado teóricamente o 
 desenvolvimento da narrativa instrumental e gestual do músico. 
-As técnicas apresentadas até aqui são ferramentas genéricas para análise musical,
-uma outra etapa será combinar todas essas técnicas em peças de música mais longas,
+As técnicas apresentadas até aqui são ferramentas genéricas para análise, composição
+e performance musical, uma outra etapa futura poderá combinar todas essas técnicas em peças de música mais longas,
 onde se possa experimentar diversas narrativas e como as ferramentas se comportam
 em projetos maiores.
 
 O recorte da pesquisa foi o desenvolvimento de ferramentas para composição
 interativa entre instrumentos tradicionais e computadores. 
-Nesse sentido apresentamos um série de soluções que revelam os problemas
+Nesse sentido apresentamos uma série de soluções que revelam os problemas
 específicos das muitas partes do objeto. Além disso, o foco do objeto
 de pesquisa na composição como um todo, garantiu que o resultado técnico
 fosse uma ferramenta genérica, modular e re-utiliźavel. 
