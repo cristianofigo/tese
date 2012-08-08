@@ -205,8 +205,8 @@ presented here.
 
 %% aqui na introdução usar os termos sugeridos por sérgio: objeto e recorte
 
-Essa tese apresenta o desenvolvimento de aplicativos e métodos
-de organização de materiais musicais e sonoros aplicados a composição
+Esta tese apresenta o desenvolvimento de aplicativos e métodos
+de organização de materiais musicais e sonoros aplicados à composição
 de música interativa. Por música interativa entende-se aqui um tipo
 de composição que é feita sob o paradigma da interação homem-máquina.
 De maneira geral, o objeto da música interativa é o evento sonoro gerado a partir da
@@ -223,6 +223,7 @@ performance de música interativa. SInCoPA
  é um sistema computacional capaz de extrair informações diversas sobre a performance e
 categorizar aspectos da performance musical e interagir com essa performance.
 
+%% aqui falar sobre o campo de possibilidades da polifonia densa..controle da polifonia
 
 Meu objetivo musical é a criação de uma polifonia densa, onde o músico controla
 aspectos da textura resultante com o próprio gesto sonoro. 
@@ -231,11 +232,11 @@ diversas baseadas na análise do áudio da performance musical de um instrumenti
 Nesse panorama, a
 polifonia resultante pode variar da completa fusão sonora e comportamental até o extremo
 contraste de materiais sonoros e musicais. Os resultados musicais são demonstrados no
-capítulo \ref{composicao} na descrição da peça ``Diálogos em SINCoPA'' e nos vídeos no
+capítulo \ref{composicao} na descrição da peça ``Diálogos em SInCoPA'' e nos vídeos no
 DVD em anexo a tese que apresentam experimentações sonoras com as funções de SInCoPA.
 
 
-
+%% rodapé explicando nomes e datas do Pd
 
 Diversos problemas advém da prática
 musical na interação homem-máquina. Nesse sentido, o 
@@ -243,8 +244,8 @@ objeto de pesquisa é o percurso que vai da idéia composicional, calcada
 no paradigma da interação homem-máquina,  passa pela implementação
 e posteriormente pela experimentação, performance e análise dos resultados.
 SInCoPA é construído com a linguagem \textit{Pure data} (\pd). 
-Pd \cite{pd:96} é uma linguagem gráfica orientada a objetos desenvolvida por Miller Puckette
-para a criação de música eletrônica. Desde o seu lançamento em 1996, o projeto do Pd se manteve
+Pd \cite{pd:96}\footnote{Disponível em: http://puredata.info/} é uma linguagem gráfica orientada a objetos desenvolvida para a criação de música eletrônica. 
+Desde o seu lançamento em 1996, o projeto do Pd se manteve
 com código aberto e distribuído livremente pela internet, o que agregou uma comunidade de 
 artistas e desenvolvedores ao redor do projeto.
 Nos últimos anos a comunidade tem desenvolvido inúmeras bibliotecas de objetos especializados em modelos matemáticos, modelamentos de interface gráfica, diversas 
@@ -297,8 +298,10 @@ e outras contribuições da comunidade de desenvolvedores.
 A criação de música interativa é uma tarefa que envolve diversos 
 conhecimentos como técnicas de composição musical, síntese sonora,
 análise e processamento de sinal digital e design de interface.
-Nesta pesquisa investigamos o problema do desenvolvimento de uma biblioteca
-de utilitários para criação de música interativa. 
+Nesta pesquisa investiguei o problema do desenvolvimento de uma biblioteca
+de utilitários para criação de música interativa. Esta biblioteca tem
+como objetivo fornecer módulos que facilitem a prototipação com análise
+e processamento de áudio de entrada, geração de síntese e controle de algoritmos MIDI.
 
 
 Diversos problemas derivam da intersecção entre descrições simbólicas
@@ -309,8 +312,7 @@ pesquisa como por exemplo a detecção automática de começo e fim de
 frases melódicas. Outros problemas são técnicos e prevêem uma depuração
 na programação como por exemplo a sincronia entre as mensagens de controle de parâmetros
 e o processamento de blocos de áudio. 
-
-Nesse trabalho procurei separar e visualizar cada problema de pesquisa. Sem perder de vista o foco
+Neste trabalho procurei separar e visualizar cada problema de pesquisa. Sem perder de vista o foco
 num sistema geral de criação de música interativa.
 
 \section{Composição e Programação}
@@ -333,9 +335,9 @@ Quando um instrumentista
 vai interpretar uma composição escrita em notação tradicional, ou um conjunto de 
 músicos começam a improvisar coletivamente, diversos elementos da narrativa e 
 das escolhas individuais entram em jogo. Como por exemplo agógica, flutuações do tempo ou
- substituições harmônicas. A atividade musical pressupõe ambígüidades de narrativa como
+ substituições harmônicas. A atividade musical pressupõe ambigüidades de narrativa como
 uma característica intrínseca.
-Essas ambígüidades constituem uma parte importante do ritual de fazer
+Essas ambigüidades constituem uma parte importante do ritual de fazer
 e escutar música. Quando se compõe música com computador, nos
 deparamos com linguagens de programação que não aceitam ambígüidades.
 
@@ -347,7 +349,7 @@ problemas derivam desse encontro entre um fazer musical ``ambíguo'' e uma progr
 ``não ambígua''. 
 
 
-Essa pesquisa oferece um caminho a ser trilhado no sentido da convivência
+Esta pesquisa oferece um caminho a ser trilhado no sentido da convivência
 entre a composição musical e a programação de computadores.
 Para isso é necessário refletir sobre as interfaces disponibilizadas
 aos compositores e como essas interfaces interferem nos processos criativos.
@@ -360,7 +362,7 @@ importantes criadas é o ambiente de programação Csound\footnote{Csound é um 
 sonora de código aberto e baseado na linguagem C. Disponível em: www.csounds.com}.
 O paradigma composicional no Csound pode ser visto como semelhante ao
 trabalho tradicional do compositor que descreve eventos através de
-dois arquivos: uma \textit{orquestra} e uma \textit{partitura}\footnote{Livremente traduzidos
+dois arquivos de texto nomeados de: \textit{orquestra} e \textit{partitura}\footnote{Livremente traduzidos
 dos termos originais \textit{orchestra} e \textit{score}}, onde no primeiro são
 descritas as qualidades fixas do timbre e no segundo os eventos e os
 parâmetros dinâmicos do timbre. A arquitetura de programas como Max e
@@ -412,7 +414,7 @@ solução semelhante na figura \ref{fig:exemplopd1}.
 Programadores também são acostumados com linguagens de programação que
 tem sua gramática baseada na sequencialidade das ações. A vantagem de
 usar uma ferramenta de síntese embutida em uma linguagem de
-programação é que se pode ter uma flexibilidade muito maior na criação
+programação é que se pode ter uma flexibilidade muito maior na criação de
 relações entre os elementos devido a possiblidade de criar novas
 abstrações \cite{geiger2005}. 
  
@@ -424,7 +426,7 @@ abstrações \cite{geiger2005}.
 \end{figure}
 
 O fato do Pd ser uma linguagem gráfica possibilita uma facilidade de
-descrição do processo de síntese sonora pelo fato de que o próprio
+descrição do processo de síntese sonora uma vez que o próprio
 código é semelhante ao fluxograma tradicional de representação da
 síntese.
 % (inserir figura de fluxograma)
@@ -443,9 +445,9 @@ de dados, essencialmente - e a usar um leque de objetos como
 acessórios para estocar e recuperar dados dentro do controle de
 passagem de mensagens em tempo real.
 
-A abordagem do Max/Msp quanto aos dados é ao mesmo tempo simples e
+A abordagem do Max/Msp e Pd quanto aos dados é ao mesmo tempo simples e
 evasiva: objetos especiais de armazenagem de dados como
-\textit{table}, \textit{qlist}, dentre outros são disponibilizados. Os
+[table] e [qlist], dentre outros são disponibilizados. Os
 dados são essencialmente colocados dentro de diferentes objetos armazenadores, e
 para cada tipo de armazenador uma abordagem particular é colocada
 para sua estocagem, edição, interface e comunicação com o resto do
@@ -456,7 +458,7 @@ retorno. Por exemplo, uma caixa de número manipulada com o mouse não
 retorna os dados da manipulação, que devem ser recuperados com outros
 objetos). Os dados recuperados devem ser mandados como uma mensagem
 separada de retorno. Isso leva muitos programadores de Max a achar
-soluções diferentes que facilite a interação do patch com o nível
+soluções diferentes que facilitem a integração do patch com o nível
 composicional.
 
 A idéia original por trás da criação do Pd foi remover a barreira
@@ -497,9 +499,8 @@ Abordando o assunto
 a partir de uma visão didático-metodológica, um projeto
 composicional em Pd deve compreender a clara distinção entre os
 aspectos performáticos e composicionais do ambiente. 
-
-O que chamamos de aspectos performáticos em música interativa 
-é a própria relação que criamos entre a  análise do estímulo
+O que chamo aqui de aspectos performáticos em música interativa 
+é a própria relação criada entre a  análise do estímulo
 do instrumentista e os parâmetros de algoritmos generativos.
 
 Sobre os aspectos composicionais me refiro a imagem global
@@ -510,7 +511,7 @@ pensamos em controle. Podemos pensar no conceito de influência como
 intermediário entre cooperação e controle, e mais adequado como
 modelo de desenvolvimento para música interativa.
 
-Nessa pesquisa, foram exploradas maneiras de
+Nesta pesquisa, foram exploradas maneiras de
 implementar algoritmos generativos influenciados por dados
 extraídos da própria análise musical da
 performance do músico.
@@ -552,9 +553,9 @@ o processo composicional durante tarefas de descrição que seriam
 extremamente trabalhosas durante o processo de composição.
 A diferença entre análise e composição é de que na análise, ao final do
 processo, não conseguimos retornar ao pensamento composicional
-original. Pelo fato de que o compositor durante seu trabalho tem a 
+original, pelo fato de que o compositor durante seu trabalho tem a 
 liberdade de criar e subverter regras, e determinar qualquer tipo de relação
-entre os materiais e os procedimentos. Tornando praticamente impossível
+entre os materiais e os procedimentos, tornando praticamente impossível
 de se modelar a atividade cognitiva durante o ato de compôr.
 
 \begin{figure}
@@ -650,19 +651,20 @@ Nesse caso, a análise serve como uma etapa da composição. A composição em s
 se dá no próprio momento da performance. Cada execução musical realizada
 com SInCoPA terá elementos diferentes, mesmo que o instrumentista execute
 o mesmo trecho musical, as escolhas sonoras do programa terão variações.
-Isso se deve pelos fatos de que pequenas variações de tempo e dinâmica 
-vão interferir no resultado da análise e portanto irão afetar os parâmetros
+Isso porque pequenas variações de tempo e dinâmica 
+interferem no resultado da análise e portanto afetam os parâmetros
 dos algoritmos geradores.
 
 Normalmente pensamos na análise
-como uma ação posterior ao processo de composição. Nessa pesquisa a etapa
+como uma ação posterior ao processo de composição. Nesta pesquisa a etapa
 de análise é um dos pontos indispensáveis do processo de composição.
-Um possível diagrama ideal das etapas de análise, necessárias a
+Um possível diagrama ideal das etapas de análise, necessárias à
 constituição de um sistema de interação musical com um instrumento
-tradicional pode ser visto na figura \ref{analise-geral}. Onde temos um
+tradicional pode ser visto na figura \ref{analise-geral}, onde temos um
 primeiro nível sub-simbólico de análise do áudio e primeira segmentação
-e classificação de notas (pitch), amplitude, ataque e tempo entre ataques (IOI\footnote{Inter-
-Onset-Interval \cite{rowe2004machine}}) e timbre.
+e classificação de notas (pitch), amplitude, ataque e tempo entre ataques (IOI\footnote{
+Intervalo entre ataques(Inter-
+Onset-Interval) \cite{rowe2004machine}}) e timbre.
 
 O nível simbólico aparece abaixo em duas linhas compreendendo primeiro análise de 
 contornos, permeabilidade melódica, estabilidade rítmica e densidade rítmica. 
@@ -679,7 +681,7 @@ sub-simbólico e a primeira classe do nível simbólico.
 %% desenvolver mais
 
 Uma outra análise pode ser feita sobre o resultado final da interação, quando se obtém
-o conjunto de dados e estruturas geradas pelo músico e pelo sistema. Idealmente, na análise desses 
+o conjunto de dados e estruturas geradas pelo músico e por SInCoPA. Idealmente, na análise desses 
 dados não há como separar
 a influência do sistema na execução do músico. O resultado da análise desses dados pode revelar
 estruturas arquetípicas passíveis de classificação, o que poderia ser chamado de taxonomia 
@@ -697,7 +699,7 @@ para análise de música eletroacústica\footnote{Nesse sentido podemos apontar 
 
 
 O objetivo da análise de áudio é extrair informações em tempo-real
-que possam ser convertidas em elementos de simbologia musical, como notas, durações e dinâmica.
+que possam ser convertidas em elementos simbólicos musicais, como notas, durações e dinâmica.
 A partir dessa conversão podemos implementar outras análises no 
 âmbito dos elementos musicais, como análise de contornos, estabilidade e 
 densidade rítmica e outros modelos de análise aplicados aos elementos
@@ -708,7 +710,7 @@ de revelar detalhes do comportamento espectral de cada evento, que no caso de um
 performance instrumental, pode ajudar a expôr aspectos narrativos.
 
 Existe uma certa dificuldade na tentativa de definir uma ferramenta genérica de análise de áudio 
-que funcione igual em diferentes plataformas e configurações .
+que funcione igual em diferentes plataformas e configurações.
 Isso se dá por conta das muitas variáveis envolvidas, como diferentes instrumentos, microfones, 
 captadores, placas de som e outros fatores.
 A dificuldade varia de acordo com as configurações possíveis. A captura e análise de áudio
@@ -725,7 +727,8 @@ do que situações que envolvem microfones e instrumentos polifônicos.
 A experiência de música interativa usando violão ou guitarra elétrica passa necessariamente
 pela problemática do reconhecimento de frequências nos trechos de sinal polifônico.
 Uma solução seria o uso de um captador hexafônico para captar o áudio separado de
-cada corda. Uma das principais opções comerciais é o captador GK-2A da Roland.
+cada corda. Uma das principais opções comerciais é o captador GK-2A da Roland visto
+na figura \ref{gk-2a}.
 Ele funciona em conjunto com um módulo de hardware vendido separado que faz o trabalho de conversão 
 de áudio para MIDI, incluindo ainda algumas funcionalidades, como arpegiador automático
 e mudança de canal controlados por pedal  e banco de timbres.
@@ -747,7 +750,7 @@ Este é conectado a um computador usando uma interface multicanal PCI (Midiman).
 linux, em seguida, executa uma série de transformações interessantes sobre os seis sinais de áudio, e mistura-os
 para saída em estéreo.
 
-Isto é completamente diferente do padrão `` sintetizador de guitarra ", que mapeia as cordas para conduzir
+Isto é completamente diferente do padrão ``sintetizador de guitarra", que mapeia as cordas para conduzir
 sintetizadores. Tais instrumentos cometem muitos erros audíveis, e eles também sofrem com a latência adicionada do mapeamento. 
 No instrumento aqui descrito, a latência de todo o processo é
 somente a do Pd propriamente, cerca de 10 milissegundos (provavelmente não é difícil reduzi-la a 5 ou 6 usando
@@ -768,12 +771,12 @@ only that of Pd itself, about 10 milliseconds (it's probably not hard to reduce 
 real-time kernel patches but I preferred to use off-the-shelf linux).}
 \end{quote}
 
-Da mesma maneira como é mostrado nessa pesquisa a análise de áudio operada em um sinal de áudio
+Da mesma maneira como é mostrado em SInCoPA a análise de áudio operada em um sinal de áudio
 monofônico, poderíamos implementar um módulo de análise para cada uma das seis cordas de uma guitarra.
 O Pd é um ambiente de programação com bons recursos de análise de frequência e amplitude. Vários
 objetos são disponibilizados como filtros, conversores e algoritmos de estimativa de frequência fundamental.
 Podemos afirmar que a análise de áudio monofônico com objetos padrão do Pd tem uma boa estabilidade e
-precisão. Dentro do escopo dessa pesquisa são aprofundados experimentos em análise de áudio monofônico,
+precisão. Dentro do escopo desta pesquisa são aprofundados experimentos em análise de áudio monofônico,
 ainda que muitas vezes os testes tenham sido feitos com instrumentos polifônicos como violão e 
 guitarra, executando linhas melódicas.
 
@@ -797,11 +800,11 @@ Muitos autores já discorreram sobre os limites da representação musical
 com o protocolo MIDI. O objetivo é usar o MIDI como protocolo de comunicação
 com outros programas para manipulação dos algoritmos geradores.
 De certa maneira a forte relação do protocolo MIDI com a música instrumental
-é um ponto positivo nessa pesquisa que prevê interação musical através de 
+é um ponto positivo nesta pesquisa que prevê interação musical através de 
 instrumentos tradicionais. 
 %%original: http://www.lamut.musica.ufrj.br/lamutpgs/rcpesqs/02coper.htm
 A reação dos compositores de música eletroacústica em relação ao protocolo MIDI
-é bem exposto por Rodolfo Caesar :
+é bem exposto por Rodolfo Caesar:
 
 \begin{quote}
 A música eletroacústica e o protocolo MIDI não foram feitos um para o outro: a especificidade da 
@@ -843,7 +846,7 @@ No nível da representação simbólica, os dados são convertidos para MIDI e m
 com estruturas híbridas como arrays e listas de números. Apesar de obsoleto, muito desenvolvimento
 ainda é feito pensando no protocolo MIDI. O protocolo OSC\footnote{Open Sound Control} permite que
 sejam enviados pacotes de dados via rede pelo protocolo UDP/IP. Nesses pacotes podemos incluir
-mensagens MIDI inteira ou fragmentadas e reconstruídas na extremidade de quem está recebendo.
+mensagens MIDI inteiras ou fragmentadas e reconstruídas na extremidade de quem está recebendo.
 O modelo de representação musical no Pd é uma combinação dos principais protocolos disponíveis para
 música interativa. Isso permite uma definição híbrida na representação dos dados, como é o caso
 nessa pesquisa.
@@ -857,21 +860,21 @@ em grupos. Existem diversas razões que reforçam a importância da
 segmentação: primeiro, porque nós, seres humanos, percebemos música
 por trechos em vários níveis e um sistema interativo que procura emular
 o comportamento de um músico deve estar apto a formar grupos durante
-a análise, similar ao que o músico humano percebe durante a escuta.
+a análise, similar ao que o instrumentista percebe durante a escuta.
 
 A implementação de um segmentador que simule o ato de escuta de um ser 
-humano é um trabalho específico que foge do escopo dessa pesquisa. Entretanto,
-podemos através da literatura da área e experimentação criar pequenos
+humano é um trabalho específico que foge do escopo desta pesquisa. Entretanto,
+podemos através da literatura da área e da experimentação criar pequenos
 mecanismos que incrementam a capacidade de segmentação do sistema.
 
 O primeiro elemento a ser pensado na segmentação de um fluxo musical,
 são os silêncios. Na concepção de diálogo entre ser humano e máquina,
 é imprescindível que a máquina esteja preparada para reconhecer automaticamente
-as pausas no discurso. Cada pausa deve ser cateorizada como respiração, fim de frase,
+as pausas no discurso. Cada pausa deve ser categorizada como respiração, fim de frase,
 fim se seção ou fim da peça.
 
-Vamos ver que na implementação podemos definir um sistema híbrido de segmentação
-entre processos automáticos com processos de segmentação ``manual'' pelo músico.
+Veremos que na implementação podemos definir um sistema híbrido de segmentação
+entre processos automáticos e processos de segmentação ``manual'' pelo músico.
 Quanto mais automático o processo de segmentação, mais refinado se torna
 o sistema de análise e classificação. 
 
@@ -881,19 +884,17 @@ entre ataques de notas de um recorte de segmento calcula e classifica
 o segmento entre estável ou instável.
 Outro filtro classificador é o de densidade rítmica, que por sua vez classifica
 o segmento em questão entre alta e baixa densidade, podendo ainda estabelecer
-matizes entre os dois extremos. . 
-
-A classificação de alturas classifica contornos e probabilidade de recorrência
+matizes entre os dois extremos. A classificação de alturas classifica contornos e probabilidade de recorrência
 de cada nota. A análise da direcionalidade e atratividade melódica pode ser abstraída
 em modelos de análise algorítmica \cite{lerdahl2001}, e atualmente vem sendo modelada para 
 implementação em sistemas interativos \cite{rickgrahan}.
 A análise e classificação do timbre é extensamente apresentada e implementada em dois
-trabalhos em \cite{brentcepstral} e \cite{monteiro}.
+trabalhos, em \cite{brentcepstral} e \cite{monteiro}.
 
 No caso dos geradores de processamento de áudio, a segmentação é feita 
 através de um teclado alfanumérico modificado usado como pedal. A função
 do pedal é criar pontos no tempo que representam o começo de determinados
-processos. Por exemplo o começo de leitura de um ponto de loop, ou o começo
+processos. Por exemplo, o começo de leitura de um ponto de loop, ou o começo
 e fim de gravação de um segmento para ter o áudio processado.
 
 Essa funcionalidade poderia ser expandida criando-se botões de controle
