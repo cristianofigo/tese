@@ -1326,38 +1326,38 @@ dimensionalidade de descrições, rápido aprendizado, respostas e
 efetiva capacidade de antecipação. O campo de pesquisa em sistemas
 musicais interativos \cite{rowe93:interactive} se consiste em sistemas de software e
 hardware criados para o fazer musical, mais tipicamente na performance
-de concertos ao vivo combinando máquinas e músicos humanos. 
+de concertos ao vivo combinando máquinas e instrumentistas. 
 A classificação de sistemas
-musicais interativos de Rowe prevê 3 dimensões de classificação de
+musicais interativos de Rowe prevê três dimensões de classificação de
 sistemas:
 
 \begin{enumerate}
 \item Programas dirigidos pela ``partitura'' (score-followers) ou
   dirigidos pela performance (interação pela improvisação);
 \item Diferenças em relação ao método de resposta pelo sistema que
-  podem ser: transformativos, generativos ou sequenciados.
+  pode ser: transformativo, generativo ou sequenciado.
 \item Distinção entre paradigmas de construção do sistema. Podemos
   distinguir entre sistemas com paradigma no instrumento, com a idéia
-  de extender virtualmente as capacidades tradicionais dos
+  de estender virtualmente as capacidades tradicionais dos
   instrumentos gerando estruturas como hyperinstruments, \cite{hyperinstrumento}. 
   E finalmente sistemas calcados no paradigma do
-  performer que tentam construir músicos artificais, uma presença
+  instrumentista que tentam construir músicos artificais, uma presença
   musical com personalidade e comportamento próprios com graus
-  diferentes de intervenção e influência do músico humano \cite{rowe93:interactive}.
+  diferentes de intervenção e influência do instrumentista \cite{rowe93:interactive}.
 \end{enumerate}
 
 
 O sistema SInCoPA, apresentado aqui no capítulo \ref{chap:SInCoPA} pode se enquadrar como dirigido pela
 performance com respostas transformativas e generativas e tendo o
-paradigma de construção calcado no performer. Em minhas composições
+paradigma de construção calcado no performer. minhas composições
 anteriores, escritas durante o mestrado, foram
 desenvolvidas utilizando a técnica score-follower construído em
 Max/MSP. Nesse caso o tipo de interação foi dirigido pela partitura
 com respostas sequenciadas e tendo paradigma no performer.
-Consideramos esse tipo de interação como um nível médio de interação,
+Considero esse tipo de interação como um nível médio de interação,
 pois apesar do computador executar sozinho, ele sempre executa trechos
 pré-estabelecidos. No presente trabalho, iremos considerar como
-situação composicional ideal a possibilidade de “ensinar” certos
+situação composicional ideal a possibilidade de ``ensinar'' certos
 comportamentos musicais apenas através da performance musical, ou
 seja, um ambiente que aprenda dinamicamente padrões de execução e
 resposta do músico humano e possa interagir com esses padrões,
@@ -1406,7 +1406,9 @@ um sistema multi-agente - o Meta-Cypher inclui múltiplos ouvintes e
 performers além de um meta-ouvinte.  O Drum Circle \cite{eigenfeld07:drum} é um sistema escrito em Max/MSP e explora o uso de
 multi-agentes sobre uma rede local onde cada agente emula um
 percussionista improvisando em um grupo de tambores, tendo como
-resultante um ritmo evolutivo.
+resultante um ritmo evolutivo onde padrões rítmicos interagem
+através de competição e fusão, dando lugar a novos padrões
+emergentes.
 
 Um dos projetos mais amplos nessa área é o projeto \textit{Omax Brothers} \cite{assayag06:omax}
 desenvolvido no Ircam. Um sistema multi-agente criado para
@@ -1457,7 +1459,7 @@ executadas pelo instrumentista controla parâmetros de construção do timbre de
 
 Alguns conceitos abstraídos do estudo da percepção são passíveis de implementação e portanto úteis 
 ao universo de referências composicionais necessários ao sistema. Como por exemplo 
-alguns conceitos da Gestalt aplicados a música. A Teoria da Gestalt, em suas análises estruturais, 
+alguns conceitos da Gestalt aplicados à música. A Teoria da Gestalt, em suas análises estruturais, 
 descobriu certas leis que regem a
 percepção humana das formas, facilitando a compreensão das imagens e idéias. Essas leis são
 nada menos que conclusões sobre o comportamento natural do cérebro, quando age no
@@ -1494,7 +1496,7 @@ por Simon Emmerson.
 \end{quote} 
 
 
-Marc leman introduz um modelo que conecta processamento de 
+Marc Leman introduz um modelo que conecta processamento de 
 sinal sonoro musical a análise musical e psicoacústica computacional onde interação
 se torna um problema central \cite{leman96:gestalt}. Ele afirma que a percepção não deve ser entendida estáticamente,
 sem evolução temporal, mas como uma interação evolutiva entre um organismo e um estímulo.
@@ -1519,8 +1521,13 @@ resposta ou estágios do processo perceptual.
 
 A teoria da Gestalt pode facilmente ser criticada pelo fato de ser baseada na descrição
 do processo de percepção e não prover um modelo que explique como se forma ou como é constituída 
-a percepção humana. Alguns outros 
-conceitos composicionais podem ser implementados ao sistema como questões de direção, densidade, tensão
+a percepção humana, talvez os avanços das neurociências possam colocar à prova elementos
+da percpeção sonora levantados pelos estudos da Gestalt.
+Apesar de não existir um modelo completo que explique a percepção sonora
+de maneira universal, alguns resultados dessas pesquisas podem ser úteis 
+ao campo da composição.
+Alguns conceitos advindos da pesquisa em percepção sonora podem ser implementados ao sistema usados como
+parâmetros composicionais, como por exemplo direcionalidade, densidade, tensão
 e repouso, acumulação, proporção e relações diversas entre durações e ataques.
 Apesar de ser um campo de investigação ainda recente, a pesquisa em percepção pode oferecer muitos elementos ao 
 desenvolvimento de sistemas de música interativa.
@@ -1540,7 +1547,7 @@ assimetria e extrapolação de notas sequenciais de eventos \cite{lerdahl2001}).
 Abstrações de taxa de controle instrumental funcionam especificamente para atender ao conteúdo melódico apenas, 
 sobre a quantificação (e extrapolação) de relações  de atração tonal  entre os tons e a extração de 
 estruturas hierárquicas de contorno melódico (por corda - solo, e para todo o registro instrumental - global) em uma
-base de 4 a 7 notas, relativo a retrição da memória de curto prazo (\cite{snyder}). Dados baseados em cognição podem
+base de 4 a 7 notas, relativo a retrição da memória de curto prazo \cite{snyder}. Dados baseados em cognição podem
 então, ser aplicados à processos de controle de parâmetros do timbre e espacialização  numa tentativa de refletir 
 construções instrumentais baseadas na cognição (considerando a memória) dentro da estrutura sonora resultante, 
 que potencialmente estabelece relações únicas de gesto instrumental dentro de um espaço instrumental físico (multi-canal)
@@ -1622,7 +1629,7 @@ o mesmo discurso sonoro.
 
 De acordo com as palavras de Smalley \cite{emmersonsimon:86}, ``gesto'' tem a ver 
 com trajetória, com a aplicação de energia e suas consequências; e é complementar
-a causalidade. Essa idéia de Gesto é central à análise aqui, e o conceito de causalidade
+a causalidade. O conceito de causalidade
 é essencial para qualquer tipo de projeto interativo e irá proporcionar os argumentos
 de um diálogo interativo onde ocorrências e consequências podem trocar seus papéis.
 Dentro de um trabalho eletroacústico interativo, \textit{Textura} e \textit{Gesto} 
@@ -1660,8 +1667,8 @@ na plataforma GEM.
 
 
 
-O sistema apresentado nesse trabalho (SInCoPA) foi projetado para rodar em um computador com capacidade de processamento
-de áudio em tempo-real. O programa foi desenvolvido com
+Projetei o sistema apresentado neste trabalho (SInCoPA) para rodar em um computador com capacidade de processamento
+de áudio em tempo-real. As abstrações foram desenvolvidas com
 a linguagem de programação Pure data acrescida de algumas bibliotecas contidas
 na distribuição Pd-extended. Outras bibliotecas de código são
 acrescentadas na medida em que estas permitam compatibilidade de
@@ -1672,7 +1679,7 @@ por usar apenas programas e linguagens de código aberto.
 Uma das vantagens de trabalhar com programas de código aberto é que existe uma
 comunidade descentralizada de pesquisadores e desenvolvedores compartilhando
 pesquisas e resultados. O que cria um ambiente propício para testar, apontar soluções e validar 
-uma pesquisa como essa que é apresentada nesse trabalho.
+uma pesquisa como esta.
 
 Durante o desenvolvimento de SInCoPA, foram realizadas experimentações com prototipação de interface para usuário,
 e diversos experimentos sonoros em estúdio onde cada parte do sistema foi
@@ -1692,7 +1699,7 @@ da comunidade de desenvolvedores e usuários, onde foram incluídas diversas ext
 novas funcionalidades para criação musical.
 
 No atual momento, SInCoPA é construída dependendo do Pd-extended, porém, para o desenvolvimento futuro penso
-que o ideal seja que as abstrações de SInCoPA dependam, apenas da versão vanilla. A desvantagem de usar a distribuição Pd-extended é 
+que o ideal seja que as abstrações de SInCoPA dependam, apenas da versão \textit{vanilla}. A desvantagem de usar a distribuição Pd-extended é 
 que a mesma depende de muitos outros componentes de software, tornando mais arriscada uma possível 
 compatibilidade da pesquisa com sistemas futuros.
 
@@ -1732,10 +1739,10 @@ As distribuições usadas foram Debian testing, Debian stable e Ubuntu LTS.
 Alguns motivos poderiam ser listados para justificar a escolha desse sistema
 operacional. 
 
-Um motivo relevante é a possibilidade de customização do sistema operacional para concentrar o 
+Um motivo relevante é a possibilidade de personalização do sistema operacional para concentrar o 
 processamento nas partes necessárias
 ao funcionamento de SInCoPA. Nesse sentido o usuário de Linux pode escolher qual ambiente gráfico
-é mais adequado e refinar a performance do processamento de áudio e vídeo através de customização
+é mais adequado e refinar a performance do processamento de áudio e vídeo através de escolha de parâmetros de funcionamento
 do \textit{kernel}.
 
 Outro motivo importante é a visão de compatibilidade futura do trabalho. 
@@ -1760,7 +1767,7 @@ MIDI gráfico, que recebe mensagens MIDI em tempo-real através do Jack.
 
 A vantagem é a possibilidade de editar graficamente o resultado do diálogo entre
 o áudio do instrumento convertido em MIDI e o resultado dos algoritmos dos geradores
-MIDI e harmonizadores. O Rosegarden usa dois editor gráfico em formato de piano-roll
+MIDI e harmonizadores. O Rosegarden usa dois editores gráficos, um em formato de piano-roll
 e outro em formato de notação musical. Uma sequência MIDI editada com o Rosegarden
 pode ser exportada para o formato .ly, que é o formato do Lilypond.
 
@@ -1773,8 +1780,8 @@ Ele traz a estética da música tradicional escrita para impressões de computad
 parte do Projeto GNU. \footnote{Disponível em: http://lilypond.org/}
 \end{quote} 
 
-O Rosegarden executa as sequências MIDI usando um servidor de arquivos soundfont.
-Um arquivo SoundFont, ou "banco" SoundFont, contém uma ou mais amostras de áudio de onda (ou "amostras"),
+O Rosegarden executa as sequências MIDI usando um servidor de arquivos SoundFont.
+Um arquivo SoundFont, ou ``banco'' SoundFont, contém uma ou mais amostras de áudio de onda,
 que pode ser re-sintetizados em alturas diferentes e níveis dinâmicos. Cada forma de onda amostrada pode ser
 associado a um ou mais intervalos de notas e dinâmica. De modo geral, a qualidade de um
 SoundFont banco é uma função da qualidade das amostras de digitais e da associação inteligente
@@ -1785,11 +1792,12 @@ tomadas por um determinado intervalo de notas.
 
 %% reescrever esse parágrafo
 
-JACK é um sistema para o tratamento em tempo real, áudio de baixa latência (e MIDI). 
+JACK é um sistema para o tratamento em tempo real de áudio de baixa latência e MIDI. 
 Ele roda em GNU / Linux, Solaris, FreeBSD, OS X e Windows (e pode ser portado para outras plataformas 
 POSIX-conformant). É possível conectar um número de diferentes aplicações para um dispositivo de áudio, 
-bem como permitindo que eles compartilhem áudio entre si. Seus clientes podem ser executados em seus próprios 
-processos (ou seja, como aplicações normais), ou podem eles podem ser executados dentro do servidor JACK 
+bem como permitindo que eles compartilhem áudio entre si como pode ser visto na figura \ref{jack}. 
+Seus clientes podem ser executados em seus próprios 
+processos (ou seja, como aplicações normais), ou podem ser executados dentro do servidor JACK 
 (ou seja, como um "plugin"). JACK também tem suporte para a distribuição de processamento de áudio através de 
 uma rede, tanto LANs com conexão rápida e confiável, bem como em WANs menos confiáveis e mais lentas.
 
@@ -1829,7 +1837,7 @@ em outros projetos de pesquisa.
 \label{chap:SInCoPA}
 
 
-Na teoria musical, a síncopa é uma característica rítmica caracterizada pela execução de som em um tempo fraco, 
+Na teoria musical, a síncopa é um acento rítmico resultante da execução de som em um tempo fraco, 
 ou parte fraca de tempo sendo prolongado até o tempo forte, criando um deslocamento da acentuação rítmica. 
 Além de SInCoPA ser a abreviação de Sistema Interativo de Composição Performance e Análise, o termo se encaixa
 no sentido poético dessa pesquisa. Como uma metáfora, significando a busca de um gesto musical não determinado pela notação
@@ -1844,7 +1852,7 @@ em contínuo desenvolvimento, muitos patchs mostrados apresentam experimentos ou
 elementos e idéias para futuras implementações.
 
   Foi desenvolvida uma biblioteca de funções utilitárias em forma de abstrações, 
-tornando fácil seu re-uso em outros projetos. As abstrações se dividem em 7 categorias:
+tornando fácil seu re-uso em outros projetos. As abstrações se dividem em 6 categorias:
 
 \begin{enumerate}
  \item Análise de áudio de entrada em tempo-real;
