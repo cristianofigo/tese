@@ -1899,20 +1899,22 @@ parâmetro de análise.
 
 
 Nessa seção serão apresentados os problemas e soluções específicos
-a análise de áudio. 
+à análise de áudio. 
 
-É importante a flexibilização para a detecção de parâmetros musicais.
-Também é importante a possibilidade de salvar os dados das análises serem
-destacados nas interfaces dos objetos.
+É importante a flexibilização de parâmetros para facilitar
+o trabalho de calibragem para detecção e análise de fluxo de áudio.
+Também é importante a possibilidade de salvar os dados das análises 
+e essa possibilidade deve ser destacada nas interfaces dos objetos de análise.
 
 A interface gráfica dos objetos prevê visualização em tempo-real
 da atividade no módulo de análise e botões descritos para controle
 de parâmetros diversos.
 
-Um dos primeiros objetos desenevolvidos para análise é o [sinc-analise],
+Um dos primeiros objetos desenvolvidos para análise é o [sinc-analise],
 mostrado na figura \ref{sinc-analise} que faz análise de fundamental e amplitude
 de ataque de cada nota. Esses dois parâmetros são colocados em uma lista, juntamente com a indicação
-de qual sample (localização) a lista se refere e são salvos em um arquivo de texto.
+de qual sample (localização) a lista se refere e são escritos em um arquivo de texto, podendo
+ser salvo em disco.
 
 
 
@@ -1938,7 +1940,7 @@ a sensibilidade dos objetos que realizarão a análise de áudio. A abstração
 [sinc-audioin] na figura \ref{audioin} permite o roteamento e visualização rápida 
 de entrada de áudio de dois canais. No caso dos experimentos musicais envolvidos 
 nessa pesquisa, foi estabelecido o canal 1 para o recebimento de áudio do programa 
-rosegarden, que hospeda samplers do tipo \textit{soundfont}. O canal 2 é usado para 
+Rosegarden, que hospeda samplers do tipo \textit{soundfont}. O canal 2 é usado para 
 a entrada de áudio do instrumento. É necessário um objeto que funcione como uma chave de
 liga/desliga para o áudio. Para isso foi usado o objeto [spigot\texttildelow] da biblioteca
 \textit{Unauthorized} incluída no pd-extended.
@@ -1948,7 +1950,7 @@ ele envia o valor 1 pela saída que por sua vez está conectado na entrada fria 
 Os volumes de entrada são controlados por objetos gráficos sliders ([hsl]), que tem
 a saída ligada a uma variável de parâmetro para o objeto [line\texttildelow]. Nesse caso específico
 [line\texttildelow] atua no sentido de se evitar cliques no áudio quando se muda o valor de 
-amplitude que entra na entrada fria do objeto [*\texttildelow]. Outro componente
+amplitude que é enviado à entrada fria do objeto [*\texttildelow]. Outro componente
 opcional, que é útil em situações práticas, é um visualizador gráfico de presença de sinal
 de áudio. Em [sinc-audioin] é usado o objeto [Scope\texttildelow] da biblioteca \textit{cyclone}, 
 incluída no pd-extended.
@@ -1969,13 +1971,13 @@ incluída no pd-extended.
 
 A abstração [sinc-fft] mostra graficamente uma janela de análise FFT com bloco de amostragem
 definido por [block\texttildelow] em 1024. O que significa que o objeto [rfft\texttildelow],
-irá retornar valores encontrados de amplitude e fase para 512 frequências múltiplas de 43 Hz.
-Que é a frequência resultado da taxa de amostragem (44100) dividida pelo tamanho do bloco (1024).
+irá retornar valores encontrados de amplitude e fase para 512 frequências múltiplas de 43 Hz,
+que é a frequência resultado da taxa de amostragem (44100) dividida pelo tamanho do bloco (1024).
 
 A amplitude de cada parcial é retornada em pares reais e imaginários descritos em coordenadas
 polares. Podemos calcular as amplitudes convertendo as coordenadas do sistema polar para cartesiano 
 através da raiz quadrada aplicada
-a soma do valor real e imaginário elevados, cada um, a própria potência. Isso pode ser feito no Pd com os
+a soma do valor real e imaginário elevados, cada um, à própria potência. Isso pode ser feito no Pd com os
 objetos [*\texttildelow] localizados abaixo de [rfft\texttildelow] realizando a potência e enviando o resultado 
 simultaneamente para o objeto [sqrt\texttildelow] que opera a raiz quadrada.
 
@@ -1996,7 +1998,7 @@ Como é o caso do exemplo na figura \ref{sinc-fft-help}. Onde a entrada de áudi
 de áudio [bp\texttildelow]. O filtro implementado em [bp\texttildelow] deixa passar uma senóide ao
 redor da frequência central enquanto as outras frequências são atenuadas de acordo com o fator ``Q''
 \footnote{Para uma explicação completa sobre o fator Q : http://en.wikipedia.org/wiki/Q-factor} .
-Na entrada da esquerda entra o sinal de áudio, na entrada do meio é definida a frequência central e na
+Na entrada da esquerda é conectado o sinal de áudio, na entrada do meio é definida a frequência central e na
 entrada da direita se controla o fator ``Q''. O resultado da filtragem é enviada para [sinc-fft] onde 
 pode-se ter uma maior precisão na filtragem através da comparação gráfica.
 
@@ -2026,7 +2028,7 @@ A primeira a ser desenvolvida foi a abstração [sinc-sample] mostrado na figura
 \ref{[sinc-sample]}. Para essa abstração foi escolhida a abstração gráfica 
 [file.browser] 
 na área 1 circulada na figura \ref{[sinc-sample]} que lê os arquivos de determinado
- diretório e lista eles graficamente possibilitando que
+ diretório e os lista eles graficamente possibilitando que
 o usuário clique no nome do arquivo escolhido, resultando em uma mensagem com a 
 localização
 do arquivo. Essa abstração faz parte do pacote ``pdmtl'' de abstrações de pd.
@@ -2181,13 +2183,13 @@ The npts and hop parameters are in samples. and are powers of two.}
 
 
 Nesse caso optou-se por pré-inicializar [sigmund\texttildelow] com as
-opções : "-hop 4096 pitch notes" . Através de testes empíricos preferiu-se
-usar apenas a saída de "notes" por apresentar uma saída mais precisa para notas 
+opções : ``-hop 4096 pitch notes'' . Através de testes empíricos preferiu-se
+usar apenas a saída de ``notes'' por apresentar uma saída mais precisa para notas 
 musicais. A mensagem em destaque na figura \ref{[sinc-audioanalise-param]} representa
 a inicialização dos valores de todos parâmetros de [sigmund\texttildelow].
 
 Os principais parâmetros definem o tamanho da janela de análise.
-Nesse caso "npts" e "hop" tem uma relação direta
+Nesse caso ``npts'' e ``hop'' tem uma relação direta
 por se tratar do tamanho da janela de análise e o espaço
 entre as janelas em samples como pode ser visto na figura \ref{janela-analise}.
 
@@ -2228,7 +2230,7 @@ pd-extended e sua funcionalidade pode ser vista no próprio help do objeto na
 figura \ref{pitch}. A interface gráfica de [sinc-audioanalise] mostra o pitch
 da nota detectada em tempo-real. A visualização é feita com o objeto canvas ([cnv]).
 A segunda saída do objeto [pitch] retorna um símbolo com a cifra e oitava
-da nota. Esse símbolo é enviado para o canvas com o método "label" através
+da nota. Esse símbolo é enviado para o canvas com o método ``label'' através
 da variável \$0-nota. O objeto canvas aceita variáveis enviadas com o objeto [send],
 editando as propriedades do canvas (ver figura \ref{canvas-edit}). A visualização em tempo-real
 é indispensável para calibrar a análise de áudio.
@@ -2355,7 +2357,7 @@ mais de 100 milisegundos um silêncio é detectado.
 
 
 As operações com contornos são uma ferramenta poderosa para
-composição musical\cite{sampaio08:torno}. A manipulação de contornos
+composição musical \cite{sampaio08:torno}. A manipulação de contornos
 pode ser aplicada a qualquer parâmetro musical.
 No Pd, qualquer dado pode facilmente escrito e lido em arrays gráficos.
 Ainda com a possibilidade de se desenhar no array com o mouse, podemos
@@ -2445,7 +2447,7 @@ Apresentamos aqui um primeiro experimento de análise de similaridade, aplicado 
 contornos de apenas três elementos. A idéia é que alimentar um banco com três contornos estocados e a cada
 novo contorno que chega, o sistema devolve o índice do contorno estocado mais similar.
 A interface do experimento pode ser vista na figura \ref{similaridade-interface}.
-A primeira etapa do experimento é a redução de todos contornos à forma normal.
+A primeira etapa do experimento é a redução de todos os contornos à forma normal.
 
 \begin{figure}
 \includegraphics[scale=.5]{similaridade-algo}
@@ -2468,7 +2470,7 @@ interna. O vetor que tem a direção mais próxima da lista/vetor de entrada gan
 de análise em tempo-real e sua interface simples possibilita uma rápida prototipação.
 
 Um aprofundamento da pesquisa em contornos necessita uma implementação de identificação
-mais completa, como uma implementação de redes neurais artificiais por exemplo. Além
+mais completa, como por exemplo, uma implementação de redes neurais artificiais, além
 de revisão e teste dos modelos analíticos citados na bibliografia da área.
 Nessa pesquisa, a próxima etapa será a integração da análise de contorno com os
 mecanismos de geração de material musical.
@@ -2613,9 +2615,9 @@ de pulso e alternância e variações de padrões rítmicos de tamanhos diferent
 \label{prot5a}
 \end{figure} 
 
-Na \ref{prot5a} é mostrado dois arrays, idealmente esses arrays representam tabelas
+Na fgura \ref{prot5a} são mostrados dois arrays, idealmente esses arrays representam tabelas
 de probabilidades de padrões rítmicos, onde cada elemento no array representa um
-padrão diferente e quanto mais alto significa que teve mais ocorrẽncias.
+padrão diferente e quanto mais alto significa que teve mais ocorrências.
 Por exemplo, cada vez que um determinado padrão de 4 valores de duração é tocado, 
 o índice na tabela correspondente a aquele padrão é incrementado. O objetivo ideal
 é um mecanismo que possa retornar uma resposta do tipo:
@@ -2692,9 +2694,9 @@ O objeto [timer] mede a distância em milisegundos entre "bangs' que chegam pela
 da esquerda em relação ao que chega pela entrada da direita.%% aqui mostrar o básico do timer embasado pelo Rowe
 
 
-Um músico humano sempre realiza micro-variações de tempo e andamento.
+Um instrumentista sempre realiza micro-variações de tempo e andamento.
 Na figura \ref{ex-ritmo1} vemos uma incidência de ataques mantendo uma relação de estabilidade
-de durações. Enquanto que na figura \ref{ex-ritmo2} vemos uma relação mais instável
+de durações, enquanto que na figura \ref{ex-ritmo2} vemos uma relação mais instável
 entre as durações. Já na figura \ref{ex-ritmo3} vemos um padrão que se mantém estável e 
 muda para um comportamento de instabilidade de durações. Um dos desafios da pesquisa
 foi estabelecer uma forma do programa conseguir classificar a estabilidade de cada nova duração em relação
@@ -2718,7 +2720,7 @@ A divisão da média geométrica pela média aritmética pode ser definida pela 
 Essa expressão é calculada a cada nota que chega, onde n é o tamanho do buffer.
 O resultado desse cálculo devolve um valor numa escala de 0 a 1.
 Esse valor representa o índice de instabilidade rítmica da última duração entre 2 notas,
-comparado com as últimas "n" durações.
+comparado com as últimas ``n'' durações.
 Nesse resultado dessa divisão é aplicado um filtro com [moses] onde se pode calibrar
 a sensibilidade do valor do índice final.
 
@@ -2730,7 +2732,7 @@ a sensibilidade do valor do índice final.
 
 Densidade rítmica é o índice que mede a quantidade de eventos sonoros
 dentro de espaços de tempo. Serve como ferramenta de análise e pode funcionar
-como um parâmetro estrutural em um sistema de aálise musical mais completo.
+como um parâmetro estrutural em um sistema de análise musical mais completo.
 
 
 \begin{figure}
@@ -2740,10 +2742,10 @@ como um parâmetro estrutural em um sistema de aálise musical mais completo.
 \end{figure}
 
 Os primeiros passos na implementação de um mecanismo de análise de densidade podem ser vistos na figura \ref{prot5b},
-onde na área central, aparecem um leitor de samples [tabplay\texttildelow] lendo um arquivo de
+onde na área central, aparece um leitor de samples [tabplay\texttildelow] lendo um arquivo de
 áudio e enviando o fluxo de áudio para o objeto [bonk\texttildelow]. A saída de [bonk\texttildelow] é filtrada
 pelo objeto [moses] que pode ter um número de corte variável, sendo flexível a diferenças
-de volume em diferentes momentos,lugares ou fontes sonoras .
+de volume em diferentes momentos, lugares ou fontes sonoras.
 
 Ainda na figura \ref{prot5b}, a seção da esquerda mostra uma maneira de classificar as durações
 entre ataques de notas em longas ou curtas, possibilitando uma classificação básica,
@@ -2848,7 +2850,7 @@ O resultado da comparação interna é retornado pela saída da direita.
 \end{figure} 
 
 
-Quando se acessa aos dados puros de um fluxo de áudio precisamos de 
+Quando se acessam aos dados puros de um fluxo de áudio precisamos de 
 métodos específicos para filtrar esses dados. Uma densa bibliografia
 tem sido desenvolvida sobre algoritmos de busca e filtragem de dados de
 análise FFT. Cada algoritmo é especializado em algum aspecto, seja de
@@ -2874,7 +2876,7 @@ análise Cepstral enviando dados para o classificador [timbreID]. Na figura \ref
 ver em detalhe o funcionamento de [bfcc\texttildelow].
 
 \begin{quote}
-Bfcc\texttildelow é o objeto de análise \textit{cepstral} mais desenvolvidp, utilizando a escala \textit{Bark} 
+Bfcc\texttildelow é o objeto de análise \textit{cepstral} mais desenvolvido, utilizando a escala \textit{Bark} 
 mais bem pesquisada, em vez de \textit{Mels} para a ponderação do espectro. O desempenho é apenas ligeiramente melhor do 
 que MFCC\texttildelow. A coisa mais notável sobre estes cepstral externs é a flexibilidade que proporcionam no 
 que diz respeito à construção do de banco de filtros. A escolha de um valor ideal de \textit{Bark} ou \textit{Mel} 
@@ -2891,13 +2893,12 @@ mel-spacing can have a real impact on how relevant the features are in classifyi
 Uma das vantagens da timbreID é a flexibilidade de parametrização. A biblioteca é dividida
 entre objetos externos para implementação de cada algoritmo e um objeto responsável pela
 classificação dos resultados dos algoritmos. O objeto de classificação ([timbreID]) aceita
-listas de características timbrísticas e tenta encontrar a melhor correspondência entre cada 
-característica do áudio de entrada e instâncias estocadas dos dados treinados.
+listas de características timbrísticas estocadas e tenta encontrar a melhor correspondência comparando
+com a análise do áudio de entrada.
 Listas de características mandadas para a entrada da esquerda são processadas pela função
-"train" (em formato de mensagem). Isso fornece exemplos das características que sobre as quais
-futuras comparações serão baseadas. Uma vez que uma base de dados de treinamento é criada, ela
-pode ser salva em um arquivo .timid com o método "write", e mais tarde recuperado com o método
-"read". Outros formatos de saída são .txt, .mat (para uso com os programas MATLAB ou Octave)
+``train'' (em formato de mensagem). Uma vez que uma base de dados de treinamento é criada, ela
+pode ser salva em um arquivo .timid com o método ``write'', e mais tarde recuperado com o método
+``read''. Outros formatos de saída são .txt, .mat (para uso com os programas MATLAB ou Octave)
 e ARFF (para uso com o ambiente WEKA).
 
 A segunda entrada do objeto [timbreID] recebe listas de características que são comparadas com
@@ -2909,8 +2910,8 @@ Na figura \ref{audio-features} vemos um painel geral com os resultados simultân
 algoritmos de análise espectral diferentes. Notamos que os quatro objetos superiores retornam resultados em 
 listas que são plotadas em arrays, enquanto os demais objetos retornam índices puros.
 
-Outra  biblioteca relevante é a PDescriptors \cite{monteiro} que se tratam
-de abstrações de Pd que usam apenas objetos "vanilla" e por isso possui um
+Outra  biblioteca relevante é a PDescriptors \cite{monteiro} que consiste
+de abstrações de Pd que usam apenas objetos ``vanilla'' e por isso possui um
 grande poder de compatibilidade com diversos projetos. As abstrações
 são divididas em características perceptuais, espectrais, harmônicas e temporais, além
 de alguma ferramentas de transcrição. Podemos ver a interface do objeto [Inharmonicity\texttildelow]
@@ -2974,7 +2975,7 @@ midi2hum \$1 > m2h.krn
 [shell] onde converte o arquivo midi e envia o resultado para
 um novo arquivo chamado m2h.krn.
  
-2) Nessa etapa é onde se aplica os comandos do humdrum ao 
+2) Nessa etapa é onde se aplicam os comandos do humdrum ao 
 arquivo gerado. No caso o comando
 \singlespacing
 \footnotesize
@@ -3014,13 +3015,13 @@ Number of double barlines: 0
 \normalsize
 \doublespacing 
 3) Nessa parte expomos um método de navegar e procurar por
-informações no arquivo de texto. O código usado como modelo,
+informações no arquivo de texto. O código usado como modelo
 está assinalado na figura \ref{parser}. O arquivo m2h.txt
 é lido pelo objeto [msgfile] e envia uma lista com todo conteúdo
 do arquivo para os objetos [list-find] e [list-seek]. Em [list-find]
 podemos procurar por um símbolo específico dentro da lista e nos retorna
 a posição do símbolo. No caso do código assinalado, vemos o símbolo 
-``notes:'' , porém como desejamos o valor de ``notes:'' pegamos a posição
+``notes:'' , porém como desejamos o valor de ``notes:'' selecionamos a posição
 de ``notes:'' na lista e adicionamos um número para acessar o lugar do valor de
 ``notes:'' na lista. Essa posição é enviada para [list-seek] que retorna o valor ou
 símbolo na posição desejada. Como teste escolhemos os parâmetros ``notes:'' e ``voices:'', 
@@ -3102,7 +3103,7 @@ geradores, conduzindo o comportamento dos mesmos.
 
 
 Notadamente alguns trabalhos tem influenciado bastante o desenvolvimento
-dos geradores, servindo de ponto de partida para a implementação. Como
+dos geradores, servindo de ponto de partida para a implementação, como
 por exemplo a biblioteca RTC\footnote{A biblioteca RTC (\textit{Real-Time Composition} 
 foi desenvolvida pelo compositor Karlheinz Essl em MAX, a re-implementação
 em Pd foi feita por Frank Barchnet, poderemos ver uma visão mais geral
@@ -3121,7 +3122,7 @@ para depois incluir exercícios melódicos. Ao implementar os geradores midi
 nessa pesquisa, levou-se em conta esses aspectos e decidiu-se manter a separação
 entre os domínios do ritmo, melodia e dinâmica. Criando uma relação de funcionamento
 desses geradores, possibilitando uma expansão organizada de técnicas de geração.
-Na implementação de Sincopa, projetamos 3 objetos que trabalham juntos para
+Na implementação de SInCoPA, projetamos 3 objetos que trabalham juntos para
 gerar dados midi: 
 
 \begin{itemize}
@@ -3132,7 +3133,7 @@ gerar dados midi:
 
 Cada um desses objetos gerencia algumas técnicas de geração
 algorítmica. É possível qualquer combinação entre esses três objetos.
-A combinação entre os diversos geradores se dá na relação entre a 
+A combinação entre os diversos geradores se dá através da 
 análise do áudio de entrada e a escolha de um cenário de interação. 
 Cada uma dessas dimensões administra geradores que se enquadram nas seguintes
 categorias:
@@ -3150,7 +3151,7 @@ Além de serem descritas também três categorias de harmonizadores.
 Qualquer combinação dessas categorias com a performance do músico guarda, a priori,  
 uma relação de unidade composicional por se basear no material fornecido pelo músico.
 Mas claramente, após a análise de cada algoritmo, iremos notar que algumas combinações 
-geram uma ``sensação'' de unidade mais forte que outras. Apesar dessa pesquisa
+geram uma ``sensação'' de unidade mais forte que outras. Apesar desta pesquisa
 não se ocupar com problemas de pesquisa em cognição, algumas conclusões advindas
 do manuseio e experimentação das ferramentas apresentadas podem ser apontadas.
 
@@ -3161,7 +3162,7 @@ para essa sensação de unidade. Numa performance de música interativa essa sen
 de unidade é importante para o músico que está interagindo com a máquina. Criando
 pontos de apoio na narrativa global, onde o músico consegue controlar musicalmente 
 aspectos do diálogo. Podemos inferir que essa sensação de unidade está relacionada
-a sensação de controle do discurso, no caso do músico atuando em uma sessão de música
+à sensação de controle do discurso, no caso do músico atuando em uma sessão de música
 interativa.
 
 % sinc-gera-ritmo 
@@ -3234,7 +3235,7 @@ Podemos observar ainda a dinâmica sendo convertida de decibéis (distribuição
 o valor da dinâmica é convertido para uma escala midi de 0 a 127. Para isso é usado
 o objeto [scale.linear] da biblioteca "pdmtl". O valor de duração das notas é determinado
 pelo objeto [timer] que recebe uma mensagem (bang) a cada detecção de ataque e de silêncio.
-No panorama geral da figura\ref{audio2midi} vemos o Pd mandando mensagens midi em tempo-real
+No panorama geral da figura \ref{audio2midi} vemos o Pd mandando mensagens midi em tempo-real
 para o programa Rosegarden, usando conexão midi do programa Jack. 
 
 
@@ -3263,7 +3264,7 @@ para o programa Rosegarden, usando conexão midi do programa Jack.
 
 Existe uma discussão acerca da validade do protocolo MIDI na atualidade.
 Caesar afirma que o protocolo MIDI enquanto ferramenta que se tornou um padrão
-comercial, criou um ecossistema cultural e estético ao seu redor. Tendo influenciado
+comercial, criou um ecossistema cultural e estético ao seu redor, tendo influenciado
 toda uma geração de compositores. Rowe por outro lado, coloca que a presença do
 protocolo MIDI em sistemas musicais modernos é um anacronismo pois seria mais lento
 que protocolos modernos como OSC\footnote{Open Sound Control} e incapaz de transmitir parâmetros mais completos
@@ -3272,9 +3273,9 @@ refinados sobre o timbre.
 
 Apesar da discussão, o MIDI ainda é muito usado como padrão de troca de dados entre programas e 
 como mapeador de instrumentos controladores comerciais. Além de ser usado em outros ambientes
-como dispositivos de controle de iluminação e toques de celular. Apesar do título dessa seção
-ser ``Geradores MIDI'', os algoritmos aqui apresentados podem facilmente ser utilizados como
-geradores de síntese sonora ou usar outro protocolo de comunicação como o OSC.
+em dispositivos de controle de iluminação e toques de celular. Apesar do título dessa seção
+ser ``Geradores MIDI'', os algoritmos aqui apresentados podem facilmente ser utilizados em
+geradores de síntese sonora ou protocolo OSC.
 
 O MIDI é um protocolo que descreve pitch (frequência), velocity (intensidade) e duração para cada
 nota (evento). Isso permite que seja usado tanto em situações de gravação e repetição ou
@@ -4201,7 +4202,7 @@ Na perspectiva de um compositor, programar em Pd abre um caminho
 de áudio em tempo-real. A própria interface de
 programação, exige que o músico/programador execute as 
 conexões gráficas escutando os resultados das operações.
- A própria operação e vizualisação gráfica 
+ A própria operação e visualização gráfica 
 do resultado possibilita a precisão na concepção sonora do desenho
 de áudio. 
 
@@ -5828,7 +5829,7 @@ representar um objeto.
 \textbf{Mensagens}: São sequências de valores, listas ou símbolos. Uma mensagem pode ser usada para
 guardar dados e funciona também como um botão gráfico, podendo ser acionada com um clique de mouse.
 
-\textbf{Caixas de número}: Normalmente são usadas para teste, manipulação e/ou vizualisação
+\textbf{Caixas de número}: Normalmente são usadas para teste, manipulação e/ou visualização
 dos dados em tempo real. Graficamente são usadas como botões de valor dinâmico.
 
 \textbf{Símbolos}: Símbolo do tipo string.
