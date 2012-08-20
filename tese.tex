@@ -568,11 +568,11 @@ Uma boa descrição dos níveis de análise que estão envolvidos em um projeto
 de música interativa é fornecido por Rowe:
 
 \begin{quote}
-A primeira onda de sistemas interativos de música baseado quase exclusivamente no padrão \textit{Musical
+A primeira onda de sistemas interativos de música foi baseada quase exclusivamente no padrão \textit{Musical
 Instrument Digital Interface} (MIDI), uma representação simbólica da música modelado
-sobre o comportamento de um teclado de piano, bem como os conceitos tradicionais de notação de música.
-A segunda onda toma como entrada sinais de áudio, uma sub-representação simbólica de dados que está longe
-de ser mais flexível, enquanto for bem menos estruturada. \cite{rowe09:levels}
+sobre o comportamento de um teclado de piano, bem como nos conceitos tradicionais de notação de música.
+A segunda onda toma como entrada sinais de áudio, uma sub-representação simbólica de dados bem mais flexível, 
+ainda que seja bem menos estruturada. \cite{rowe09:levels}
 \footnote{The first wave of interactive music systems relied almost exclusively on the Musical 
 Instrument Digital Interface (MIDI) standard, a symbolic representation of music modeled 
 closely on the behavior of a piano keyboard, as well as traditional concepts of music notation. 
@@ -940,25 +940,6 @@ através de fragmentação, repetição e processamento de amostras de áudio.
 \section{Poética da interação}
 
 
-%% vetores estéticos:
-%% 
-%% 1) composição algorítmca
-%% 2) composição do timbre
-%% 3) conceito de instrumento aumentado ou instrumento inteligente
-%% 4) Práticas de cultura digital e conhecimento livre
-%% 5) noise e cultura do ruído - rock, punk
-%% 6) composição cognitiva (?)
-%% 7) code as art - programação enquanto composição
-%% 8) história do objeto técnico
-%% 9) composição como a criação de um mundo - criação de uma "cultura" - qual mundo quero criar
-%% 10)  
-%%
-%%
-%%
-%%
-%%
-%%
-
 
 
 A própria imersão nas técnicas de composição assistida por computador de certa
@@ -1106,8 +1087,8 @@ O embate sonoro entre homem e máquina pode por fim revelar os aspectos
 essencialmente humanos que se possa expressar musicalmente. 
 
 
-\subsubsection{Papel do músico na interação homem-máquina}
-
+\subsection{Papel do músico na interação homem-máquina}
+\label{papeldomusico}
 
 Do ponto de vista do instrumentista, alguns aspectos podem ser apontados nessa pesquisa.
 Por um lado o gesto instrumental consiste no impulso inicial e também em uma espécie
@@ -1160,6 +1141,50 @@ o papel do compositor-instrumentista na composição de música interativa.
 Os problemas conceituais aqui apresentados, apesar de não possuirem
 conclusões definitivas, são melhor apreciados e compreendidos ao longo
 da exposição técnica de SInCoPA.
+
+\subsection{Poética de SInCoPA}
+\label{sec:poetica:sincopa}
+
+
+
+A realização deste trabalho reflete a conexão entre
+diversos desejos presentes na cultura contemporânea que
+se materializam em uma prática musical.
+A poética implícita na criação de SInCoPA é resultado
+de uma confluência de diversos vetores estéticos.
+
+Nesta seção serão expostos os vetores que impulsionaram
+o desejo de realização deste trabalho e que fazem parte 
+de sua matriz estrutural. Alguns desses desejos/vetores
+são de vertente técnica, enquanto que outros
+pertencem ao mundo da política e comportamento. 
+
+
+%% vetores estéticos:
+%% 
+%% 1) composição algorítmca
+%% 2) composição do timbre
+%% 3) conceito de instrumento aumentado ou instrumento inteligente
+%% 4) Práticas de cultura digital e conhecimento livre
+%% 5) noise e cultura do ruído - rock, punk
+%% 6) composição cognitiva (?)
+%% 7) code as art - programação enquanto composição
+%% 8) história do objeto técnico
+%% 9) composição como a criação de um mundo - criação de uma "cultura" - qual mundo quero criar
+%% 10)  
+
+
+
+
+De maneira geral, no conjunto dessas influências percebo esta pesquisa como 
+um movimento na direção de uma já tradicional quebra de paradigma da 
+atividade compositiva tradicional. Apesar desse desejo de rompimento,
+confesso que existe uma vontade maior de conciliação harmoniosa entre esses
+vetores e a prática composicional acadêmica.
+
+
+
+
 
 
 
@@ -3289,11 +3314,11 @@ objeto [seq]. O objetivo é estabelecer uma metodologia para rápida prototipaç
 de algoritmos voltados para composição interativa.
 
 A abstração recebe dados MIDI de controlador externo, dos módulos geradores algorítmicos e do
-teclado do computador. Sendo capaz de gravar uma performance com dados de todas as fontes em
-canais separados, o que garante uma posterior análise e re-utilização do material. Para isso
-se definiu uma distribuição de canais MIDI como podemos ver na figura \ref{sinc-midiin}. Onde vemos
-o objeto [notein] com argumento 2, que significa que apenas receberá dados enviados do canal MIDI 2.
-Os objetos [midiformat] por sua vez aparecem com os argumentos 5 e 7, que garante a gravação
+teclado do computador, sendo capaz de gravar uma performance com dados de todas as fontes em
+canais separados, garantindo uma posterior análise e re-utilização do material. Para isso
+se definiu uma distribuição de canais MIDI como podemos ver na figura \ref{sinc-midiin}, onde vemos
+o objeto [notein] com argumento 2, significando que apenas receberá dados enviados do canal MIDI 2.
+Os objetos [midiformat] por sua vez aparecem com os argumentos 5 e 7, permitindo a gravação
 de um arquivo .mid com canais distintos.
 
 
@@ -3337,10 +3362,10 @@ A abstração [sinc-teclado] foi feita como um acessório para rápida prototipa
 performance com dados MIDI quando não se dispõe de um controlador externo. O objetivo
 é transformar o teclado alfanumérico do computador em um controlador MIDI sem o controle de velocity
 de cada nota. Cada tecla é mapeada com a abstração [kbkey2] o que permite que se defina como quiser
-as relações de cada tecla com uma respectiva nota MIDI.
+a relação de cada tecla com uma respectiva nota MIDI.
 
-Na figura \ref{sinc-teclado-interno} podemos ver o panorama interno da abstração [sinc-teclado], onde podemos notar
-que cada tecla envia uma mensagem MIDI por [noteout] para o canal 2.
+Na figura \ref{sinc-teclado-interno} podemos ver o panorama interno da abstração [sinc-teclado], onde cada tecla 
+envia uma mensagem MIDI por [noteout] para o canal 2.
 Cada tecla é mapeada com a abstração [kbkey2] que é vista na figura \ref{kbbey2}. 
 Na figura \ref{sinc-teclado-mapa} vemos a distribuição das instâncias de [kbkey2] para
 cada tecla. Na figura \ref{kbbey2} vemos o detalhamento dos argumentos de criação de [kbkey2], que além de mapear
@@ -3436,8 +3461,8 @@ de leitura de arrays e transformações.
 \end{figure}  
 
 Na figura \ref{variacoes-contorno} vemos acima um array ``pitch\_original'' que representa
-o conjunto de pitches executados pelo músico (poderia ser durações ou qualquer
-outro parâmetro). Abaixo, no centro, o array ``pitch\_resultado'' mostrando o resultado das  
+o conjunto de pitches executados pelo músico (poderiam ser durações ou qualquer
+outro parâmetro). No centro, o array ``pitch\_resultado'' mostra o resultado das  
 operações de variação. E abaixo, um array ``contorno'' mostrando a redução do contorno em
 ``pitch\_original'' para a forma normal, como visto na seção \ref{contornos}.
 
@@ -3449,9 +3474,9 @@ operações de variação. E abaixo, um array ``contorno'' mostrando a redução
 
 A primeira operação é chamada aqui de normalização dinâmica, onde
 se pode aumentar ou diminuir a razão entre os valores, sem perder
-as relações originais. Isso é feito multiplicando todos valores por
+as relações originais. Isso é feito multiplicando todos os valores por
 um índice variável, como pode ser visto na figura \ref{variacoes-normalizacao},
-onde vemos o subpatch [pd normalizacao]. A multiplicação é feita lendo
+no subpatch [pd normalizacao]. A multiplicação é feita lendo
 os valores em ``pitch\_original'' e escrevendo o resultado em ``pitch\_resultado'' e 
 em outro array interno chamado ``temp''.
 
@@ -3473,8 +3498,8 @@ array ``pitch\_resultado''.
 
 Paralelamente, é contado o tempo a cada chamada de operação com o objeto
 [timer]. Quando o tempo entre uma operação e outra for maior que 500 milisegundos,
-o objeto [tabletool] fará uma cópia de ``pitch\_resultado'' para ``temp''. O 
-que garante que cada operação será feita em cima do resultado das outras operações
+o objeto [tabletool] fará uma cópia de ``pitch\_resultado'' para ``temp''. Garantindo
+ que cada operação será feita em cima do resultado das outras operações
 feitas durante a sessão. 
 
 Quando aplicamos a operação de transposição ao parâmetro
@@ -3569,7 +3594,7 @@ ter um gerador com alto grau de permeabilidade melódica.
 
 Em alguns casos pode-se desejar realizar um filtragem
 dos resultados de um gerador algorítmico. De maneira que
-todos resultados do algoritmo se encaixe numa sequência
+todos resultados do algoritmo se encaixem numa sequência
 de valores definidos. Nesse sentido podemos citar a abstração
 [musical.closest.note] da biblioteca PDMTL.
 
@@ -3642,7 +3667,7 @@ para receber valores de 0 a 127 e a cada 30 ocorrências do mesmo
 pitch as probabilidades voltam ao início.
 
 
-Uma outra possível aplicação seria a aplicação de probabilidades para
+Uma outra possível aplicação seria o uso de probabilidades para
 análise e geração de padrões maiores tanto de durações quanto de conjuntos
 de notas. O que permite a recorrência dos padrões
 rítmicos que emergem ao longo da performance.
@@ -3664,7 +3689,7 @@ rítmicos que emergem ao longo da performance.
 O terceiro gerador é mostrado na figura \ref{gera-ritmico2} e
 realiza uma combinação entre os objetos [tabletool] e [brown-rhythm].
 
-O objeto [tabletool]\footnote{Objeto externo desenvolvido em C
+O objeto [tabletool]\footnote{ Objeto externo desenvolvido em C
 por William Brent e compilado e testado no ambiente de desenvolvimento
 dessa pesquisa} permite que se façam operações matemáticas
 recursivas e análise em arrays de números. 
@@ -3683,8 +3708,8 @@ esses respectivos valores como variáveis [s min-ritmo] e
 \end{figure}  
 
 O objeto [brown-rhythm] está presente na biblioteca RTC e se trata de
-um gerador de durações baseado em movimento browniano(\textit{Brown motion}
-\footnote{movimento browniano é um modelo que descreve o movimento aleatório 
+um gerador de durações baseado em movimento browniano (\textit{Brown motion})
+\footnote{ Movimento browniano é um modelo que descreve o movimento aleatório 
 de partículas macroscópicas num fluido como consequência dos choques das 
 moléculas das partículas. Esse nome é devido ao botânico Robert
 Brown, que observou minúsculas partículas dentro dos vacúolos dos grãos de 
@@ -3694,7 +3719,7 @@ embora a origem do movimento ainda estivesse para ser explicada.
 O cientista que explicou corretamente esse movimento, propondo que a energia fosse 
 constituída de partículas, foi Albert Einstein, em 1905.
 Movimento browniano é um dos modelos mais usados de processos estocásticos
-(ou probabilísticos) sobre tempo contínuo.} )
+(ou probabilísticos) sobre tempo contínuo.}.
 
  \begin{figure}
 \includegraphics[scale=.6]{brown-rhythm-func}
@@ -3708,12 +3733,22 @@ No manual de [brown-rhythm] aparece uma explicação mais detalhada.
 
 
 \begin{quote}
+Gera um ritmo do tipo movimento browniano de uma linha geométrica de
+durações entre ataques (IOI)\footnote{ ``Inter-Onset-Interval'' considero 
+um termo que define melhor essa classe de valores.}  e um determinado número de durações
+(IOI). O fator browniano determina a distância entre dois valores rítmicos sucessivos. 
+Um fator de 0 produz um ritmo periódico, onde um fator de 1 gera valores de saída randômicos
+dentro do intervalo dado.\footnote{
 Generates a brownian-movement-like rhythm of a geometrical row of
 entry delays (ED) and a certain number of ED-values. The brownian factor
 determines the distance between two succeding rhythmical values. A factor
 of 0 produces a periodic rhythm, where a factor of 1 output random values 
-of the given range.
-\end{quote}  
+of the given range.} 
+\end{quote}
+
+
+
+  
 
 
 
@@ -3789,13 +3824,13 @@ implementar objetos compatíveis entre Pd e MAX. O objetivo de [drunk] é
 retornar números randômicos dentro de uma escala variável. A distância
 entre cada número randômico é definida pelo valor da terceira entrada
 de [drunk]. Essa variável define o maior número de passos possível entre 
-dois resultados de [drunk]. Podemos ver na figura \ref{drunk} que temos
+dois resultados de [drunk]. Vemos na figura \ref{drunk} 
 dois objetos [drunk] sorteando 16 valores de 0 a 10 com a diferença do
 número de passos, com 6 (destaque em verde) e 2 (destaque em rosa).
 
 Os objetos [brownian] e [drunk] são muito úteis para a composição 
 interativa por permitirem a variação dos parâmetros do algoritmo
-em tempo-real. Essa funcionalidade é usada em SINCOPA em outros geradores
+em tempo-real. Essa funcionalidade é usada em SInCoPA em outros geradores
 melódicos e de dinâmica.
 
 \subsubsection{Movimento browniano como gerador melódico}
@@ -3899,7 +3934,7 @@ em cores, enquanto que as notas geradas pelos boids estão em cinza. Podemos not
 o parâmetro \textit{inertia} que controla essa ``disposição'' para mudar de velocidade e de direção
 está muito baixo (valor 2 na fig. \ref{boids-param}), a medida que aumentamos esse valor iremos notar
 os boids seguindo com mais rapidez o ``líder''.
-O efeito musical é uma textura que varia de uma polifonia densa e aparentemente disconexa até uma 
+O efeito musical é uma textura que varia de uma polifonia densa e aparentemente desconexa até uma 
 heterofonia radical, a depender dos parâmetros de comportamento.
 
 
@@ -3937,12 +3972,12 @@ do caos. São objetos passíveis da atualização dos parâmetros em tempo-real.
 \subsection{Harmonizadores}
 
 
-Essa seção tem como objetivo apresentar possibilidades de harmonização automática em tempo-real.
-Onde o sistema tendo o conhecimento da linha melódica criada instantaneamente pelo músico, consegue
+Esta seção tem como objetivo apresentar possibilidades de harmonização automática em tempo-real,
+onde o sistema tendo o conhecimento da linha melódica criada instantaneamente pelo músico, consegue
 harmonizar essa linha melódica.
 
 Uma extensa bibliografia tem sido desenvolvida nos últimos 30 anos sobre o tema da harmonização automática.
-Muitas empresas subsidiam a pesquisa nesse tema com o objetivo de produzir produtos comerciais que realizem
+Muitas empresas subsidiam a pesquisa nesse tema com o objetivo de criar produtos comerciais que realizem
 harmonização automática de maneira satisfatória para o usuário final. Esse processo vem acumulando patentes
 de algoritmos de harmonização por parte de companhias fabricantes de teclados e desenvolvedoras de programas comerciais
 de produção musical. Um exemplo é o programa ``Band-in-a-Box'' que realiza harmonizações de acordo com
@@ -3957,13 +3992,13 @@ satisfatória para certos estilos de música.
 Ching-Hua Chuan define em sua tese, um sistema de harmonização que leva em conta parâmetros
 de análise de cada nota presente em um fluxo melódico, como duração, duração das notas anteriores, número
 de ocorrências de determinado pitch class ao longo da melodia, direcionalide melódica e diversos outros
-parâmetros. Por fim, expõe um modelo de acompanhamento harmônico e obtém um resultado positivo ao apresentar
+parâmetros \cite{chuan2008}. Por fim, expõe um modelo de acompanhamento harmônico e obtém um resultado positivo ao apresentar
 o sistema acompanhando canções populares.
 
 Matt Hanlon e Tim Ledlie apresentam um sistema de harmonização de corais a quatro vozes no estilo de Bach.
 A composição da progressão harmônica é implementada com um modelo estatístico de cadeias de Markov
 (Hidden Markov Model), e deriva na solução da harmonia através da solução de problemas
-de satisfação restrita (constraint satisfaction problem).Após
+de satisfação restrita (constraint satisfaction problem) \cite{cpubach}. Após
 essa etapa é feita a realização da progressão em linhas melódicas para quatro vozes
 
 Uma implementação bem detalhada de um harmonizador automático que faz uso de
@@ -3976,7 +4011,7 @@ e são estocadas em arrays lidos pelo programa em tempo-real.
 Nessa implementação, uma série enorme de regras de sequência harmônica e 
 condução de vozes são definidas baseadas em regras comuns a diversos cursos
 de harmonia tradicional, como evitar 5ªs e 8ªs paralelas e progressões
-``proibidas'' (I - ii - iii , por exemplo).
+``proibidas'' (I - ii - iii , por exemplo) \cite{patente:harmonizador}.
 
 Um aspecto complexo das regras de harmonia tradicional é que as regras
 de condução das vozes se misturam de forma iterativa com as regras de
@@ -4072,16 +4107,16 @@ enarmônica de mediante cromática.
 
 Apesar de muitas vezes os acordes gerados pelo harmonizador diatônico possuírem uma relação 
 cromática, todos os acordes gerados são tríades maiores ou menores. Para criar um contraste 
-foi criado um harmonizador de acordes alterados que está na figura \ref{harm4}. Nesse harmonizador todas notas 
+foi criado um harmonizador de acordes alterados que está na figura \ref{harm4}. Nesse harmonizador todas as notas 
 que entram são tônicas e todas são harmonizadas. 
 	A escolha do acorde para cada nota é feito através de distribuição de probabilidade, 
 arranjado com o objeto [moses]. Quando uma nota entra, ela gera randomicamente um número de 0 
 a 99 com o objeto [random 100], esse valor então é endereçado a um dos quatro tipos de tétrades 
-possíveis nesse patch : aumentado com 7ª menor, alterado com 5ª diminuta (6ª aumentada Francês), 
+possíveis nesse patch: aumentado com 7ª menor, alterado com 5ª diminuta (6ª aumentada Francês), 
 menor com sétima maior ou maior com sétima maior. Cada uma das quatro tétrades tem 25 por cento 
 de probabilidade de aparecer. Cada membro dos acordes é endereçado a um gerador de síntese aditiva 
 com amplitude bem baixa. Em função da amplitude bem baixa do harmonizador de acordes alterados, o 
-resultado funciona bem como uma textura dissonante .
+resultado funciona bem como uma textura dissonante.
 
 % ainda falar dos modos 3 e 4 
 
@@ -4099,7 +4134,7 @@ objetivo de agregar interatividade ao trabalho composicional.
 tempo-real, podem ser muito úteis como geradores de material escrito em notação tradicional, 
 como mostra a figura \ref{harm5}. Esta imagem mostra o patch de Pd mandando as informações para o programa 
 de notação Rosegarden através do programa Jack que funciona como um servidor de comunicação entre 
-programas.Esse tipo de operação possibilita uma usabilidade do Pd semelhante ao programa \textit{Open-music}\footnote{Disponível em:
+programas. Esse tipo de operação possibilita uma usabilidade do Pd semelhante ao programa \textit{Open-music}\footnote{Disponível em:
 http://repmus.ircam.fr/openmusic/home}
 desenvolvido no Ircam.
 
@@ -4120,7 +4155,7 @@ desenvolvido no Ircam.
 \label{harm-colecao}
 \end{figure}
 
-No patch da figura \ref{harm6} é implementado um harmonizador simples,onde a sequência dos acordes e
+No patch da figura \ref{harm6} é implementado um harmonizador simples, onde a sequência dos acordes e
 a condução vocal é totalmente randômica. A única regra é que as notas usadas na composição
 dos acordes tenham sido tocadas pelo músico. Podemos ver o resultado desse algoritmo na figura \ref{harm-colecao}.
 
@@ -4209,7 +4244,7 @@ de áudio.
 
 O campo de pesquisa em síntese sonora digital é grande e vem crescendo
 nos últimos anos. Com a possibilidade dos compositores atuarem ativamente
-na concepção do timbre de suas composições, como é o caso dessa pesquisa. E
+na concepção do timbre de suas composições, como é o caso desta pesquisa. E
 também pela emergência da atividade de desenho  de som\footnote{sound design}, 
 principalmente no cinema, televisão e jogos. Dentro do campo do desenho
 sonoro os principais focos de pesquisa são a captação e o áudio
@@ -4262,7 +4297,7 @@ que são combinados durante a performance, oferecendo uma boa paleta
 de sons reativos para o instrumentista/compositor. Para isso é
 mostrada uma interface simples de todos módulos de síntese.
 Ainda há muito a ser explorado no campo da síntese controlada
-por parâmetros de análise de áudio, aqui é apresentado uma
+por parâmetros de análise de áudio, aqui é apresentada uma
 metodologia de trabalho para expansão de possiblidades.
 
 
@@ -4349,13 +4384,13 @@ A amplitude desse sintetizador é fixa, com envelope feito com o
 objeto [line\texttildelow]. As fases de ataque e decaimento de cada acorde 
 são feitas com 2 mensagens, a primeira enviada imediatamente realiza o ataque 
 e a segunda é agendada como o objeto [del] que realiza uma linha de atraso
-responsável pelo decaimento . A amplitude resultante dos 3 osciladores é normalizada
+responsável pelo decaimento. A amplitude resultante dos 3 osciladores é normalizada
 com o objeto [*\texttildelow] com argumento 0.2.
 
 No resultado da síntese é aplicado um delay com valor de escrita e leitura fixos.
 O delay é obtido com a combinação dos objetos [delwrite\texttildelow] e 
 [delread\texttildelow]. O áudio resultante da síntese é escrito em uma memória 
-temporária com o objeto [delwrite\texttildelow] designado com o nome "delay3"
+temporária com o objeto [delwrite\texttildelow] designado com o nome ``delay3'' 
 e tendo o tamanho total de escrita de 2000 milisegundos. Essa linha de delay
 chamada "delay3" é lida pelo objeto [delread\texttildelow] e enviada
 novamente para a escrita do delay com [delwrite\texttildelow], causando um
@@ -4363,9 +4398,9 @@ efeito de feedback de delay. Antes da leitura do delay ser enviado novamente
 para a escrita, ele é normalizado com o objeto [*\texttildelow] em 0.7, o
 que causa um efeito de eco ou reverb exagerado. 
 
-O efeito musical resultante desse sintetizador é como se fosse um harmonizador que ecoa combinações inusitadas
+O efeito musical resultante desse sintetizador é semelhante a um harmonizador que ecoa combinações inusitadas
 das frequências executadas. O reconhecimento das frequências contrasta com o
-ritmo randômico gerando uma familiaridade estranha.
+ritmo randômico gerando uma familiaridade apesar do contraste.
 
 
 
@@ -4387,11 +4422,10 @@ outro valor randômico de 0 a 12, resultando em um acorde sempre com as três
 notas dentro da mesma oitava.
 
 Esse módulo de síntese é usado como contraste em relação ao anterior.
-Dentro de um discurso musical interativo é importante que existam elementos
+Dentro de um discurso musical interativo é importante que existam geradores
 que proponham e acrescentem elementos estranhos ao que o músico executa.
-
 Pode-se, por exemplo, usar em tempo-real o índice de análise de permeabilidade 
-melódica executada pelo músico para a partir de determinado valor desse índice
+melódica executada pelo músico para, a partir de determinado valor desse índice,
 o programa alternar automaticamente entre esses dois diferentes sintetizadores.
 
 
@@ -4410,7 +4444,7 @@ Esse patch cria variação dos tempos de escrita e leitura de linhas de delay, o
 aparecimento de padrões rítmicos mais complexos e instáveis.
 O resultado é uma textura que varia de sons sustentados (com valor de feedback alto) até
 sons curtos, sempre com as notas da tabela de frequências executadas pelo performer.
-A visão geral do patch pode ser vista na figura \ref{gerador1diato}.
+A visão geral do patch está na figura \ref{gerador1diato}.
 
 
 \subsubsection{Gerador de frequências randômicas com tempo de delay randômico}
@@ -4422,10 +4456,10 @@ A visão geral do patch pode ser vista na figura \ref{gerador1diato}.
 \end{figure}
 
 Esse patch é praticamente igual ao anterior, com a diferença de que as frequências
-são sempre randômicas como pode ser visto na figura \ref{gerador1rand}. Cria um bom contraste 
-em relação a sonoridade do anterior mantendo a semelhança da síntese aditiva com as linhas de delay. 
+são sempre randômicas como mostra a figura \ref{gerador1rand}. Cria um bom contraste 
+em relação à sonoridade do anterior mantendo a semelhança da síntese aditiva com as linhas de delay. 
 Para o músico, as situações interativas em que a frequência é totalmente randômica sempre são mais
-desafiadoras pois aí o papel do performer acaba sendo conectar a lógica narrativa em gestos que a
+desafiadoras pois aí o papel do instrumentista se torna a conexão da lógica narrativa em gestos que a
 princípio não estavam ligados.
 
 
@@ -4460,7 +4494,7 @@ O objetivo desse gerador é materializar a idéia de um
 instrumento que esculpe um ruído branco ([noise\texttildelow]).
 Nesse primeiro experimento da figura \ref{geradornoise}, foi usado 
 um objeto [vcf\texttildelow], que é um filtro passa-banda controlado
-por voltagem. O "voltagem" da definição do objeto se refere a analogia
+por voltagem. A ``voltagem'' da definição do objeto se refere a analogia
 do resultado sonoro com  o dispositivo de filtro controlado por voltagem
 presente em sintetizadores analógicos. Se distingue dos outros objetos
 de filtragem em Pd por usar uma sinal de áudio para definir a frequência
@@ -4509,7 +4543,6 @@ definida em um array preenchido pelo próprio músico. Na figura
 
 Esse sintetizador é baseado na idéia de análise espectral do fluxo
 de áudio e resíntese a partir dos dados extraídos dessa análise.
-
 A análise é feita com o objeto [sigmund\texttildelow] pré-definido com
 as saídas "peaks" e "tracks", que retornam listas de frequência, amplitude e 
 fase para, nesse caso, um banco de doze osciladores para cada saída como pode 
@@ -4529,9 +4562,9 @@ O efeito obtido pode ser chamado de resíntese de baixa resolução. O objetivo
 inicial era produzir um sintetizador que fosse muito sensível a pequenas
 variações timbrísticas. Por exemplo, quando um violonista pinça a corda do violão
 com diferentes ângulos da unha, são produzidas variações espectrais sutis que servem
-bem ao controle de síntese. Na re-construção do som o principal característica desse
+bem ao controle de síntese. Na re-construção do som a principal característica desse
 gerador é um timbre robótico muito sensível a variações de timbre no sinal de entrada.
-Pode-ver na figura \ref{spectro} um espectrograma comparativo entre uma amostra
+Pode-se ver na figura \ref{spectro} um espectrograma comparativo entre uma amostra
 de violão e a respectiva resíntese com esse gerador. Nota-se um certo "defeito"
 de re-construção no trecho destacado, proveniente de uma variação timbrística provocado
 por diferença do toque. 
@@ -4563,15 +4596,15 @@ as mesmas técnicas com algumas diferenças na implementação.
 
 As técnicas de processamento digital mais conhecidas emulam dispositivos
 eletrônicos que operam no sinal analógico através de circuitos elétricos.
-São muito comuns em estúdios a presença de "módulos de reverb" ou 
-"pedais de efeito" para instrumentos. Na implementação computacional,
+São muito comuns em estúdios a presença de ``módulos de reverb'' ou 
+``pedais de efeito'' para instrumentos. Na implementação computacional,
 essas funcionalidades podem ser expandidas possibilitando controle em
 tempo-real e integração com a performance musical, criando um ambiente
 musical interativo que expande e transforma o gesto original do músico.
 
 O principal objetivo dessa seção é criar ferramentas que re-combinem
 o sinal de áudio de entrada de maneira a ser controlado pelo próprio
-fluxo de áudio sub-sequente. Musicalmente são buscadas texturas que usem
+fluxo de áudio sub-sequente. Musicalmente, são buscadas texturas que usem
 o próprio áudio como fonte garantindo assim uma unidade sonora a partir da fonte.
 
 Para aplicar uma técnica de processamento, primeiro se deve amostrar
@@ -4590,7 +4623,7 @@ da leitura em número de samples.
 
 
 Também podemos processar o sinal de áudio em tempo-real, como é mostrado na 
-figura \ref{sinc-ring} , onde é implementado um ring-modulator simples.
+figura \ref{sinc-ring}, onde é implementado um ring-modulator simples.
 
 
 \begin{figure}
@@ -4601,14 +4634,14 @@ figura \ref{sinc-ring} , onde é implementado um ring-modulator simples.
 
 
 Outros objetos e abstrações também são usados e comparados, durante as experimentações
-como a biblioteca DIY2 e rj. Na figura \ref{digitalia3} podemos ver uma situação de prototipação
+como a biblioteca DIY2 e rj. Na figura \ref{digitalia3} vemos uma situação de prototipação
 rápida, usando objetos de SInCoPA juntamente com objetos nativos de Pd e uma abstração DIY2 [mono-vibrato],
 que implementa um ring modulator mais complexo. O patch mostrado na figura \ref{digitalia3} foi usado na
 performance \textit{/usr/maquina4/compartida\texttildelow} com outros 3 músicos.
 
-Uma parcela importante de técnicas de processamento de áudio digital corresponde as técnicas
+Uma parcela importante de técnicas de processamento de áudio digital corresponde às técnicas
 de fusão espectral como phase vocoder, convolução e síntese cruzada. Vários autores vem trabalhando
-para otimização desses efeitos em tempo-real\cite{porres},\cite{pd-tutorial}. 
+para otimização desses efeitos em tempo-real \cite{porres}, \cite{pd-tutorial}. 
 
 
 \subsection{Delay variável}
@@ -4623,12 +4656,11 @@ para otimização desses efeitos em tempo-real\cite{porres},\cite{pd-tutorial}.
 
 O delay é um efeito que cria uma linha de atraso de áudio e possibilita
 um leque grande de gestos sonoros.
-
 Num módulo  de delay analógico, o músico escolhe diferentes elementos
 da execução para aplicar delay de tempo variável: uma nota, um acorde 
 da guitarra ou uma palavra do cantor. Essas decisões de certa forma 
 sublinham esses elementos colocando marcas na audição. Essa chamada de
-atenção para esses elementos acabam criando uma sensação de narrativa musical
+atenção para esses elementos criam uma sensação de narrativa musical
 interessante do ponto de vista composicional.
 
 Foi criada uma abstração que possibilita uma linha de delay simples com valores
@@ -4699,7 +4731,7 @@ e de como o pensamento composicional interage com essa interface.
 
 
 Para a continuação dessa pesquisa o ideal seria um sistema de loop baseado no objeto 
-[tabread4\texttildelow] que permite o "stretch" da leitura do áudio. Isso possibilita que o programa
+[tabread4\texttildelow] que permite o ``stretch'' da leitura do áudio. Isso possibilita que o programa
 ajuste o loop a qualquer tempo pré-definido por algum sequenciador.
 
 \begin{figure}
@@ -4752,7 +4784,7 @@ O objetivo desse módulo é fazer com que trechos do áudio da performance sejam
 passíveis de recombinação em diversos modos e também controlados pela execução musical.
 
 O primeiro elemento dessa abstração é um gravador de áudio que escreva um fluxo
-de áudio em uma tabela (array) que possa ser acessado pelo motor de recombinação de "fatias" de áudio.
+de áudio em uma tabela (array) que possa ser acessado pelo motor de recombinação de ``fatias'' de áudio.
 Uma pequena abstração com essa finalidade pode ser vista na figura \ref{sinc-gravador}.
 %% descrever entradas e saídas de [sinc-gravador]
 
@@ -4775,7 +4807,7 @@ O motor central da execução dos segmentos é mostrado no detalhe da figura \re
 A relação está no fato do objeto [vline\texttildelow] cria uma linha de leitura que é interpretada
 por [tabread4\texttildelow] como valor de início e fim de leitura em samples e tempo dessa
 leitura o que acaba por afetar a duração ea frequência do áudio resultante. 
-A abstração [sinc-slicer], é uma interface mais refinada e pode ser vista na imagem \ref{sinc-slicer}, 
+A abstração [sinc-slicer] é uma interface mais refinada e pode ser vista na imagem \ref{sinc-slicer}, 
 onde os pontos de início e fim do segmento são definidos pelos dois sliders abaixo da forma de onda.
 
 \begin{figure}
@@ -4935,7 +4967,7 @@ ser pensadas e definidas em diferentes cenários de interação.
 \end{figure}
 
 Síntese granular é uma técnica que combina síntese aditiva e amostragem (sampleamento).
-Cada "grão" é um trecho de uma amostra de áudio somado a outros grãos, podendo
+Cada ``grão'' é um trecho de uma amostra de áudio somado a outros grãos, podendo
 resultar em texturas únicas, que seriam praticamente impossíveis de serem editadas
 grão por grão em um editor de áudio. Os resultados variam desde um leve deslocamento na leitura
 de uma amostra até efeitos mais complexos como "nuvens de grãos".
@@ -4955,13 +4987,13 @@ da performance do músico. Diversos efeitos e texturas complexas podem ser obtid
 através do gesto de controlar parâmetros dos grãos com um instrumento.
 
 O motor de funcionamento da síntese granular é baseado em modificações de um exemplo
-do livro "Designing Sound" \cite{farnell2010designing}. Podemos ver na figura \ref{granular2}, a estrutura
-da abstração [grainvoice], que define o comportamento de uma "voz". Nesse contexto,
-"voz" significa uma camada de grãos justapostos. O funcionamento básico se dá através
-de um leitor de tabela ([tabread4\texttildelow source-array])que é modulado por um gerador de envelope ([tabread4~ grain-env]).
+do livro ``Designing Sound'' \cite{farnell2010designing}. Podemos ver na figura \ref{granular2}, a estrutura
+da abstração [grainvoice], que define o comportamento de uma ``voz''. Nesse contexto,
+``voz'' significa uma camada de grãos justapostos. O funcionamento básico se dá através
+de um leitor de tabela ([tabread4\texttildelow source-array]) que é modulado por um gerador de envelope ([tabread4~ grain-env]).
 Os dois arays são visíveis na visão geral do patch na figura \ref{granular-geral}. O array grain-env
 é definido no subpatch da figura \ref{granular3}, e se trata de uma janela "raised cosine", também
-chamada de "hanning window" que é computada como 0.5+cos(x)/2 entre -pi e +pi.
+chamada de ``hanning window'' que é computada como 0.5+cos(x)/2 entre -pi e +pi.
 
 O componente central de [grainvoice] é um objeto [vline\~], que recebe uma mensagem para criar uma linha que 
 vai de 0.0 a 1.0 durante um certo intervalo de tempo. Esse intervalo de tempo é a duração
@@ -4992,7 +5024,7 @@ ou direita do centro, ele retarda ou acelera a execução da amostra. Por últim
 1.0 a 2.0.
 
 A parte principal do patch da figura \ref{granular-geral} está na direita. É um sequenciador baseado no objeto
-[metro] controlando um contador que devolve números entre 0 e 3,que servem como índices de listas que ao final
+[metro] controlando um contador que devolve números entre 0 e 3, que servem como índices de listas que ao final
 são roteados com o objeto [route] para quatro instâncias da abstração [grainvoice]. Cada lista contém ainda dois
 valores randômicos para cada instância de [grainvoice]. A frequência do objeto [metro] é calculada de acordo com a duração
 do grão . Aqui é onde a variável
@@ -5000,7 +5032,7 @@ overlap também influencia. Se overlap tiver o valor 2, a frequência de [metro]
 do grão de maneira que a execução do primeiro grão irá finalizar em tempo de ser executado novamente.
 Para valores menores haverão menos sobreposições (overlaps) de grãos. Essa variável muda a densidade da
 textura, variando de um efeito de deslocamento da leitura da amostra que pode lembrar um efeito de 
-"chorus" até variações mais caóticas. Por fim é acrescentada uma abstração de reverb ([rev3\~]) ao final
+``chorus'' até variações mais caóticas. Por fim é acrescentada uma abstração de reverb ([rev3\~]) ao final
 do áudio do patch.
 
 
@@ -5028,10 +5060,10 @@ Nesse módulo também foi usada a abstração [sinc-gravador] já vista na figur
 Com finalidade de facilitar a interação em tempo-real com um músico.
 
 Outra parte da abstração, diz respeito ao mapeamento dos dados de análise para controle
-dos prâmetros de síntese. Um elemento alterado em relação ao exemplo original de Andy
+dos parâmetros de síntese. Um elemento alterado em relação ao exemplo original de Andy
 Farnell é a definição da variável local \$0-mydur, onde é acrescentado um subpatch que 
 possibilita definir um valor fixo ou randômico para todas as vozes, resultando assim, numa variação entre
-uma textura mais síncrona e outra mais assícrona. Como pode ser visto na figura \ref{sinc-gran1},
+uma textura mais síncrona e outra mais assíncrona. Como pode ser visto na figura \ref{sinc-gran1},
 e no detalhe do subpatch na figura \ref{sub-randomize}.
 
 
@@ -5072,12 +5104,12 @@ Por modelagem física, entende-se a simulação de força, gravidade e massa. O
 objetivo seria o de aumentar a cinestesia experimentada pelo instrumentista 
 durante a performance.
 
-Atualemnte fazem parte do cenário de interação os objetos [sinc-cenario], [sinc-pedal],
+Atualmente fazem parte do cenário de interação os objetos [sinc-cenario], [sinc-pedal],
 [sinc-mixer] e [sinc-pan]. Sendo [sinc-cenario], o objeto central responsável
 por organizar o mapeamento dos parâmetros.
 
 \begin{figure}
-\includegraphics[scale=.6]{teclado}
+\includegraphics[scale=.5]{teclado}
 \caption{teclado USB adaptado como pedal}
 \label{teclado}
 \end{figure}
@@ -5091,7 +5123,7 @@ por organizar o mapeamento dos parâmetros.
 Os cenários são alternados através de teclado USB, modificado e usado como
 um pedal durante a performance. Como pode ser visto na figura \ref{teclado}.
 O teclado é modificado retirando-se as teclas que não são usadas no desenho escolhido
-para melhor se adaptar a função de pedal.
+para melhor se adaptar à função de pedal.
 
 Foi desenvolvido também uma abstração para organizar as funções do teclado.
 Pode-se observar na figura \ref{sinc-controle-teclado}, a função condicional
@@ -5099,8 +5131,8 @@ que mapeia a tecla ESC para alternar entre 4 cenas acionadas pelas variáveis
 cena1, cena2, cena3 e cena4, respectivamente.
 
 O teclado pode servir, além dos cenários de interação, como controlador
-de sequências pré-definidas. Podendo disparar qualquer formato de sequência como
-áudio, midi ou descrição de eventos com arquivos de texto. Bem como formatos mistos
+de sequências pré-definidas, podendo disparar qualquer formato de sequência como
+áudio, midi ou descrição de eventos com arquivos de texto, bem como formatos mistos
 de sequências automatizadas com parâmetros definidos pela análise da performance.
 
 %%Falar sobre biblioteca mapping e Modelagem física
@@ -5229,38 +5261,38 @@ na composição interna da abstração [sinc-pan] na figura \ref{pan}.
 \label{composicao}
 
 Alguns fatores anteriores propiciaram o pleno desenvolvimento
-dessa pesquisa. Durante minha graduação em Violão, participei
+deste trabalho. Durante minha graduação em Violão, participei
 de um grupo de pesquisa em síntese sonora onde aprendi a programar
-em Csound onde desenvolvi uma série de peças acusmáticas. 
+em Csound que resultou no desenvolvimento de uma série de peças acusmáticas. 
 Essa experiência chamou minha atenção para a música
 eletroacústica e para a computação musical. 
 
 Durante o mestrado tive o primeiro contato com o ambiente
-Max/MSP e desenvolvi uma série de composições para instrumentos
+Max/MSP e realizei uma série de composições para instrumentos
 tradicionais como clarinete, marimba e violão. Ao mesmo tempo
 desenvolvi uma série de improvisações coletivas usando computador,
 no circuito artístico da música experimental brasileira.
 
 De certa maneira, a experiência intensa como instrumentista
 durante a graduação sempre ficou distante da rotina da
-computação musical. Durante essa pesquisa o objetivo musical central 
-foi a união dessa duas dimensões do fazer musical.
+computação musical. Durante esta pesquisa o objetivo musical central 
+foi a união dessas duas dimensões do fazer musical.
 
-Nesse capítulo irei descrever brevemente alguns experimentos realizados
+Neste capítulo irei descrever brevemente alguns experimentos realizados
 ao longo da pesquisa e um resultado composicional derivado
-da desenvolvimento dos módulos de SInCoPA.
+da implementação dos módulos de SInCoPA.
 
 \section{Experimentos}
 \label{experimentos}
 
-O desenvolvimento cronológico dessa pesquisa levou a um primeiro momento de intenso aprendizado
-dos detalhes e técnicas de programação com Pd, desenvolvendo materiais didáticos, traduções, e uma
+O desenvolvimento cronológico deste trabalho levou a um primeiro momento de intenso aprendizado
+dos detalhes e técnicas de programação com Pd, preparando materiais didáticos, traduções, e uma
 sequência de estudos interativos usados em peças musicais e performances sonoras. Um exemplo pode ser visto
 na figura \ref{flauta2007}, onde um Score-follower controla os parâmetros de 
 processamento do som da flauta e harmoniza certos trechos da peça de acordo com as notas da flauta.
 Essa peça se chama ``Pure flute'' (2007) e foi um bom exercício de escrita para instrumento acústico
 e Pd. Ainda que a programação seja rude e mereça uma re-fatoração do código, musicalmente 
-obteve-se uma fusão de sonoridades que garantiu uma certa ``unidade'' na peça.
+obteve-se uma fusão de sonoridades interessante do ponto de vista composicional.
 
 \begin{figure}
 \includegraphics[scale=.3]{flauta2007}
@@ -5276,12 +5308,12 @@ teclado alfanumérico. Foram usados somente geradores de sinal do Pd e nenhum ob
  Procurei explorar um contraste entre gestos de modulações com AM e FM e filtragem de ruído branco.
 
 A comunidade de desenvolvimento do Pd é muito ativa, e explicitamente projetos open-source
-se esforçam para mudar a condição do interessado no software de usuário a participante ativo do desenvolvimento
+se esforçam para mudar a condição do interessado no software de usuário a participante ativo do projeto
 e das decisões coletivas sobre os caminhos que a linguagem deve tomar. Esse  fator acarretou na participação na
 organização de 2 eventos com desenvolvedores e forte interação com a comunidade\footnote{III International
 Convention of Puredata (PdCon) em São Paulo e o I Simpósio Internacional de Interatividade nos Sistemas
 Computacionais Livres (wwww.iscl2009.wordpress.com) em Salvador em 2009.}, oficinas de extensão, 
-participação em desenvolvimento de projetos coletivos usando pure data, como mimosalib\footnote
+participação em produção de projetos coletivos usando pure data, como mimosalib\footnote
 {https://github.com/glerm/mimosalib} também usada como referência nos protótipos.
 
 Outra experiência de composição mista foi a peça ``Oferenda''(2009) para sax contralto e Pd, 
@@ -5304,8 +5336,8 @@ ser postos a prova os aplicativos desenvolvidos nessa pesquisa. Essa peça conto
 músicos controlando instrumentos digitais feitos com Pd, e consistiu de um improviso que foi
 sendo construído durante alguns ensaios. O fato de usar guitarra elétrica
 contribuiu para maior precisão dos elementos de análise e segmentação em tempo-real.
-Outro elemento positivo foi de que as ferramentas apresentadas aqui foram úteis na 
-improvisção coletiva. Outros músicos de adaptam bem as respostas musicais de SInCoPA, nos momentos que 
+Outro elemento positivo foi de que as ferramentas apresentadas aqui se mostraram úteis na 
+improvisação coletiva. Outros músicos de adaptam bem as respostas musicais de SInCoPA, nos momentos que 
 os resultados são perceptivelmente conectados o resto do grupo visivelmente se sentia mais
 a vontade musicalmente.
 
@@ -5331,7 +5363,7 @@ na guitarra elétrica e a atividade do programa com o áudio gerado.
 \section{Diálogos em SInCoPA}
 \label{chap:dialogos}
 
-Essa peça é um resultado de todas experimentações desenvolvidas ao longo da pesquisa. É
+Essa peça é um resultado de todas as experimentações desenvolvidas ao longo da pesquisa. É
 composta para um instrumento tradicional e computador rodando SInCoPA. A forma é aberta,
 e os materiais são definidos em tempo-real pelo instrumentista. A idéia é que durante a
 execução o instrumentista não precise usar o mouse e o teclado do 
@@ -5345,9 +5377,9 @@ improvisar com outros músicos.
 
 Cada performance resulta em sonoridades diferentes. Ainda que seja possível o
 reconhecimento auditivo de que se trata da mesma peça. O estudo e execução da peça
-não exige nenhum conhecimento especializado de computação, apenas a disponibilidade de um 
+não exigem nenhum conhecimento especializado de computação, apenas a disponibilidade de um 
 computador para ensaiar. O estudo da peça passa por uma série de improvisações onde
-o instrumentista aprende empíricamente como que cada módulo reage de acordo com
+o instrumentista aprende empíricamente como cada módulo reage de acordo com
 diferentes gestos instrumentais.
 
 \begin{figure}
@@ -5386,7 +5418,7 @@ seus parâmetros controlados pela análise do áudio de entrada. A visão geral 
 ser vista na figura \ref{sintese}.
 Cada nota executada pelo
 instrumentista aciona uma nota simultânea no sintetizador. É realizado um cálculo da distância
-do pitch da última nota em relação a nota atual. O resultado desse cálculo é reduzido ao valor
+do pitch da última nota em relação à nota atual. O resultado desse cálculo é reduzido ao valor
 absoluto com o objeto [abs]. Esse valor por sua vez é mapeado com a abstração [sinc.linear] para
 duas escalas e enviado para o sintetizador com as variáveis [s mod\_amp] e [s mod\_freq].
 A distância de altura entre cada nota define a característica do timbre do sintetizador.
@@ -5551,7 +5583,7 @@ cada execução seja única e capaz de dialogar com diferentes ambientes e prop�
 Nessa seção serão apresentadas algumas reflexões acerca
 do processo de pesquisa e alguns resultados alcançados.
 O objetivo dessa seção e mostrar como o processo avançou
-e apontar pontos fortes e fracos ao longo do desenvolvimento da pesquisa.
+e indicar pontos fortes e fracos ao longo do desenvolvimento deste trabalho.
 
 A pesquisa possibilitou a criação de uma biblioteca de módulos que auxiliam
 a criação de música interativa.	Esses módulos podem ser combinados com objetos
@@ -5560,12 +5592,12 @@ mostrado ao longo do texto.
 
 Ao longo do desenvolvimento de SInCoPA diversos experimentos foram desenvolvidos,
 permitindo a exploração isolada de aspectos com visto na seção \ref{experimentos}.
-Essa experimentação pública e abertura dos resultados parciais da pesquisa, permitiram
-um bom \textit{feedback} técnico e artístico em a relação a comunidade de 
+Essa experimentação pública e abertura dos resultados parciais do desenvolvimento, permitiram
+um bom \textit{feedback} técnico e artístico em relação a comunidade de 
 artistas e desenvolvedores de música interativa.
 
 
-Dentro da grande área de computação musical, essa pesquisa engloba elementos de projeto
+Dentro da grande área de computação musical, esta pesquisa engloba elementos de projeto
 de instrumento aumentado, composição algorítmica e busca e análise de dados musicais.
 Apesar de ser um recorte amplo de conhecimento, acredito ter levantado os principais
 problemas de pesquisa e apontado soluções que permitem uma compatibilidade para futuros desenvolvimentos.
@@ -5611,7 +5643,7 @@ Dentro de um sistema de criação de música interativa  a análise ocupa uma im
 A importância de uma metodologia de análise deve ser equilibrada com o objetivo na construção geral do sistema.
 No começo da pesquisa, surgiu o foco no desenvolvimento de módulos de análise sub-simbólica baseados em redes neurais.
 Essa seção experiência apontou alguns caminhos de como trabalhar com redes neurais artificiais 
-integrando a um sistema de música interativa com Pd. Usando enquanto método para classificação de
+integrando a um sistema de música interativa com Pd, usando enquanto método para classificação de
 padrões.
 
 A figura \ref{escuta} representou o planejamento inicial do projeto onde podemos observar como a 
@@ -5635,9 +5667,9 @@ Nesse sentido, simular as habilidades de músicos humanos em fluidez de ação, 
 resposta a situações novas e referências culturais, transformam a capacidade de interação dos sistemas computacionais 
 numa árdua tarefa. Na prática o sistema funcionaria em duas instâncias: num primeiro momento as redes precisam ser 
 treinadas. Nessa fase o músico executa uma performance, esse áudio é captado, analisado e colocado numa base de dados 
-que vai servir como arquivos de treinamento das redes. O segundo momento será o momento da performance interativa, 
+que vai servir como arquivos de treinamento das redes. A segunda fase seria o momento da performance interativa, 
 onde o sistema vai responder ao estímulo do músico comparando a análise de sua performance em tempo-real com esse 
-banco de dados previamente estocado. Uma visão geral do sistema pode ser vista na figura \ref{mecanismo} onde podemos ver o fluxo 
+banco de dados previamente estocado. Uma visão geral do sistema está na figura \ref{mecanismo} mostrando o fluxo 
 geral dos dados ao longo das partes do sistema. Podemos ver que a resposta do sistema ao estímulo do músico depende 
 da resposta das redes que procuram por padrões. O resultado das redes distribui pesos no mecanismo de decisões que por 
 sua vez aplicam processos de transformações no material exposto pelo músico e armazenado no banco de dados.
@@ -5666,7 +5698,7 @@ Esse experimento mostrou um caminho para o refinamento de um modelo de classific
 Um problema apontado foi o de que aplicações com redes neurais são voltadas
 para a resolução de problemas específicos.
 A prática com redes neurais demonstrou um grande potencial como ferramenta para análise. Apontando
-para o futuro do desenvolvimento dos níveis de análise descritos na seção \ref{sec-analise-geral}
+para o futuro do desenvolvimento dos níveis de análise descritos na seção \ref{sec-analise-geral}.
 Dentro do recorte dessa pesquisa, a análise tem um espaço importante, entretanto o objetivo
 final é o desenvolvimento de uma ferramenta para a composição de música interativa.
 
@@ -5684,7 +5716,7 @@ final é o desenvolvimento de uma ferramenta para a composição de música inte
 
 Esse trabalho procurou apontar os principais elementos na construção
 de uma ferramenta de composição musical especializada em música 
-interativa. Ao longo do texto foi exposto os motivos que levaram
+interativa. Ao longo do texto foram expostos os motivos que levaram
 à essa pesquisa, no sentido da busca musical e dos problemas
 técnicos e conceituais ao longo da pesquisa.
 
@@ -5707,7 +5739,7 @@ disposição dessas ferramentas.
 
 Ainda que a fonte primária de entrada seja o áudio puro, se optou por
 desenvolver ferramentas no nível sub-simbólico de representação e usar as ferramentas
-de DSP ``standard`` das bibliotecas externas do Pd. Um desenvolvimento importante
+de DSP ``standard'' das bibliotecas externas do Pd. Um desenvolvimento importante
 é o de análise de sinal polifônico, desenvolvido no Ircam, com ótimos resultados,
 porém ainda com acesso restrito
 ao código até a data desse texto\footnote{http://imtr.ircam.fr/imtr/Antescofo}.    
@@ -5718,7 +5750,7 @@ integrações mais complexas como controle de  processamento de imagem
 e adaptação para outros dispositivos como celulares e interação via internet
 em tempo-real. A integração entre aplicativos voltados para composição musical
 e outros para vídeo e modelagem 3D é um grande ponto positivo de trabalho com
-Pd. Onde colaboração artística interdisciplinar, sai do nível da inspiração e é levada para 
+Pd, onde a colaboração artística interdisciplinar, sai do nível da inspiração e é levada para 
 o nível das ferramentas colaborativas, o que tem mostrado grande potencial na expressão
 de novas idéias e conceitos estéticos.
 
@@ -5768,8 +5800,8 @@ Nesse sentido apresentamos uma série de soluções que revelam os problemas
 específicos das muitas partes do objeto. Além disso, o foco do objeto
 de pesquisa na composição como um todo, garantiu que o resultado técnico
 fosse uma ferramenta genérica, modular e re-utiliźavel. 
-Os caminhos apontados nesse trabalho, permitiram aprofundar alguns conceitos e apontar
-novos problemas de pesquisa que complementam esse objeto de pesquisa.
+Os caminhos indicados neste trabalho, permitiram aprofundar alguns conceitos e apontar
+novos problemas de pesquisa pertinentes à criação de sistemas de música interativa.
 
 %\addcontentsline{toc}{chapter}{\bibname}
 \bibliographystyle{kchicago} 
@@ -5784,7 +5816,7 @@ novos problemas de pesquisa que complementam esse objeto de pesquisa.
 \label{glossario}
 
 
-\textbf{Pitch}: Termo relativo a altura das notas, em alguns módulos da pesquisa,
+\textbf{Pitch}: Termo relativo à altura das notas, em alguns módulos da pesquisa,
 o valor de pitch aparece como um símbolo da nota seguido da oitava respectiva (D4, se
 referindo a nota ré da oitava central do piano). Em outros momentos o valor de pitch
 se refere ao parâmetro MIDI de 0 a 127. Algumas funções convertem valores puros de frequência
@@ -5795,8 +5827,8 @@ em pitch.
 
 \textbf{MIDI}: É a sigla para \textit{Musical Instrument Digital Interface} e descreve um protocolo padrão da indústria, 
 definido pela primeira vez em 1982, que permite que instrumentos musicais eletrônicos 
-(sintetizadores e máquinas geradoras de som), computadores e outros equipamentos eletrônicos (controladores MIDI , 
-placas de som, samplers) se comuniquem e se sincronizem um com o outro. 
+(sintetizadores e máquinas geradoras de som), computadores e outros equipamentos eletrônicos (controladores MIDI, 
+placas de som, samplers) se comuniquem e se sincronizem uns com os outros. 
 As principais funções MIDI incluem comunicação de mensagens de eventos sobre a notação musical,  variação de altura, 
 intensidade, sinais de controle para os parâmetros (tais como volume, vibrato, panning, pistas e sinais de 
 clock (para definir o tempo)) entre dois dispositivos, a fim de completar uma cadeia de sinal e produzir som 
@@ -5815,7 +5847,7 @@ e uma rápida finalização.
 para criar música computacional interativa e obras multimídia. Enquanto que Puckette é o autor principal do programa, 
 o Pd é um projeto open source que conta com uma base de desenvolvedores trabalhando em novas extensões e funcionalidades.
 Ele é liberado sob uma licença similar à licença BSD. Ele roda em GNU/Linux, Mac OSX, iOS, Android e Windows. 
-Versões mais antigas ainda existem para FreeBSD e IRIX. Existem diversas distribuições ou "forks" de Pd, como 
+Versões mais antigas ainda existem para FreeBSD e IRIX. Existem diversas distribuições ou ``forks'' de Pd, como 
 Pd Vanilla, Pd-extended, DesireData e libpd. A principal característica do Pd é a semelhança da aparência do código com
 a representação formal do algoritmo implementado.
 
@@ -5823,7 +5855,7 @@ a representação formal do algoritmo implementado.
 \textbf{Objetos}: São funções pré-compiladas que providem uma variedade de funções.
 Os objetos no Pd são escritos em C e possuem uma maneira própria de especificar as entradas e saídas
 de dados para que o objeto funcione em tempo-real conectado graficamente a outros objetos.
-Ao longo do texto iremos usar uma notação como por exemplo: [objeto-teste] para
+Ao longo do texto foi usado uma notação como por exemplo: [objeto-teste] para
 representar um objeto.
 
 \textbf{Mensagens}: São sequências de valores, listas ou símbolos. Uma mensagem pode ser usada para
@@ -5855,7 +5887,7 @@ Como é salvo separadamente pode ser carregado quantas vezes for preciso em dive
 
 \textbf{int, float}: São especificações do Pd para designar números inteiros e números decimais.
 
-\textbf{Biblioteca} é um conjunto de objetos para determinada função.O desenvolvimento
+\textbf{Biblioteca} é um conjunto de objetos para determinada função. O desenvolvimento
 central do Pd é nos objetos de matemática e processamento de sinal de áudio. Enquanto
 que a comunidade implementou diversas bibliotecas para processamento de vídeo e sensores
 de controle. 
@@ -5870,7 +5902,7 @@ de controle.
 
 \textbf{Manual do objeto}: Se trata de um patch que exemplifica o uso de determinado
 objeto. O próprio editor gráfico do Pd entende que um patch que tenha o nome do objeto 
-acrescido de "-help" é referenciado no menu disponível com o clique direito do mouse. 
+acrescido de ``-help'' é referenciado no menu disponível com o clique direito do mouse. 
 Na figura \ref{help} vemos que o objeto metro tem o manual
 referenciando o patch metro-help.pd acessando um 
 menu com o botão direito em cima do objeto em questão.
@@ -5898,9 +5930,9 @@ Dentro do escopo dessa pesquisa é fundamental o estabelecimento de uma metodolo
 implementação de alguns idiomas comuns a todas linguagens de programação.
 
 Dentro de uma mesma linguagem, podemos encontrar diversas maneiras
-de realizar o mesmo procedimento. Nessa seção serão apresentados algumas decisões de programação 
+de realizar o mesmo procedimento. Nesta seção do apêndice serão apresentados algumas decisões de programação 
 que ao longo da pesquisa se tornaram padrões dentro do projeto de cada
-objeto de SINCOPA.
+objeto de SInCoPA.
  
 \subsection{Escrita em arrays}
 
@@ -5911,7 +5943,7 @@ objeto de SINCOPA.
 \end{figure}
 
 Na figura \ref{escritaarray} vemos as duas principais funções dos arrays
-no Pd, como escrita de números "floats" ou "ints". E como tabela de escrita
+no Pd, como escrita de números ``floats'' ou ``ints''. E como tabela de escrita
 de áudio, podendo ser usado com o objeto [tabwrite\texttildelow] e também
 com o objeto [soundfiler] no caso de abrir um arquivo de áudio previamente
 gravado em disco.
